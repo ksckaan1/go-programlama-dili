@@ -1,6 +1,6 @@
 # Table of contents
 
-* [KAPAK](README.md)
+* [Kitap](README.md)
 
 ## KİTAP HAKKINDA
 
