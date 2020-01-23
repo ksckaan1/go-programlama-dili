@@ -1,6 +1,6 @@
 # Table of contents
 
-* [E-Kitap](README.md)
+* [Go Programlama Dili](README.md)
 
 ## KİTAP HAKKINDA
 
