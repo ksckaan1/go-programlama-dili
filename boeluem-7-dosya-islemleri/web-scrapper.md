@@ -56,7 +56,7 @@ func baslikCek(url string) (string, error) {
 ```
 
 Açıklaması:  
-goquery kütüphanesini bilgisayarınıza indiriyoruz.
+goquery kütüphanesini bilgisayarımıza indiriyoruz.
 
 > go get github.com/PuerkitoBio/goquery
 
