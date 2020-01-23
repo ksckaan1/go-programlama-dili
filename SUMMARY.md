@@ -1,10 +1,13 @@
 # Table of contents
 
 * [KAPAK](README.md)
-* [GİRİŞ](giris.md)
-* [ÖNEMLİ](oenemli.md)
 
-## BÖLÜM 1
+## KİTAP HAKKINDA
+
+* [GİRİŞ](kitap-hakkinda/giris.md)
+* [ÖNEMLİ](kitap-hakkinda/oenemli.md)
+
+## BÖLÜM 1 \(Ön Eğitim\) <a id="boeluem-1"></a>
 
 * [Golang Hakkında](boeluem-1/golang-hakkinda.md)
 * [Bilgisayarınız Üzerinde Go Geliştirme](boeluem-1/bilgisayariniz-uezerinde-go-gelistirme.md)
@@ -23,7 +26,7 @@
 * [Kod Gruplama İşlemi](boeluem-1/kod-gruplama-islemi.md)
 * [Tür Dönüşümü](boeluem-1/tuer-doenuesuemue.md)
 
-## BÖLÜM 2
+## BÖLÜM 2 \(İşlem Yapma\) <a id="boeluem-2"></a>
 
 * [Fonksiyonlar](boeluem-2/fonksiyonlar.md)
 * [Fonksiyon Çeşitleri](boeluem-2/fonksiyon-cesitleri.md)
@@ -33,7 +36,7 @@
 * [Switch](boeluem-2/switch.md)
 * [Defer](boeluem-2/defer.md)
 
-## BÖLÜM 3
+## BÖLÜM 3 \(Gruplama\) <a id="boeluem-3"></a>
 
 * [Struct](boeluem-3/struct.md)
 * [Anonim Struct Metodlar](boeluem-3/anonim-struct-metodlar.md)
@@ -45,12 +48,22 @@
 * [Map](boeluem-3/map.md)
 * [Arayüz \(Interface\)](boeluem-3/arayuez-interface.md)
 
-## BÖLÜM 4
+## BÖLÜM 4 \(Eş zamanlılık\) <a id="boeluem-4"></a>
 
 * [Goroutine](boeluem-4/untitled.md)
 * [Kanallar \(Channels\)](boeluem-4/kanallar-channels.md)
 * [Anonim Goroutine Fonksiyonlar](boeluem-4/anonim-goroutine-fonksiyonlar.md)
-* [Print Fonksiyonu Birkaç İnceleme](boeluem-4/print-fonksiyonu-birkac-inceleme.md)
-* [Format ve Kaçış Karakterleri](boeluem-4/format-ve-kacis-karakterleri.md)
-* [Golang'te Kullanıcıdan Giriş Alma](boeluem-4/golangte-kullanicidan-giris-alma.md)
+* [WaitGroup ile Goroutine’in Tamamlanmasını Beklemek](boeluem-4/waitgroup-ile-goroutinein-tamamlanmasini-beklemek.md)
+* [Zamanlayıcılar \(Tickers\)](boeluem-4/zamanlayicilar-tickers.md)
+* [Select](boeluem-4/select.md)
+
+## BÖLÜM 5
+
+* [init\(\) Fonksiyonu \(Ön Yükleme\)](init-fonksiyonu-oen-yuekleme.md)
+* [Import \(Kütüphane Ekleme\) Yöntemleri](import-kuetuephane-ekleme-yoentemleri.md)
+* [Dışa Aktarma \(Exporting\)](disa-aktarma-exporting.md)
+* [Print Fonksiyonu Birkaç İnceleme](print-fonksiyonu-birkac-inceleme.md)
+* [Format ve Kaçış Karakterleri](format-ve-kacis-karakterleri.md)
+* [Çok Satırlı String Oluşturma](cok-satirli-string-olusturma.md)
+* [Golang'te Kullanıcıdan Giriş Alma](golangte-kullanicidan-giris-alma.md)
 
