@@ -39,8 +39,6 @@ func main() {
 }
 ```
 
-Go
-
 Açıklamasına gelirsek;  
 Gobot ile alakalı kütüphanelerimizi ekliyoruz. **firmataAdaptor** değişkenimizde Arduino’muzun portunu yazıyoruz. Ben Linux kullandığım için Linux’taki portunu yazdım. **led** değişkenimizde ledimizin **13**. dijital pinde yer aldığını belirttik. Yani LED’imizin artı ucunu **13. pine** eksi ucunu ise **GND** \(Ground-Toprak-Nötr\) girişine bağlayacağız.  
 
