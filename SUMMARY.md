@@ -47,5 +47,5 @@
 
 ## BÖLÜM 4
 
-* [Untitled](boeluem-4/untitled.md)
+* [Goroutine](boeluem-4/untitled.md)
 
