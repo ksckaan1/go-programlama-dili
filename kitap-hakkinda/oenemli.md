@@ -8,5 +8,7 @@ Eğer kodları kopyaladığınızda hata ile karşılaşıyorsanız elle yazmay�
 Gördüğünüz hataları ve önerilerinizi Twitter [@ksckaan1](http://twitter.com/ksckaan1) üzerinden mesaj yoluyla bildirebilirsiniz. Böylece hep beraber güvenilir bir kaynak üretmiş oluruz.
 {% endhint %}
 
-
+{% hint style="info" %}
+Sizde bu kaynağı paylaşarak kaynağın yayılmasına yardımcı olabilirsiniz.
+{% endhint %}
 
