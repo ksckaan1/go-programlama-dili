@@ -48,4 +48,9 @@
 ## BÖLÜM 4
 
 * [Goroutine](boeluem-4/untitled.md)
+* [Kanallar \(Channels\)](boeluem-4/kanallar-channels.md)
+* [Anonim Goroutine Fonksiyonlar](boeluem-4/anonim-goroutine-fonksiyonlar.md)
+* [Print Fonksiyonu Birkaç İnceleme](boeluem-4/print-fonksiyonu-birkac-inceleme.md)
+* [Format ve Kaçış Karakterleri](boeluem-4/format-ve-kacis-karakterleri.md)
+* [Golang'te Kullanıcıdan Giriş Alma](boeluem-4/golangte-kullanicidan-giris-alma.md)
 
