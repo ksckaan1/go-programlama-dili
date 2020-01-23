@@ -74,7 +74,6 @@ fmt.Print("Bir\nİki\tÜç\\Dört")
 
 Çıktımız şöle olacaktır:
 
-> Bir
->
+> Bir  
 > İki    Üç\Dört
 

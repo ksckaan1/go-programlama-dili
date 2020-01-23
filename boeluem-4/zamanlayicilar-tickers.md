@@ -43,11 +43,8 @@ Anonim Goroutine fonksiyonu, **main\(\)** fonksiyonundan ayrı olarak çalışt�
 Ve en son ekranımıza **“Tekrarlayıcı durdu!”** yazımızı bastırıyoruz.  
 Çıktımız aşağıdaki gibi olacaktır:
 
-> Tekrar zamanı: 2019-10-15 14:08:02.002909142 +0300 +03 m=+0.500235484
->
-> Tekrar zamanı: 2019-10-15 14:08:02.502993622 +0300 +03 m=+1.000319851
->
-> Tekrar zamanı: 2019-10-15 14:08:03.002952074 +0300 +03 m=+1.500278387
->
+> Tekrar zamanı: 2019-10-15 14:08:02.002909142 +0300 +03 m=+0.500235484  
+> Tekrar zamanı: 2019-10-15 14:08:02.502993622 +0300 +03 m=+1.000319851  
+> Tekrar zamanı: 2019-10-15 14:08:03.002952074 +0300 +03 m=+1.500278387  
 > Tekrarlayıcı durdu!
 

@@ -45,10 +45,8 @@ func main() {
 Yukarıda önceki örneğimizdeki gibi **insan struct**’ı oluşturduk ve içine **3** tane **string** tipinde değer atadık. **m** adında dizi oluşturduk ve **map** ile bölgeli bir dizi olduğunu belirttik. Dizinin içerisine **“erkekler”** isminde **insan** tipinde bir bölge oluşturduk ve içine **3** tane **string** tipinde değerimizi girdik. Aynı işlemi **“kadinlar”** isimli bölge içinde yaptık. **main** fonksiyonumuz içerisinde **erkekler** ve **kadinlar** bölgemizi ekrana bastırdık. Son olarak **m** dizisindeki tüm içeriği ekrana bastırık.  
 Çıktımız ise şöyle olacaktır;
 
-> {Ali Veli Ahmet}
->
-> {Ayşe Fatma Hayriye}
->
+> {Ali Veli Ahmet}  
+> {Ayşe Fatma Hayriye}  
 > map\[erkekler:{Ali Veli Ahmet} kadinlar:{Ayşe Fatma Hayriye}\]
 
 Burada ayrıntıyı farkedelim. **m** dizisini ekrana bastırdığımızda map yeni bölgeli bir dizi olduğunu vurguluyor. Map ile bir bakıma dizi içerisine yeni bir dizi ekliyorsunuz. Tabi bunu **struct metodu** ile yapıyoruz.

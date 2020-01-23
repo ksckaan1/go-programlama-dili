@@ -23,8 +23,7 @@ fmt.Println(“satır2”)
 
 Çıktımız şu şekilde olacaktır;
 
-> satır1 
->
+> satır1  
 > satır2
 
 **Printf\(\) Fonksiyonu**  

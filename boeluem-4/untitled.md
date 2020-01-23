@@ -22,24 +22,15 @@ func main() {
 
 Yazdığımız kodları inceleyelim. Zaman ile alakalı fonksiyonları kullanabilmek için time paketini import ettik. **yaz** fonksiyonu oluşturduk. Bu fonksiyon **s** isminde string tipinde değeri işleyecek. Fonksiyonun bloğunda 5 defa 1 saniye bekleyerek istenilen yazıyı ekrana bastıran kodlarımızı girdik. **main\(\)** fonksiyonumuzda bir tane iki tane **yaz\(\)** fonksiyonu kullandık. Birinin başına go terimini ekledik. Çıktımız şu şekilde olacaktır;
 
-> Merhaba 
->
-> Dünya 
->
-> Merhaba 
->
-> Dünya 
->
-> Dünya 
->
-> Merhaba 
->
-> Merhaba 
->
-> Dünya 
->
-> Dünya 
->
+> Merhaba  
+> Dünya  
+> Merhaba  
+> Dünya  
+> Dünya  
+> Merhaba  
+> Merhaba  
+> Dünya  
+> Dünya  
 > Merhaba
 
 Çıktımız ekrana bastırılırken belirlediğimiz zaman beklemesi ile birlikte çıkar. **go** terimini kaldırıp veya erteleme zamanını değiştirerek deneyde bulunabilirsiniz.

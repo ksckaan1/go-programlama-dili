@@ -15,8 +15,7 @@ func main() {
 
 Çıktımız aşağıdaki gibi olacaktır.
 
-> init fonksiyonu yüklendi 
->
+> init fonksiyonu yüklendi  
 > main Fonksiyonu yüklendi
 
 Golang’taki **init\(\)** fonksiyonunun kullanımı, farklı dillerdeki aynı işlevi gören fonksiyonlara oranla daha kolaydır. Örnek olarak **init\(\)** fonksiyonunda veritabanı bağlantımızı, kayıt defteri işlemlerimizi veya sadece bir kez yapmamız gereken işleri yapabiliriz. Buna imkan sağlayan mantığı aşağıdaki örnekte görelim. Bu örnekte global tanımlanmış değişkenin değerini **init\(\)** fonksiyonunda değiştirdiğimizde **main\(\)** gibi farklı fonksiyonlarda kullanabildiğimizi göreceğiz.

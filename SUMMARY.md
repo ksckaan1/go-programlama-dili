@@ -66,4 +66,31 @@
 * [Format ve Kaçış Karakterleri](format-ve-kacis-karakterleri.md)
 * [Çok Satırlı String Oluşturma](cok-satirli-string-olusturma.md)
 * [Golang'te Kullanıcıdan Giriş Alma](golangte-kullanicidan-giris-alma.md)
+* [Testing \(Test Etme\)](testing-test-etme.md)
+* [Panic & Recover](panic-and-recover.md)
+
+## BÖLÜM 6 \(Paketler\)
+
+* [Strings](boeluem-6-paketler/strings.md)
+* [os/exec \(Komut Satırına Erişim\)](boeluem-6-paketler/os-exec-komut-satirina-erisim.md)
+* [Komut Satırı Bayrakları \(Flags\)](boeluem-6-paketler/komut-satiri-bayraklari-flags.md)
+* [Sort \(Sıralama\)](boeluem-6-paketler/sort-siralama.md)
+* [Strconv \(String Çeviri\)](boeluem-6-paketler/strconv-string-ceviri.md)
+* [Log \(Kayıt\)](boeluem-6-paketler/log-kayit.md)
+
+## BÖLÜM 7 \(Dosya İşlemleri\)
+
+* [ioutil ile Dosya Okuma ve Yazma](boeluem-7-dosya-islemleri/ioutil-ile-dosya-okuma-ve-yazma.md)
+* [XML Parsing \(Ayrıştırma\)](boeluem-7-dosya-islemleri/xml-parsing-ayristirma.md)
+* [JSON Parsing \(Ayrıştırma\)](boeluem-7-dosya-islemleri/json-parsing-ayristirma.md)
+
+## VERİTABANI
+
+* [sqlite3](veritabani/sqlite3.md)
+* [MySQL](veritabani/mysql.md)
+
+## Web Sunucu \(Server\)
+
+* [net/http ile Web Server Oluşturma](web-sunucu-server/net-http-ile-web-server-olusturma.md)
+* [HTML Şablonlar \(Templates\)](web-sunucu-server/html-sablonlar-templates.md)
 
