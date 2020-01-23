@@ -14,7 +14,7 @@ Bu örnekte **Arduino Uno** kullanacağız. Arduino’muzun bilgisayarımıza ba
 Windows’ta **&lt;COM\*&gt;** benzeri, Linux’ta ise **/dev/ttyUSB\*** benzeri bir çıktı verecektir. Bu bizim Arduino’muzun bağlı olduğu portu gösteriyor.  
 Aşağıdaki kodlar yanıp sönen LED için yazılmıştır. Kodları gördükten sonra açıklamasını yapacağım.
 
-```text
+```go
 package main
 import (
         "time"
