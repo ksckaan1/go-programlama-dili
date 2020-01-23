@@ -111,5 +111,3 @@ Go kodlarımızı Arduino üzerine yazdırmak için aşağıdaki komutları kull
 
 Gördüğünüz gibi Tinygo ile flash etme işlemi çok basit.
 
-Merak ettiğiniz bir konu olursa yorum olarak yazabilirsiniz…
-

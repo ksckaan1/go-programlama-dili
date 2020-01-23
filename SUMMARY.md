@@ -60,15 +60,15 @@
 
 ## BÖLÜM 5
 
-* [init\(\) Fonksiyonu \(Ön Yükleme\)](init-fonksiyonu-oen-yuekleme.md)
-* [Import \(Kütüphane Ekleme\) Yöntemleri](import-kuetuephane-ekleme-yoentemleri.md)
-* [Dışa Aktarma \(Exporting\)](disa-aktarma-exporting.md)
-* [Print Fonksiyonu Birkaç İnceleme](print-fonksiyonu-birkac-inceleme.md)
-* [Format ve Kaçış Karakterleri](format-ve-kacis-karakterleri.md)
-* [Çok Satırlı String Oluşturma](cok-satirli-string-olusturma.md)
-* [Golang'te Kullanıcıdan Giriş Alma](golangte-kullanicidan-giris-alma.md)
-* [Testing \(Test Etme\)](testing-test-etme.md)
-* [Panic & Recover](panic-and-recover.md)
+* [init\(\) Fonksiyonu \(Ön Yükleme\)](boeluem-5/init-fonksiyonu-oen-yuekleme.md)
+* [Import \(Kütüphane Ekleme\) Yöntemleri](boeluem-5/import-kuetuephane-ekleme-yoentemleri.md)
+* [Dışa Aktarma \(Exporting\)](boeluem-5/disa-aktarma-exporting.md)
+* [Print Fonksiyonu Birkaç İnceleme](boeluem-5/print-fonksiyonu-birkac-inceleme.md)
+* [Format ve Kaçış Karakterleri](boeluem-5/format-ve-kacis-karakterleri.md)
+* [Çok Satırlı String Oluşturma](boeluem-5/cok-satirli-string-olusturma.md)
+* [Golang'te Kullanıcıdan Giriş Alma](boeluem-5/golangte-kullanicidan-giris-alma.md)
+* [Testing \(Test Etme\)](boeluem-5/testing-test-etme.md)
+* [Panic & Recover](boeluem-5/panic-and-recover.md)
 
 ## BÖLÜM 6 \(Paketler\)
 
@@ -100,6 +100,7 @@
 ## GUI \(Grafiksel Kullanıcı Arayüzü\) <a id="gui"></a>
 
 * [WebView](gui/webview.md)
+* [notify \(Bildirim\)](gui/notify-bildirim.md)
 
 ## Mikro-denetleyiciler
 

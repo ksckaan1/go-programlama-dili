@@ -31,14 +31,14 @@ package main
 import "fmt"
 
 func main() {
-	değişken := "bir"
-	{
-		değişken := "iki"
-		fmt.Println(değişken)
-		fmt.Println(&değişken)
-	}
-	fmt.Println(değişken)
-	fmt.Println(&değişken)
+    değişken := "bir"
+    {
+        değişken := "iki"
+        fmt.Println(değişken)
+        fmt.Println(&değişken)
+    }
+    fmt.Println(değişken)
+    fmt.Println(&değişken)
 }
 ```
 

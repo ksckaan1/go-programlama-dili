@@ -23,7 +23,7 @@ func main() {
 
 Hemen açıklamasına geçelim. İlk olarak **log** paketimizi içe aktarıyoruz. **init\(\)** fonksiyonunda log paketimiz ile ilgili ön ayarları yapıyoruz.
 
-{% page-ref page="../init-fonksiyonu-oen-yuekleme.md" %}
+{% page-ref page="../boeluem-5/init-fonksiyonu-oen-yuekleme.md" %}
 
 **init\(\)** fonksiyonumuzun içerisini dikkatlice inceleyelim. log paketimizin üzerine ayarlamalar yapıyoruz.  
 
