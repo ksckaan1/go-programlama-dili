@@ -54,5 +54,5 @@ func main() {
 >
 > 0xc00008c1c0
 
-Gördüğünüz gibi bellek adresi 2 sonuçta da aynı gözüküyor. Bu ikisinin de aynı değişken olduğuna işaret ediyor.
+Gördüğünüz gibi bellek adresi 2 sonuçta da farklı gözüküyor. Bu ikisinin de ayrı değişken olduğuna işaret ediyor.
 
