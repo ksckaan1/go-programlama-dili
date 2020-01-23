@@ -1,6 +1,6 @@
 # notify \(Bildirim\)
 
-Bazen programımızda kullanıcını haberdar olması için bildirim özelliği gerekir. Bu özelliği `notify` paketi ile kazandırabiliriz.
+Bazen programımızda kullanıcının haberdar olması için bildirim özelliği gerekir. Bu özelliği `notify` paketi ile kazandırabiliriz.
 
 > go get github.com/martinlindhe/notify
 
