@@ -1,11 +1,11 @@
 # Table of contents
 
-* [Kitap](README.md)
+* [E-Kitap](README.md)
 
 ## KİTAP HAKKINDA
 
-* [GİRİŞ](giris.md)
-* [ÖNEMLİ](oenemli.md)
+* [GİRİŞ](kitap-hakkinda/giris.md)
+* [ÖNEMLİ](kitap-hakkinda/oenemli.md)
 
 ## BÖLÜM 1 \(Ön Eğitim\) <a id="boeluem-1"></a>
 
