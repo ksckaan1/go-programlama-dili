@@ -63,7 +63,7 @@ goquery kütüphanesini bilgisayarınıza indiriyoruz.
 `baslikCek` fonksiyonuna URL adresini girdik. Zaten bu fonksiyonu da bi oluşturduk. Hata kontrolü yaptıktan sonra başlıkları yazdırdık.
 
 `baslikCek` fonksiyonuna baktığımızda;  
-İlk önce url adresini, yani içindeki elementleri, çektik. goquery dökümanına çevirdik. Burada dikkat edilmesi gereken nokta, `resp` değişkeni bizim çektiğimiz url adresidir. Daha sonra liste olarak oluşturduk.
+İlk önce url adresini, yani içindeki elementleri, çektik. goquery dökümanına çevirdik. Burada dikkat edilmesi gereken nokta, `resp` değişkeni bizim çektiğimiz url adresidir. Daha sonra liste olarak oluşturduk. Liste oluşturma işleminde `.title` sınıfına ait ve `a` etiketinde olan elementleri sıralamasını istedik. Element seçim işlemi jQuery selector mantığında çalışır.
 
 Çıktımız:
 
