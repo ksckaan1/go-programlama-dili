@@ -105,3 +105,7 @@
 * [Gobot ile Arduino Yanıp-Sönen LED Yapımı](mikro-denetleyiciler/gobot-ile-arduino-yanip-soenen-led-yapimi.md)
 * [Tinygo ile Küçük Yerler için Golang](mikro-denetleyiciler/tinygo-ile-kuecuek-yerler-icin-golang.md)
 
+## Pratik Bilgiler
+
+* [Go Geliştiricileri için Makefile](pratik-bilgiler/go-gelistiricileri-icin-makefile.md)
+
