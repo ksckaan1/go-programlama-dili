@@ -82,6 +82,7 @@
 
 ## BÖLÜM 7 \(Dosya İşlemleri\)
 
+* [Çapraz Platform Dosya Yolları](boeluem-7-dosya-islemleri/capraz-platform-dosya-yollari.md)
 * [Dosya Varlığı Kontrolü](boeluem-7-dosya-islemleri/dosya-varligi-kontrolue.md)
 * [ioutil ile Dosya Okuma ve Yazma](boeluem-7-dosya-islemleri/ioutil-ile-dosya-okuma-ve-yazma.md)
 * [XML Parsing \(Ayrıştırma\)](boeluem-7-dosya-islemleri/xml-parsing-ayristirma.md)
