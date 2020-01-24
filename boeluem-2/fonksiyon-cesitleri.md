@@ -1,10 +1,12 @@
 # Fonksiyon Çeşitleri
 
-Golang’ta genel olarak 3 çeşit fonksiyon yapısı bulunmaktadır. Hemen bu çeşitleri görelim
+Golang’ta genel olarak 3 çeşit fonksiyon yapısı bulunmaktadır. Hemen bu çeşitleri görelim.
 
 **Variadic Fonksiyonlar**
 
-Variadic fonksiyon tipi ile fonksiyonumuza kaç tane değer girişi olduğunu belirtmeden istediğiniz kadar değer girebilirsiniz. Hemen örneğimize geçelim.
+Variadic fonksiyon tipi ile fonksiyonumuza kaç tane değer girişi olduğunu belirtmeden istediğiniz kadar değer girebilirsiniz.
+
+Hemen örneğimize geçelim.
 
 ```go
 package main
@@ -24,7 +26,11 @@ func main() {
 }
 ```
 
-Yukarıdaki fonksiyonumuzu inceleyelim. Vericeğimiz sayıları toplaması için aşağıda **toplama** adında bir fonksiyon oluşturduk. Fonksiyonun parametresi içerisine, yani parantezler içerisine, **sayilar** isminde **int** tipinde bir değişken tanımladık. **…** \(üç nokta\) ile istediğimiz kadar değer alabileceğini belirttik. **toplam** değerini mantıken doğru değer vermesi için **0** yaptık. Çünkü her sayıyı toplam değikeninin üzerine ekleyecek. **range**’in buradaki kullanım amacından bahsedeyim. **range**’i **for** döngüsü ile kullandığımızda işlem yaptığımız öğenin uzunluğuna göre işlemimizi sürdürürüz. Yani fonksiyonumuzun içine ne kadar sayı eklersek işlemimiz ona göre şekillenecektir. For ve Range işlemini daha sonraki bölümümüzde göreceğiz. **Range** kullanımında **\_, n** şeklinde değişken tanımlamamızın sebebi, birinci değişken yani **\_**, dizinin indeksini yani sıra numarasını verir. Bizim bununla bir işimiz olmadığı için **\_** koyarak kullanmayacağımızı belirttik. İkinci değişken ise yani **n** dizinin içindeki değeri verir yani fonksiyona girdiğimiz sayıları. Sonuç olarak bu fonksiyonda **return** ile **for** işleminden sonra tüm sayıların toplamını döndürüp **main\(\)** fonksiyonu içerisinde ekrana bastırmış olduk.
+Yukarıdaki fonksiyonumuzu inceleyelim. Vereceğimiz sayıları toplaması için aşağıda **toplama** adında bir fonksiyon oluşturduk. Fonksiyonun parametresi içerisine, yani parantezler içerisine, **sayilar** isminde **int** tipinde bir değişken tanımladık. **…** \(üç nokta\) ile istediğimiz kadar değer alabileceğini belirttik. **toplam** değerini mantıken doğru değer vermesi için **0** yaptık. Çünkü her sayıyı toplam değikeninin üzerine ekleyecek. 
+
+**range**’in buradaki kullanım amacından bahsedeyim. **range**’i **for** döngüsü ile kullandığımızda işlem yaptığımız öğenin uzunluğuna göre işlemimizi sürdürürüz. Yani fonksiyonumuzun içine ne kadar sayı eklersek işlemimiz ona göre şekillenecektir. For ve Range işlemini daha sonraki bölümümüzde göreceğiz.
+
+**Range** kullanımında **\_, n** şeklinde değişken tanımlamamızın sebebi, birinci değişken yani **\_**, dizinin indeksini yani sıra numarasını verir. Bizim bununla bir işimiz olmadığı için **\_** koyarak kullanmayacağımızı belirttik. İkinci değişken ise yani **n** dizinin içindeki değeri verir yani fonksiyona girdiğimiz sayıları. Sonuç olarak bu fonksiyonda **return** ile **for** işleminden sonra tüm sayıların toplamını döndürüp **main\(\)** fonksiyonu içerisinde ekrana bastırmış olduk.
 
 **Closure \(Anonim\) Fonksiyonlar**
 
@@ -66,5 +72,7 @@ func faktoriyel(a uint) uint {
 }
 ```
 
-Yukarıdaki fonksiyon ile bir sayının faktöriyelini hesaplayabiliriz. Faktöriyel hakkında kısaca bir hatırlatma yapayım. Belirlediğimiz sayıya kadar olan tüm sayıların sırasıyla çarpımınına o sayının faktöriyeli denir. Yani 4 sayısının faktöriyelini bulmak istiyorsak: 1_2_3\*4 işlemini yaparız. Sonuç 24’tür. Faktöriyel fonksiyonun giriş ve çıkış tiplerini uint yapmamızın sebebi ise faktöriyel sonucunu bulmak için en geriye gidildiğinde eksi değerlere geçilmemesi içindir. Ayrıca sıfırın faktöriyeli birdir. Onun için değer sıfırsa bir return etmesini istedik. Faktöriyel fonksiyonunun en alttaki return kısmında girdiğimiz sayı ile girdiğimiz sayının bir eksiğinin faktöriyelini çarpacak. Girdiğimiz sayının bir küçüğünü bulmak içinse yeniden o sayının faktöriyelini hesaplayacak. Daha sonra aynı işlemler bu sayılar içinde yapılacak. Ta ki sayı son geldiğinde yani en küçük uint değeri olan 0’a dayandığında. Daha sonra sonucu main fonksiyonu içerisinde ekrana bastırdık.
+Yukarıdaki fonksiyon ile bir sayının faktöriyelini hesaplayabiliriz. Faktöriyel hakkında kısaca bir hatırlatma yapayım. Belirlediğimiz sayıya kadar olan tüm sayıların sırasıyla çarpımınına o sayının faktöriyeli denir. Yani 4 sayısının faktöriyelini bulmak istiyorsak: 1_2_3\*4 işlemini yaparız. Sonuç 24’tür. 
+
+Faktöriyel fonksiyonun giriş ve çıkış tiplerini uint yapmamızın sebebi ise faktöriyel sonucunu bulmak için en geriye gidildiğinde eksi değerlere geçilmemesi içindir. Ayrıca sıfırın faktöriyeli birdir. Onun için değer sıfırsa bir return etmesini istedik. Faktöriyel fonksiyonunun en alttaki return kısmında girdiğimiz sayı ile girdiğimiz sayının bir eksiğinin faktöriyelini çarpacak. Girdiğimiz sayının bir küçüğünü bulmak içinse yeniden o sayının faktöriyelini hesaplayacak. Daha sonra aynı işlemler bu sayılar içinde yapılacak, ta ki sayı sona gelene yani en küçük uint değeri olan 0’a dayanana kadar. Daha sonra sonucu main fonksiyonu içerisinde ekrana bastırdık.
 
