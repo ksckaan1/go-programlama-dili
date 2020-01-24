@@ -34,7 +34,9 @@ Bu adamların daha önceden bulunmuş olduğu projelere bakacak olursak Google�
       <td style="text-align:center">Robert Griesemer</td>
     </tr>
   </tbody>
-</table>**Robert Griesemer:** Hotspot ve JVM \(Java Sanal Makinesi\)
+</table>
+
+**Robert Griesemer:** Hotspot ve JVM \(Java Sanal Makinesi\)
 
 **Rob Pike:** UNIX ve UTF-8
 
