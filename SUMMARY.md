@@ -66,6 +66,7 @@
 * [Print Fonksiyonu Birkaç İnceleme](boeluem-5/print-fonksiyonu-birkac-inceleme.md)
 * [Format ve Kaçış Karakterleri](boeluem-5/format-ve-kacis-karakterleri.md)
 * [Çok Satırlı String Oluşturma](boeluem-5/cok-satirli-string-olusturma.md)
+* [Sprintf](boeluem-5/sprintf.md)
 * [Golang'te Kullanıcıdan Giriş Alma](boeluem-5/golangte-kullanicidan-giris-alma.md)
 * [Testing \(Test Etme\)](boeluem-5/testing-test-etme.md)
 * [Panic & Recover](boeluem-5/panic-and-recover.md)
