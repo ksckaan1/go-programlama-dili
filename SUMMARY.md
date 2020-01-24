@@ -84,7 +84,7 @@
 * [ioutil ile Dosya Okuma ve Yazma](boeluem-7-dosya-islemleri/ioutil-ile-dosya-okuma-ve-yazma.md)
 * [XML Parsing \(Ayrıştırma\)](boeluem-7-dosya-islemleri/xml-parsing-ayristirma.md)
 * [JSON Parsing \(Ayrıştırma\)](boeluem-7-dosya-islemleri/json-parsing-ayristirma.md)
-* [Web Scrapper](boeluem-7-dosya-islemleri/web-scrapper.md)
+* [Web Scrapper \(goquery\)](boeluem-7-dosya-islemleri/web-scrapper.md)
 
 ## VERİTABANI
 

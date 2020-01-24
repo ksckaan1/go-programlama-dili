@@ -1,4 +1,4 @@
-# Web Scrapper
+# Web Scrapper \(goquery\)
 
 Bu yazıda Go dilinde nasıl basitçe web scrapper yapacağımıza bakacağız.
 
