@@ -40,8 +40,7 @@ func main() {
 ```
 
 Açıklamasına gelirsek;  
-Gobot ile alakalı kütüphanelerimizi ekliyoruz. **firmataAdaptor** değişkenimizde Arduino’muzun portunu yazıyoruz. Ben Linux kullandığım için Linux’taki portunu yazdım. **led** değişkenimizde ledimizin **13**. dijital pinde yer aldığını belirttik. Yani LED’imizin artı ucunu **13. pine** eksi ucunu ise **GND** \(Ground-Toprak-Nötr\) girişine bağlayacağız.  
-
+Gobot ile alakalı kütüphanelerimizi ekliyoruz. **firmataAdaptor** değişkenimizde Arduino’muzun portunu yazıyoruz. Ben Linux kullandığım için Linux’taki portunu yazdım. **led** değişkenimizde ledimizin **13**. dijital pinde yer aldığını belirttik. Yani LED’imizin artı ucunu **13. pine** eksi ucunu ise **GND** \(Ground-Toprak-Nötr\) girişine bağlayacağız.
 
 Sıra geldi çalışma fonksiyonumuz olan **work**‘e. **work** değişkenine anonim bir fonksiyon tanımladık. Bu fonksiyonda **led.Toggle\(\)** fonksiyonu ile her **2** saniyede yanıp-sönmesini ayarladık. En sondaki **robot** değişkeninde ise firmataAdaptor değişkenimizdeki Arduino portuyla bağlantı kurmasını ve hemen altında **led** değişkenini cihaz olarak tanıttık. Son olarak **work** değişkenindeki olayları gerçekleştirip, **robot.Start\(\)** fonksiyonu ile çalışmasını sağladık.  
 Yukarıda gördüğünüz üzere **Firmata** kelimesini kullandık. Firmata bizim Arduino cihazımız ile iletişimde bulunabilmemizi sağlayan bir yazılım. Yukarıdaki kodlarımızın çalışması için Arduino’muz içerisine Firmata yazılımını yüklememiz gerekir. Onu da yüklemesi aşağıdaki gibi çok kolay bir işlem.

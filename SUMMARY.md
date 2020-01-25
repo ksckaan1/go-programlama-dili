@@ -83,6 +83,7 @@
 ## BÖLÜM 7 \(Dosya İşlemleri\)
 
 * [Çapraz Platform Dosya Yolları](boeluem-7-dosya-islemleri/capraz-platform-dosya-yollari.md)
+* [İşletim Sistemini Görme](boeluem-7-dosya-islemleri/isletim-sistemini-goerme.md)
 * [Dosya Varlığı Kontrolü](boeluem-7-dosya-islemleri/dosya-varligi-kontrolue.md)
 * [ioutil ile Dosya Okuma ve Yazma](boeluem-7-dosya-islemleri/ioutil-ile-dosya-okuma-ve-yazma.md)
 * [Bir Dizindeki Dosya ve Klasörleri Sıralama](boeluem-7-dosya-islemleri/bir-dizindeki-dosya-ve-klasoerleri-siralama.md)
@@ -116,5 +117,4 @@
 
 * [Go Geliştiricileri için Makefile](pratik-bilgiler/go-gelistiricileri-icin-makefile.md)
 * [Derleme \(Build\) Detayını Görme](pratik-bilgiler/derleme-build-detayini-goerme.md)
-* [İşletim Sistemini Görme](pratik-bilgiler/isletim-sistemini-goerme.md)
 
