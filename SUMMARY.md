@@ -85,8 +85,10 @@
 * [Çapraz Platform Dosya Yolları](boeluem-7-dosya-islemleri/capraz-platform-dosya-yollari.md)
 * [Dosya Varlığı Kontrolü](boeluem-7-dosya-islemleri/dosya-varligi-kontrolue.md)
 * [ioutil ile Dosya Okuma ve Yazma](boeluem-7-dosya-islemleri/ioutil-ile-dosya-okuma-ve-yazma.md)
+* [Bir Dizindeki Dosya ve Klasörleri Sıralama](boeluem-7-dosya-islemleri/bir-dizindeki-dosya-ve-klasoerleri-siralama.md)
 * [XML Parsing \(Ayrıştırma\)](boeluem-7-dosya-islemleri/xml-parsing-ayristirma.md)
 * [JSON Parsing \(Ayrıştırma\)](boeluem-7-dosya-islemleri/json-parsing-ayristirma.md)
+* [ini Dosyası Okuma ve Düzenleme](boeluem-7-dosya-islemleri/ini-dosyasi-okuma-ve-duezenleme.md)
 * [Web Scrapper \(goquery\)](boeluem-7-dosya-islemleri/web-scrapper.md)
 
 ## VERİTABANI
@@ -113,4 +115,5 @@
 ## Pratik Bilgiler
 
 * [Go Geliştiricileri için Makefile](pratik-bilgiler/go-gelistiricileri-icin-makefile.md)
+* [Derleme \(Build\) Detayını Görme](pratik-bilgiler/derleme-build-detayini-goerme.md)
 
