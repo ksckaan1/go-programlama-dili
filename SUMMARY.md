@@ -116,4 +116,5 @@
 
 * [Go Geliştiricileri için Makefile](pratik-bilgiler/go-gelistiricileri-icin-makefile.md)
 * [Derleme \(Build\) Detayını Görme](pratik-bilgiler/derleme-build-detayini-goerme.md)
+* [İşletim Sistemini Görme](pratik-bilgiler/isletim-sistemini-goerme.md)
 
