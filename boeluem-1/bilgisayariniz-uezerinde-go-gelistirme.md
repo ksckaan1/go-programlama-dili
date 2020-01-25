@@ -1,14 +1,4 @@
-# Bilgisayarınız Üzerinde Go Geliştirme
-
-Öncelikle bilgisayarımız üzerinde nasıl Golang geliştireceğimize bakalım. Geliştirmek derken Golang programı oluşturacağımızı kastediyorum. Öncelikle Golang’ın resmi sitesinden Golang programını \(derleyici\) indiriyoruz.
-
-Buradan İndirebilirsiniz
-
-[https://golang.org/dl/](https://golang.org/dl/)
-
-Golang’ın basit bir kurulumu var o yüzden kurulumu atlıyorum.
-
-Linux İS kullananlara tavsiyem, kullandığınız dağıtımın uygulama deposundan Golang’ı indirin. Sizin için daha kolay olur.
+# VSCode Go Eklentisi Yükleme
 
 Golang’ı indirdiğimize göre bize Golang kodlarımızı yazacağımız bir Tümleşik Geliştirme Ortamı \(IDE\) lazım. IDE’ler kodlarımızı yazarken kodların doğruluğunu kontrol eder ve kod yazarken önerilerde bulunur. Bu da kod yazarken işimizi kolaylaştırır.
 
