@@ -80,6 +80,7 @@
 * [Sort \(Sıralama\)](boeluem-6-paketler/sort-siralama.md)
 * [Strconv \(String Çeviri\)](boeluem-6-paketler/strconv-string-ceviri.md)
 * [Log \(Kayıt\)](boeluem-6-paketler/log-kayit.md)
+* [Paket \(Kütüphane\) Yazmak](boeluem-6-paketler/paket-kuetuephane-yazmak.md)
 
 ## BÖLÜM 7 \(Dosya İşlemleri\)
 
