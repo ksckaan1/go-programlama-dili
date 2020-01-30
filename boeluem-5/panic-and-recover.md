@@ -19,3 +19,75 @@ Yukarıda **make** fonksiyonu ile **sayilar** adında uzunluğu **5** birimden o
 >         /home/ksc10/Desktop/deneme/main.go:5 +0x11   
 > exit status 2
 
+İstersek biz de kritik bir bilginin nil girilmesi gibi durumlarda programı durdurabiliriz. Bunun için **panic()** fonksiyonunu kullanacağız. Hemen bir örnek yapalım.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func TamIsim(Ad *string, Soyad *string) {
+	if Ad == nil {
+		panic("Ad nil olamaz")
+	}
+	if Soyad == nil {
+		panic("Soyad nil olamaz")
+	}
+	fmt.Printf("%s %s\n", *Ad, *Soyad)
+	fmt.Println("TamIsim fonksiyonu bitti")
+}
+
+func main() {
+	Ad := "Yusuf"
+	TamIsim(&Ad, nil)
+	fmt.Println("Ana fonksiyon da bitti")
+}
+
+```
+Çıktımız burada:
+
+> panic: Soyad nil olamaz    
+> goroutine 1 \[running\]:    
+>     main.TamIsim\(0xc00007df30, 0x0\)      
+>         /Users/Y/Desktop/main.go:12 +0x19a  
+>     main.main\(\)    
+>         /Users/Y/Desktop/main.go:20 +0x65  
+> exit status 2  
+
+Burada **Soyad** değişkeni tanımsız olduğu için programımız durdu. Aynı şekilde **recover()** fonksiyonu ile **panic()** fonksiyonundan gelen veriyi alabilir, ana fonksiyonumuzun kapanmasına da engel olabiliriz. Bunun için de bir örenk yapalım.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func TamIsim(Ad *string, Soyad *string) {
+	if Ad == nil {
+		panic("Ad nil olamaz")
+	}
+	if Soyad == nil {
+		panic("Soyad nil olamaz")
+	}
+	fmt.Printf("%s %s\n", *Ad, *Soyad)
+	fmt.Println("TamIsim fonksiyonu bitti")
+}
+
+func main() {
+	Ad := "Yusuf"
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Hata Burada : ", r)
+		}
+	}()
+	TamIsim(&Ad, nil)
+	fmt.Println("Ana fonksiyon da bitti")
+}
+```
+
+Çıktımız burada :
+
+> Panik Yok :  Soyad nil olamaz
