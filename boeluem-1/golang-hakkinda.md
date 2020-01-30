@@ -7,7 +7,7 @@ Golang, Google mühendislerinden olan **Robert Griesemer, Rob Pike ve Ken Thomps
 Bu adamların daha önceden bulunmuş olduğu projelere bakacak olursak Google’ın gerçekten bu kişileri cımbızla seçtiğini anlayabiliriz. İşte Golang’ın yaratıcılarının bulunduğu projeler:
 
 | ![Ken Thompson](../.gitbook/assets/ken.png) | ![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LzCwvXTkWXBKIvbtzHZ%2F-LzDHbwlJmPgsn4Tr4UZ%2F-LzDIhOVf5_XFkT90LKM%2Frob.jpg?alt=media&token=c11be5e1-d017-4f10-b361-953ee37b1ca2) | ![](../.gitbook/assets/robert.png) |
-| :--- | :--- | :--- |
+| :---: | :---: | :---: |
 | Ken Thompson | Rob Pike | Robert Griesemer |
 
 **Robert Griesemer:** Hotspot ve JVM \(Java Sanal Makinesi\)
