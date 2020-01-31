@@ -3,7 +3,7 @@
 Golang’ta dışa altarma çok basit bir olaydır. Diğer programlama dillerinde public anahtar kelimesi olarak gördüğümüz bu olayın Golang’ta nasıl yapıldığına bakalım. Golang’ta bunun için bir anahtar kelime yoktur. Dışa aktarılmasını istediğimiz öğeyi oluştururken baş harfini büyük yazarız. Örnek olarak:
 
 ```go
-func Topla(int x, y) int {
+func Topla(x, y int) int {
     return x + y
 }
 ```
