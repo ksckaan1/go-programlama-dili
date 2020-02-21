@@ -1,7 +1,5 @@
 # Go Programlama Dili
 
-![](.gitbook/assets/3208a2431252c05f682be6a81259afa1.jpeg)
-
 ![Image by Kaan Ku&#x15F;cu](.gitbook/assets/golangtrsitelogo.png)
 
 | Platform | Id |
