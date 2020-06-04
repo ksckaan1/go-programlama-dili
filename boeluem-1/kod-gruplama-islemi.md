@@ -23,7 +23,7 @@ func main() {
 >
 > bir
 
-Yukarıda **değişken** isminde değişken oluşturduk. Hemen aşağısına süslü parantez oluşturduk. İçine yine değişken adında bir değişken tanımladık. Bu iki değişken aynı kod bloğunda bulunmadığı için birbirleri ile alakası olmayacaktır. Aslında ikisi de aynı değişkendir. Sadece içindeki bloğa göre farklı bir değeri vardır. Bunu anlamanın en basit yolu pointer ile bellek adresine bakmaktır. Bir o versiyonunu görelim.
+Yukarıda **değişken** isminde değişken oluşturduk. Hemen aşağısına süslü parantez oluşturduk. İçine yine değişken adında bir değişken tanımladık. Bu iki değişken aynı kod bloğunda bulunmadığı için birbirleri ile alakası olmayacaktır. Aslında ikisi de aynı değişkendir. Sadece içindeki bloğa göre farklı bir değeri vardır. Bunu anlamanın en basit yolu pointer ile bellek adresine bakmaktır. Şimdi de örneğimizin o versiyonunu görelim.
 
 ```go
 package main
@@ -54,5 +54,4 @@ func main() {
 >
 > 0xc00008c1c0
 
-Gördüğünüz gibi bellek adresi 2 sonuçta da farklı gözüküyor. Bu ikisinin de ayrı değişken olduğuna işaret ediyor.
-
+Gördüğünüz gibi bellek adresi 2 sonuçta da farklı gözüküyor. Bu ikisinin de ayrı değişkenler olduğuna işaret ediyor.
