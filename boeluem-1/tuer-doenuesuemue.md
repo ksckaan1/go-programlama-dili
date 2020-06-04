@@ -12,7 +12,7 @@ f := float64(i)
 u := uint(f)
 ```
 
-Yukarıdaki yapılan işlemleri açıklayacak olursak eğer, i adında bir int değişken tanımladık. f adındaki değişkende i değişkenini float64 türüne dönüştürdük. u adındaki değikende ise f değişkenini uint türüne çevirdik.
+Yukarıdaki yapılan işlemleri açıklayacak olursak eğer, **i** adında bir `int` değişken tanımladık. **f** adındaki değişkende **i** değişkenini `float64` türüne dönüştürdük. **u** adındaki değişkende ise **f** değişkenini `uint` türüne çevirdik.
 
 Tüm türler arasında bu şekilde dönüşüm gerçekleştiremezsiniz. Bir sayıyı string tipine dönüştürmek istediğimizde ne olacağına bakalım.
 
