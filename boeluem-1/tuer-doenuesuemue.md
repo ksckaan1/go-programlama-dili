@@ -21,7 +21,7 @@ deneme := string(8378)
 fmt.Println(deneme)
 ```
 
-**deneme** adındaki değerimizin içinde **8378** sayısını **string** türüne dönüştürdük ve hemen aşağısına **deneme**’nin aldığı değeri ekrana bastırması için kodumuzu yazdık.
+**deneme** adındaki değişkenimizin içinde **8378** sayısını **string** türüne dönüştürdük ve hemen aşağısına **deneme**’nin aldığı değeri ekrana bastırması için kodumuzu yazdık.
 
 Aldığımız konsol çıktısı şu şekilde olacaktır.
 
