@@ -5,7 +5,7 @@ Format karakterleri metinsel bir ifadede \(string\), dizgiyi formatlandırmak i�
 
 | Format Karakteri | Açıklama |
 | :--- | :--- |
-| %T | Değişkenin Tipini verir |
+| %T | Değişkenin tipini verir |
 | %t | Boolean değeri verir |
 | %d | Int \(tamsayı\) değeri verir |
 | %b | Sayının binary \(ikili\) karşılığını verir |
@@ -42,7 +42,7 @@ Kilo olarak girdiğimiz değer uzun olarak görüntülendi. Bunu değiştirmek i
 fmt.Printf("İsim: %s, Yaş: %d, Kilo: %.1f, Evli: %t", isim, yaş, kilo, evli)
 ```
 
-Yukarıdaki kodda farkedeceğiniz üzere `kilo` değişkeni için olan format karakterini `%.1f` olarak değiştirdik. Bu küşüratlı sayılarda noktadan sonra 1 karakter gelebileceğini gösteriyor. Çıktımız: `71.3` olarak değişecektir.
+Yukarıdaki kodda farkedeceğiniz üzere `kilo` değişkeni için olan format karakterini `%.1f` olarak değiştirdik. Bu küsüratlı sayılarda noktadan sonra 1 karakter gelebileceğini gösteriyor. Çıktımız: `71.3` olarak değişecektir.
 
 > İsim: Kaan, Yaş: 23, Kilo: 71.3, Evli: false
 
@@ -72,7 +72,7 @@ Gelelim örneğimize:
 fmt.Print("Bir\nİki\tÜç\\Dört")
 ```
 
-Çıktımız şöle olacaktır:
+Çıktımız şöyle olacaktır:
 
 > Bir  
 > İki    Üç\Dört
