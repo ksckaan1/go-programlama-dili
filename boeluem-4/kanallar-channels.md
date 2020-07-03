@@ -1,6 +1,6 @@
 # Kanallar \(Channels\)
 
-**Kanallar**, nesneler arasında `<-` işaretiyle veri alış-verişi yapabildiğimiz hatlardır. Kanallarıda diziler gibi `make()` ile oluşturabiliriz. `make()` fonsiyonunun dinamik kapasite oluşturması sayesinden işimiz kolaylaşır. Kanallar kullanılmadan önce oluşturulmalıdır.
+**Kanallar**, nesneler arasında `<-` işaretiyle veri alış-verişi yapabildiğimiz hatlardır. Kanalları da diziler gibi `make()` ile oluşturabiliriz. `make()` fonsiyonunun dinamik kapasite oluşturması sayesinde işimiz kolaylaşır. Kanallar kullanılmadan önce oluşturulmalıdır.
 
 ```go
 package main
@@ -37,7 +37,7 @@ Fonksiyonumuz içerisinde `toplam` adında `0` değerinde sayısal bir değişke
 
 Gelen değerin dizi uzunluğuyla aynı kere toplam değişkenine eklenmesini sağladık. `for` döngümüz bittikten sonra `toplam` içindeki değeri `c` kanalına yolladık.
 
-`main()` fonksiyonumuz içerisinde `s` adında içerisinde `int` tipinde değerler barındıran bir dizi oluşturduk. `make` fonksiyonunu kullanarak `c` adında `int` tipinde bir kanal oluşturduk. `make` ile oluşturduk ki dinamik boyutta olabilsin. **go** ile farklı dilimlemeleriyle `topla` fonksiyonlarını çalıştırdık.
+`main()` fonksiyonumuz içerisinde `s` adında içerisinde `int` tipinde değerler barındıran bir dizi oluşturduk. `make` fonksiyonunu kullanarak `c` adında `int` tipinde bir kanal oluşturduk. `make` ile oluşturduk ki dinamik boyutta olabilsin. **go** ile dizinin farklı dilimlerini `topla` fonksiyonuna parametre olarak verip eş zamanlı olarak çalıştırdık.
 
 Böylece goroutine’e birden fazla **thread** açtık. `c` kanalından verilerimizi alırken `x` ve `y` değişkenleri için farklı değer almış olduk. En son tüm çıktımızı ekrana bastırdık ve çıktımız bu şekilde oldu;
 
