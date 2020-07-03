@@ -56,7 +56,7 @@ func main() {
 > /Users/Y/Desktop/main.go:20 +0x65  
 > exit status 2
 
-Burada **Soyad** değişkeni tanımsız olduğu için programımız durdu. Aynı şekilde **recover\(\)** fonksiyonu ile **panic\(\)** fonksiyonundan gelen veriyi alabilir, ana fonksiyonumuzun kapanmasına da engel olabiliriz. Bunun için de bir örenk yapalım.
+Burada **Soyad** değişkeni tanımsız olduğu için programımız durdu. Aynı şekilde **recover\(\)** fonksiyonu ile **panic\(\)** fonksiyonundan gelen veriyi alabilir, ana fonksiyonumuzun kapanmasına da engel olabiliriz. Bunun için de bir örnek yapalım.
 
 ```go
 package main
@@ -80,7 +80,7 @@ func main() {
     Ad := "Yusuf"
     defer func() {
         if r := recover(); r != nil {
-            fmt.Println("Hata Burada : ", r)
+            fmt.Println("Panik Yok : ", r)
         }
     }()
     TamIsim(&Ad, nil)
