@@ -5,7 +5,7 @@
 ```go
 var isim string = “Ali”
 var yas int = 20
-var ogrenci boolean = true
+var ogrenci bool = true
 ```
 
 Yukarıdaki yazdıklarımızı inceleyecek olursak;
