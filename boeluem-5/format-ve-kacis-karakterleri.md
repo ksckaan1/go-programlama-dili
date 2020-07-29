@@ -23,12 +23,12 @@ package main
 import "fmt"
 
 func main() {
-	isim := "Kaan"
-	yaş := 23
-	kilo := 71.3
-	evli := false
+    isim := "Kaan"
+    yaş := 23
+    kilo := 71.3
+    evli := false
 
-	fmt.Printf("İsim: %s, Yaş: %d, Kilo: %f, Evli: %t", isim, yaş, kilo, evli)
+    fmt.Printf("İsim: %s, Yaş: %d, Kilo: %f, Evli: %t", isim, yaş, kilo, evli)
 }
 ```
 
@@ -62,7 +62,7 @@ Kaçış karakterleri de format karakterleri gibi metinlere etki eder. Kaçış 
 | \r | Return eder |
 | \t | Tab tuşu gibi boşluk bırakır \(4 boşluk\) |
 | \v | Dikey boşluk bırakır |
-| \\ | Ters-taksim yazar |
+| \ | Ters-taksim yazar |
 | \' | Tek tırnak yazar |
 | \" | Çift tırnak yazar |
 
@@ -75,5 +75,5 @@ fmt.Print("Bir\nİki\tÜç\\Dört")
 Çıktımız şöyle olacaktır:
 
 > Bir  
-> İki    Üç\Dört
+> İki Üç\Dört
 
