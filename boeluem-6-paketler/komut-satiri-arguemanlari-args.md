@@ -23,7 +23,7 @@ func main() {
 }
 ```
 
-for-range ile os.Args'ın uzunluğu kadar işlem yapıyoruz ve içerisindekileri indeksi ile ekrana bastırıyoruz. Şöyle bir çıktımız oluyor:
+`for-range` ile `os.Args`'ın uzunluğu kadar işlem yapıyoruz ve içerisindekileri indeksi ile ekrana bastırıyoruz. Şöyle bir çıktımız oluyor:
 
 > ./main naber nasılsın
 >
