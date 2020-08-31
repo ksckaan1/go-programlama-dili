@@ -32,6 +32,7 @@
 
 * [Fonksiyonlar](boeluem-2/fonksiyonlar.md)
 * [Fonksiyon Çeşitleri](boeluem-2/fonksiyon-cesitleri.md)
+* [Anonim Fonksiyonlar](boeluem-2/anonim-fonksiyonlar.md)
 * [Boş Tanımlayıcılar](boeluem-2/bos-tanimlayicilar.md)
 * [Döngüler](boeluem-2/doengueler.md)
 * [If-Else](boeluem-2/if-else.md)
