@@ -19,7 +19,7 @@ func main() {
 }
 ```
 
-Açıklamasına gelirsek **go func\(\)** ile anonim bir fonksiyon oluşturduk. Bu tür fonksiyonda fonksiyonumuzun sonuna **\( \)** parantezlerimizi yerleştirmek zorundayız. Bu fonksiyonumuz programın geri kalanı ile aynı zamanda çalışacak. Hatta programın geri kalanı ile bağlantısı bile olmayacak. Bu sebepten ötürü mantıken 2 saniye sonra işlem yapmasını belirttiğimiz için **“İkinci yazımız”** metni gözüktükten sonra **“İlk yazımız”** metni gözükeceğini tahmin etsekte **go func\(\)** fonksiyonu yapısı gereği zaman bağımsız çalışacağı için **fmt.Println\(“İkinci yazımız”\)** fonksiyonu tamamlandıktan sonra **“İlk yazımız”** metni ekrana bastırılmayacaktır bile. İsterseniz programı çalıştırıp deneyebilirsiniz.  
+Açıklamasına gelirsek **go func\(\)** ile anonim bir fonksiyon oluşturduk. Bu tür fonksiyonda fonksiyonumuzun sonuna **\( \)** parantezlerimizi yerleştirmek zorundayız. Çünkü fonksiyonumuza parametreleri bu parantezler içerisinde yolluyoruz. Şuanlık parametre yollamadığımzın için boş kalacak. Bu fonksiyonumuz programın geri kalanı ile aynı zamanda çalışacak. Hatta programın geri kalanı ile bağlantısı bile olmayacak. Bu sebepten ötürü mantıken 2 saniye sonra işlem yapmasını belirttiğimiz için **“İkinci yazımız”** metni gözüktükten sonra **“İlk yazımız”** metni gözükeceğini tahmin etsekte **go func\(\)** fonksiyonu yapısı gereği zaman bağımsız çalışacağı için **fmt.Println\(“İkinci yazımız”\)** fonksiyonu tamamlandıktan sonra **“İlk yazımız”** metni ekrana bastırılmayacaktır bile. İsterseniz programı çalıştırıp deneyebilirsiniz.  
 Bunun önüne geçebilmein yolu **go func\(\)** fonksiyonundaki işlemlerin programın çalışma zamanı içerisinde sonuç vermesidir.
 
 ```go
