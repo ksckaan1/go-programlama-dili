@@ -1,4 +1,4 @@
-# Anonim Struct Metodlar
+# Anonim Struct'lar
 
 Golang’ta tıpkı anonim fonksiyonlar olduğu gibi anonim struct methodlar da oluşturabiliriz. Örneğimizi görelim:
 
