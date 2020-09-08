@@ -27,7 +27,7 @@ func main() {
 
 Hemen aşağısında bir fonksiyon oluşturduk. Bu fonksiyonumuzun özelliği ise fonksiyonun isminden önce parantez içerisinde hangi struct'ta çalışacağını belirtmemizdir. `insan` struct'ının içerindeki değişkenlere ise `i` değişkeni ile eriştik.
 
-Daha sonra `main` fonksiyonumuzda `kişi` isminde `insan` tipinde bir nesne oluşturduk. `kişi.tanıt()` yazarak `insan` struct tipinde oluşturduğumuzun nesne için olan `tanıt` fonksiyonumuzu çalıştırdık.
+Daha sonra `main` fonksiyonumuzda `kişi` isminde `insan` tipinde bir nesne oluşturduk. `kişi.tanıt()` yazarak `insan` struct tipinde oluşturduğumuz nesne için olan `tanıt` fonksiyonumuzu çalıştırdık.
 
 Çıktımızı görelim:
 
