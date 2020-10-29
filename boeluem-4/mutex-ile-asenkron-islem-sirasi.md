@@ -1,12 +1,12 @@
 # Mutex ile Asenkron İşlem Sırası
 
-Size konu başlığını şöyle açıklayayım. Örneğin bir banka uygulaması para çekme ve yatırma gibi özelliklere sahiptir. Programlama mantığında para yatırmak ve çekmek için şuanki para miktarını bilmemiz gerekir. Banka uygulamasının mantığı en basit derecede bu şekilde çalışır.
+Size konu başlığını şöyle açıklayayım. Örneğin bir banka uygulaması para çekme ve yatırma gibi özelliklere sahiptir. Programlama mantığında para yatırmak ve çekmek için mevcut para miktarını bilmemiz gerekir. Banka uygulamasının mantığı en basit derecede bu şekilde çalışır.
 
-Banka hesabımızda asenkron işlem yapıldığını varsayalım. Yani bir hesaptan aynı anda birden fayda kullanıcı işlem yapıyor olsun.
+Banka hesabımızda asenkron işlem yapıldığını varsayalım. Yani bir hesaptan aynı anda birden fazla kullanıcı işlem yapıyor olsun.
 
-Örneğin hesabımızda 100₺ olsun. Birinci kullanıcı 20₺ yatırsın. Aynı anda kullanıcı 50₺ çeksin. Bu iki kullanıcınında kullandığı program işlem yapmaya başladığında önce para miktarını alıyor. Daha sonra yapılacak işleme göre ya ekleme ya da çıkarma işlemi yapıyor. Fakat birden fazla kullanıcı aynı anda bu işlem yaparsa hesaptaki parada yanlışlık olacaktır.
+Örneğin hesabımızda 100₺ olsun. Birinci kullanıcı 20₺ yatırsın. Aynı anda ikinci kullanıcı 50₺ çeksin. Bu iki kullanıcınında kullandığı program işlem yapmaya başladığında önce para miktarını alıyor. Daha sonra yapılacak işleme göre ya ekleme ya da çıkarma işlemi yapıyor. Fakat birden fazla kullanıcı aynı anda bu işlemi yaparsa hesaptaki parada yanlışlık olacaktır.
 
-Basit bir grafik ile inceleyelim.
+Basit bir görsel ile inceleyelim.
 
 İşlemlere aynı anda başlandığını varsayalım.
 
@@ -14,7 +14,7 @@ Basit bir grafik ile inceleyelim.
 
 Bu işlemin sonuncunda hangi kullancının işlemi sonuncu olarak biterse para miktarı onun sonucu olur. Yani kullanıcı 2'nin işlemi kullanıcı 1'den sonra biterse yeni para miktarı 50₺ olur.
 
-Bu gibi örneklerde asenkron işlemlere sıra verilmesi gerekir. Mutex tam olarak bu işi yapıyor. Bunun için bir Mutex nesnesi oluşturuyoruz. İşlemlerimizi bu nesne üzerinden yapıyoruz. Bu nesnede aynı anda sadece bir işlemi gerçekleştiriyor. Bu yüzden sıra işlemi sağlıyor. Önce başlayan asenkron işlem  ilk sırada oluyor. Tamamlanınca diğerine sıra geçiyor. Böyle düşündüğümüz zaman "bunun senkron programlamadan ne farkı var?" diyebilirsiniz. Farkı asenkron fonksiyonları içindeki istediğimiz kısımları senkron çalıştıramız.
+Bu gibi örneklerde asenkron işlemlere sıra verilmesi gerekir. Mutex tam olarak bu işi yapıyor. Bunun için bir Mutex nesnesi oluşturuyoruz. İşlemlerimizi bu nesne üzerinden yapıyoruz. Bu nesne aynı anda sadece bir işlemi gerçekleştiriyor. Bu yüzden sıra işlemi sağlıyor. Önce başlayan asenkron işlem  ilk sırada oluyor. Tamamlanınca diğerine sıra geçiyor. Böyle düşündüğümüz zaman "bunun senkron programlamadan ne farkı var?" diyebilirsiniz. Farkı asenkron fonksiyonların içindeki istediğimiz kısımları senkron çalıştırmamız.
 
 Örnek bir para yatırma-çekme uygulaması yazalım. İşlemin sağlık çalışması için, para miktarıyla aynı anda sadece bir kişi işlem yapabilmelidir.
 
