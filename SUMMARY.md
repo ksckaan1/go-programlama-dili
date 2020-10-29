@@ -58,6 +58,7 @@
 * [Kanallar \(Channels\)](boeluem-4/kanallar-channels.md)
 * [Anonim Goroutine Fonksiyonlar](boeluem-4/anonim-goroutine-fonksiyonlar.md)
 * [WaitGroup ile Asenkron İşlemleri Beklemek](boeluem-4/waitgroup-ile-goroutinein-tamamlanmasini-beklemek.md)
+* [Mutex ile Asenkron İşlem Sırası](boeluem-4/mutex-ile-asenkron-islem-sirasi.md)
 * [Zamanlayıcılar \(Tickers\)](boeluem-4/zamanlayicilar-tickers.md)
 * [Select](boeluem-4/select.md)
 
