@@ -42,10 +42,10 @@
 
 ## BÖLÜM 3 \(Gruplama\) <a id="boeluem-3"></a>
 
-* [Struct](boeluem-3/struct.md)
-* [Anonim Struct'lar](boeluem-3/anonim-struct-metodlar.md)
-* [Kalıtım](boeluem-3/kalitim.md)
-* [Struct Fonksiyonlar \(Methodlar\)](boeluem-3/struct-fonksiyonlar-methodlar.md)
+* [Struct](boeluem-3/struct/README.md)
+  * [Anonim Struct'lar](boeluem-3/struct/anonim-struct-metodlar.md)
+  * [Kalıtım](boeluem-3/struct/kalitim.md)
+  * [Struct Fonksiyonlar \(Methodlar\)](boeluem-3/struct/struct-fonksiyonlar-methodlar.md)
 * [Pointers \(İşaretçiler\)](boeluem-3/pointers-isaretciler.md)
 * [Diziler \(Arrays\)](boeluem-3/diziler-arrays.md)
 * [Dilimler \(Slices\)](boeluem-3/dilimler-slices.md)
