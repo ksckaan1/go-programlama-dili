@@ -81,6 +81,7 @@
 * [os/exec \(Komut Satırına Erişim\)](boeluem-6-paketler/os-exec-komut-satirina-erisim.md)
 * [Komut Satırı Argümanları \(Args\)](boeluem-6-paketler/komut-satiri-arguemanlari-args.md)
 * [Komut Satırı Bayrakları \(Flags\)](boeluem-6-paketler/komut-satiri-bayraklari-flags.md)
+* [os/signal](boeluem-6-paketler/os-signal.md)
 * [Sort \(Sıralama\)](boeluem-6-paketler/sort-siralama.md)
 * [Strconv \(String Çeviri\)](boeluem-6-paketler/strconv-string-ceviri.md)
 * [Log \(Kayıt\)](boeluem-6-paketler/log-kayit.md)
