@@ -1,30 +1,124 @@
 # Arayüz \(Interface\)
 
-**Arayüz** \(interface\) sayesinde fonksiyonlardan dönen değerin tipini başka bir yerde kullanmak için şekillendirebilir. Arayüzler neslere arasındaki iletişimi sağlamak için kullanılır. Daha anlaşılır olması için örnek üzerinden inceleyelim.
+**Interface**'in Go dili üzerindeki kullanımını basitçe açıklayalım. Interface struct nesnelerin, struct tipine göre ilişkili fonksiyonların çalışmasını sağlar. Detayına inmek için önce interface'in nasıl oluşturulduğuna bakalım.
+
+{% code title="interface oluşturma" %}
+```go
+type hesap interface{
+	hesapla()
+}
+```
+{% endcode %}
+
+Yukarıda ne yaptığımıza bakacak olursak, `type` ile `hesap` isminde bir `interface` oluşturduk. `hesapla()` ise `hesap` interface'imiz ile ilişkili olacak fonksiyonumuzun ismi olacak.
+
+Interface'in belirli structlar üzerinde etki göstermesi gerekiyor. Bu struct'ları da oluşturalım.
 
 ```go
-package main
-import "fmt"
-type iletisim interface {
- topla() int
+type toplam struct {
+	sayı1 int
+	sayı2 int
 }
-type sayilar struct {
- bir, iki int
-}
-func main() {
- var a iletisim
- v := sayilar{3, 4}
- a = &v
- fmt.Println(a.topla())
-}
-type sayi int
-func (f sayi) topla() int {
- return int(f)
-}
-func (sayi *sayilar) topla() int {
- return sayi.bir + sayi.iki
+
+type çarpım struct{
+	sayı1 int
+	sayı2 int
 }
 ```
 
-Yazdığımız kodları inceleyelim. **iletisim** isminde **topla\(\)** fonksiyonundan **int** değer döndüren bir **interface** \(arayüz\) oluşturduk. **sayilar** adında içinde **bir** ve **iki** isminde **int** tipinde değişken barındıran bir **struct** oluşturduk. **main** fonksiyonumuzda **a** isminde **iletisim** tipinde bir değişen oluşturduk. Daha sonra **v** isminde **sayilar struct**’ı için içerisinde **bir** ve **iki** değişkenine denk gelen **int** tipinde sayılarımızı girdik. İşaretçiler konumuzda gördüğümüz yöntem ile **a** değişkenini pointer yöntemi ile **v** değişkenine işaretledik. Ekrana bastırma kısmını açıklamak için aşağıdaki fonksiyonlara değinelim. **sayi** isminde bir **int** tür oluşturduk. Altındaki **topla\(\)** fonksiyonu ile girilen sayıyı **int** tipine çeviren bir fonksiyon yazmış olduk. interface kullanmamızın ana mantığı da burada ortaya çıkıyor. **struct** ile bir tür oluşturduğumuzda içine girilen değerler **int** tipinde olsa bile dışarı çıkarılırken dizi şeklinde çıktığı için interface ile fonksiyonun **dizi** şeklinde değilde **int** tipinde veriyi kullanmasını sağlıyoruz. En son fonksiyonumuzda ise **sayilar struct**’ımızı fonksiyona dahil edip **struct**’ı **sayi** argümanı ile kullanacağımızı belirttik. Böylelikle **bir** ve **iki** değişkenine denk gelen sayıları toplayıp return edebildik. **main** fonksiyonunun son bölümünde ise ekrana toplamları bastırmış olduk. Çıktımız ise **7** olacaktır.
+Yukarıdaki yapılarla toplanılacak ve çarpılacak sayıları barından nesneler oluşturacağız. Sonrasında bu yapılara iliştirilen struct fonksiyonlar yazacağız.
+
+Örnek olarak:
+
+```go
+işlem1 := toplam{5,10}
+
+işlem2 := çarpım{5,10}
+```
+
+Şimdi de bu structlar için fonksiyonlar oluşturalım.
+
+```go
+func (t *toplam) hesapla() {
+	fmt.Println(t.sayı1 + t.sayı2)
+}
+
+func (ç *çarpım) hesapla() {
+	fmt.Println(ç.sayı1 + ç.sayı2)
+}
+```
+
+Yukarıdaki oluşturduğumuz fonksiyonlarda dikkat edilmesi gereken nokta iki struct fonksiyonun da ismi interface içerisinde belirttiğimiz gibi `hesapla` olmasıdır.
+
+İki fonksiyonda ismini aynı yapmamızın sebebi: oluşturduğumuz interface, nesnenin tipine göre hesapla fonksiyonunu çalıştırmasıdır. Yani işlem1 nesnesini hesap interface'i ile çaşıştırıldığında toplam struct'ı olduğunu algılayıp, toplam struct'ı ile ilişkili hesapla fonksiyonu çalışacaktır. Biraz karışık bir cümle olduğunun farkındayım. O yüzden işlem yaparak öğrenebiliriz.
+
+İlk olarak interface'imizi parametre olarak alan bir fonksiyon oluşturalım.
+
+```go
+func hesapYap(h hesap){
+	h.hesapla()
+}
+```
+
+Yukarıda yaptığımız işlem çok basit. `hesap` interface tipini `h` değişkeni ile çağırdık. `h.hesapla()` ile fonksiyonumuzu çalıştırdık.
+
+Gelelim interfacemizi nasıl kullandığımıza:
+
+```go
+package main
+
+import "fmt"
+
+type hesap interface {
+	hesapla()
+}
+
+type toplam struct {
+	sayı1 int
+	sayı2 int
+}
+
+type çarpım struct {
+	sayı1 int
+	sayı2 int
+}
+
+func (t *toplam) hesapla() {
+	fmt.Println(t.sayı1 + t.sayı2)
+}
+
+func (ç *çarpım) hesapla() {
+	fmt.Println(ç.sayı1 * ç.sayı2)
+}
+
+func hesapYap(h hesap) {
+	h.hesapla()
+}
+
+func main() {
+	işlem1 := toplam{5, 10}
+
+	işlem2 := çarpım{5, 10}
+
+
+	//hesap interface'inden bir örnek oluşturalım
+	var işlem hesap
+
+	//işlem1'in adresini işlem interface'ine atayalım.
+	işlem = &işlem1
+
+	//interface toplam structı olduğunu algılayıp toplama işlemi yapcaktır.
+	hesapYap((işlem))
+
+	//işlem2'nin adresini işlem interface'ine atayalım.
+	işlem = &işlem2
+
+	//interface çarpım structı olduğunu algılayıp çarpma işlemi yapcaktır.
+	hesapYap((işlem))
+}
+```
+
+Özet geçmek gerekirse, en yukarıda interface'in tanımını yaptığım cümleyi aşağıya kopyala + yapıştır yapayım.
+
+> Interface struct nesnelerin, struct tipine göre ilişkili fonksiyonların çalışmasını sağlar.
 
