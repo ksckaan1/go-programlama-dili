@@ -44,7 +44,6 @@
 
 * [Struct](boeluem-3/struct.md)
 * [Anonim Struct'lar](boeluem-3/anonim-struct-metodlar.md)
-* [Kalıtım](boeluem-3/kalitim.md)
 * [Struct Fonksiyonlar \(Methodlar\)](boeluem-3/struct-fonksiyonlar-methodlar.md)
 * [Pointers \(İşaretçiler\)](boeluem-3/pointers-isaretciler.md)
 * [Diziler \(Arrays\)](boeluem-3/diziler-arrays.md)
