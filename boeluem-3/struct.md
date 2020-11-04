@@ -1,44 +1,75 @@
 # Struct
 
-Golang’ta sınıflar yoktur. Ancak, türler üzerinden metod tanımlayabiliriz. Uzatmadan örneğimize geçelim.
+Go programlama dilinde sınıflar yoktur. Sınıflar yerine struct'lar \(yapılar\) vardır. Yapılar sayesinde bir nesne oluşturabilir ve bu nesneye ait özellikler oluşturabiliriz. Örnek bir struct oluşturalım.
 
+{% code title="struct örneği" %}
 ```go
-package main
-import "fmt"
-type insan struct {
- isim string
- yas int
- kilo int
-}
-func main() {
- ali := insan{}
- ali.isim = "Ali"
- ali.yas = 20
- ali.kilo = 70
- fmt.Println(ali.isim, ali.yas, ali.kilo)
+type kişi struct {
+	isim    string
+	soyİsim string
+	yaş     int
 }
 ```
+{% endcode %}
 
-Şimdi biz yukarıda ne yaptık?  
-**insan** tipinde bir **struct** ürettik ve bu struct içine **isim**, **yas** ve **kilo** isminde değişkenler atadık. Böylelikle programımıza yeni bir tür kazandırdık.  
-**main\(\)** fonksiyonumuzun içinde ise, **ali** isminde **insan** dizisi oluşturduk. Böylece ali isimli nesnemiz insan türündeki tüm özelliklerden faydalabilir oldu. Hemen aşağısında ise ali’nin **isim**, **yas** ve **kilo** değerlerini atadık.  
-Daha sonra ali kişisinin ismini, yaşını ve kilosunu ekrana bastırdık. Bu yönteme diğer bir tabir ile struct metodlar denir  
-Çıktımız ise şöyle olacaktır;
+`type` terimi ile yeni bir tür oluşturabiliyoruz. İsmini `kişi` olarak verdik ve türünün de `struct` olacağını söyledik. Yukarıdaki şekilde bir yapı oluşturmuş olduk. Bu yapı içerisinde `isim`, `soyİsim` ve `yaş` değişkenlerine sahip. Yukarıdaki yapı üzerinden bir nesne örneği oluşturduğumuzda örneğimiz bu değişkenlere sahip olacak.
 
-> Ali 20 70
-
-Struct’ın mantığını anlamamız için struct yerine başka bir tip barındıran bir örnek yapalım,
-
+{% code title="Örnek Kullanım:" %}
 ```go
 package main
+
 import "fmt"
-type tamsayi int
+
+type kişi struct {
+	isim    string
+	soyİsim string
+	yaş     int
+}
+
 func main() {
- var sayi tamsayi = 12
- fmt.Println(sayi)
+
+	kişi1 := kişi{"Kaan", "Kuşcu", 23}
+
+	fmt.Println(kişi1)
+
 }
 ```
+{% endcode %}
 
-Bu sefer tipi belirlerken struct yerine **int** tipini yazdık. Bu demek oluyor ki içerisinde **int** gibi tamsayı değer tutabilen **tamsayi** adında bir tür oluşturduk.  
-main\(\) fonksiyonumuz içerisinden de görebileceğiniz üzere aynı bir değişken ataması yapar gibi **sayi** isminde **tamsayi** tipinde içerindeki değer **12** olan bir değişken tanımladık ve bunu ekrana bastırdık. Çıktımız ise tahmin edebileceğiniz üzere **12** olacaktır.
+`main()` fonksiyonunun içerisini incelediğimizde, `kişi1` isminde `kişi{}` yapısında bir nesne örneği oluşturuyoruz. İçerisine oluşturucu parametreler olarak `kişi struct`'ındaki sıralamayı göz önünde bulundurarak parametrelerimi giriyoruz. Daha sonra kişi1 nesne örneğini ekrana bastırıyoruz. Çıktımız aşağıdaki gibi olacaktır:
+
+> {Kaan Kuşcu 23}
+
+Yukarıdaki örnekte nesneyi tanımlama sırasında değer atamasını yaptık. Nesnenin alt değişkenlerine ulaşarak da tanımlama yapabilirdik.
+
+```go
+kişi1 := kişi{"Kaan", "Kuşcu", 23}
+kişi1.isim = "Ahmet"
+kişi1.soyİsim = "Karaca"
+kişi1.yaş = 34
+
+fmt.Println(kişi1) //{Ahmet Karaca 34}
+```
+
+Nesne örneğini oluşturuyorken parametreleri boş bırakıp sonradan da atama yapabilirdik.
+
+```go
+kişi1 := kişi{}
+kişi1.isim, kişi1.soyİsim = "M. K.", "ATATÜRK"
+kişi1.yaş = 999
+
+fmt.Println(kişi1) //{M. K. ATATÜRK 999}
+```
+
+## İsim Belirterek Tanımlama
+
+Nesneye özel değişkenleri tanımlarken değişken ismini belirterek de tanımlama yapabiliriz.
+
+```go
+kişi1 := kişi{soyİsim: "Kuşcu", isim: "Kaan", yaş: 23}
+
+fmt.Println(kişi1) //{Kaan Kuşcu 23}
+```
+
+Değişken ismini belirterek atama yaptığımız için sıralamaya dikkat etmemiz gerekli değildir.
 
