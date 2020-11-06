@@ -15,6 +15,7 @@
 * [Go Derleyicisi Kurulumu](boeluem-1/go-derleyicisi-kurulumu.md)
 * [VSCode Go Eklentisi Yükleme](boeluem-1/bilgisayariniz-uezerinde-go-gelistirme.md)
 * [Merhaba Dünya](boeluem-1/merhaba-duenya.md)
+* [VSCode Varsayılan Hata Ayıklayıcıyı Seçme](boeluem-1/vscode-varsayilan-hata-ayiklayiciyi-secme.md)
 * [Farklı Platformlara Build \(İnşa\) Etme](boeluem-1/farkli-platformlara-build-insa-etme.md)
 * [Klasör Build Etme](boeluem-1/klasoer-build-etme.md)
 * [Paketler](boeluem-1/paketler.md)
