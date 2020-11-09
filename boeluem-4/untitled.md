@@ -1,37 +1,22 @@
 # Goroutine
 
-**Goroutine**’ler **Go Runtime** tarafından yönetilen hafif bir sistemdir. Bir işlemi Goroutine ile gerçekleştirmek istiyorsak o satırın başına **go** yazmamız yeterlidir. Şaşırtıcı ama sadece **go** yazarak bu işlemi yapabiliyoruz. Aynı **defer**’deki gibi. Goroutine aslında bir fonksiyon gibi çalışır. Eş zamanlı çalışacak fonksiyonları çağırmak için kullanılır. Basit bir örnek ile anlaşılır bir sonuç elde edelim.
+**Goroutine**’ler **Go Runtime** tarafından yönetilen hafif bir sistemdir. Bir işlemi eşzamanlı olarak yapmak istiyorsak, Goroutine'den faydalanabiliriz. Bu sayede aynı çalışma-zamanı içerisinde birden fazla iş parçacığı oluşturabiliriz.
 
-```go
-package main
-import (
- "fmt"
- "time"
-)
-func yaz(s string) {
- for i := 0; i < 5; i++ {
-  time.Sleep(1000 * time.Millisecond)
-  fmt.Println(s)
- }
-}
-func main() {
- go yaz("Dünya")
- yaz("Merhaba")
-}
-```
+## Terimler
 
-Yazdığımız kodları inceleyelim. Zaman ile alakalı fonksiyonları kullanabilmek için time paketini import ettik. **yaz** fonksiyonu oluşturduk. Bu fonksiyon **s** isminde string tipinde değeri işleyecek. Fonksiyonun bloğunda 5 defa 1 saniye bekleyerek istenilen yazıyı ekrana bastıran kodlarımızı girdik. **main\(\)** fonksiyonumuzda iki tane **yaz\(\)** fonksiyonu kullandık. Birinin başına go terimini ekledik. Çıktımız şu şekilde olacaktır;
+### Ana iş parçacığı
 
-> Merhaba  
-> Dünya  
-> Merhaba  
-> Dünya  
-> Dünya  
-> Merhaba  
-> Merhaba  
-> Dünya  
-> Dünya  
-> Merhaba
+`Main()` fonksiyonu içerisine yazdığımız, asenkron olmayan kodlardır. Varsayılan olarak Go Runtime bu iş parçacığını izler. Programımız asenkron işlemlerin tamamlanmasını beklemiyorsa, ana iş parçacığı tamamlandığında program sona erer.
 
-Çıktımız ekrana bastırılırken belirlediğimiz zaman beklemesi ile birlikte çıkar. **go** terimini kaldırıp veya erteleme zamanını değiştirerek deneyde bulunabilirsiniz.
+### Eşzamanlılık
+
+Eşzamanlılık, programlamada bir işlem gerçekleşirken, aynı zamanda başka işlemlerin de gerçekleşmesidir.
+
+## Eşzamanlı Bir İşlem Oluşturalım
+
+Eşzamanlı bir işlem oluşturmak için `go` anahtar kelimesinden faydalanabiliriz. Bunun için eşzamanlı çalışacak işlemin başına `go` yazmamız yeterli olacaktır.
+
+![Asenkron &#x130;&#x15F;lem &#xD6;rne&#x11F;i](../.gitbook/assets/2020-11-09_23-38.png)
+
+Aslında yukarıdaki örnekte `time.Sleep()` kullanarak 2 saniye bekletmemizin bir sebebi. Eğer `time.Sleep()` eklememiş olsaydık, ekrana _"Merhaba Dünya!"_ yazıldıktan sonra programımız sonlanacaktı. Bunun sebebi Go Runtime'ının Sadece Ana iş parçacığını beklemesi. Ana iş parçacığındaki işlemler sonlandıktan sonra, diğer işlemleri beklemiyor. Yukarıdaki örnekte bunu engellemek için `time.Sleep()` kullandık. Böylece program 2 saniye beklerken eşzamanlı işlemimiz de tamamlandı. Tabii `time.Sleep()` kullanarak beklemek mantıklı bir yöntem değil. İşlemin ne kadar süreceğini bilmediğimiz durumlar olacaktır. Bunun için Kanalları kullanabiliriz.
 
