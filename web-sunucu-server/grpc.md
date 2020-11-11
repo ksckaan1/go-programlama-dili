@@ -20,6 +20,8 @@ Bu örneğimizde sunucuya mesaj gönderip, karşılığında mesaj alan bir uygu
 
 İndirmek için [buradaki](https://github.com/protocolbuffers/protobuf/releases/tag/v3.13.0) adrese gidin. Buradaki versiyon v3.13.0 versiyonu. Daha güncel versiyonlar için [buradaki](https://github.com/protocolbuffers/protobuf/releases/) sayfayı kontrol etmeyi unutmayın.
 
+![](../.gitbook/assets/protoc-download.png)
+
 GNU/Linux İS kullanan arkadaşlarımız uygulama depolarından protobuf adıyla yükleyebilirler. Böylece PATH olarak eklemelerine gerek kalmaz.
 
 ## Sisteme Yol Olarak Ekleme
