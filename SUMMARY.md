@@ -111,6 +111,7 @@
 * [net/http ile Web Server Oluşturma](web-sunucu-server/net-http-ile-web-server-olusturma.md)
 * [HTML Şablonlar \(Templates\)](web-sunucu-server/html-sablonlar-templates.md)
 * [Statik Kütüphanesi ile Dosyaları Uygulamaya Gömme](web-sunucu-server/statik-kuetuephanesi-ile-dosyalari-uygulamaya-goemme.md)
+* [gRPC](web-sunucu-server/grpc.md)
 
 ## GUI \(Grafiksel Kullanıcı Arayüzü\) <a id="gui"></a>
 
