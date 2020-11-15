@@ -99,6 +99,7 @@
 * [JSON Parsing \(Ayrıştırma\)](boeluem-7-dosya-islemleri/json-parsing-ayristirma.md)
 * [ini Dosyası Okuma ve Düzenleme](boeluem-7-dosya-islemleri/ini-dosyasi-okuma-ve-duezenleme.md)
 * [Web Scrapper \(goquery\)](boeluem-7-dosya-islemleri/web-scrapper.md)
+* [chromedp \(Web Driver\)](boeluem-7-dosya-islemleri/chromedp-web-driver.md)
 
 ## VERİTABANI
 
@@ -112,7 +113,6 @@
 * [HTML Şablonlar \(Templates\)](web-sunucu-server/html-sablonlar-templates.md)
 * [Statik Kütüphanesi ile Dosyaları Uygulamaya Gömme](web-sunucu-server/statik-kuetuephanesi-ile-dosyalari-uygulamaya-goemme.md)
 * [gRPC](web-sunucu-server/grpc.md)
-* [chromedp \(Web Driver\)](web-sunucu-server/chromedp-web-driver.md)
 
 ## GUI \(Grafiksel Kullanıcı Arayüzü\) <a id="gui"></a>
 
