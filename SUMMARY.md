@@ -8,7 +8,6 @@
 * [ÖNEMLİ](kitap-hakkinda/oenemli.md)
 * [Katkıda Bulunanlar](kitap-hakkinda/katkida-bulunanlar.md)
 * [Diğer Kaynaklar](kitap-hakkinda/diger-kaynaklar.md)
-* [kaanksc.com](https://kaanksc.com)
 
 ## BÖLÜM 1 \(Ön Eğitim\) <a id="boeluem-1"></a>
 
