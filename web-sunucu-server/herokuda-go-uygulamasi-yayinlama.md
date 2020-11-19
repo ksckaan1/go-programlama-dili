@@ -85,11 +85,11 @@ Bu komutu yazdığınızda paket bağımlılığınız yoksa aşağıdaki gibi b
 
 ![vendor &#xF6;rne&#x11F;i](../.gitbook/assets/no-vendor.png)
 
-Eğer paket bağımlılığınız varsa projenizin ana dizininde cendor adında bir klasör oluşacak ve bu klasörün için dış paketlerin kaynak kodları bulunanacak.
+Eğer paket bağımlılığınız varsa projenizin ana dizininde vendor adında bir klasör oluşacak ve bu klasörün içinde dış paketlerin kaynak kodları bulunanacak.
 
 ## Versiyon sistemli hale getirelim
 
-Öncelikle git projemizi oluşturalım. Komut satırına:
+Öncelikle git projemizi oluşturalım. Projemizin ana dizinindeyken komut satırına:
 
 > git init
 
