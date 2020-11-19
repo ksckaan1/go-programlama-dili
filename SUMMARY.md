@@ -113,6 +113,7 @@
 * [HTML Şablonlar \(Templates\)](web-sunucu-server/html-sablonlar-templates.md)
 * [Statik Kütüphanesi ile Dosyaları Uygulamaya Gömme](web-sunucu-server/statik-kuetuephanesi-ile-dosyalari-uygulamaya-goemme.md)
 * [gRPC](web-sunucu-server/grpc.md)
+* [Heroku'da Go Uygulaması Yayınlama](web-sunucu-server/herokuda-go-uygulamasi-yayinlama.md)
 
 ## GUI \(Grafiksel Kullanıcı Arayüzü\) <a id="gui"></a>
 
