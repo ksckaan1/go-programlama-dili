@@ -12,6 +12,7 @@
 ## BÖLÜM 1 \(Ön Eğitim\) <a id="boeluem-1"></a>
 
 * [Golang Hakkında](boeluem-1/golang-hakkinda.md)
+* [Sıkça Sorulan Sorular](boeluem-1/sikca-sorulan-sorular.md)
 * [Go Derleyicisi Kurulumu](boeluem-1/go-derleyicisi-kurulumu.md)
 * [VSCode Go Eklentisi Yükleme](boeluem-1/bilgisayariniz-uezerinde-go-gelistirme.md)
 * [Merhaba Dünya](boeluem-1/merhaba-duenya.md)
