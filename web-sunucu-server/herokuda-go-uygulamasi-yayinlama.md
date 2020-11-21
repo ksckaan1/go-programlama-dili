@@ -89,7 +89,7 @@ Eğer paket bağımlılığınız varsa projenizin ana dizininde vendor adında 
 
 ## Versiyon sistemli hale getirelim
 
-Öncelikle git projemizi oluşturalım. Projemizin ana dizinindeyken komut satırına:
+Heroku platformu versiyon kontrol sistemi ile çalıştığı için, öncelikle git projemizi oluşturalım. Projemizin ana dizinindeyken komut satırına:
 
 > git init
 
