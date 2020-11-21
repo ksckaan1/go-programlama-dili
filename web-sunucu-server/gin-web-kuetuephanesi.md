@@ -114,7 +114,7 @@ Bu kodlar sonucunda sayfamızı açtığımızda "kaankuşcu" sonucu göreceğiz
 
 ### ➡️ Template Kullanımı
 
-Template hakkında bilginiz yoksa önce aşağıdaki dökümanı okumanın önerilir.
+Template hakkında bilginiz yoksa önce aşağıdaki dökümanı okumanız önerilir.
 
 {% page-ref page="html-sablonlar-templates.md" %}
 
