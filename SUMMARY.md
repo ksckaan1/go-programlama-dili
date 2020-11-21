@@ -113,6 +113,7 @@
 * [net/http ile Web Server Oluşturma](web-sunucu-server/net-http-ile-web-server-olusturma.md)
 * [HTML Şablonlar \(Templates\)](web-sunucu-server/html-sablonlar-templates.md)
 * [Statik Kütüphanesi ile Dosyaları Uygulamaya Gömme](web-sunucu-server/statik-kuetuephanesi-ile-dosyalari-uygulamaya-goemme.md)
+* [Gin Web Kütüphanesi](web-sunucu-server/gin-web-kuetuephanesi.md)
 * [gRPC](web-sunucu-server/grpc.md)
 * [Heroku'da Go Uygulaması Yayınlama](web-sunucu-server/herokuda-go-uygulamasi-yayinlama.md)
 
