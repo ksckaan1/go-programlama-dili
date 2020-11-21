@@ -44,7 +44,7 @@ func index(c *gin.Context) {
 }
 ```
 
-Programımızı çalışturdığımızda aşağıdaki gibi konsol çıktısı alacağız.
+Programımızı çalıştırdığımızda aşağıdaki gibi konsol çıktısı alacağız.
 
 > \[GIN-debug\] \[WARNING\] Creating an Engine instance with the Logger and Recovery middleware already attached.
 >
@@ -58,13 +58,13 @@ Programımızı çalışturdığımızda aşağıdaki gibi konsol çıktısı al
 
 Bu çıktıyı incelediğimizde, Gin'in debug \(hata ayıklama\) modunda çalıştığını söylüyor ve hemen aşağısında sunucumuz ürün haline gelince Gin'i Release Moduna nasıl alacağımızı gösteriyor. Son olarak ise web sunucumuzun `8080` portunda çalıştığınız gösteriyor.
 
-Yukarıdaki örnekte web sunucumuz varsayılan olarak `8080` protunda çalışacaktır. Bunun sebebi `router.Run()`'a parametre olarak port numarası vermememizdir. ile varsayılan ayarlarda oluşturmamızdır.
+Yukarıdaki örnekte web sunucumuz varsayılan olarak `8080` protunda çalışacaktır. Bunun sebebi `router.Run()`'a parametre olarak port numarası vermememizdir.
 
 Örneğe göre [http://localhost:8080](http://localhost:8080) adresine gittiğimizde komut satırında yeni detaylar belirecek. Tıpkı aşağıdaki gibi:
 
 ![Komut sat&#x131;r&#x131; bilgisi](../.gitbook/assets/go-gin.png)
 
-Bu bilgileri inceleyelim. İlk kayıt anasayfaya bağlanılmaya çalışıldığında alınmış. Bu kayıtta bağlantının zamanını, durum kodunu, bağlantı süresi, bağlantı yöntemini ve hangi adresi bağlantı denendiğini yazıyor. Hemen altındaki ise sitenin ikonuna istek yapmış fakat site ikonumuz bulunmadığı için **404 durum kodu**nu almış. Bu kısımdan da bağlantı isteklerini görebildiğimizi öğrenmiş olduk.
+Bu bilgileri inceleyelim. İlk kayıt anasayfaya bağlanılmaya çalışıldığında alınmış. Bu kayıtta bağlantının zamanını, durum kodunu, bağlantı süresi, bağlantı yöntemini ve hangi adrese bağlantı denendiğini yazıyor. Hemen altındaki ise sitenin ikonuna istek yapmış fakat site ikonumuz bulunmadığı için **404 durum kodu**nu almış. Bu kısımdan da bağlantı isteklerini görebildiğimizi öğrenmiş olduk.
 
 ## 🔘 Çıktı Tipleri
 
