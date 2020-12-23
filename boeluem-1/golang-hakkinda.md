@@ -32,10 +32,10 @@ Bu adamların daha önceden bulunmuş olduğu projelere bakacak olursak Google�
 ```go
    package main
 
-   import “fmt”
+   import "fmt"
 
    func main(){
-       fmt.Println(“Merhaba Dünya!”)
+       fmt.Println("Merhaba Dünya!")
    }
 ```
 
