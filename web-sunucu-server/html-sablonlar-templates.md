@@ -1,138 +1,271 @@
 # HTML Şablonlar \(Templates\)
 
-Golang’ta HTML sayfalarına öğe yerleştirmek için şabloblar kullanılır. Bu işlemin uygulanışı, .html dosyamızın içinde Golang tarafından gelecek öğeler için işaret bırakırız. Bu işaret bu şekilde olur: `{{ kodumuz }}`  
-Hemen bir örnek ile olayı anlayalım. **main.go** dosyamız şöyle olsun.
+HTML Şablonlar, Golang üzerinde web sayfalarının dinamikliği için kullanılır. Yani şablonlar kullanarak web sayfalarımızın belirlediğimiz bölümlerini Go üzerinden değişikliğe uğratabiliriz.
 
+Bu yazımızda HTML şablonların nasıl oluşturulacağına bakacağız. Çalışma mantığı çok basit. Şablon olarak kullanacağımız html dosyasınında sadece tasarımı yapıyoruz ve dinamik olacak kısımlara ise bir nevi işaretler koyuyoruz. Daha sonra Go bu şablon dosyasını işliyor ve işaret koyduğumuz yerlere gelecek değerleri yerleştiriyor. Düz mantık olarak bu işi yapıyor.
+
+## ✨ Örnek Kullanım
+
+```markup
+Merhaba, <b>{{ . }}</b>
+```
+
+Yukarıdaki örnekte `{{ }}` süslü parantezler içerisinde . \(nokta\) yazıyor. Bu da Go şablon işlenirken bu kısma Go tarafından vereceğimiz değişkenin geleceği anlamına geliyor.
+
+Şimdi yukarıdaki örneğimizi `sablon.html` adı ile kaydedelim.
+
+Gelelim Go kodlarımıza;
+
+`main.go` dosyamız aşağıdaki gibi olsun.
+
+{% code title="main.go" %}
 ```go
 package main
+
 import (
 	"fmt"
 	"html/template"
 	"net/http"
 )
-// SayfaBilgi ...
-type SayfaBilgi struct {
-	Başlık string
-	İçerik string
-}
+
+// yakalayıcı fonksiyonumuz
 func anasayfa(w http.ResponseWriter, r *http.Request) {
-	sayfa := SayfaBilgi{Başlık: "Golang Türkiye", İçerik: "Sitemize Hoşgeldiniz"}
-	şablon, _ := template.ParseFiles("sablonumuz.html")
-	şablon.Execute(w, sayfa)
+	//isim değişkenimiz
+	isim := "Kaan"
+
+	//burada şablon oluşturuyoruz
+	şablon, _ := template.ParseFiles("sablon.html")
+
+	//Burada da şablonu çalıştırmasını ve isim
+	//değişkenini kullanmasını istiyoruz.
+	şablon.Execute(w, isim)
 }
 func main() {
-	fmt.Println("Program Başladı")
+	fmt.Println("Sunucu Başladı")
+
+	//ana dizini anasayfa fonksiyonu ile yakalayalım
+	http.HandleFunc("/", anasayfa)
+
+	//portu 8000 yapalım ve sunucuyu başlatalım
+	http.ListenAndServe(":8000", nil)
+}
+```
+{% endcode %}
+
+Açıklamaları üstte yazıyor.
+
+Sayfamıza bakmak için [http://localhost:8000](http://localhost:8000) adresine gittiğimizde, şöyle bir sonuç ile karşılaşacağız.
+
+![&#x130;lk &#xC7;&#x131;kt&#x131;m&#x131;z](../.gitbook/assets/2020-11-23_22-30.png)
+
+Tabi ki burada bir terslik var. b etiketleri gözüküyor. Bunun sebebi tarayıcımızın sayfayı `html` olarak değil de metin dosyası olarak göstermesi. Çözüm için `sablon.html` dosyamızın başına `<!DOCTYPE html>` ekleyelim. Yani şöyle olacak:
+
+{% code title="sablon.html" %}
+```go
+<!DOCTYPE html>
+Merhaba, <b>{{ . }}</b>
+```
+{% endcode %}
+
+{% hint style="info" %}
+Eğer sadece şablon dosyasında değişiklik yaptıysanız, sunucuyu yeniden başlatmanıza gerek yoktur. Şablon dosyalarındaki değişiklik sunucu açıkken de güncellenir.
+{% endhint %}
+
+Sayfayı yenileyerek değişikliğe bakalım. Çıktımız şöyle olacaktır:
+
+![Do&#x11F;ru &#xE7;&#x131;kt&#x131;m&#x131;z](../.gitbook/assets/2020-11-23_22-38.png)
+
+Bu sefer doğru bir çıktı üretmiş olduk.
+
+Bu yöntemler ile sayfamızda istediğimiz bölüme istediğimiz tipte değerler gönderebiliriz.
+
+## ✨ HTML Kodu Gönderme
+
+Bu örneğimizde `sablon.html` dosyamız aşağıdaki gibi olsun.
+
+{% code title="sablon.html" %}
+```go
+<!DOCTYPE html>
+{{ . }}
+```
+{% endcode %}
+
+`main.go` dosyamız da aşağıdaki gibi olsun.
+
+{% code title="main.go" %}
+```go
+package main
+
+import (
+	"fmt"
+	"html/template"
+	"net/http"
+)
+
+func anasayfa(w http.ResponseWriter, r *http.Request) {
+	//html kodumuz
+	htmlKodu := "<h1>Merhaba</h1>"
+
+	şablon, _ := template.ParseFiles("sablon.html")
+
+	şablon.Execute(w, htmlKodu)
+}
+func main() {
+	fmt.Println("Sunucu Başladı")
+
+	http.HandleFunc("/", anasayfa)
+
+	http.ListenAndServe(":8000", nil)
+}
+```
+{% endcode %}
+
+Yukarıdaki örnekte sayfamıza bu sefer html kodu yolluyoruz. Çıktımıza bakalım.
+
+![HTML kodu &#xE7;&#x131;kt&#x131;m&#x131;z](../.gitbook/assets/htmlw.png)
+
+Burada yine bir şeyler dönüyor. Çıktı yine istediğimiz gibi değil. "Niye bana yanlış kodları gösteriyorsun Kaan?" dediğinizi duyar gibiyim. Çünkü ilk önce yapmamamız gereken şeyleri gösteriyorum ki daha akılda kalıcı olsun.
+
+Yukarıdaki olayın sebebi şudur: Go tarafından gönderdiğimiz html kodunun aslında `html` tipinde değil de `string` tipinde olması. Bu yüzden html kodumuz düz bir şekilde görünüyor.
+
+Çözüm olarak da Go tarafındaki değişkenimizin tipini `template.HTML` yapacağız. `main.go` dosyamızda `htmlKodu` değişkenimizin tipini değiştirelim.
+
+```go
+var htmlKodu template.HTML = "<h1>Merhaba</h1>"
+```
+
+veya burada değişkenin tipini değiştirmek yerine `şablon.Execute()` fonksiyonunda değişiklik yapabilirsiniz. \(Hangisi kolayınıza geliyorsa\)
+
+```go
+şablon.Execute(w, template.HTML(htmlKodu))
+```
+
+## ✨ Şablona Struct Gönderme 
+
+Buraya kadar şablon dosyamıza hep bir tane değer gönderdik. Birden fazla değer göndermek için ne yapmalıyız?
+
+Bu konuda da struct'lardan faydalanabiliriz. Örnek olarak `main.go` dosyamız aşağıdaki gibi olsun.
+
+```go
+package main
+
+import (
+	"fmt"
+	"html/template"
+	"net/http"
+)
+
+type bilgi struct {
+	Başlık string
+	İçerik template.HTML
+}
+
+func anasayfa(w http.ResponseWriter, r *http.Request) {
+	sayfaBilgi := bilgi{
+		Başlık: "Sayfa Başlığı",
+		İçerik: "<b>sayfa içeriği</b>",
+	}
+	şablon, _ := template.ParseFiles("sablon.html")
+	şablon.Execute(w, sayfaBilgi)
+}
+func main() {
+	fmt.Println("Sunucu Başladı")
 	http.HandleFunc("/", anasayfa)
 	http.ListenAndServe(":8000", nil)
 }
 ```
 
-İlk olarak sunucu oluşturacağımız için **“net/html”** ve şablon oluşturacağımız için de **“html/template”** paketlerini içe aktarıyoruz.  
-**SayfaBilgi** adında bir **struct** metod oluşturuyoruz ve içerisine **string** değer alan **Başlık** ve **İçerik** türünü oluşturuyoruz. Bunu yapmamızın sebebi web sayfamızda sayfamızın başlığını ve içeriğini bunlar aracılığıyla şablona göndereceğiz.  
-**anasayfa** adında fonksiyonumuzun içerisini inceleyelim. Bu fonksiyonumuz bir sayfa yakalayıcı fonksiyondur. **net/http** paketi için alttaki konuyu okuyabilirsiniz.
+Yukarıda `bilgi` isminde bir struct oluşturduk. Bu struct'ımız `Başlık` ve `İçerik` adında alt değişkenlere sahip. Struct'ın elemanlarını isimlendirirken baş harflerinin büyük olmasına dikkat edelim. Çünkü Şablonlar struct değişkenlerini dışa aktarma mantığı ile kullanır. Bu yüzden baş harflerini büyük yazmazsak değişkenleri sayfaya ulaştıramayız.
 
-{% page-ref page="net-http-ile-web-server-olusturma.md" %}
+Daha sonra `anasayfa` fonksiyonumuz içerisinde `sayfaBilgi` adında `bilgi` struct'ı oluşturduk ve değişkenlerimizin değerlerini girdik. Son olarak `sayfaBilgi`'yi şablona gönderdik.
 
-**sayfa** adında değişken oluşturuyoruz ve bu değişkenin **SayfaBilgi** strunct’ından olduğunu belirtip içerisine sayfa bilgilerimizi giriyoruz.  
-**şablon** değişkeni oluşturduk. \(\_ alt tire yerine hata bilgilerini alan değişken koyabilirsiniz.\) **template.ParseFiles\(\)** fonksiyonu ile HTML şablonumuzu tanıttık.  
-Hemen altında şablonumuzu çalıştırması için **Execute\(\)** fonksiyonundan yaralandık.  
-**main\(\)** fonksiyonumda ise klasik bir server ayağa kaldırma kodları yer alıyor.  
-Şimdi de **sablonumuz.html** dosyasını görelim.
+`sablon.html` dosyamız içerisinde ise `sayfaBilg`i'den gelen değişkenleri yerleştirelim.
 
-```markup
-<h1>{{.Başlık}}</h1>
+{% code title="sablon.html" %}
+```go
+<!DOCTYPE html>
+<h1>{{ .Başlık }}</h1><br>
 {{.İçerik}}
 ```
+{% endcode %}
 
-Süslü parantezler içerisin **nokta** ile başlayan değişken yerleştirmelerini yapıyoruz. Bu değişkenler bize **SayfaBilgi** struct’ından gelmektedir.  
-   
-Seviyeyi biraz daha yükseltelim ve listeleme işlemi yapalım.  
-**main.go** dosyamızı aşağıdaki gibi oluşturalım.
+Yukarıdaki kodlarda dikkat edeceğimiz nokta, tanımlama yaparken noktadan sonra, bilgi struct'ının alt değişkenlerinin ismi ile çağırıyor olmamız.
 
+Çıktımızı görelim:
+
+![&#x15E;ablonda struct &#xF6;rne&#x11F;i](../.gitbook/assets/str.png)
+
+Buraya kadar şablon mantığını az çok anladığınıza inanıyorum. Buradan sonrasını konu çok uzun olmasın diye hızlıca anlatmaya çalışacağım. Yani buradan sonra çıktıların resimlerini göstermeyeceğim.
+
+## Şablon İçinde Değişken Atama
+
+Şablon içerisinde oluşturduğumuz değişkenleri tıpkı PHP'deki gibi `$` işareti ile kullanırız.
+
+Öncelikle `main.go` dosyamız aşağıdaki gibi olsun.
+
+{% code title="main.go" %}
 ```go
 package main
+
 import (
 	"fmt"
 	"html/template"
 	"net/http"
 )
-// Görev ...
-type Görev struct {
-	İsim       string
-	Tamamlandı bool
-}
-// SayfaVerisi ...
-type SayfaVerisi struct {
-	Sayfaİsmi    string
-	GörevListesi []Görev
-}
+
 func anasayfa(w http.ResponseWriter, r *http.Request) {
-	sayfa := SayfaVerisi{
-		Sayfaİsmi: "Görevler Listesi",
-		GörevListesi: []Görev{
-			{İsim: "Ekmek Al", Tamamlandı: false},
-			{İsim: "Kola Al", Tamamlandı: true},
-			{İsim: "Yoğurt Al", Tamamlandı: false},
-		},
-	}
-	şablon, _ := template.ParseFiles("sablonumuz.html")
-	şablon.Execute(w, sayfa)
+	şablon, _ := template.ParseFiles("sablon.html")
+
+	//şablona değer göndermeyeceğimiz için burası nil olsun.
+	şablon.Execute(w, nil)
 }
 func main() {
-	fmt.Println("Program Başladı")
+	fmt.Println("Sunucu Başladı")
 	http.HandleFunc("/", anasayfa)
 	http.ListenAndServe(":8000", nil)
 }
+
+```
+{% endcode %}
+
+`sablon.html` dosyamız da aşağıdaki gibi olsun.
+
+{% code title="sablon.html" %}
+```go
+<!DOCTYPE html>
+
+{{ $isim := "kaan"}}
+{{ $isim }}
+```
+{% endcode %}
+
+Yukarıda gördüğünüz gibi değişkeni tanımlarken ve kullanırken başına `$` işareti koyduk. Çıktımızda _"kaan"_ yazacaktır.
+
+## Şablonda If-Else Kullanımı
+
+```go
+{{if .Reşit}}
+    Bu kişi reşittir.
+{{else}}
+    Bu kişi reşit değildir.
+{{end}}
 ```
 
-Bu sefer farkettiyseniz 2 tane struct metodumuz var. **Görev** struct’ımız içerisinde 2 tane değişkene ev sahipliği yapacak. **SayfaVerisi** struct’ında ise **Sayfaİsmi** ve **GörevListesi** adında elemanlar var. **GörevListesi** elemanı **Görev** struct’ı türündedir. Bu sayede içerisine dizi olarak görevler kaydedebileceğiz.  
-Bir önceki örnekteki gibi **anasayfa** yakalayıcı fonksiyonumuzu oluşturuyoruz. İçerisinde **sayfa** isminde değişken oluşturuyoruz. Bu değişken içerisine sayfamızda görünmesini istediğimiz **Sayfaİsmi** ve **GörevListesi** elemanlarını giriyoruz. Hemen aşağısında ise şablonumuzu bağlama işlemlerini yapıyoruz.  
-**main\(\)** fonksiyonumuz ise bir önceki örnek ile aynıdır.  
-Şimdide **sablonumuz.html** dosyasını görelim.
+Yukarıda dikkat etmemiz gereken şey `if-else`'in sonuna `end` eklememiz gerekiyor. Sadece `if` olsaydı bile `end` eklememiz gerekir.
 
-```markup
+Bu kodları yazdıktan sonra çıkan sonuçta boşluklar \(boşluk tuşunun boşluğu gibi\) oluşabilir. Bunu engellemek için ise aşağıdaki gibi yapabiliriz.
 
-<style>
-.kirmizi{
-    color:red;
-}
-.yesil{
-    color:green;
-}
-</style>
-<h1>{{.Sayfaİsmi}}</h1>
-<ul>
-    {{range .GörevListesi}}
-        {{if .Tamamlandı}}
-            <li class="yesil">{{.İsim}}</li>
-        {{else}}
-            <li class="kirmizi">{{.İsim}}</li>
-        {{end}}
-    {{end}}
-</ul>
+```go
+{{if .Reşit}}
+    Bu kişi reşittir.
+{{- else}}
+    Bu kişi reşit değildir.
+{{- end}}
 ```
 
-Yukarıdaki kodları incelediğinizde içerisinde **range**, **if**, **else** ve **end** gibi kelimeler göreceksiniz. **range** anahtar kelimesi Golang’taki gibi belirtilen dizinin uzunluğu kadar sıralama işlemi yapar. **{{range}}** anahtar kelimesi mutlaka **{{end}}** ile kapatılmalıdır. if-else akışının ne işe yaradığını zaten biliyorsunuzdur. Aynı şekilde **{{end}}** ile kapatılmalıdır.  
-Bu işlemlerin sonunda elimize şöyle bir sonuç gemiş olacaktır.  
-Tarayıcımızda http://localhost:8000 adresini açıyoruz.
+Yani boşluk oluşan bölgeniz başına `- tire` ekliyoruz.
 
-## Görevler Listesi
-
-* Ekmek Al
-* Kola Al
-* Yoğurt Al
+## Şablonda Range Döngüsü Kullanımı
 
 
-
-**İşte kullanabileceğimiz bazı şablon kodları:**  
-
-
-| Şablon Kodu | Açıklama |
-| :--- | :--- |
-| {{/\* yorum \*/}} | Yorum yapmak için kullanılır. |
-| {{.}} | Golang’tan ana değişken için kullanılır. |
-| {{.Değişkenİsmi}} | Golang’tan belirli bir değişken almak için kullanılır. |
-| {{if .Tamamlandı}} {{else}} {{end}} | If-Else akışı için kullanılır. |
-| {{block “içerik” .}} {{end}} | İçerik ismine bloklama tanımlar. |
-| {{range .Görevler}} {{.}} {{end}} | Dizi sıralamak için kullanılır. |
 
