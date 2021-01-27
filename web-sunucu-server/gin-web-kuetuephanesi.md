@@ -363,5 +363,9 @@ func arama(c *gin.Context) {
 
 Yukarıdaki örneğe göre [http://localhost:9000/arama?tur=bilim-kurgu&siralama=imdb](http://localhost:9000/arama?tur=bilim-kurgu&siralama=imdb) adresine girdiğimizde "_bilim-kurgu türünden filmler imdb olarak sıralanıyor._" yazılı bir sonuç elde edeceğiz.
 
+### Göz atmanızı önerdiğim yazı:
+
+{% embed url="https://kaanksc.com/go-web-sunucuda-kullanici-girisi-sistemi" %}
+
 
 
