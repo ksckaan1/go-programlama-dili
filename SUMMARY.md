@@ -135,4 +135,3 @@
 * [Derleme \(Build\) Detayını Görme](pratik-bilgiler/derleme-build-detayini-goerme.md)
 * [Visual Studio Code için Golang Özelleştirmeleri](pratik-bilgiler/visual-studio-code-icin-golang-oezellestirmeleri.md)
 
-

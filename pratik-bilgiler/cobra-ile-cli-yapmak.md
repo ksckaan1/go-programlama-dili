@@ -2,35 +2,31 @@
 
 ## Cobra’yı Yüklüyoruz
 
-```$ go get -u github.com/spf13/cobra/cobra```
+`$ go get -u github.com/spf13/cobra/cobra`
 
 Yukarıdaki komutu yazarak yükleyebilirsiniz.
 
 ## 2. Projeyi Oluşturuyoruz
 
-Şimdi Cobra CLI ile proje oluşturacağım. Projeyi aşağıdaki komutla oluşturabilirsiniz;
-```$ mkdir -p testApp && cd testApp```
-```$ cobra init --pkg-name github.com/your_user_name/testApp```
-```your_user_name```    
+Şimdi Cobra CLI ile proje oluşturacağım. Projeyi aşağıdaki komutla oluşturabilirsiniz; `$ mkdir -p testApp && cd testApp` `$ cobra init --pkg-name github.com/your_user_name/testApp`
+
+```text
 kısmını kendi GitHub kullanıcı adınızla değiştirmeyi unutmayın.
 Şu anda testApp klasörü içerisinde Cobra projesi oluşturulmuş olmalı.
 Klasör hiyerarşisi aşağıdaki gibi olmalı:
-
-```
-.
-├── cmd
-│   └── root.go
-└── main.go
 ```
 
+. ├── cmd │ └── root.go └── main.go
+
+```text
 ## 1. Projeye Komut Eklemek
 
 Komutu, proje dizininin içine girip,
-```$ cobra add start```
-şeklinde ekliyoruz. Projeye bakarsanız cmd klasörü altına start.go dosyası oluşturulduğunu göreceksiniz.
-start.go dosyası içine bakarsak karşımıza şu çıkacaktır.
-Buradaki mantık Use kısmı bu komutun kullanımı bilgisini verir mesela ```testApp start``` gibi.
-Short kısmında ise bu oluşturduğumuz komutun kısa açıklamasıdır ve Long ise uzun açıklaması anlamına gelir.
+```$ cobra add start
+```
+
+şeklinde ekliyoruz. Projeye bakarsanız cmd klasörü altına start.go dosyası oluşturulduğunu göreceksiniz. start.go dosyası içine bakarsak karşımıza şu çıkacaktır. Buradaki mantık Use kısmı bu komutun kullanımı bilgisini verir mesela `testApp start` gibi. Short kısmında ise bu oluşturduğumuz komutun kısa açıklamasıdır ve Long ise uzun açıklaması anlamına gelir.
+
 ```go
 var startCmd = &cobra.Command{
  Use:   "start",
@@ -49,8 +45,9 @@ func init() {
 }
 ```
 
- Yukardaki kod örneğine göre Terminale,
->```$ testApp start```
+Yukardaki kod örneğine göre Terminale,
+
+> `$ testApp start`
 
 yazdığımızda start komutu çalışıyor.
 
@@ -74,16 +71,18 @@ var Open = &cobra.Command{
  },
 }
 ```
-Yukarda verdiğim örnekte 
 
-```$ testApp open [dosya ismi]```   
+Yukarda verdiğim örnekte
+
+`$ testApp open [dosya ismi]`
 
 şeklinde bir kullanım yaparak girdiğimiz dosya ismi yerine girilen dosyanın terminale basılmasını sağlamaktadır cat komutu gibi.
 
 ## Uygulamayı Yüklemek
 
-Projemizi kullanmak için hep go run ya da derlemek saçma olur bunun için proje dizinine,   
-``$ go install``   
-komutunu yazarak projeyi yükleyebilirsiniz.   
-Şimdi proje yüklemesini test etmek amaçlı aşşağıdaki komutu gireim terminale çıktı alırsanız yüklenmiş demektir.   
-```$ testApp```
+Projemizi kullanmak için hep go run ya da derlemek saçma olur bunun için proje dizinine,  
+`$ go install`  
+komutunu yazarak projeyi yükleyebilirsiniz.  
+Şimdi proje yüklemesini test etmek amaçlı aşşağıdaki komutu gireim terminale çıktı alırsanız yüklenmiş demektir.  
+`$ testApp`
+
