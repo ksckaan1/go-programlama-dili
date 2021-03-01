@@ -34,7 +34,8 @@ switch i {
 }
 ```
 
-**Koşulsuz Switch**  
+### **Koşulsuz Switch**
+
 Switch’in tanımını daha iyi anlayabilmeniz için koşulsuz switch kullanımına örnek verelim. Bu yöntemde switch deyiminin yanına koşul girmek yerine case deyiminin yanına koşul giriyoruz.
 
 ```go
@@ -56,4 +57,44 @@ func main() {
 Çıktımız şu şekilde olacaktır;
 
 > i eşittir 5
+
+### Sonraki Koşulu Kontrol Ettirme
+
+Durumlar içerisinde kontrol etmemiz gereken başka durumlarda olabilir. Bunun için **fallthrough** deyimini kullanabiliriz.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	x := 5
+	switch {
+	case x == 5:
+		fmt.Println("x 5'tir")
+		fallthrough
+	case x < 10:
+		fmt.Println("x 10'dan küçüktür")
+
+	}
+}
+```
+
+Çıktımız aşağıdaki gibi olacaktır.
+
+> x 5'tir  
+> x 10'dan küçüktür
+
+### Switch'e Özel Değişken Tanımlama
+
+Tıpkı If deyimindeki Switch içerisinde kullanabileceğimiz değişkenler tanımlayabiliriz.
+
+```go
+switch x := 5; {
+	case x == 5:
+		fmt.Println("x 5'tir")
+	case x < 10:
+		fmt.Println("x 10'dan küçüktür")
+}
+```
 
