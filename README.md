@@ -8,6 +8,8 @@
 
 [EPUB Formatında Çevrimdışı Okumak için Tıklayın.](https://github.com/ksckaan1/go-programlama-dili/raw/master/go-programlama-dili.epub)
 
+EPUB Son Güncelleme: 02/03/2021 00:32
+
 | Platform | Id |
 | :--- | :--- |
 | ![](.gitbook/assets/twitter.png) Twitter | [@ksckaan1](https://twitter.com/ksckaan1) |
