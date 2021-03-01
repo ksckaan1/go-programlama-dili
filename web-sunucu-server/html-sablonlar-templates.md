@@ -197,7 +197,7 @@ Yukarıdaki kodlarda dikkat edeceğimiz nokta, tanımlama yaparken noktadan sonr
 
 Buraya kadar şablon mantığını az çok anladığınıza inanıyorum. Buradan sonrasını konu çok uzun olmasın diye hızlıca anlatmaya çalışacağım. Yani buradan sonra çıktıların resimlerini göstermeyeceğim.
 
-## Şablon İçinde Değişken Atama
+## ✨ Şablon İçinde Değişken Atama
 
 Şablon içerisinde oluşturduğumuz değişkenleri tıpkı PHP'deki gibi `$` işareti ile kullanırız.
 
@@ -241,7 +241,7 @@ func main() {
 
 Yukarıda gördüğünüz gibi değişkeni tanımlarken ve kullanırken başına `$` işareti koyduk. Çıktımızda _"kaan"_ yazacaktır.
 
-## Şablonda If-Else Kullanımı
+## ✨ Şablonda If-Else Kullanımı
 
 ```go
 {{if .Reşit}}
@@ -265,7 +265,23 @@ Bu kodları yazdıktan sonra çıkan sonuçta boşluklar \(boşluk tuşunun boş
 
 Yani boşluk oluşan bölgeniz başına `- tire` ekliyoruz.
 
-## Şablonda Range Döngüsü Kullanımı
+## ✨ Şablonda Range Döngüsü Kullanımı
 
+Range döngüsü ile web sayfamızın içerisinde bir listenin sıralanmasını sağlayabiliriz.
 
+```go
+<ul>
+    {{range .Liste}}
+        {{.}}
+    {{end}}
+</ul>
+```
+
+## ✨ Şablon İçerisinde Yorum Satırı Oluşturma
+
+Biliyorsunuz ki, HTML kodu içerisindeki yorumlar sayfa kaynağını göstere tıklayınca gözüküyor. Eğer yorumların gözükmesini istemezsek Şablon yorumu olarak yazabiliriz.
+
+```go
+{{/* Yorumu buraya yazabilirsiniz */}}
+```
 
