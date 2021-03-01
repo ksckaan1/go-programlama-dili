@@ -10,7 +10,7 @@ Bu yazımızda HTML şablonların nasıl oluşturulacağına bakacağız. Çalı
 Merhaba, <b>{{ . }}</b>
 ```
 
-Yukarıdaki örnekte `{{ }}` süslü parantezler içerisinde . \(nokta\) yazıyor. Bu da Go şablon işlenirken bu kısma Go tarafından vereceğimiz değişkenin geleceği anlamına geliyor.
+Yukarıdaki örnekte `{{ }}` süslü parantezler içerisinde . \(nokta\) yazıyor. Bu da Go şablon işlenirken bu kısma Go tarafından vereceğimiz değerin geleceği anlamına geliyor.
 
 Şimdi yukarıdaki örneğimizi `sablon.html` adı ile kaydedelim.
 
