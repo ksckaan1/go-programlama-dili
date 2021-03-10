@@ -41,13 +41,13 @@
 * [If-Else](boeluem-2/if-else.md)
 * [Switch](boeluem-2/switch.md)
 * [Defer](boeluem-2/defer.md)
+* [Pointers \(İşaretçiler\)](boeluem-2/pointers-isaretciler.md)
 
 ## BÖLÜM 3 \(Gruplama\) <a id="boeluem-3"></a>
 
 * [Struct](boeluem-3/struct.md)
 * [Anonim Struct'lar](boeluem-3/anonim-struct-metodlar.md)
 * [Struct Fonksiyonlar \(Methodlar\)](boeluem-3/struct-fonksiyonlar-methodlar.md)
-* [Pointers \(İşaretçiler\)](boeluem-3/pointers-isaretciler.md)
 * [Diziler \(Arrays\)](boeluem-3/diziler-arrays.md)
 * [Dilimler \(Slices\)](boeluem-3/dilimler-slices.md)
 * [Range](boeluem-3/range.md)
