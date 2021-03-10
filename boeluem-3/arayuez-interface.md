@@ -44,7 +44,7 @@ func (t *toplam) hesapla() {
 }
 
 func (ç *çarpım) hesapla() {
-	fmt.Println(ç.sayı1 + ç.sayı2)
+	fmt.Println(ç.sayı1 * ç.sayı2)
 }
 ```
 
