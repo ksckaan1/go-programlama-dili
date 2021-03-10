@@ -8,7 +8,7 @@
 var a int = 8
 ```
 
-Bu değişkenimizi oluşturduktan sonra programımız çalışmaya başlayınca işletim sistemimiz bu değişkene özel **bellek \(RAM\)** üzerinde bir alan ayıracaktır. Programın geri kalanında değişkenimizin değerine bu alan üzerinden ulaşılacaktır. Yani bir değişken oluşturduğumuzda bellek üzerinde aşağıdaki resimdeki gibi bir alan oluştuğunu hayal edebilirsiniz.
+Bu değişkenimizi oluşturduktan sonra programımız çalışmaya başlayınca işletim sistemimiz bu değişkene özel, **bellek \(RAM\)** üzerinde bir alan ayıracaktır. Programın geri kalanında değişkenimizin değerine bu alan üzerinden ulaşılacaktır. Yani bir değişken oluşturduğumuzda bellek üzerinde aşağıdaki resimdeki gibi bir alan oluştuğunu hayal edebilirsiniz.
 
 ![De&#x11F;i&#x15F;kenin RAM &#xFC;zerindeki Alan&#x131; \(Temsili\)](../.gitbook/assets/pointeronram.png)
 
