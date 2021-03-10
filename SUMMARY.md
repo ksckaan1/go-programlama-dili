@@ -117,6 +117,7 @@
 * [Gin Web Kütüphanesi](web-sunucu-server-ag-istemleri/gin-web-kuetuephanesi.md)
 * [gRPC](web-sunucu-server-ag-istemleri/grpc.md)
 * [Heroku'da Go Uygulaması Yayınlama](web-sunucu-server-ag-istemleri/herokuda-go-uygulamasi-yayinlama.md)
+* [HTTP İstekleri \(Requests\)](web-sunucu-server-ag-istemleri/requests.md)
 
 ## GUI \(Grafiksel Kullanıcı Arayüzü\) <a id="gui"></a>
 
