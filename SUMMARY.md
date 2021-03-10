@@ -109,14 +109,14 @@
 * [MySQL](veritabani/mysql.md)
 * [MongoDB](veritabani/mongodb.md)
 
-## Web Sunucu \(Server\)
+## Web Sunucu \(Server\), Ağ İşlemleri <a id="web-sunucu-server-ag-istemleri"></a>
 
-* [net/http ile Web Server Oluşturma](web-sunucu-server/net-http-ile-web-server-olusturma.md)
-* [HTML Şablonlar \(Templates\)](web-sunucu-server/html-sablonlar-templates.md)
-* [Statik Kütüphanesi ile Dosyaları Uygulamaya Gömme](web-sunucu-server/statik-kuetuephanesi-ile-dosyalari-uygulamaya-goemme.md)
-* [Gin Web Kütüphanesi](web-sunucu-server/gin-web-kuetuephanesi.md)
-* [gRPC](web-sunucu-server/grpc.md)
-* [Heroku'da Go Uygulaması Yayınlama](web-sunucu-server/herokuda-go-uygulamasi-yayinlama.md)
+* [net/http ile Web Server Oluşturma](web-sunucu-server-ag-istemleri/net-http-ile-web-server-olusturma.md)
+* [HTML Şablonlar \(Templates\)](web-sunucu-server-ag-istemleri/html-sablonlar-templates.md)
+* [Statik Kütüphanesi ile Dosyaları Uygulamaya Gömme](web-sunucu-server-ag-istemleri/statik-kuetuephanesi-ile-dosyalari-uygulamaya-goemme.md)
+* [Gin Web Kütüphanesi](web-sunucu-server-ag-istemleri/gin-web-kuetuephanesi.md)
+* [gRPC](web-sunucu-server-ag-istemleri/grpc.md)
+* [Heroku'da Go Uygulaması Yayınlama](web-sunucu-server-ag-istemleri/herokuda-go-uygulamasi-yayinlama.md)
 
 ## GUI \(Grafiksel Kullanıcı Arayüzü\) <a id="gui"></a>
 
