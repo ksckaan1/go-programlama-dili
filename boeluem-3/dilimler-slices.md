@@ -13,7 +13,7 @@ func main() {
 }
 ```
 
-İnceleme kısmına geçelim. a isminde 6 tane int tipinde değer alan bir dizi oluşturduk. Çıktımızın içeriğini görmek için ekrana bastırdık. Dilimleme işlemi olarak yorum yaptığım satırda ise a dizisinde 2 ve 4 indeksi arasındaki değerleri dizi olarak b’ye kaydettik. b dizisinin içeriğini ekrana bastırdığımızda ise dilimlenmiş alanımızı gördük. Dilimleme işleminde \[ \] içerisine dilimlemenin başlayacağı ve biteceği indeksi yazarız.
+İnceleme kısmına geçelim. `a` isminde 6 tane `int` tipinde değer alan bir dizi oluşturduk. Çıktımızın içeriğini görmek için ekrana bastırdık. Dilimleme işlemi olarak yorum yaptığım satırda ise `a` dizisinde `2` ve `4` indeksi arasındaki değerleri dizi olarak b’ye kaydettik. b dizisinin içeriğini ekrana bastırdığımızda ise dilimlenmiş alanımızı gördük. Dilimleme işleminde `[ ]` içerisine dilimlemenin başlayacağı ve biteceği indeksi yazarız.
 
 **Dilim Varsayılanları \(Sıfır Değerleri\)**
 

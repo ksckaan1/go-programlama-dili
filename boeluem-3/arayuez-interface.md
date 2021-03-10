@@ -5,7 +5,7 @@
 {% code title="interface oluşturma" %}
 ```go
 type hesap interface{
-	hesapla()
+    hesapla()
 }
 ```
 {% endcode %}
@@ -16,13 +16,13 @@ Interface'in belirli structlar üzerinde etki göstermesi gerekiyor. Bu struct'l
 
 ```go
 type toplam struct {
-	sayı1 int
-	sayı2 int
+    sayı1 int
+    sayı2 int
 }
 
 type çarpım struct{
-	sayı1 int
-	sayı2 int
+    sayı1 int
+    sayı2 int
 }
 ```
 
@@ -40,11 +40,11 @@ işlem2 := çarpım{5,10}
 
 ```go
 func (t *toplam) hesapla() {
-	fmt.Println(t.sayı1 + t.sayı2)
+    fmt.Println(t.sayı1 + t.sayı2)
 }
 
 func (ç *çarpım) hesapla() {
-	fmt.Println(ç.sayı1 * ç.sayı2)
+    fmt.Println(ç.sayı1 * ç.sayı2)
 }
 ```
 
@@ -56,7 +56,7 @@ Yukarıdaki oluşturduğumuz fonksiyonlarda dikkat edilmesi gereken nokta iki st
 
 ```go
 func hesapYap(h hesap){
-	h.hesapla()
+    h.hesapla()
 }
 ```
 
@@ -70,51 +70,51 @@ package main
 import "fmt"
 
 type hesap interface {
-	hesapla()
+    hesapla()
 }
 
 type toplam struct {
-	sayı1 int
-	sayı2 int
+    sayı1 int
+    sayı2 int
 }
 
 type çarpım struct {
-	sayı1 int
-	sayı2 int
+    sayı1 int
+    sayı2 int
 }
 
 func (t *toplam) hesapla() {
-	fmt.Println(t.sayı1 + t.sayı2)
+    fmt.Println(t.sayı1 + t.sayı2)
 }
 
 func (ç *çarpım) hesapla() {
-	fmt.Println(ç.sayı1 * ç.sayı2)
+    fmt.Println(ç.sayı1 * ç.sayı2)
 }
 
 func hesapYap(h hesap) {
-	h.hesapla()
+    h.hesapla()
 }
 
 func main() {
-	işlem1 := toplam{5, 10}
+    işlem1 := toplam{5, 10}
 
-	işlem2 := çarpım{5, 10}
+    işlem2 := çarpım{5, 10}
 
 
-	//hesap interface'inden bir örnek oluşturalım
-	var işlem hesap
+    //hesap interface'inden bir örnek oluşturalım
+    var işlem hesap
 
-	//işlem1'in adresini işlem interface'ine atayalım.
-	işlem = &işlem1
+    //işlem1'in adresini işlem interface'ine atayalım.
+    işlem = &işlem1
 
-	//interface toplam structı olduğunu algılayıp toplama işlemi yapcaktır.
-	hesapYap((işlem))
+    //interface toplam structı olduğunu algılayıp toplama işlemi yapcaktır.
+    hesapYap((işlem))
 
-	//işlem2'nin adresini işlem interface'ine atayalım.
-	işlem = &işlem2
+    //işlem2'nin adresini işlem interface'ine atayalım.
+    işlem = &işlem2
 
-	//interface çarpım structı olduğunu algılayıp çarpma işlemi yapcaktır.
-	hesapYap((işlem))
+    //interface çarpım structı olduğunu algılayıp çarpma işlemi yapcaktır.
+    hesapYap((işlem))
 }
 ```
 

@@ -16,5 +16,3 @@ EPUB Son Güncelleme: 02/03/2021 00:32
 | ![](.gitbook/assets/telegram.png) Telegram | [@ksckaan1](https://t.me/ksckaan1) |
 | ![](.gitbook/assets/github-image.png) Github | [@ksckaan1](https://github.com/ksckaan1) |
 
-
-
