@@ -66,7 +66,22 @@ func main() {
 }
 ```
 
-Yukarıdaki örneği incelediğimizde `b` değişkenine `a`'nın adresini atadık. `b`'yi bastırdığımızda `a`'nın bellekteki adresini görebiliriz. Aynı zamanda `*b` şeklinde kullanarak `a`'nın içindeki değere de ulaşabiliriz. Bu durumda a ve değişkenleri aynı bellek alanını temsil ediyorlar.
+Yukarıdaki örneği incelediğimizde `b` değişkenine `a`'nın adresini atadık. `b`'yi bastırdığımızda `a`'nın bellekteki adresini görebiliriz. Aynı zamanda `*b` şeklinde kullanarak `a`'nın içindeki değere de ulaşabiliriz. Bu durumda a ve bdeğişkenleri aynı bellek alanını temsil ediyorlar.
+
+`a` değişkenine `b` üzerinden değişiklik yapmak için aşağıdaki yöntemi uygulayabilirsiniz.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	a := 8
+	b := &a
+	*b = 10
+	fmt.Println(a) //10
+}
+```
 
 En başta kurguladığımız senaryoyu işaretçiler ile kolayca yapabiliriz.
 
