@@ -18,7 +18,7 @@ func TestFunc(t *testing.T){
 ```
 
 Yukarıdaki işlem Golang’ta yapılan bir birim testin temel yapısıdır. Yerleşik **testing** paketi, Golang’ın standart paketleri içerisinde gelir. Birim testi, **\*testing.T** türündeki elemanı kabul eden ve bu elemanı göre hata yayınlayan bir bir işlemdir.  
-Bu fonksiyonların adı büyük harfle başlamalı ve birleşik olan adın devamı da bütük harfle başlamalıdır. Yani **camel-case** olmalıdır.  
+Bu fonksiyonların adı büyük harfle başlamalı ve birleşik olan adın devamı da büyük harfle başlamalıdır. Yani **camel-case** olmalıdır.  
 `TestFunc olmalıdır ve Testfunc olmamalıdır.`  
 Uygulama örneğimize geçelim.  
 Bir proje klasörü oluşturalım ve **main.go** dosyamız şöyle olsun.
