@@ -2,8 +2,7 @@
 
 Hücrelerin vücumudaki yapı birimi olduğu gibi, aynı şekilde her bileşen de yazılımın birer parçasıdır. Yazılımın sağlıklı bir şekilde çalışabilmesi için, her bileşenin güvenilir bir şekilde çalışması gerekir.  
 Aynı şekilde vücudumuzun sağlığı hücrelerin güvenilirliği ve verimliliğine bağlı olduğu gibi, yazılımın düzgün çalışması bileşenlerin güvenilirliği ve verimliliğine bağlıdır.  
-Biraz biyoloji dersi gibi oldu ama sonuçta aynı mantığı yürütebiliriz.  
-
+Biraz biyoloji dersi gibi oldu ama sonuçta aynı mantığı yürütebiliriz.
 
 **Peki bileşenler nedir?**  
 Yazılımın çalışması için yazılmış her bir kod parçasına denir. Bu bileşenlerin yazılımımızın sağlıklı bir şekilde çalıştırdığından emin olmamız gerekir.  
@@ -27,16 +26,14 @@ Bir proje klasörü oluşturalım ve **main.go** dosyamız şöyle olsun.
 package main
 import "fmt"
 func Merhaba(isim string) (çıktı string) {
-	çıktı = "Merhaba " + isim
-	return
+    çıktı = "Merhaba " + isim
+    return
 }
 func main() {
-	selamla := Merhaba("Kaan")
-	fmt.Println(selamla)
+    selamla := Merhaba("Kaan")
+    fmt.Println(selamla)
 }
 ```
-
-
 
 **main.go** dosyamızda fonksiyona adını girdiğimiz kişiyi selamlıyor. Buraya kadar gayet basit bir program. Fonksiyonlarımızı test edeceğimiz için baş harflerini büyük yazmayı unutmuyoruz. Böylelikle fonksiyonlarımızı dışarı aktarabiliriz. Test fonksiyonumuzun çalışma mantığını görmek için **main\_test.go** dosyamıza bakalım.
 
@@ -44,9 +41,9 @@ func main() {
 package main
 import "testing"
 func TestMerhaba(t *testing.T) {
-	if Merhaba("Kaan") != "Merhaba Kaan" {
-		t.Error("Merhaba Fonksiyonunda bir sıkıntı var!")
-	}
+    if Merhaba("Kaan") != "Merhaba Kaan" {
+        t.Error("Merhaba Fonksiyonunda bir sıkıntı var!")
+    }
 }
 ```
 
@@ -64,7 +61,7 @@ Yukarıdaki yazdığımız kodlara göre şöyle bir çıktımızın olması ger
 Eğer **TestMerhaba** fonksiyonunda test koşuluna **“Merhaba Kaan”** yerine **“Merhaba Ahmet”** yazsaydık, aşağıdaki gibi bir **go test** çıktımız olurdu.
 
 > --- FAIL: TestMerhaba \(0.00s\)  
->        main\_test.go:7: Merhaba Fonksiyonunda bir sıkıntı var!  
+> main\_test.go:7: Merhaba Fonksiyonunda bir sıkıntı var!  
 > FAIL  
 > exit status 1  
 > FAIL \_/home/ksc10/Desktop/deneme 0.002s

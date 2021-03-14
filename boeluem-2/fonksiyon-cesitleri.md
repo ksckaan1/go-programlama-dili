@@ -32,9 +32,9 @@ Yukarıdaki fonksiyonumuzu inceleyelim. Vereceğimiz sayıları toplaması için
 
 **Range** kullanımında **\_, n** şeklinde değişken tanımlamamızın sebebi, birinci değişken yani **\_**, dizinin indeksini yani sıra numarasını verir. Bizim bununla bir işimiz olmadığı için **\_** koyarak kullanmayacağımızı belirttik. İkinci değişken ise yani **n** dizinin içindeki değeri verir yani fonksiyona girdiğimiz sayıları. Sonuç olarak bu fonksiyonda **return** ile **for** işleminden sonra tüm sayıların toplamını döndürüp **main\(\)** fonksiyonu içerisinde ekrana bastırmış olduk.
 
-**Closure \(Anonim\) Fonksiyonlar**
+**Closure \(Atanmış\) Fonksiyonlar**
 
-Closure fonksiyonlar ile değişkenlerimizi fonksiyon olarak tanımlayabiliriz. Örneğimize geçelim.
+Closure fonksiyonlar ile değişkenlerimizi fonksiyon olarak tanımlayabiliriz. Buradan anlamamış gereken şey fonksiyonların da atanabilen veri tipleri olduğudur. Örneğimize geçelim.
 
 ```go
 package main
@@ -50,6 +50,27 @@ func main() {
 ```
 
 Yukarıdaki kodlarımızı inceleyecek olursak, **main** fonksiyonunun içine **toplam** adında bir değişken oluşturduk. Bu değişkenin türünün otomatik algılanması için **:=** işaretlerimizi girdik. Değişkene değer olarak anonim bir fonksiyon \(ismi olmayan fonksiyon yani\) yazdık. Bu fonksiyon **x** ve **y** adında iki tane **int** değer alıyor ve **return** kısmında bu iki değeri **int** olarak döndürüyor. Aşağıdaki **Println\(\)** fonksiyonunda ise bu değişkeni aynı bir fonksiyonmuşcasına kullandık.
+
+Atanmış fonksiyonlar yöntemine benzer olarak, bir fonksiyon ile fonksiyon tipinde veri döndürerek de atayabiliriz.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	p := yazdır()
+
+	p("Merhaba Dünya")
+
+}
+
+func yazdır() func(s string) {
+	return func(s string) {
+		fmt.Println(s)
+	}
+}
+```
 
 **Recursive \(İç-içe\) Fonksiyonlar**
 
