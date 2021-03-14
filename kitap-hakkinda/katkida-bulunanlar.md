@@ -1,12 +1,15 @@
 # Katkıda Bulunanlar
 
-| Kişi | Sosyal Medya |
+*Liste harf sıralamasına göre yapılmıştır.
+
+| Kişi | Twitter |
 | :--- | :--- |
-| Erhan Yakut | [@yakuter](https://twitter.com/yakuter) |
 | Adem İlter | [@ademilter](https://twitter.com/ademilter) |
 | Aykut Kardaş | [@aykutkardas](https://twitter.com/aykutkardas) |
-| Yusuf Turhan Papurcu | [@Yusuf\_Papurcu](https://twitter.com/Yusuf_Papurcu) |
 | Berkay Çoban | [@berkaycoban35](https://twitter.com/berkaycoban35) |
-| Murat Mirgün Ercan | [@muratmirgun](https://twitter.com/muratmirgun) |
+| Erhan Yakut | [@yakuter](https://twitter.com/yakuter) |
+| Latif Uluman | [@latif70427517](https://twitter.com/latif70427517)
 | Mert Şimşek | [@\_mertsimsek](https://twitter.com/_mertsimsek) |
+| Murat Mirgün Ercan | [@muratmirgun](https://twitter.com/muratmirgun) |
+| Yusuf Turhan Papurcu | [@Yusuf\_Papurcu](https://twitter.com/Yusuf_Papurcu) |
 
