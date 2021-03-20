@@ -1,6 +1,6 @@
 # Katkıda Bulunanlar
 
-*Liste harf sıralamasına göre yapılmıştır.
+\*Liste harf sıralamasına göre yapılmıştır.
 
 | Kişi | Twitter |
 | :--- | :--- |
@@ -8,7 +8,7 @@
 | Aykut Kardaş | [@aykutkardas](https://twitter.com/aykutkardas) |
 | Berkay Çoban | [@berkaycoban35](https://twitter.com/berkaycoban35) |
 | Erhan Yakut | [@yakuter](https://twitter.com/yakuter) |
-| Latif Uluman | [@latif70427517](https://twitter.com/latif70427517)
+| Latif Uluman | [@latif70427517](https://twitter.com/latif70427517) |
 | Mert Şimşek | [@\_mertsimsek](https://twitter.com/_mertsimsek) |
 | Murat Mirgün Ercan | [@muratmirgun](https://twitter.com/muratmirgun) |
 | Yusuf Turhan Papurcu | [@Yusuf\_Papurcu](https://twitter.com/Yusuf_Papurcu) |
