@@ -4,6 +4,7 @@
 
 | Kişi | Twitter |
 | :--- | :--- |
+| Adem Ali Durmuş | [@ademalidurmus](https://twitter.com/ademalidurmus) |
 | Adem İlter | [@ademilter](https://twitter.com/ademilter) |
 | Aykut Kardaş | [@aykutkardas](https://twitter.com/aykutkardas) |
 | Berkay Çoban | [@berkaycoban35](https://twitter.com/berkaycoban35) |
