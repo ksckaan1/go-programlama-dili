@@ -62,7 +62,7 @@ Yukarıdaki örnekte web sunucumuz varsayılan olarak `8080` protunda çalışac
 
 Örneğe göre [http://localhost:8080](http://localhost:8080) adresine gittiğimizde komut satırında yeni detaylar belirecek. Tıpkı aşağıdaki gibi:
 
-![Komut sat&#x131;r&#x131; bilgisi](../.gitbook/assets/go-gin.png)
+![Komut sat&#x131;r&#x131; bilgisi](../../.gitbook/assets/go-gin.png)
 
 Bu bilgileri inceleyelim. İlk kayıt anasayfaya bağlanılmaya çalışıldığında alınmış. Bu kayıtta bağlantının zamanını, durum kodunu, bağlantı süresi, bağlantı yöntemini ve hangi adrese bağlantı denendiğini yazıyor. Hemen altındaki ise sitenin ikonuna istek yapmış fakat site ikonumuz bulunmadığı için **404 durum kodu**nu almış. Bu kısımdan da bağlantı isteklerini görebildiğimizi öğrenmiş olduk.
 
@@ -82,7 +82,7 @@ func index(c *gin.Context) {
 
 Sonucumuz aşağıdaki gibi olacaktır.
 
-![JSON &#xE7;&#x131;kt&#x131;s&#x131;](../.gitbook/assets/gin-json.png)
+![JSON &#xE7;&#x131;kt&#x131;s&#x131;](../../.gitbook/assets/gin-json.png)
 
 ### ➡️ XML Çıktı Verme
 
@@ -108,7 +108,7 @@ func index(c *gin.Context) {
 
 Bu kodlar sonucunda sayfamızı açtığımızda "kaankuşcu" sonucu göreceğiz. XML tipinde görmek için sayfanıza sağ tıklayıp "_Sayfa Kaynağını Gör_"e tıklayarak kontrol edebilirsiniz.
 
-![XML sonucu](../.gitbook/assets/image%20%282%29.png)
+![XML sonucu](../../.gitbook/assets/image%20%282%29.png)
 
 
 
@@ -116,7 +116,7 @@ Bu kodlar sonucunda sayfamızı açtığımızda "kaankuşcu" sonucu göreceğiz
 
 Template hakkında bilginiz yoksa önce aşağıdaki dökümanı okumanız önerilir.
 
-{% page-ref page="html-sablonlar-templates.md" %}
+{% page-ref page="../html-sablonlar-templates.md" %}
 
 Gin'de template \(şablon\) işlemleri bayağı kolaylaştırılmış. Ufak bir örnek uygulama yazalım. Öncelikle projemizin ana dizinine `templates` isimli bir klasör oluşturalım ve içerisine `index.html` dosyası oluşturalım. `index.html` dosyamızın içeriği ise aşağıdaki gibi olsun.
 
@@ -283,7 +283,7 @@ Diğer metodlardan kısaca bahsedelim:
 
 Örneğin:
 
-![Gin parametre &#xF6;rne&#x11F;i](../.gitbook/assets/gin-param.png)
+![Gin parametre &#xF6;rne&#x11F;i](../../.gitbook/assets/gin-param.png)
 
 ```go
 package main
@@ -338,7 +338,7 @@ func blog(c *gin.Context) {
 
 Örneğin:
 
-![Gin sorgu sizesi &#xF6;rne&#x11F;i](../.gitbook/assets/gin-querystring.png)
+![Gin sorgu sizesi &#xF6;rne&#x11F;i](../../.gitbook/assets/gin-querystring.png)
 
 ```go
 package main
