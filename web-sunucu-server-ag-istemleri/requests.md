@@ -1,4 +1,4 @@
-# HTTP İstekleri \(Requests\)
+# HTTP İstekleri (Requests)
 
 Bu bölümde bir web sayfasına nasıl istekte bulunacağımızı göreceğiz.
 
@@ -56,7 +56,7 @@ func main() {
 }
 ```
 
-Çıktımız: `https://www.google.com.tr/search?q=golang&hl=tr`  
+Çıktımız: `https://www.google.com.tr/search?q=golang&hl=tr`\
 olacaktır.
 
 Bu örneği de aşağıdaki gibi kullanabilirsiniz.
@@ -234,5 +234,4 @@ func main() {
 }
 ```
 
-![](../.gitbook/assets/evync-5voaeostv.jpeg)
-
+![](../.gitbook/assets/EvYnc-5VoAEOSTV.jpeg)

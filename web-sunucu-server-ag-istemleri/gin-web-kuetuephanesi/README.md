@@ -46,23 +46,23 @@ func index(c *gin.Context) {
 
 Programımızı çalıştırdığımızda aşağıdaki gibi konsol çıktısı alacağız.
 
-> \[GIN-debug\] \[WARNING\] Creating an Engine instance with the Logger and Recovery middleware already attached.
+> \[GIN-debug] \[WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
 >
-> \[GIN-debug\] \[WARNING\] Running in "debug" mode. Switch to "release" mode in production.
+> \[GIN-debug] \[WARNING] Running in "debug" mode. Switch to "release" mode in production.
 >
 > * using env:   export GIN\_MODE=release
-> * using code:  gin.SetMode\(gin.ReleaseMode\)
+> * using code:  gin.SetMode(gin.ReleaseMode)
 >
-> \[GIN-debug\] GET / --&gt; main.index \(3 handlers\)  
-> \[GIN-debug\] Listening and serving HTTP on :8080
+> \[GIN-debug] GET / --> main.index (3 handlers)\
+> \[GIN-debug] Listening and serving HTTP on :8080
 
-Bu çıktıyı incelediğimizde, Gin'in debug \(hata ayıklama\) modunda çalıştığını söylüyor ve hemen aşağısında sunucumuz ürün haline gelince Gin'i Release Moduna nasıl alacağımızı gösteriyor. Son olarak ise web sunucumuzun `8080` portunda çalıştığınız gösteriyor.
+Bu çıktıyı incelediğimizde, Gin'in debug (hata ayıklama) modunda çalıştığını söylüyor ve hemen aşağısında sunucumuz ürün haline gelince Gin'i Release Moduna nasıl alacağımızı gösteriyor. Son olarak ise web sunucumuzun `8080` portunda çalıştığınız gösteriyor.
 
 Yukarıdaki örnekte web sunucumuz varsayılan olarak `8080` protunda çalışacaktır. Bunun sebebi `router.Run()`'a parametre olarak port numarası vermememizdir.
 
 Örneğe göre [http://localhost:8080](http://localhost:8080) adresine gittiğimizde komut satırında yeni detaylar belirecek. Tıpkı aşağıdaki gibi:
 
-![Komut sat&#x131;r&#x131; bilgisi](../../.gitbook/assets/go-gin.png)
+![Komut satırı bilgisi](../../.gitbook/assets/go-gin.png)
 
 Bu bilgileri inceleyelim. İlk kayıt anasayfaya bağlanılmaya çalışıldığında alınmış. Bu kayıtta bağlantının zamanını, durum kodunu, bağlantı süresi, bağlantı yöntemini ve hangi adrese bağlantı denendiğini yazıyor. Hemen altındaki ise sitenin ikonuna istek yapmış fakat site ikonumuz bulunmadığı için **404 durum kodu**nu almış. Bu kısımdan da bağlantı isteklerini görebildiğimizi öğrenmiş olduk.
 
@@ -82,7 +82,7 @@ func index(c *gin.Context) {
 
 Sonucumuz aşağıdaki gibi olacaktır.
 
-![JSON &#xE7;&#x131;kt&#x131;s&#x131;](../../.gitbook/assets/gin-json.png)
+![JSON çıktısı](../../.gitbook/assets/gin-json.png)
 
 ### ➡️ XML Çıktı Verme
 
@@ -108,7 +108,7 @@ func index(c *gin.Context) {
 
 Bu kodlar sonucunda sayfamızı açtığımızda "kaankuşcu" sonucu göreceğiz. XML tipinde görmek için sayfanıza sağ tıklayıp "_Sayfa Kaynağını Gör_"e tıklayarak kontrol edebilirsiniz.
 
-![XML sonucu](../../.gitbook/assets/image%20%282%29.png)
+![XML sonucu](<../../.gitbook/assets/image (1).png>)
 
 
 
@@ -116,9 +116,11 @@ Bu kodlar sonucunda sayfamızı açtığımızda "kaankuşcu" sonucu göreceğiz
 
 Template hakkında bilginiz yoksa önce aşağıdaki dökümanı okumanız önerilir.
 
-{% page-ref page="../html-sablonlar-templates.md" %}
+{% content-ref url="../html-sablonlar-templates.md" %}
+[html-sablonlar-templates.md](../html-sablonlar-templates.md)
+{% endcontent-ref %}
 
-Gin'de template \(şablon\) işlemleri bayağı kolaylaştırılmış. Ufak bir örnek uygulama yazalım. Öncelikle projemizin ana dizinine `templates` isimli bir klasör oluşturalım ve içerisine `index.html` dosyası oluşturalım. `index.html` dosyamızın içeriği ise aşağıdaki gibi olsun.
+Gin'de template (şablon) işlemleri bayağı kolaylaştırılmış. Ufak bir örnek uygulama yazalım. Öncelikle projemizin ana dizinine `templates` isimli bir klasör oluşturalım ve içerisine `index.html` dosyası oluşturalım. `index.html` dosyamızın içeriği ise aşağıdaki gibi olsun.
 
 ```markup
 <html>
@@ -201,7 +203,7 @@ router.GET("/", index)
 
 ### ➡️ POST Metodu
 
-POST metodu genellikle form gönderimlerinde kullanılır. Yeni bir kaynak oluşturmak için kullanılır. \(Yeni kayıt oluşturma, yeni gönderi oluşturma vb...\)
+POST metodu genellikle form gönderimlerinde kullanılır. Yeni bir kaynak oluşturmak için kullanılır. (Yeni kayıt oluşturma, yeni gönderi oluşturma vb...)
 
 Örnek kullanımını görelim.
 
@@ -272,8 +274,8 @@ Komut satırına aşağıdaki komutu yazarak çıktısını görebilirsiniz.
 Diğer metodlardan kısaca bahsedelim:
 
 * **PATCH metodu:** Bir kaynak üzerindeki belirli bir alanı değiştirmek için kullanılır.
-* **DELETE metodu:** Sunucudaki bir kaynağı silmeye yarar.
-* **PUT metodu:** Bir kaynağın yerine başka bir kaynağı koymaya yarar. \(Komple değiştirme\)
+* **DELETE metodu: **Sunucudaki bir kaynağı silmeye yarar.
+* **PUT metodu:** Bir kaynağın yerine başka bir kaynağı koymaya yarar. (Komple değiştirme)
 * **HEAD metodu:** Sunucuya tıpkı GET metodu gibi fakat sadece başlığı olan bir istek gönderir.
 * **OPTIONS metodu:** Sunucunun desteklediği metodları kontrol etmek için kullanılır.
 
@@ -283,7 +285,7 @@ Diğer metodlardan kısaca bahsedelim:
 
 Örneğin:
 
-![Gin parametre &#xF6;rne&#x11F;i](../../.gitbook/assets/gin-param.png)
+![Gin parametre örneği](../../.gitbook/assets/gin-param.png)
 
 ```go
 package main
@@ -334,11 +336,11 @@ func blog(c *gin.Context) {
 }
 ```
 
-### ➡️ Querystring \(Sorgu dizesi\) ile Adreslendirme
+### ➡️ Querystring (Sorgu dizesi) ile Adreslendirme
 
 Örneğin:
 
-![Gin sorgu sizesi &#xF6;rne&#x11F;i](../../.gitbook/assets/gin-querystring.png)
+![Gin sorgu sizesi örneği](../../.gitbook/assets/gin-querystring.png)
 
 ```go
 package main
@@ -361,11 +363,9 @@ func arama(c *gin.Context) {
 }
 ```
 
-Yukarıdaki örneğe göre [http://localhost:9000/arama?tur=bilim-kurgu&siralama=imdb](http://localhost:9000/arama?tur=bilim-kurgu&siralama=imdb) adresine girdiğimizde "_bilim-kurgu türünden filmler imdb olarak sıralanıyor._" yazılı bir sonuç elde edeceğiz.
+Yukarıdaki örneğe göre [http://localhost:9000/arama?tur=bilim-kurgu\&siralama=imdb](http://localhost:9000/arama?tur=bilim-kurgu\&siralama=imdb) adresine girdiğimizde "_bilim-kurgu türünden filmler imdb olarak sıralanıyor._" yazılı bir sonuç elde edeceğiz.
 
 ### Göz atmanızı önerdiğim yazı:
 
 {% embed url="https://kaanksc.com/go-web-sunucuda-kullanici-girisi-sistemi" %}
-
-
 

@@ -1,12 +1,12 @@
 # Go Geliştiricileri için Makefile
 
-Golang ile yazılım geliştirirken **Makefile** teknolojisinde nasıl faydalanacağımızı göreceğiz. Gözümüzün korkmasına gerek yok, aşırı basit bir olay. Zaten herşeyi biliyorsunuz. Makefile sadece bir yöntemdir.  
- 
+Golang ile yazılım geliştirirken **Makefile** teknolojisinde nasıl faydalanacağımızı göreceğiz. Gözümüzün korkmasına gerek yok, aşırı basit bir olay. Zaten herşeyi biliyorsunuz. Makefile sadece bir yöntemdir.\
+&#x20;
 
 **Makefile Nedir?**
 
-**Makefile**, çoğu komutu çalıştırmak için kullanabileceğimiz otomasyon aracıdır. Makefile’ı genellikle Github veya Gitlab’de programların ana dizininde bazı işlemleri otomatikleştirme için kullanıldığını görebilirsiniz.  
- 
+**Makefile**, çoğu komutu çalıştırmak için kullanabileceğimiz otomasyon aracıdır. Makefile’ı genellikle Github veya Gitlab’de programların ana dizininde bazı işlemleri otomatikleştirme için kullanıldığını görebilirsiniz.\
+&#x20;
 
 **Basit Bir Örnek**
 
@@ -17,14 +17,14 @@ merhaba:
     echo "merhaba"
 ```
 
-Gördüğünüz gibi programlama dillerine ve komutlara benzer bir yazılımı var.  
+Gördüğünüz gibi programlama dillerine ve komutlara benzer bir yazılımı var.\
 Kodumuzu **make** komutu ile deneyebiliriz. Proje klasörümüzün içerisinde komut satırına **make merhaba** yazarak kodumuzun çıktısını görelim:
 
-> echo "Merhaba"  
+> echo "Merhaba"\
 > Merhaba
 
-Gördüğünüz gibi **make** komutunun yanına **merhaba** ekleyerek **makefile** dosyamızdaki merhaba bölümünün çalışmasını sağladık. Makefile’ın genel mantığına baktığımızda komut satırı üzerinden yaptığımız işlemleri kısaltıyor.  
- 
+Gördüğünüz gibi **make** komutunun yanına **merhaba** ekleyerek **makefile** dosyamızdaki merhaba bölümünün çalışmasını sağladık. Makefile’ın genel mantığına baktığımızda komut satırı üzerinden yaptığımız işlemleri kısaltıyor.\
+&#x20;
 
 **Basit Go Uygulaması İnşa Etme**
 
@@ -51,7 +51,7 @@ Yukarıda gördüğünüz gibi **makefile** dosyamıza bloklar açarak bildiğin
 
 **Peki bu olay bizim ne işimize yarayacak?**
 
-Örneğin bir projeyi 3 tane platform için build etmemiz gerekecek. Her platform için ayrı Go Ortamı bilgisi girmemiz gerekir. Hele ki build işlemini sürekli yapıyorsanız bu işten bıkabilirsiniz. Fakat makefile dosyasıyla işinizi kolaylaştırabilirsiniz.  
+Örneğin bir projeyi 3 tane platform için build etmemiz gerekecek. Her platform için ayrı Go Ortamı bilgisi girmemiz gerekir. Hele ki build işlemini sürekli yapıyorsanız bu işten bıkabilirsiniz. Fakat makefile dosyasıyla işinizi kolaylaştırabilirsiniz.\
 Örneğimizi görelim:
 
 ```python
@@ -65,7 +65,6 @@ run:
 hepsi: derle run
 ```
 
-**derle** bloğumuzun içerisine 3 platforma derlemek için komutlarımızı girdik. **run** bloğuna ise **main.go** dosyamızı çalıştırmak için komutumuzu girdik. **hepsi** bloğunun yanına ise **derle** ve **run** yazdık. Yani komut satırına **make hepsi** yazarsak hem derleme hem de çalıştırma işlemini yapacak.  
-   
-Bu yazımızda **Golang için** **makefile** kullanımına örnek verdik. İlla ki Go’da kullanılacak diye bir kaide yok. Diğer programlama dillerinde veya komutlarınızı otomatize etmek istediğiniz zaman kullanabilirsiniz.
-
+**derle** bloğumuzun içerisine 3 platforma derlemek için komutlarımızı girdik. **run** bloğuna ise **main.go** dosyamızı çalıştırmak için komutumuzu girdik. **hepsi** bloğunun yanına ise **derle** ve **run** yazdık. Yani komut satırına **make hepsi** yazarsak hem derleme hem de çalıştırma işlemini yapacak.\
+&#x20;\
+Bu yazımızda** Golang için** **makefile** kullanımına örnek verdik. İlla ki Go’da kullanılacak diye bir kaide yok. Diğer programlama dillerinde veya komutlarınızı otomatize etmek istediğiniz zaman kullanabilirsiniz.

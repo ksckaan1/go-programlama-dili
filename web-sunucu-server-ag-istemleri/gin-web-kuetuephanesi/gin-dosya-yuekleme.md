@@ -4,7 +4,7 @@ Bu yazıda Gin kütüphanesinden `POST` isteği ile nasıl dosya yükleyeceğimi
 
 Aşağıda projemizin dizin/dosya yapısı bulunuyor.
 
-```text
+```
 .
 ├── main.go
 └── public
@@ -97,4 +97,3 @@ func main() {
 	router.Run(":8080")
 }
 ```
-

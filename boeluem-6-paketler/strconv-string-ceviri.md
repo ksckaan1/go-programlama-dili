@@ -1,9 +1,9 @@
-# Strconv \(String Çeviri\)
+# Strconv (String Çeviri)
 
-**strconv** paketi Golang ile bütünleşik gelen string tipi ve diğer tipler arasında çevirme işlemi yapabileceğimiz bir pakettir.  
+**strconv** paketi Golang ile bütünleşik gelen string tipi ve diğer tipler arasında çevirme işlemi yapabileceğimiz bir pakettir.\
 
 
-İlk olarak `“strconv”` paketimizi içe aktarıyoruz.  
+İlk olarak `“strconv”` paketimizi içe aktarıyoruz.\
 Aşağıda örnek kullanımılarını ve daha açıklayıcı olması için yanlarına kullanım amaçlarını yazdım.
 
 ```go
@@ -39,11 +39,10 @@ func main() {
 
 Çıktımız şu şekilde olacaktır.
 
-> sayi: -42 tip: int  
-> yazi: -42 tip: string  
-> b: true tip: bool  
-> f: 3.141500 tip: float64  
-> i: -42 tip: int64  
-> u: 42 tip: uint64  
+> sayi: -42 tip: int\
+> yazi: -42 tip: string\
+> b: true tip: bool\
+> f: 3.141500 tip: float64\
+> i: -42 tip: int64\
+> u: 42 tip: uint64\
 > string string string string
-

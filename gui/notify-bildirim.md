@@ -1,4 +1,4 @@
-# notify \(Bildirim\)
+# notify (Bildirim)
 
 Bazen programımızda kullanıcının haberdar olması için bildirim özelliği gerekir. Bu özelliği `notify` paketi ile kazandırabiliriz.
 
@@ -20,9 +20,8 @@ func main() {
 }
 ```
 
-![GNU/Linux \(Ubuntu&apos;da\)](../.gitbook/assets/linux.png)
+![GNU/Linux (Ubuntu'da)](../.gitbook/assets/linux.png)
 
-![macOS / OSX 10.8+](../.gitbook/assets/macos-1.png)
+![macOS / OSX 10.8+](<../.gitbook/assets/macos (1).png>)
 
-![Windows 10](../.gitbook/assets/windows-1.png)
-
+![Windows 10](<../.gitbook/assets/windows (1).png>)

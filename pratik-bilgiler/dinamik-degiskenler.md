@@ -34,4 +34,3 @@ func main() {
 ```
 
 Yukarıdaki örnekte görüldüğü üzere `x` değişkenimize hangi tipte atama yaparsak, `x` değerin tipine dönüşüyor.
-

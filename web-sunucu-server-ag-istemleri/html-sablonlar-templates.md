@@ -1,4 +1,4 @@
-# HTML Şablonlar \(Templates\)
+# HTML Şablonlar (Templates)
 
 HTML Şablonlar, Golang üzerinde web sayfalarının dinamikliği için kullanılır. Yani şablonlar kullanarak web sayfalarımızın belirlediğimiz bölümlerini Go üzerinden değişikliğe uğratabiliriz.
 
@@ -10,7 +10,7 @@ Bu yazımızda HTML şablonların nasıl oluşturulacağına bakacağız. Çalı
 Merhaba, <b>{{ . }}</b>
 ```
 
-Yukarıdaki örnekte `{{ }}` süslü parantezler içerisinde . \(nokta\) yazıyor. Bu da Go şablon işlenirken bu kısma Go tarafından vereceğimiz değerin geleceği anlamına geliyor.
+Yukarıdaki örnekte `{{ }}` süslü parantezler içerisinde . (nokta) yazıyor. Bu da Go şablon işlenirken bu kısma Go tarafından vereceğimiz değerin geleceği anlamına geliyor.
 
 Şimdi yukarıdaki örneğimizi `sablon.html` adı ile kaydedelim.
 
@@ -56,7 +56,7 @@ Açıklamaları üstte yazıyor.
 
 Sayfamıza bakmak için [http://localhost:8000](http://localhost:8000) adresine gittiğimizde, şöyle bir sonuç ile karşılaşacağız.
 
-![&#x130;lk &#xC7;&#x131;kt&#x131;m&#x131;z](../.gitbook/assets/2020-11-23_22-30.png)
+![İlk Çıktımız](../.gitbook/assets/2020-11-23\_22-30.png)
 
 Tabi ki burada bir terslik var. b etiketleri gözüküyor. Bunun sebebi tarayıcımızın sayfayı `html` olarak değil de metin dosyası olarak göstermesi. Çözüm için `sablon.html` dosyamızın başına `<!DOCTYPE html>` ekleyelim. Yani şöyle olacak:
 
@@ -73,7 +73,7 @@ Eğer sadece şablon dosyasında değişiklik yaptıysanız, sunucuyu yeniden ba
 
 Sayfayı yenileyerek değişikliğe bakalım. Çıktımız şöyle olacaktır:
 
-![Do&#x11F;ru &#xE7;&#x131;kt&#x131;m&#x131;z](../.gitbook/assets/2020-11-23_22-38.png)
+![Doğru çıktımız](../.gitbook/assets/2020-11-23\_22-38.png)
 
 Bu sefer doğru bir çıktı üretmiş olduk.
 
@@ -122,7 +122,7 @@ func main() {
 
 Yukarıdaki örnekte sayfamıza bu sefer html kodu yolluyoruz. Çıktımıza bakalım.
 
-![HTML kodu &#xE7;&#x131;kt&#x131;m&#x131;z](../.gitbook/assets/htmlw.png)
+![HTML kodu çıktımız](../.gitbook/assets/htmlw.png)
 
 Burada yine bir şeyler dönüyor. Çıktı yine istediğimiz gibi değil. "Niye bana yanlış kodları gösteriyorsun Kaan?" dediğinizi duyar gibiyim. Çünkü ilk önce yapmamamız gereken şeyleri gösteriyorum ki daha akılda kalıcı olsun.
 
@@ -134,13 +134,13 @@ Yukarıdaki olayın sebebi şudur: Go tarafından gönderdiğimiz html kodunun a
 var htmlKodu template.HTML = "<h1>Merhaba</h1>"
 ```
 
-veya burada değişkenin tipini değiştirmek yerine `şablon.Execute()` fonksiyonunda değişiklik yapabilirsiniz. \(Hangisi kolayınıza geliyorsa\)
+veya burada değişkenin tipini değiştirmek yerine `şablon.Execute()` fonksiyonunda değişiklik yapabilirsiniz. (Hangisi kolayınıza geliyorsa)
 
 ```go
 şablon.Execute(w, template.HTML(htmlKodu))
 ```
 
-## ✨ Şablona Struct Gönderme 
+## ✨ Şablona Struct Gönderme&#x20;
 
 Buraya kadar şablon dosyamıza hep bir tane değer gönderdik. Birden fazla değer göndermek için ne yapmalıyız?
 
@@ -193,7 +193,7 @@ Yukarıdaki kodlarda dikkat edeceğimiz nokta, tanımlama yaparken noktadan sonr
 
 Çıktımızı görelim:
 
-![&#x15E;ablonda struct &#xF6;rne&#x11F;i](../.gitbook/assets/str.png)
+![Şablonda struct örneği](../.gitbook/assets/str.png)
 
 Buraya kadar şablon mantığını az çok anladığınıza inanıyorum. Buradan sonrasını konu çok uzun olmasın diye hızlıca anlatmaya çalışacağım. Yani buradan sonra çıktıların resimlerini göstermeyeceğim.
 
@@ -253,7 +253,7 @@ Yukarıda gördüğünüz gibi değişkeni tanımlarken ve kullanırken başına
 
 Yukarıda dikkat etmemiz gereken şey `if-else`'in sonuna `end` eklememiz gerekiyor. Sadece `if` olsaydı bile `end` eklememiz gerekir.
 
-Bu kodları yazdıktan sonra çıkan sonuçta boşluklar \(boşluk tuşunun boşluğu gibi\) oluşabilir. Bunu engellemek için ise aşağıdaki gibi yapabiliriz.
+Bu kodları yazdıktan sonra çıkan sonuçta boşluklar (boşluk tuşunun boşluğu gibi) oluşabilir. Bunu engellemek için ise aşağıdaki gibi yapabiliriz.
 
 ```go
 {{if .Reşit}}
@@ -284,4 +284,3 @@ Biliyorsunuz ki, HTML kodu içerisindeki yorumlar sayfa kaynağını göstere t�
 ```go
 {{/* Yorumu buraya yazabilirsiniz */}}
 ```
-

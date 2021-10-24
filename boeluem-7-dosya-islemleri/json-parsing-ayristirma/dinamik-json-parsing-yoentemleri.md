@@ -250,4 +250,3 @@ Forma No : 23
 Mevki : Kaleci 
 İstatistik : (Gol: 0 - Asist: 2 - Cezalı: false )
 ```
-

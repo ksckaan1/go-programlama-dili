@@ -16,11 +16,11 @@ Komut satırını açalım ve aşağıdaki komutu yazarak bahsettiğimiz dizine 
 
 Windows'ta:
 
-> cd C:\\Users\%username%\go\src
+> cd C:\\\Users\\%username%\go\src
 
 GNU/Linux ve MacOS'te:
 
-> cd ~/go/src
+> cd \~/go/src
 
 Bu konuma proje dizinimizi oluşturalım
 
@@ -75,7 +75,7 @@ Komut satırına go modules için aşağıdaki komutu yazalım.
 Eğer projenizi go/src klasörü içinde oluşturmazsanız bu komut hata verecektir.
 {% endhint %}
 
-![go modules &#xF6;rnek ](../.gitbook/assets/go-mod-init.png)
+![go modules örnek ](../.gitbook/assets/go-mod-init.png)
 
 Böylece go.mod dosyamızı oluşturduk. Dışarıdan paket bağımlılıklarını yüklemek için aşağıdaki komutu yazalım.
 
@@ -83,7 +83,7 @@ Böylece go.mod dosyamızı oluşturduk. Dışarıdan paket bağımlılıkların
 
 Bu komutu yazdığınızda paket bağımlılığınız yoksa aşağıdaki gibi bir çıktı alacaksınız.
 
-![vendor &#xF6;rne&#x11F;i](../.gitbook/assets/no-vendor.png)
+![vendor örneği](../.gitbook/assets/no-vendor.png)
 
 Eğer paket bağımlılığınız varsa projenizin ana dizininde vendor adında bir klasör oluşacak ve bu klasörün içinde dış paketlerin kaynak kodları bulunanacak.
 
@@ -119,15 +119,15 @@ Komut satırına aşağıdakileri yazalım.
 
 ![Heroku cli Login](../.gitbook/assets/heroku-login.png)
 
-q tuşuna basınca giriş yapmayı iptal eder. O yüzden giriş yapmak için herhangi bir tuşa başabilirsiniz. \(Lütfen bilgisayarınızın güç tuşuna basmayın 🙂\)
+q tuşuna basınca giriş yapmayı iptal eder. O yüzden giriş yapmak için herhangi bir tuşa başabilirsiniz. (Lütfen bilgisayarınızın güç tuşuna basmayın 🙂)
 
 Daha sonra varsayılan tarayıcınız üzerinden giriş yapma sayfası açılacak. Heroku hesabınıza girdikdek sonra tarayıcınızda girişin başarılı olduğunu söylecek.
 
-![Heroku taray&#x131;c&#x131; giri&#x15F;i](../.gitbook/assets/heroku-login-warning.png)
+![Heroku tarayıcı girişi](../.gitbook/assets/heroku-login-warning.png)
 
 Komut satırında da aşağıdaki gibi bir çıktı göreceksiniz. Kendi bilgilerim olduğu için birazını sansürledim.
 
-![Heroku cli ba&#x15F;ar&#x131;l&#x131; giri&#x15F; ](../.gitbook/assets/heroku-login-success.png)
+![Heroku cli başarılı giriş ](../.gitbook/assets/heroku-login-success.png)
 
 Böylece başarıyla giriş yapmış olduk.
 
@@ -137,7 +137,7 @@ Heroku projemizi oluşturalım.
 
 Şöyle bir çıktı alacağız.
 
-![heroku uygulama olu&#x15F;turma](../.gitbook/assets/heroku-create.png)
+![heroku uygulama oluşturma](../.gitbook/assets/heroku-create.png)
 
 Yazdığımız kodları Heroku uygulamamıza yükleyelim.
 
@@ -206,9 +206,8 @@ To https://git.heroku.com/obscure-ocean-33068.git
 
 Yukarıdaki çıktıya göre aşağıdaki işaretlediğim yerde uygulamamızın adresi olacak.
 
-![Heroku Push sonu&#xE7;](../.gitbook/assets/heroku-push.png)
+![Heroku Push sonuç](../.gitbook/assets/heroku-push.png)
 
 Bu adres tabiki de sizde farlı olacak. Buradan girip uygulamanızı kontrol edebilirsiniz. Benim sonucum ise şu şekilde:
 
 ![Site sonucu](../.gitbook/assets/heroku-site.png)
-

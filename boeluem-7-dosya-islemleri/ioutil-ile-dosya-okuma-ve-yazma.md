@@ -29,7 +29,7 @@ func main() {
 ```
 
 {% hint style="info" %}
-Okuma işlemi **byte** tipinde yapıldığı için **string\(\)** fonksiyonu ile byte tipini string tipine dönüştürüyoruz.
+Okuma işlemi **byte** tipinde yapıldığı için **string() **fonksiyonu ile byte tipini string tipine dönüştürüyoruz.
 {% endhint %}
 
 **Dosya Yazma**
@@ -60,4 +60,3 @@ String tipini dosyaya yazdırmamız için önce byte tipine çevirmemiz gerekir.
 {% endhint %}
 
 Dosya yazdırma işleminde aynı isimde dosya varsa üzerine yazar.
-

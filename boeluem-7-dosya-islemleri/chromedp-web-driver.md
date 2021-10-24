@@ -1,6 +1,6 @@
-# chromedp \(Web Driver\)
+# chromedp (Web Driver)
 
-**Chromedp** paketi, harici bağımlılıklar \(Selenium veya PhantomJS gibi\) olmadan Go'da **Chrome DevTools Protokolü**nü destekleyen tarayıcıları çalıştırmanın daha hızlı ve daha basit bir yoludur. Harici bağımlılık yoktur derken, tabi ki sisteminizde Google Chrome'un yüklü olması gerekiyor. Chromedp'ye headless modu gerektiği için minimum Chrome sürümünüz 59 olması gerekiyor.
+**Chromedp** paketi, harici bağımlılıklar (Selenium veya PhantomJS gibi) olmadan Go'da **Chrome DevTools Protokolü**nü destekleyen tarayıcıları çalıştırmanın daha hızlı ve daha basit bir yoludur. Harici bağımlılık yoktur derken, tabi ki sisteminizde Google Chrome'un yüklü olması gerekiyor. Chromedp'ye headless modu gerektiği için minimum Chrome sürümünüz 59 olması gerekiyor.
 
 #### Paketi yüklemek için:
 
@@ -136,9 +136,8 @@ func main() {
 
 ```
 
-Yukarıdaki örnekte headless modda çalışmayı ve yazı kutusu \(input veya textarea\) içindeki yazıları almayı öğrendik.
+Yukarıdaki örnekte headless modda çalışmayı ve yazı kutusu (input veya textarea) içindeki yazıları almayı öğrendik.
 
 Daha fazla bilgi için [https://github.com/chromedp/chromedp](https://github.com/chromedp/chromedp),
 
 daha fazla örnek için [https://github.com/chromedp/examples](https://github.com/chromedp/examples) adresine bakabilirsiniz.
-

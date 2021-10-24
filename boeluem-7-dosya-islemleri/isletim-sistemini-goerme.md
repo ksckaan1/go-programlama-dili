@@ -25,4 +25,3 @@ func main() {
 GNU/Linux kullandığım için çıktım aşağıdaki gibi olacaktır.
 
 > Linux için sudo komutu ile çalıştırın.
-

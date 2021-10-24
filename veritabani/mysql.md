@@ -11,8 +11,8 @@ import "database/sql"
 import _ "go-sql-driver/mysql"
 ```
 
-**MySQL Bağlantısını Yapma**  
-Daha sonra **main\(\)** fonksiyonumuz içerisinde MySQL bağlantımızı yapalım.
+**MySQL Bağlantısını Yapma**\
+Daha sonra **main()** fonksiyonumuz içerisinde MySQL bağlantımızı yapalım.
 
 ```go
 package main
@@ -24,9 +24,9 @@ func main(){
 }
 ```
 
-**db** adındaki fonksiyonel değişkenimize MySQL veritabanı bağlantı bilgilerimizi girdik. **kullanici** yeri MySQL kullanıcı adınızı, **sifre** yerine MySQL şifrenizi, **127.0.0.1:3306** yerine MySQL sunucunuzu e **vtismi** yerine de Veritabanı isminizi yazmayı unutmayın.  
-Daha sonra veritabanı bağlantı bilgilerimizi doğrulanmak için **db.Ping\(\)** fonksiyonu ile bağlantı denemesi yolluyoruz. Bir hata ile karşılaşıldığında **err** değişkeninin içine hata çıktısını kaydedecektir.  
-Kolaylık olsun diye **main\(\)** fonksiyonu dışına hata çıktılarını kontrol eden bir fonksiyon yazalım.
+**db** adındaki fonksiyonel değişkenimize MySQL veritabanı bağlantı bilgilerimizi girdik. **kullanici** yeri MySQL kullanıcı adınızı, **sifre** yerine MySQL şifrenizi, **127.0.0.1:3306** yerine MySQL sunucunuzu e **vtismi** yerine de Veritabanı isminizi yazmayı unutmayın.\
+Daha sonra veritabanı bağlantı bilgilerimizi doğrulanmak için **db.Ping()** fonksiyonu ile bağlantı denemesi yolluyoruz. Bir hata ile karşılaşıldığında **err** değişkeninin içine hata çıktısını kaydedecektir.\
+Kolaylık olsun diye **main()** fonksiyonu dışına hata çıktılarını kontrol eden bir fonksiyon yazalım.
 
 ```go
 func kontrol(hata error){
@@ -36,19 +36,19 @@ func kontrol(hata error){
 }
 ```
 
-Eğer hata çıktısı almak istemiyorsanız. **err** değişkeni yerine **\_ \(alt tire\)** koyabilirsiniz. Aynen şu şekilde:
+Eğer hata çıktısı almak istemiyorsanız. **err** değişkeni yerine** \_ (alt tire)** koyabilirsiniz. Aynen şu şekilde:
 
 ```go
 db, _ := sql.Open("mysql", "kullanici:sifre@(127.0.0.1:3306)/vtismi?parseTime=true")
 ```
 
-**İlk Tabloyu Oluşturma**  
-Tablomuz şu şekilde olacak;  
+**İlk Tabloyu Oluşturma**\
+Tablomuz şu şekilde olacak;\
 
 
-| id | kullanici | sifre | tarih |
-| :--- | :--- | :--- | :--- |
-| 1 | kaan | 1234 | 2019-08-10 12:30:00 |
+| id | kullanici | sifre | tarih               |
+| -- | --------- | ----- | ------------------- |
+| 1  | kaan      | 1234  | 2019-08-10 12:30:00 |
 
 Böyle bir tablo yapısını oluşturmak için aşağıdaki sorguyu çalıştırmamız gerekir.
 
@@ -77,7 +77,7 @@ sorgu := `
 _, err := db.Exec(sorgu)
 ```
 
-Bu işlemle birlikte MySQL veritabanımızda **kullanicilar** adında bir tablomuz oluşacaktır.  
+Bu işlemle birlikte MySQL veritabanımızda **kullanicilar** adında bir tablomuz oluşacaktır.\
 **Tabloya Veri Girme**
 
 ```go
@@ -119,7 +119,7 @@ err := tablo.Err()
 kontrol(err)
 ```
 
-Eğer tablodaki verileri ekrana bastırmak yerine bir **diziye** \(array\) kaydetmek istiyorsak aşağıdaki gibi yapabiliriz.
+Eğer tablodaki verileri ekrana bastırmak yerine bir **diziye** (array) kaydetmek istiyorsak aşağıdaki gibi yapabiliriz.
 
 ```go
 type kullanici struct {
@@ -168,7 +168,7 @@ _, err := vt.Exec(`DELETE FROM kullanicilar WHERE id = ?`, silineceksatir)
 kontrol(err)
 ```
 
-Gördüğünüz gibi basit bir şekilde MySQL paketi ile veritabanı yönetimi yapabiliyoruz.  
+Gördüğünüz gibi basit bir şekilde MySQL paketi ile veritabanı yönetimi yapabiliyoruz.\
 **Hepsi Bir Arada**
 
 ```go
@@ -253,4 +253,3 @@ func main() {
 	}
 }
 ```
-

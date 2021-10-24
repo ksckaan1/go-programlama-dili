@@ -1,6 +1,6 @@
-# Paket \(Kütüphane\) Yazmak
+# Paket (Kütüphane) Yazmak
 
-Bu bölümde Go üzerinde nasıl kendi paketimizi \(kütüphanemizi\) oluşturacağımıza bakacağız.
+Bu bölümde Go üzerinde nasıl kendi paketimizi (kütüphanemizi) oluşturacağımıza bakacağız.
 
 ### Bir Paketin Özellikleri
 
@@ -17,7 +17,7 @@ Paket oluştururken dikkat etmemiz gereken prensipler vardır. Bunlar şık ve b
 
 Öncelikle aşağıdaki gibi bir dosya düzenimiz olduğunu varsayalım.
 
-![Proje Klas&#xF6;r&#xFC;m&#xFC;z&#xFC;n Yap&#x131;s&#x131;](../.gitbook/assets/package.png)
+![Proje Klasörümüzün Yapısı](../.gitbook/assets/package.png)
 
 Yukarıdaki gibi `paketim` klasörü içerisinde `paketim.go` dosyamız olsun.
 
@@ -47,7 +47,7 @@ func main() {
 }
 ```
 
-`import p "./paketim"` yazarak özel paketimizin yerel konumunu belirterek, `p` lakabı \(alias\) ile çağırdık.
+`import p "./paketim"` yazarak özel paketimizin yerel konumunu belirterek, `p` lakabı (alias) ile çağırdık.
 
 `Yaz()` fonksiyonumuzu ise `p.Yaz()` şeklinde kullandık.
 
@@ -56,4 +56,3 @@ func main() {
 Oluşturduğumuz kütüphaneyi Github, Gitlab, Bitbucket vb. sitelerde barındırarak diğer geliştiricilerinde kütüphanelerinizden faydalanmasını sağlayabilirsiniz.
 
 Bunun için kütüphanenizin isminde bir repo oluşturup, içerisinde Go dosyalarınızı yükleyin. Daha sonra `go get github.com/id/repoismi` şeklinde projenize import edebilirsiniz.
-

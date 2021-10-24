@@ -10,7 +10,7 @@ Basit bir görsel ile inceleyelim.
 
 İşlemlere aynı anda başlandığını varsayalım.
 
-![&#xD6;rnek asenkron i&#x15F;lem](../.gitbook/assets/mutex.png)
+![Örnek asenkron işlem](../.gitbook/assets/mutex.png)
 
 Bu işlemin sonuncunda hangi kullancının işlemi sonuncu olarak biterse para miktarı onun sonucu olur. Yani kullanıcı 2'nin işlemi kullanıcı 1'den sonra biterse yeni para miktarı 50₺ olur.
 
@@ -102,11 +102,10 @@ func main() {
 
 Çıktımız aşağıdaki gibi olacaktır.
 
-> İlk Bakiye: 100.00  
-> Yeni Bakiye: 165.00  
-> Yatırma işlemi tamamlandı.  
-> Yeni Bakiye: 150.00  
+> İlk Bakiye: 100.00\
+> Yeni Bakiye: 165.00\
+> Yatırma işlemi tamamlandı.\
+> Yeni Bakiye: 150.00\
 > Çekme işlemi tamamlandı.
 
 Yukarıdaki çıktıya göre, `paraYatır()` fonksiyonu `paraÇek()` fonkisyonundan önce çalışmıştır.
-

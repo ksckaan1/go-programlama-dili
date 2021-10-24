@@ -1,10 +1,10 @@
 # WebView
 
-**webview** kütüphanesine giriş yapmadan önce bahsetmek istediğim birkaç konu var.  
-Daha önce aramızda **electron.js**‘i duyanlar olmuştur. Hani şu Visual Studio Code, Skype, Atom, Discord ve Slack gibi başarılı uygulamaların yazılmış olduğu Javascript kütüphanesinden bahsediyorum. Electron.js ile yazılan uygulamalar **HTML**, **CSS** ve **Javascript**‘in gücüyle kaliteli bir grafiksel kullanıcı arayüzüne ulaşabiliyor. Eğer bir Web Developer’sanız kolayca masaüstü uygulaması yazabiliyorsunuz. Ama Electron.js ile yazılmış uygulamaların kötü yanları da var tabi. Uygulama boyutu bunlardan en sıkıntılı olanı. En basit bir uygulamanın boyutu 150 Megabyte olabiliyor. Bir de **electron-packager** yardımı ile uygulama build edilirken uzun süre bekliyorsunuz.  
+**webview** kütüphanesine giriş yapmadan önce bahsetmek istediğim birkaç konu var.\
+Daha önce aramızda **electron.js**‘i duyanlar olmuştur. Hani şu Visual Studio Code, Skype, Atom, Discord ve Slack gibi başarılı uygulamaların yazılmış olduğu Javascript kütüphanesinden bahsediyorum. Electron.js ile yazılan uygulamalar **HTML**, **CSS** ve **Javascript**‘in gücüyle kaliteli bir grafiksel kullanıcı arayüzüne ulaşabiliyor. Eğer bir Web Developer’sanız kolayca masaüstü uygulaması yazabiliyorsunuz. Ama Electron.js ile yazılmış uygulamaların kötü yanları da var tabi. Uygulama boyutu bunlardan en sıkıntılı olanı. En basit bir uygulamanın boyutu 150 Megabyte olabiliyor. Bir de **electron-packager** yardımı ile uygulama build edilirken uzun süre bekliyorsunuz.\
 Şimdi gelelim bizi bu olaylardan kurtaracak olan gözümün nuru Golang Kütüphanesi olan **webview** kütüphanesine ♥
 
-**webview** kütüphanesi **zserge** arkadaşımız tarafından yazılmış olan, web sayfaları tasarlayıp programa dönüştürebildiğimiz, backend kısmını Golang rahatlığında yazdığımız bir kütüphane \(veya paket\)dir. 
+**webview** kütüphanesi **zserge** arkadaşımız tarafından yazılmış olan, web sayfaları tasarlayıp programa dönüştürebildiğimiz, backend kısmını Golang rahatlığında yazdığımız bir kütüphane (veya paket)dir.&#x20;
 
 {% hint style="info" %}
 zserge/webview repo'su webview/webview'a taşınmıştır.
@@ -12,8 +12,8 @@ zserge/webview repo'su webview/webview'a taşınmıştır.
 
 Build işlemi sonrası aslında elimizde bir internet tarayıcısı olmuş oluyor. Bu tarayıcı üzerinden hazırlamış olduğumuz web sayfası görüntüleniyor. Frontend ve Backend arasındaki iletişimi ise **Bind** ile sağlıyoruz. Bu özelliği birazdan kodlar içerisinde açıklayacağım.
 
-Sadece **Windows**, **GNU/Linux** ve **macOS** için uygulama geliştirebiliyoruz.  
-GNU/Linux üzerinde **gtk-webkit2**, macOS üzerinde **Cocoa/Webkit** ve Windows üzerinde **Edge** alt yapısını kullanıyor. Linux üzerinde çalışması için, gtk-webkit2 paketini yüklemeyi unutmayın. Bu detaylara bakacak olursak, Windows üzerinde çalışırken Edge Browser’ı kullanacak. macOS ve GNU/Linux üzerinde ise Chrome benzeri bir altyapı kullanacak. Bu durumda GNU/Linux ve macOS için geliştirmek daha mantıklı çünkü daha fazla görsel efekt imkanı var olacaktır. Örnek: CSS3’teki **-webkit-** etiketi…  
+Sadece **Windows**, **GNU/Linux** ve **macOS** için uygulama geliştirebiliyoruz.\
+GNU/Linux üzerinde **gtk-webkit2**, macOS üzerinde **Cocoa/Webkit** ve Windows üzerinde **Edge** alt yapısını kullanıyor. Linux üzerinde çalışması için, gtk-webkit2 paketini yüklemeyi unutmayın. Bu detaylara bakacak olursak, Windows üzerinde çalışırken Edge Browser’ı kullanacak. macOS ve GNU/Linux üzerinde ise Chrome benzeri bir altyapı kullanacak. Bu durumda GNU/Linux ve macOS için geliştirmek daha mantıklı çünkü daha fazla görsel efekt imkanı var olacaktır. Örnek: CSS3’teki **-webkit-** etiketi…\
 Gelelim kütüphanenin kurulumuna. Aşağıdaki komut ile kütüphanemizi indiriyoruz.
 
 > go get github.com/webview/webview
@@ -57,7 +57,7 @@ func main() {
 ```
 {% endcode %}
 
-![Olu&#x15F;turulan pencerenin g&#xF6;r&#xFC;n&#xFC;m&#xFC;](../.gitbook/assets/screenshot_20201012_130620.png)
+![Oluşturulan pencerenin görünümü](../.gitbook/assets/Screenshot\_20201012\_130620.png)
 
 Yukarıdaki gibi basit bir yöntem ile bir **gui** program oluşturabiliyorsunuz. Seviyeyi biraz yükseltelim ve sonraki örneğimize geçelim.
 
@@ -118,8 +118,8 @@ func main() {
 ```
 {% endcode %}
 
-Hemen açıklamasını yapayım. Kendi sunucumuzu oluşturmak için **“net/http”** kütüphanesini ekledik. **serverOlustur\(\)** fonksiyonunda klasik web server oluşturmak için gerekli kodları yazdık. Görüntülenecek içeriği **handler\(\)** fonksiyonunda belirttik.  
-**main\(\)** fonksiyonu içerisindeki kodlarımıza geçelim. **serverOlustur\(\)** fonksiyonunu **Goroutine** ile yazmazsak web server ayağa kaldırıldığında \(açıldığında\) kapanana kadar alt taraftaki webview kodlarının çalışmasına sıra gelmez. Başına **go** ekleyerek aynı anda server’ın oluşturulmasına ve diğer kodların çalışmasını sağlıyoruz. **webview** kodlarımızda ise oluşturduğumuz web server’ın bilgilerini ve pencere ayarlarını giriyoruz.  
+Hemen açıklamasını yapayım. Kendi sunucumuzu oluşturmak için **“net/http”** kütüphanesini ekledik. **serverOlustur()** fonksiyonunda klasik web server oluşturmak için gerekli kodları yazdık. Görüntülenecek içeriği **handler()** fonksiyonunda belirttik.\
+**main()** fonksiyonu içerisindeki kodlarımıza geçelim. **serverOlustur()** fonksiyonunu **Goroutine** ile yazmazsak web server ayağa kaldırıldığında (açıldığında) kapanana kadar alt taraftaki webview kodlarının çalışmasına sıra gelmez. Başına **go** ekleyerek aynı anda server’ın oluşturulmasına ve diğer kodların çalışmasını sağlıyoruz. **webview** kodlarımızda ise oluşturduğumuz web server’ın bilgilerini ve pencere ayarlarını giriyoruz.\
 Biraz değişiklikler ile istediğimiz bir klasörü göstermeye ayarlayabiliriz.
 
 Projemizin yapısı aşağıdaki gibi olsun.
@@ -199,7 +199,7 @@ func main() {
 ```
 {% endcode %}
 
-Sıra geldi Backend \(Golang\) ve Frontend \(Javascript\) arasındaki iletişimi sağlamaya. Aşağıdaki işlemleri yukarıdaki klasör yapısında göre yapacağız. Yani bu şekilde:
+Sıra geldi Backend (Golang) ve Frontend (Javascript) arasındaki iletişimi sağlamaya. Aşağıdaki işlemleri yukarıdaki klasör yapısında göre yapacağız. Yani bu şekilde:
 
 {% code title="Proje yapımız" %}
 ```bash
@@ -210,9 +210,9 @@ Sıra geldi Backend \(Golang\) ve Frontend \(Javascript\) arasındaki iletişimi
 ```
 {% endcode %}
 
-## **Frontend’den Backend’e Veri Gönderme \(JavaScript ===&gt; Go\)**
+## **Frontend’den Backend’e Veri Gönderme (JavaScript ===> Go)**
 
-Bu işlemi gerçekleştirebilmemiz için webview tarayıcısının frontend’deki sinyalleri dinlemesi gerekir. Golang tarafından dinlemek için **Bind\(\)** fonksiyonunu kullanıyoruz.
+Bu işlemi gerçekleştirebilmemiz için webview tarayıcısının frontend’deki sinyalleri dinlemesi gerekir. Golang tarafından dinlemek için **Bind()** fonksiyonunu kullanıyoruz.
 
 Örnek bir **main.go** dosyası oluşturalım.
 
@@ -319,7 +319,7 @@ Bu işlemler sonucunda uygulamamızı projemizin ana dizinindeyken `go run .` ş
 
 **Yazı kutusu**na isim girip **Gönder** butonuna baştığımızda konsol tarafında `merhaba isim` şeklinde bir çıktı görürüz.
 
-## **Backend’den Frontend’e Veri Gönderme \(Go ===&gt; JavaScript\)**
+## **Backend’den Frontend’e Veri Gönderme (Go ===> JavaScript)**
 
 Aslında burada yapacağımız olay bir JavaScript kodu çalıştırmak veya tetiklemek de denebilir. Tıpkı Developer Console'dan yaptığımız gibi..
 
@@ -346,7 +346,7 @@ Uygulamamızı çalıştırıp yazı kutusuna bir isim girdiğimizde Komut satı
 
 Sayfaya sağ tıklayalım ve Inspect Element'e tıklayalım. Açılan bölümde **Console** sekmesine geçelim. All şeçeneğinin şeçili olduğundan emin olalım. Ve işte! log çıktımızın burada.
 
-![Developer Tool g&#xF6;r&#xFC;n&#xFC;m&#xFC;](../.gitbook/assets/jskonsole.png)
+![Developer Tool görünümü](../.gitbook/assets/jskonsole.png)
 
 Bu işlemler ile kolay bir şekilde Backend-Frontend arası iletişimi sağlayabilirsiniz.
 
@@ -375,7 +375,7 @@ Eğer bu kodları asenkron olarak çalıştırmasaydık, Webview penceremiz 3 sa
 
 Şimdi buraya kadar karışık bir olay yok aslında. Asıl asenkron mantığı 3 saniye bekleyip çıktımızı JavaScript konsoluna bastırmak olacaktır. Aralarındaki asenkron olayı bu şekilde sağlancaktır.
 
-Normalde asenkron iki işlemin birinden diğerine ait olan bir işlemi yapmak için işaretçileri _\(pointer\)_ kullanabiliriz. Fakat Webview nesnesine bir işaretçi atayamayız. Çünkü webview ile oluşturulan nesnemiz bir interface'tir.
+Normalde asenkron iki işlemin birinden diğerine ait olan bir işlemi yapmak için işaretçileri _(pointer)_ kullanabiliriz. Fakat Webview nesnesine bir işaretçi atayamayız. Çünkü webview ile oluşturulan nesnemiz bir interface'tir.
 
 Örnek bir deneme girişimi 😀
 
@@ -425,7 +425,7 @@ func fonksiyonumuz(p *webview.WebView, isim string) {
 ```
 {% endcode %}
 
-![Hata mesaj&#x131;](../.gitbook/assets/pointeryanlis.png)
+![Hata mesajı](../.gitbook/assets/pointeryanlış.png)
 
 Şuana kadar gösterdiğim şeyler bir yanlış yapmayın diyeydi. Yukarıdaki yöntemi doğru değildir. Doğrusu `Dispatch()` fonksiyonunu kullanmaktır. Go kodlarımızın tamamını görecek şekilde bir örnek verelim. Örnek kullanımı:
 
@@ -478,7 +478,7 @@ func fonksiyonumuz(p webview.WebView, isim string) {
 
 ## Webview Kütüphanesindeki Diğer Fonksiyonlar
 
-### Destroy\(\)
+### Destroy()
 
 Webview penceremizi sonlandırır.
 
@@ -486,7 +486,7 @@ Webview penceremizi sonlandırır.
 pencere.Destroy()
 ```
 
-### Terminate\(\)
+### Terminate()
 
 Pencerenin çalışmasını keser.
 
@@ -494,7 +494,7 @@ Pencerenin çalışmasını keser.
 pencere.Terminate()
 ```
 
-### Eval\(\)
+### Eval()
 
 Pencerede JavaScript kodu çalıştırmamızı sağlar.
 
@@ -502,7 +502,7 @@ Pencerede JavaScript kodu çalıştırmamızı sağlar.
 pencere.Eval("alert('Merhaba!')")
 ```
 
-### Init\(\)
+### Init()
 
 Pencereye JavaScript kodu iliştirir. `Eval()` fonksiyonundan farkı ise sayfa değişse bile JavaScript kodu sayfada kalır. `Eval()` ile bir kere mahsus JavaScript kodu çalıştırılır. `Init()` fonksiyonunda sayfa yenilenince bile kod çalışırır.
 
@@ -510,7 +510,7 @@ Pencereye JavaScript kodu iliştirir. `Eval()` fonksiyonundan farkı ise sayfa d
 pencere.Init("alert('Merhaba!')")
 ```
 
-### Navigate\(\)
+### Navigate()
 
 Webview penceresinin belirtilen adresi yüklemesini sağlar.
 
@@ -518,7 +518,7 @@ Webview penceresinin belirtilen adresi yüklemesini sağlar.
 pencere.Navigate("https://www.google.com.tr")
 ```
 
-### Run\(\)
+### Run()
 
 Pencereyi başlatır.
 
@@ -526,7 +526,7 @@ Pencereyi başlatır.
 pencere.Run()
 ```
 
-### SetSize\(\)
+### SetSize()
 
 Pencerenin boyutunu ve etkileşimini ayarlar.
 
@@ -540,13 +540,11 @@ pencere.SetSize(800, 600, webview.HintNone)
 //bir pencere oluşturabiliriz.
 ```
 
-### SetTitle\(\)
+### SetTitle()
 
 Pencerenin başlığını değiştirmemizi sağlar.
 
 ```go
 pencere.SetTitle("Uygulama Başlığım")
 ```
-
-
 

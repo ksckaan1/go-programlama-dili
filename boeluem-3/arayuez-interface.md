@@ -1,4 +1,4 @@
-# Arayüz \(Interface\)
+# Arayüz (Interface)
 
 **Interface**'in Go dili üzerindeki kullanımını basitçe açıklayalım. Interface struct nesnelerin, struct tipine göre ilişkili fonksiyonların çalışmasını sağlar. Detayına inmek için önce interface'in nasıl oluşturulduğuna bakalım.
 
@@ -121,4 +121,3 @@ func main() {
 Özet geçmek gerekirse, en yukarıda interface'in tanımını yaptığım cümleyi aşağıya kopyala + yapıştır yapayım.
 
 > Interface struct nesnelerin, struct tipine göre ilişkili fonksiyonların çalışmasını sağlar.
-

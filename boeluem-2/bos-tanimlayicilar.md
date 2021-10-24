@@ -1,6 +1,6 @@
 # Boş Tanımlayıcılar
 
-Golang kodlarımızda bazen 2 adet değer döndüren fonksiyonlar kullanırız. Bu değerlerden hangisini kullanmak istemiyorsak, değişken adı yerine **\_ \(alt tire\)** kullanırız.
+Golang kodlarımızda bazen 2 adet değer döndüren fonksiyonlar kullanırız. Bu değerlerden hangisini kullanmak istemiyorsak, değişken adı yerine **\_ (alt tire)** kullanırız.
 
 Örneğimizi görelim:
 
@@ -43,4 +43,3 @@ func main() {
 Yukarıdaki kodlarımızda fonksiyonumuzun 4’e bölme özelliğini kullanmak istemediğimizden dolayı boş tanımlama işlemi yaptık.
 
 Boş tanımlama işlemleri çoğunlukla Golang’ta programcılar tarafından hata çıktısını kullanmak istenmediğinizde yapılıyor.
-

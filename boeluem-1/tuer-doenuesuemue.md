@@ -28,4 +28,3 @@ Aldığımız konsol çıktısı şu şekilde olacaktır.
 > ₺
 
 Yani Türk Lirası simgesi çıkacaktır. Sayılar string türüne dönüştürüldüğünde karakter olarak değer alır.
-

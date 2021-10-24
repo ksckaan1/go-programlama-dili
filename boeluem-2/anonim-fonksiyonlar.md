@@ -1,6 +1,6 @@
 # Anonim Fonksiyonlar
 
-Anonim fonksiyonların en büyük özelliği isimsiz olmalarıdır. \(Zaten adından da belli oluyor 🤔\) Yazıldıkları yerde direkt olarak çalışırlar. Çalışırken diğer fonksiyonlardaki gibi parametre verilemediği için fonksiyonun sonuna parametre eklenerek çalışıtırılırlar. Örneğimizi görelim:
+Anonim fonksiyonların en büyük özelliği isimsiz olmalarıdır. (Zaten adından da belli oluyor 🤔) Yazıldıkları yerde direkt olarak çalışırlar. Çalışırken diğer fonksiyonlardaki gibi parametre verilemediği için fonksiyonun sonuna parametre eklenerek çalışıtırılırlar. Örneğimizi görelim:
 
 ```go
 package main
@@ -16,4 +16,3 @@ func main() {
 }
 
 ```
-

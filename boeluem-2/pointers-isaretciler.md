@@ -1,4 +1,4 @@
-# Pointers \(İşaretçiler\)
+# Pointers (İşaretçiler)
 
 İşaretçiler ile nesnenin bellekteki adresi üzerinden işlemler yapabilir. Daha önceden işaretçileri içeren bir dil kullanmamış veya herhangi bir programlama dili de kullanmamış olabilirsiniz. Bu yüzden daha iyi anlamanız için işaretçilerin çalışma mantığını bilmemiz gerekir.
 
@@ -8,11 +8,11 @@
 var a int = 8
 ```
 
-Bu değişkenimizi oluşturduktan sonra programımız çalışmaya başlayınca işletim sistemimiz bu değişkene özel, **bellek \(RAM\)** üzerinde bir alan ayıracaktır. Programın geri kalanında değişkenimizin değerine bu alan üzerinden ulaşılacaktır. Yani bir değişken oluşturduğumuzda bellek üzerinde aşağıdaki resimdeki gibi bir alan oluştuğunu hayal edebilirsiniz.
+Bu değişkenimizi oluşturduktan sonra programımız çalışmaya başlayınca işletim sistemimiz bu değişkene özel, **bellek (RAM)** üzerinde bir alan ayıracaktır. Programın geri kalanında değişkenimizin değerine bu alan üzerinden ulaşılacaktır. Yani bir değişken oluşturduğumuzda bellek üzerinde aşağıdaki resimdeki gibi bir alan oluştuğunu hayal edebilirsiniz.
 
-![De&#x11F;i&#x15F;kenin RAM &#xFC;zerindeki Alan&#x131; \(Temsili\)](../.gitbook/assets/pointeronram.png)
+![Değişkenin RAM üzerindeki Alanı (Temsili)](../.gitbook/assets/pointeronram.png)
 
-Yukarıdaki resimde mor renkli olarak gördüğümüz ifade ise değişkenimizin bellekteki adresidir. \(Bu adres temsilidir. Zaten sürekli olarak değişen birşeydir.\)
+Yukarıdaki resimde mor renkli olarak gördüğümüz ifade ise değişkenimizin bellekteki adresidir. (Bu adres temsilidir. Zaten sürekli olarak değişen birşeydir.)
 
 ## Peki Go'da işaretçileri nasıl kullanırız?
 
@@ -36,12 +36,12 @@ func ekle(v int) {
 
 Yukarıdaki örnekte `a` değişkenini ekrana bastırdığımızda sonucun hala `8` olduğunu görüyoruz. Halbuki `ekle` fonksiyonunun içerisinde gördüğümün gibi `5` ekliyoruz.
 
-`a` değişkeninin değişmeme sebebi şudur:  
+`a` değişkeninin değişmeme sebebi şudur:\
 `ekle` fonksiyonunun parametresi olarak `int` tipinde `v` değişkenini oluşturduk. `v` değişkenimiz aslında `a`'dan gelen değeri kullanmamızı sağlıyor. Yani bize `a`'nın kendisini vermiyor. O yüzden `v` üzerinde değişiklik yaptığımızda `a`'ya yansımayacaktır.
 
-`a` değişkenini değiştirebilmemiz için bize `a`'nın bellekteki adresi gerekiyor. Bunun için de `&` \(ampersand\) işaretini kullanabiliriz.
+`a` değişkenini değiştirebilmemiz için bize `a`'nın bellekteki adresi gerekiyor. Bunun için de `&` (ampersand) işaretini kullanabiliriz.
 
-![Ampersand kullan&#x131;m&#x131;](../.gitbook/assets/ampkullanimi.png)
+![Ampersand kullanımı](../.gitbook/assets/ampkullanımı.png)
 
 Örnek vermek gerekirse:
 
@@ -54,7 +54,7 @@ func main() {
 
 Artık `a`'nın bellekteki adresini öğrenebiliyoruz. Sıra geldi bu adres üzerinden `a`'nın değerine ulaşabilmeye.
 
-Bunun için de `*` \(yıldız\) işaretini kullanabiliriz.
+Bunun için de `*` (yıldız) işaretini kullanabiliriz.
 
 ```go
 func main() {
@@ -107,4 +107,3 @@ Yukarıdaki örneği incelediğimizde, `ekle` fonksiyonumuzu oluştururken param
 `main` fonksiyonumuzda `ekle` fonksiyonunu çağırırken de `a` değişkenini `&` işareti kullanarak bellekteki adresi ile verdik.
 
 Bu sayede `a` değişkenine bellekteki adresi ile müdahale etmiş olduk.
-

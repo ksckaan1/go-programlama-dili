@@ -34,4 +34,3 @@ Dosya işlemleri yapabilmek için `os` paketini import ettik. if-else akışınd
 Bu akışta `dosyaVarmı` fonksiyonunda `true` değer dönerse `dosya.txt bulunuyor` olarak çıktı almamız gerekir.
 
 `dosyaVarmı` fonksiyonunu incelediğimizde `bilgi` ve `hata` değişkenlerine `os.Stat` ile dosyanın bilgilerini çektik. `hata` değişkeni `false` döndürürse fonksiyonun `false` döndürmesini istedik. Aynı şekilde `bilgi.IsDir()` ile dosya değil de bir dizinse `false` döndürmesini istedik.
-

@@ -10,7 +10,7 @@ Yukarıdaki komutu yazarak yükleyebilirsiniz.
 
 Şimdi Cobra CLI ile proje oluşturacağım. Projeyi aşağıdaki komutla oluşturabilirsiniz; `$ mkdir -p testApp && cd testApp` `$ cobra init --pkg-name github.com/your_user_name/testApp`
 
-```text
+```
 kısmını kendi GitHub kullanıcı adınızla değiştirmeyi unutmayın.
 Şu anda testApp klasörü içerisinde Cobra projesi oluşturulmuş olmalı.
 Klasör hiyerarşisi aşağıdaki gibi olmalı:
@@ -18,12 +18,12 @@ Klasör hiyerarşisi aşağıdaki gibi olmalı:
 
 . ├── cmd │ └── root.go └── main.go
 
-```text
+````
 ## 1. Projeye Komut Eklemek
 
 Komutu, proje dizininin içine girip,
 ```$ cobra add start
-```
+````
 
 şeklinde ekliyoruz. Projeye bakarsanız cmd klasörü altına start.go dosyası oluşturulduğunu göreceksiniz. start.go dosyası içine bakarsak karşımıza şu çıkacaktır. Buradaki mantık Use kısmı bu komutun kullanımı bilgisini verir mesela `testApp start` gibi. Short kısmında ise bu oluşturduğumuz komutun kısa açıklamasıdır ve Long ise uzun açıklaması anlamına gelir.
 
@@ -80,9 +80,8 @@ Yukarda verdiğim örnekte
 
 ## Uygulamayı Yüklemek
 
-Projemizi kullanmak için hep go run ya da derlemek saçma olur bunun için proje dizinine,  
-`$ go install`  
-komutunu yazarak projeyi yükleyebilirsiniz.  
-Şimdi proje yüklemesini test etmek amaçlı aşşağıdaki komutu gireim terminale çıktı alırsanız yüklenmiş demektir.  
+Projemizi kullanmak için hep go run ya da derlemek saçma olur bunun için proje dizinine,\
+`$ go install`\
+komutunu yazarak projeyi yükleyebilirsiniz.\
+Şimdi proje yüklemesini test etmek amaçlı aşşağıdaki komutu gireim terminale çıktı alırsanız yüklenmiş demektir.\
 `$ testApp`
-

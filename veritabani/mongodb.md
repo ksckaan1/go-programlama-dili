@@ -145,4 +145,3 @@ if err != nil {
     log.Fatal("Hata : " + err.Error())
 }
 ```
-

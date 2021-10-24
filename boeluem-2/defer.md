@@ -17,7 +17,7 @@ func main() {
 >
 > İlk Cümle
 
-Açıklamaya gelirsek ekrana **İlk Cümle** yazısını bastıran satırımızın başına **defer** terimini ekledik. **defer** eklediğimiz satır **main\(\)** fonksiyonunun içinde olduğu için **main\(\)** fonsyionundaki tüm işlemler tamamlandıktan sonra ekrana yazımızı bastırdı.  
+Açıklamaya gelirsek ekrana **İlk Cümle** yazısını bastıran satırımızın başına **defer** terimini ekledik. **defer** eklediğimiz satır **main()** fonksiyonunun içinde olduğu için **main()** fonsyionundaki tüm işlemler tamamlandıktan sonra ekrana yazımızı bastırdı.\
 Birden fazla defer ekleyecek olursak;
 
 ```go
@@ -83,4 +83,3 @@ func main() {
 > 1
 >
 > 0
-

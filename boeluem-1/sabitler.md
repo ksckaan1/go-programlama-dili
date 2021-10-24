@@ -26,4 +26,3 @@ const isim string = “Ali”
 isim = “Ali”
 const yas = 20
 ```
-

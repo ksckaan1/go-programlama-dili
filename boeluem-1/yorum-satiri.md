@@ -20,4 +20,3 @@ herhangi
 birşey
 yazabilirsiniz */
 ```
-

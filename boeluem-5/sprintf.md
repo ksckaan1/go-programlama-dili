@@ -17,4 +17,3 @@ func main() {
 	fmt.Println(isimTip)
 }
 ```
-

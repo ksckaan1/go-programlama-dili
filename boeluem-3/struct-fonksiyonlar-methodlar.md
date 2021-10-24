@@ -1,4 +1,4 @@
-# Struct Fonksiyonlar \(Methodlar\)
+# Struct Fonksiyonlar (Methodlar)
 
 Bu bölümde bir struct'a özel nasıl fonksiyon oluşturacağımızı göreceğiz.
 
@@ -32,4 +32,3 @@ Daha sonra `main` fonksiyonumuzda `kişi` isminde `insan` tipinde bir nesne olu�
 Çıktımızı görelim:
 
 > Merhaba, Ben Kaan. 23 yaşındayım.
-

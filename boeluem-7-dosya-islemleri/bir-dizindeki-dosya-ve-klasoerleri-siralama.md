@@ -26,14 +26,13 @@ func main() {
 }
 ```
 
-Yukarıdaki kodlarımızın açıklamasını görelim:  
-Öncelikle **“os”** paketimizi içe aktarıyoruz. **diziniOku\(\)** fonksiyonumuzun içerisinde **dizin** adında değişken oluşturduk ve bu değişkende fonksiyonumuza **d** argümanı ile gelecek olan dizinimizi açtık. Eğer bir hata ile karşılaşırsak diye hata yakalama işlemini yaptık.  
-Daha sonra **dizin** değişkenimizi **defer** ile kapattık.  
-**liste** adında değişken oluşturduk. Bu değişkenimizin içerisine **dizin.Readdirnames\(0\)** diyerek tüm dosya ve klasörleri bu değişkenimizin içerisine attık. Burada sıfır kullanmamızın sebebi tüm dosya ve klasörleri okuyabilmek içindir.  
-   
-Hemen aşağısında **for** ve **range** ile **liste** değişkenimizdeki dosya ve klasör isimlerini isim değişkenimize bastırmak istedik. Her dosya ve klasör ayrı ayrı isim değişkenimize atandı ve ekrana bastırılmış oldu.  
-   
-Daha sonra **diziniOku\(\)** fonksiyonumuzun en altında **len\(liste\)** ile dosya sayımızı öğrenerek ekrana bastırdık.  
-   
-**main\(\)** fonksiyonumuzda ise **diziniOku\(“.”\)** diyerek nokta ile bulunduğumuz dizini okuttuk.
-
+Yukarıdaki kodlarımızın açıklamasını görelim:\
+Öncelikle **“os”** paketimizi içe aktarıyoruz. **diziniOku()** fonksiyonumuzun içerisinde **dizin** adında değişken oluşturduk ve bu değişkende fonksiyonumuza **d** argümanı ile gelecek olan dizinimizi açtık. Eğer bir hata ile karşılaşırsak diye hata yakalama işlemini yaptık.\
+Daha sonra **dizin** değişkenimizi **defer** ile kapattık.\
+**liste** adında değişken oluşturduk. Bu değişkenimizin içerisine **dizin.Readdirnames(0)** diyerek tüm dosya ve klasörleri bu değişkenimizin içerisine attık. Burada sıfır kullanmamızın sebebi tüm dosya ve klasörleri okuyabilmek içindir.\
+&#x20;\
+Hemen aşağısında **for** ve **range** ile **liste** değişkenimizdeki dosya ve klasör isimlerini isim değişkenimize bastırmak istedik. Her dosya ve klasör ayrı ayrı isim değişkenimize atandı ve ekrana bastırılmış oldu.\
+&#x20;\
+Daha sonra **diziniOku()** fonksiyonumuzun en altında **len(liste)** ile dosya sayımızı öğrenerek ekrana bastırdık.\
+&#x20;\
+**main()** fonksiyonumuzda ise **diziniOku(“.”)** diyerek nokta ile bulunduğumuz dizini okuttuk.

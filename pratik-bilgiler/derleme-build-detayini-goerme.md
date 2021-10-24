@@ -1,7 +1,7 @@
-# Derleme \(Build\) Detayını Görme
+# Derleme (Build) Detayını Görme
 
-Golang’de normalde derleme işlemini yapmak için go build komutunu kullanırız. Bu komut terminal ekranından bize sadece bir hata olduğunda bilgi verir. Hata yoksa çalıştırılabilir dosyayı zaten oluşturur.  
- 
+Golang’de normalde derleme işlemini yapmak için go build komutunu kullanırız. Bu komut terminal ekranından bize sadece bir hata olduğunda bilgi verir. Hata yoksa çalıştırılabilir dosyayı zaten oluşturur.\
+&#x20;
 
 **Peki programımızın derlenme esnasında bilgilendirmeyi nasıl görebiliriz?**
 
@@ -29,16 +29,15 @@ func topla(x,y int) int{
 
 Yukarıdaki kodumuzun derleme çıktısı şöyle olacaktır.
 
-> command-line-arguments  
-> ./main.go:13:6: can inline topla  
-> ./main.go:9:13: inlining call to fmt.Println  
-> ./main.go:10:22: inlining call to topla  
-> ./main.go:10:16: inlining call to fmt.Println  
-> ./main.go:9:14: "Merhaba" escapes to heap  
-> ./main.go:9:13: io.Writer\(os.Stdout\) escapes to heap  
-> ./main.go:10:16: io.Writer\(os.Stdout\) escapes to heap  
-> ./main.go:10:22: topla\(2, 2\) escapes to heap  
-> ./main.go:9:13: main \[\]interface {} literal does not escape  
-> ./main.go:10:16: main \[\]interface {} literal does not escape  
-> :1: os.\(\*File\).close .this does not escape
-
+> command-line-arguments\
+> ./main.go:13:6: can inline topla\
+> ./main.go:9:13: inlining call to fmt.Println\
+> ./main.go:10:22: inlining call to topla\
+> ./main.go:10:16: inlining call to fmt.Println\
+> ./main.go:9:14: "Merhaba" escapes to heap\
+> ./main.go:9:13: io.Writer(os.Stdout) escapes to heap\
+> ./main.go:10:16: io.Writer(os.Stdout) escapes to heap\
+> ./main.go:10:22: topla(2, 2) escapes to heap\
+> ./main.go:9:13: main \[]interface {} literal does not escape\
+> ./main.go:10:16: main \[]interface {} literal does not escape\
+> :1: os.(\*File).close .this does not escape

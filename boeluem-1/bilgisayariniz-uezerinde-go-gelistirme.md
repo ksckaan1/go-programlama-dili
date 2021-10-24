@@ -1,6 +1,6 @@
 # VSCode Go Eklentisi Yükleme
 
-Golang’ı indirdiğimize göre bize Golang kodlarımızı yazacağımız bir Tümleşik Geliştirme Ortamı \(IDE\) lazım. IDE’ler kodlarımızı yazarken kodların doğruluğunu kontrol eder ve kod yazarken önerilerde bulunur. Bu da kod yazarken işimizi kolaylaştırır.
+Golang’ı indirdiğimize göre bize Golang kodlarımızı yazacağımız bir Tümleşik Geliştirme Ortamı (IDE) lazım. IDE’ler kodlarımızı yazarken kodların doğruluğunu kontrol eder ve kod yazarken önerilerde bulunur. Bu da kod yazarken işimizi kolaylaştırır.
 
 Benim tavsiyem çoğu kodlama dilini yazarken kullandığım ve Golang yazanların da popüler olarak kullandığı **Visual Studio Code** programı.
 
@@ -52,13 +52,13 @@ MacOS: [Buradan İndirebilirsiniz.](https://git-scm.com/download/mac)
 
 Git kurulumunu da yaptığımıza göre VSCode için Go eklentisini kurabiliriz.
 
-![VS Code Go Eklentisi](../.gitbook/assets/deepinscreenshot_select-area_20191006213837.webp)
+![VS Code Go Eklentisi](../.gitbook/assets/DeepinScreenshot\_select-area\_20191006213837.webp)
 
-Vscode’un sol tarafından **Extension** \(Eklentiler\) sekmesine geçiyoruz. Arama kutusuna **go** yazıyoruz. Resimde de seçili olan Go eklentisini yeşil **Install \(Yükle\)** butonuna basarak yüklüyoruz. Yeniden başlatma isterse başlatmayı unutmayın.
+Vscode’un sol tarafından **Extension** (Eklentiler) sekmesine geçiyoruz. Arama kutusuna **go** yazıyoruz. Resimde de seçili olan Go eklentisini yeşil **Install (Yükle)** butonuna basarak yüklüyoruz. Yeniden başlatma isterse başlatmayı unutmayın.
 
 Daha sonra **main.go** adında bir dosya oluşturup VSCode ile açalım. main.go dosyasının içerisine rastgele birşeyler yazdığımızda VSCode sağ alt tarafta bize uyarı verecektir.
 
-![VS Code Go Uyar&#x131;s&#x131;](../.gitbook/assets/golang-plugins-all.webp)
+![VS Code Go Uyarısı](../.gitbook/assets/golang-plugins-all.webp)
 
 **Install All** diyerek Go eklentisi araçlarının kurulumunu başlatalım.
 
@@ -66,5 +66,4 @@ Kurulum bize 15 civarı araç kuracak. Başarı ile kurulan araçların yanında
 
 Tüm araçlarımız başarıyla kurulunca artık VSCode üzerinden Go geliştirmeye hazır olacaksınız.
 
-## 
-
+##

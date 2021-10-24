@@ -82,7 +82,7 @@ func main() {
 
 Çıktımız aşağıdaki gibi olacaktır.
 
-> x 5'tir  
+> x 5'tir\
 > x 10'dan küçüktür
 
 ### Switch'e Özel Değişken Tanımlama
@@ -97,4 +97,3 @@ switch x := 5; {
 		fmt.Println("x 10'dan küçüktür")
 }
 ```
-

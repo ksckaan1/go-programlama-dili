@@ -1,6 +1,6 @@
 # Struct
 
-Go programlama dilinde sınıflar yoktur. Sınıflar yerine struct'lar \(yapılar\) vardır. Yapılar sayesinde bir nesne oluşturabilir ve bu nesneye ait özellikler oluşturabiliriz. Örnek bir struct oluşturalım.
+Go programlama dilinde sınıflar yoktur. Sınıflar yerine struct'lar (yapılar) vardır. Yapılar sayesinde bir nesne oluşturabilir ve bu nesneye ait özellikler oluşturabiliriz. Örnek bir struct oluşturalım.
 
 {% code title="struct örneği" %}
 ```go
@@ -72,4 +72,3 @@ fmt.Println(kişi1) //{Kaan Kuşcu 23}
 ```
 
 Değişken ismini belirterek atama yaptığımız için sıralamaya dikkat etmemiz gerekli değildir.
-

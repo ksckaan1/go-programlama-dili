@@ -1,4 +1,4 @@
-# Kanallar \(Channels\)
+# Kanallar (Channels)
 
 **Kanallar**, Go dilinde asenkron programlama yaparken değer aktarımı yapabileceğimiz hatlardır. Kanala değer atanması iş parçacığı tarafından bekleneceği için asenkron işlemler arasındaki senkronizasyonu ayarlayabiliriz. Kanallar `make()` fonksiyonu ile oluşturulur.
 
@@ -24,7 +24,7 @@ a := <-k
 ```
 {% endcode %}
 
-Yukarıdaki örnekte `a` isimli değişkene `k` kanalından gelen `bool` tipinde değer atadık. `a` değişkenine atama işlemi `k` kanalına değer gönderildiği zaman yapılacaktır. Yani `k` kanalına değer gelene kadar iş parçacığı duraklatılacaktır. _\(Program `k` kanalına gelecek değeri bekler.\)_
+Yukarıdaki örnekte `a` isimli değişkene `k` kanalından gelen `bool` tipinde değer atadık. `a` değişkenine atama işlemi `k` kanalına değer gönderildiği zaman yapılacaktır. Yani `k` kanalına değer gelene kadar iş parçacığı duraklatılacaktır. _(Program `k` kanalına gelecek değeri bekler.)_
 
 {% code title="Sadece kanala değer gelmesini beklemek" %}
 ```go
@@ -107,7 +107,6 @@ func main() {
 ```
 {% endcode %}
 
-Ana iş parçacığı _\(`main()` içerisine yazılan kodlar\)_ devam etmek için `k` kanalına gelen 2 değeri de bekleyecektir.
+Ana iş parçacığı _(`main()` içerisine yazılan kodlar)_ devam etmek için `k` kanalına gelen 2 değeri de bekleyecektir.
 
 `fmt.Println()` içerisine sadece bir defa `<-k` yazsaydık, `k` kanalına ilk gelen değeri ekrana bastıracaktı.
-

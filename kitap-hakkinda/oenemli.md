@@ -11,4 +11,3 @@ Gördüğünüz hataları ve önerilerinizi Twitter [@ksckaan1](http://twitter.c
 {% hint style="info" %}
 Sizde bu kaynağı paylaşarak kaynağın yayılmasına yardımcı olabilirsiniz.
 {% endhint %}
-

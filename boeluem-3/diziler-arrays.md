@@ -1,4 +1,4 @@
-# Diziler \(Arrays\)
+# Diziler (Arrays)
 
 Diziler içlerinde bir veya birden fazla değer tutabilen birimlerdir. Bir dizideki her değer sırasıyla numaralandırılır. Numaralandırma sıfırdan başlar. Aynı şekilde örneğe geçelim.
 
@@ -25,4 +25,3 @@ func main() {
  fmt.Println(a) //Çıktımız: [Ayşe Fatma Hayriye]
 }
 ```
-

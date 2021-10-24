@@ -16,7 +16,7 @@ Aynı şekilde **yas** adında değişken oluşturduk. **yas** değişkeni içer
 
 Golang’ta değişken adı oluştururken Türkçe karakterler kullanabiliriz. Örnek olarak **ogrenci** yerine öğrenci yazabilirdik. Ama başka bir programlama diline geçtiğinizde Türkçe harf desteklememesi halinde alışkanlıklarınızı değiştirmeniz gerekecek. O yüzden Türkçe karakter kullanmamanızı tavsiye ederim. Tabi ki zorunlu değil.
 
-Programlama dillerinde, matematiğin aksine **= \(eşittir\)** işareti eşitlik için değil, atamalar için kullanılır.
+Programlama dillerinde, matematiğin aksine **= (eşittir)** işareti eşitlik için değil, atamalar için kullanılır.
 
 Değişkenlerin atanması için farklı yöntemler de var. Diğer yöntemlere değinmek gerekirse;
 
@@ -45,4 +45,3 @@ ogrenci:=true
 Başına **var** eklemeden de değişken atamak mümkündür. Bu şekilde yapmak için **:=** işaretlerini kullanırız. Aynı şekilde bu yöntemde de verinin tipi otomatik algılanır.
 
 Eğer değişken tanımlar iken değer kısmını boş bırakırsak yani; **var yas int** şeklinde yazarsak, önceki konuda da bahsettiğimiz gibi varsayılan olarak **0** değerini alır.
-

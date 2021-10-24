@@ -42,7 +42,7 @@ func main() {
 }
 ```
 
-**& \(and\)** işareti ile değişkenin bellekteki adresini öğrenebiliriz.
+**& (and)** işareti ile değişkenin bellekteki adresini öğrenebiliriz.
 
 Çıktımız şöyle olacaktır;
 
@@ -55,4 +55,3 @@ func main() {
 > 0xc00008c1c0
 
 Gördüğünüz gibi bellek adresi 2 sonuçta da farklı gözüküyor. Bu ikisinin de ayrı değişkenler olduğuna işaret ediyor.
-

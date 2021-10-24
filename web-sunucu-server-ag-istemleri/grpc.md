@@ -2,13 +2,13 @@
 
 ## gRPC Nedir?
 
-gRPC, Google tarafından geliştirilen, açık kaynaklı uzaktan prosedür çağırma \(rpc\) kütüphanesi \(sistemi\)'dir. Aktarım için `HTTP/2` kullanır. Arayüz tanımlama dili olarak `protokol tamponları (buffers)` kullanır. Kimlik doğrulama, Çift yönlü akış, engelleme ve engelleme olmayan bağlantılar, iptal ve zaman aşımı işlemleri için kullanılır.
+gRPC, Google tarafından geliştirilen, açık kaynaklı uzaktan prosedür çağırma (rpc) kütüphanesi (sistemi)'dir. Aktarım için `HTTP/2` kullanır. Arayüz tanımlama dili olarak `protokol tamponları (buffers)` kullanır. Kimlik doğrulama, Çift yönlü akış, engelleme ve engelleme olmayan bağlantılar, iptal ve zaman aşımı işlemleri için kullanılır.
 
 JSON ve HTTP API'larının aksine, daha katı bir spesifikasyona sahiptirler. Tek bir spesifikasyona sahip olduğu için, gRPC tartışmalarını ortadan kaldırır ve geliştiriciye zaman kazandırır. Çünkü gRPC, platformlar ve uygulamalar arasında tutarlıdır.
 
-Özet olarak, uzaktan prosedür çağırarak client \(müşteri\) ve server \(sunucu\) programları arasındaki iletişimi sağlayan bir kütüphanedir.
+Özet olarak, uzaktan prosedür çağırarak client (müşteri) ve server (sunucu) programları arasındaki iletişimi sağlayan bir kütüphanedir.
 
-## Protokol Tamponları \(Buffers\) Nedir?
+## Protokol Tamponları (Buffers) Nedir?
 
 İki uygulama arasındaki iletişimin nasıl olacağını belirleyen sözleşmedir.
 
@@ -16,7 +16,7 @@ JSON ve HTTP API'larının aksine, daha katı bir spesifikasyona sahiptirler. Te
 
 Bu örneğimizde sunucuya mesaj gönderip, karşılığında mesaj alan bir uygulama yazacağız. Bir nevi chat uygulaması olacak.
 
-Öncelikle, iletişim protokülünü Go koduna dönüştürebilmemiz \(generating\) için `protoc`'yi bilgisayarımıza kuralım.
+Öncelikle, iletişim protokülünü Go koduna dönüştürebilmemiz (generating) için `protoc`'yi bilgisayarımıza kuralım.
 
 İndirmek için [buradaki](https://github.com/protocolbuffers/protobuf/releases/tag/v3.13.0) adrese gidin. Buradaki versiyon v3.13.0 versiyonu. Daha güncel versiyonlar için [buradaki](https://github.com/protocolbuffers/protobuf/releases/) sayfayı kontrol etmeyi unutmayın.
 
@@ -44,7 +44,7 @@ _PATH_ seçeneğini _Düzenle_ diyerek `protoc.exe`'nin konumunu ekleyelim.
 
 Ev dizinimizdeki `.bashrc` dosyamızın en altına şunları ekleyelim.
 
-```text
+```
 export PATH="~/protoc/bin:$PATH"
 ```
 
@@ -54,13 +54,13 @@ export PATH="~/protoc/bin:$PATH"
 
 Komut satırına aşağıdakileri yazarak `protoc`'nin versiyonuna bakalım.
 
-```text
+```
 protoc --version
 ```
 
 `Protoc`'ye Golang desteğini eklemek için aşağıdaki paketleri kuralım.
 
-```text
+```
 go get google.golang.org/protobuf/cmd/protoc-gen-go
 go get google.golang.org/protobuf/cmd/protoc-gen-go-grpc
 ```
@@ -69,7 +69,7 @@ Aynı şekilde Windows üzerinde `C:\\Users\isim\go\bin` klasörünü ekli deği
 
 Yukarıda belirttiğimiz örnek `chat` uygulamasını yazmak için aşağıdaki gibi bir proje yapımız olacak.
 
-```text
+```
 .
 ├── chat
 │   └── chat.go
@@ -108,7 +108,7 @@ Yukarıdaki `chat.proto` dosyasını Go koduna dönüştürelim. Bunun için pro
 
 Bu işlem sonucunda chat klasörümüzüm içerisinde `chat.pb.go` dosyamız oluşacak. Bu dosyanın en başında yorum olarak düzenleme yapmamızın uygun olamayacağı yazıyor. O yüzden bu dosyayla çok uğraşmamakta fayda var.
 
-## Server \(Sunucu\) Oluşturalım
+## Server (Sunucu) Oluşturalım
 
 `chat` klasörümüzdeki `chat.go` dosyasını oluşturalım.
 
@@ -183,7 +183,7 @@ func main() {
 
 `go run server.go` komutunu yazarak test edelim. Eğer çıktı vermiyorsa ve program kapanmıyorsa server dinleniyor demektir. Yani şuana kadar başarılıyız.
 
-## Client \(Müşteri\) Oluşturalım
+## Client (Müşteri) Oluşturalım
 
 Şimdi de Server'a mesaj yollayabilmek için Client'i oluşturalım. `client.go` dosyamız aşağıdaki gibi olsun.
 
@@ -240,13 +240,12 @@ func main() {
 
 Yukarıda yazdığımız kodların çalışma mantığını açıklayacak olursak:
 
-1. Server `9080` portunu belirlediğimiz protokol sözleşmesine \(_chat.proto_\) göre dinliyor.
+1. Server `9080` portunu belirlediğimiz protokol sözleşmesine (_chat.proto_) göre dinliyor.
 2. `Client.go` dosyamız çalıştırılınca server'a mesaj yolluyor.
 3. Client'ten gelen mesajı server ekrana bastırıyor ve bunun karşılığında server client'e cevap veriyor.
 4. Server'dan gelen cevabı da client ekrana bastırıyor.
-5. Son olarak client programımız sonlanıyor \(kapanıyor\).
+5. Son olarak client programımız sonlanıyor (kapanıyor).
 
 Gif olarak sonucu göstermek gerekirse:
 
-![gRPC &#xD6;rne&#x11F;i](../.gitbook/assets/golang-grpc-example.gif)
-
+![gRPC Örneği](../.gitbook/assets/golang-grpc-example.gif)

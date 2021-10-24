@@ -1,6 +1,6 @@
 # net/http ile Web Server Oluşturma
 
-Golang’ta web sunucusu oluşturma çok basit bir işlemdir.  
+Golang’ta web sunucusu oluşturma çok basit bir işlemdir.\
 İlk örneğimizde **localhost:5555** üzerinde çalışacak olan bir web sunucusu oluşturacağız.
 
 ```go
@@ -22,12 +22,12 @@ func main() {
 }
 ```
 
-Tarayıcınız üzerinden **localhost:5555**‘e girdiğinizde sayfada sadece **Merhaba** yazdığını göreceksiniz. Daha sonra adrese **/ahmet** yazıp girdiğiniz zaman yazının **Merhaba ahmet** olarak değiştiğini göreceksiniz.  
+Tarayıcınız üzerinden **localhost:5555**‘e girdiğinizde sayfada sadece **Merhaba** yazdığını göreceksiniz. Daha sonra adrese **/ahmet **yazıp girdiğiniz zaman yazının **Merhaba ahmet** olarak değiştiğini göreceksiniz.\
 
 
-**Peki bu olayın açıklaması nedir?**  
-**main\(\)** fonksiyonunun içerisinde 2 temel fonksiyon bulunuyor. **HandleFunc\(\)** fonksiyonu belirlediğimiz adrese girildiğinde hangi fonksiyonun çalıştırılacağınız belirliyor. **ListenAndServe\(\)** fonksiyonu ise sunucunun ayağa kalkmasını ve istediğimiz bir porttan ulaşılmasını sağlıyor.  
-Eğer sunucuya dosya verme yoluyla işlem yapmasını istiyorsak aşağıdaki yönteme başvurmalıyız.  
+**Peki bu olayın açıklaması nedir?**\
+**main() **fonksiyonunun içerisinde 2 temel fonksiyon bulunuyor. **HandleFunc()** fonksiyonu belirlediğimiz adrese girildiğinde hangi fonksiyonun çalıştırılacağınız belirliyor. **ListenAndServe()** fonksiyonu ise sunucunun ayağa kalkmasını ve istediğimiz bir porttan ulaşılmasını sağlıyor.\
+Eğer sunucuya dosya verme yoluyla işlem yapmasını istiyorsak aşağıdaki yönteme başvurmalıyız.\
 **index.html** adında bir dosya oluşturuyoruz. İçine aşağıdakileri yazıyoruz ve kaydediyoruz.
 
 ```markup
@@ -71,7 +71,6 @@ func main() {
 }
 ```
 
-Tarayıcıdan **localhost:5555** adresine girdiğimiz zaman oluşturmuş olduğumuz **index.html** dosyasının görüntülendiğini göreceksiniz.  
-Açıklayacak olursak eğer;  
-**loadFile\(\)** fonksiyonumuz **index.html** programa aktarıldığında **byte** türünde olduğu için onu okuyabileceğimiz **string** türüne çevirdi. Bu özellik programımıza **“io/ioutil”** paketi sayesinde eklendi. Geri kalan kısımdan zaten yukarıda bahsetmiştik.
-
+Tarayıcıdan **localhost:5555** adresine girdiğimiz zaman oluşturmuş olduğumuz **index.html** dosyasının görüntülendiğini göreceksiniz.\
+Açıklayacak olursak eğer;\
+**loadFile()** fonksiyonumuz **index.html** programa aktarıldığında **byte** türünde olduğu için onu okuyabileceğimiz **string** türüne çevirdi. Bu özellik programımıza **“io/ioutil”** paketi sayesinde eklendi. Geri kalan kısımdan zaten yukarıda bahsetmiştik.

@@ -1,6 +1,6 @@
 # Panic & Recover
 
-**Panic** ve **Recover**, Golang’de hata ayıklama için kullanılan anahtar kelimelerdir. Size bunu daha iyi ve akılda kalıcı anlatmak için teorik anlatım yerine uygulamalı öğretim yapmak istiyorum. Böylece daha akılda kalıcı olur.  
+**Panic** ve **Recover**, Golang’de hata ayıklama için kullanılan anahtar kelimelerdir. Size bunu daha iyi ve akılda kalıcı anlatmak için teorik anlatım yerine uygulamalı öğretim yapmak istiyorum. Böylece daha akılda kalıcı olur.\
 Aşağıda **panic** durumu oluşturan bir örnek göreceğiz:
 
 ```go
@@ -13,13 +13,13 @@ func main() {
 
 Yukarıda **make** fonksiyonu ile **sayilar** adında uzunluğu **5** birimden oluşan bir **int** dizi oluşturduk. Bu bildiğimiz sayısal 5 tane değişken tutan bir dizi aslında. Ama altında **sayilar** dizisinin **6**. indeksine **10** değerini atamak istedik. Fakat **sayilar** dizesinin 6. indeksi mantıken bulunmamakta. Bu haldeyken programımız **panic** hatası verecektir ve çıktımız aşağıdaki gibi olacaktır.
 
-> panic: runtime error: index out of range  
-> goroutine 1 \[running\]:  
-> main.main\(\)  
-> /home/ksc10/Desktop/deneme/main.go:5 +0x11  
+> panic: runtime error: index out of range\
+> goroutine 1 \[running]:\
+> main.main()\
+> /home/ksc10/Desktop/deneme/main.go:5 +0x11\
 > exit status 2
 
-İstersek biz de kritik bir bilginin nil girilmesi gibi durumlarda programı durdurabiliriz. Bunun için **panic\(\)** fonksiyonunu kullanacağız. Hemen bir örnek yapalım.
+İstersek biz de kritik bir bilginin nil girilmesi gibi durumlarda programı durdurabiliriz. Bunun için **panic()** fonksiyonunu kullanacağız. Hemen bir örnek yapalım.
 
 ```go
 package main
@@ -48,15 +48,15 @@ func main() {
 
 Çıktımız burada:
 
-> panic: Soyad nil olamaz  
-> goroutine 1 \[running\]:  
-> main.TamIsim\(0xc00007df30, 0x0\)  
-> /Users/Y/Desktop/main.go:12 +0x19a  
-> main.main\(\)  
-> /Users/Y/Desktop/main.go:20 +0x65  
+> panic: Soyad nil olamaz\
+> goroutine 1 \[running]:\
+> main.TamIsim(0xc00007df30, 0x0)\
+> /Users/Y/Desktop/main.go:12 +0x19a\
+> main.main()\
+> /Users/Y/Desktop/main.go:20 +0x65\
 > exit status 2
 
-Burada **Soyad** değişkeni tanımsız olduğu için programımız durdu. Aynı şekilde **recover\(\)** fonksiyonu ile **panic\(\)** fonksiyonundan gelen veriyi alabilir, ana fonksiyonumuzun kapanmasına da engel olabiliriz. Bunun için de bir örnek yapalım.
+Burada **Soyad** değişkeni tanımsız olduğu için programımız durdu. Aynı şekilde **recover()** fonksiyonu ile **panic()** fonksiyonundan gelen veriyi alabilir, ana fonksiyonumuzun kapanmasına da engel olabiliriz. Bunun için de bir örnek yapalım.
 
 ```go
 package main
@@ -91,4 +91,3 @@ func main() {
 Çıktımız burada :
 
 > Panik Yok : Soyad nil olamaz
-

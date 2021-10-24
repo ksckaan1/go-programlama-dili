@@ -32,4 +32,3 @@ Windows için çıktımız:
 Unix-Like için çıktımız:
 
 > dosyalar/muzikler
-

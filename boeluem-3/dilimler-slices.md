@@ -1,4 +1,4 @@
-# Dilimler \(Slices\)
+# Dilimler (Slices)
 
 Dilimler bir dizideki değerlerin istediğimiz bölümünü kullanmamıza yarar. Yani diziyi bir pasta olarak düşünürsek kestiğimiz dilimi yiyoruz sadece. Örneğimize geçelim.
 
@@ -15,7 +15,7 @@ func main() {
 
 İnceleme kısmına geçelim. `a` isminde 6 tane `int` tipinde değer alan bir dizi oluşturduk. Çıktımızın içeriğini görmek için ekrana bastırdık. Dilimleme işlemi olarak yorum yaptığım satırda ise `a` dizisinde `2` ve `4` indeksi arasındaki değerleri dizi olarak b’ye kaydettik. b dizisinin içeriğini ekrana bastırdığımızda ise dilimlenmiş alanımızı gördük. Dilimleme işleminde `[ ]` içerisine dilimlemenin başlayacağı ve biteceği indeksi yazarız.
 
-**Dilim Varsayılanları \(Sıfır Değerleri\)**
+**Dilim Varsayılanları (Sıfır Değerleri)**
 
 ```go
 package main
@@ -29,8 +29,8 @@ func main() {
 }
 ```
 
-**Dilim Uzunluğu ve Kapasitesi**  
-Bir dilimin **uzunluk** ve **kapasite** değeri vardır. Dilimin uzunluğunu **len\(\)** fonksiyonu ile, kapasitesini ise **cap\(\)** fonksiyonu ile hesaplarız. Örneğimize geçelim.
+**Dilim Uzunluğu ve Kapasitesi**\
+Bir dilimin **uzunluk** ve **kapasite** değeri vardır. Dilimin uzunluğunu **len()** fonksiyonu ile, kapasitesini ise **cap()** fonksiyonu ile hesaplarız. Örneğimize geçelim.
 
 ```go
 package main
@@ -49,20 +49,20 @@ func main() {
 
 b dizisi ile a dizisini dilimlediğimiz için b dizisinin kapasitesi ve uzunluğu değişti. Uzunluk dizinin içindeki değerlerin sayısıdır. Kapasite ise dizinin maksimum alabileceği değer sayısıdır. Çıktımıza bakacak olursak;
 
-> a uzunluk 6 
+> a uzunluk 6&#x20;
 >
-> a kapasite 6 
+> a kapasite 6&#x20;
 >
-> a'nın içeriği \[2 3 5 6 7 9\] 
+> a'nın içeriği \[2 3 5 6 7 9]&#x20;
 >
-> b uzunluk 2 
+> b uzunluk 2&#x20;
 >
-> b kapasite 4 
+> b kapasite 4&#x20;
 >
-> b'nin içeriği \[5 6\]
+> b'nin içeriği \[5 6]
 
-**Boş Dilimler \(Nil Slices\)**  
-Boş bir dilimin varsayılan \(sıfır\) değeri **nil**’dir. Örnek olarak;
+**Boş Dilimler (Nil Slices)**\
+Boş bir dilimin varsayılan (sıfır) değeri **nil**’dir. Örnek olarak;
 
 ```go
 package main
@@ -77,8 +77,8 @@ func main() {
 
 Çıktısı tahmin edeceğiniz üzere **Boş** yazısı olaraktır.
 
-  
-**Make ile Dilim Oluşturma**  
+\
+**Make ile Dilim Oluşturma**\
 Dilimler **make** fonksiyonu ile de oluşturulabilir. Dinamik büyüklükte diziler oluşturabiliriz.
 
 ```go
@@ -93,8 +93,8 @@ a := make([]int, 0, 5)
 
 Burada ise make fonksiyonu ile uzunluğu 0, kapasitesi ise 5 olan a adında bir dizi oluşturduk.
 
-  
-**Dilime Ekleme Yapma**  
+\
+**Dilime Ekleme Yapma**\
 Bir dilime ekleme yapmak için append fonksiyonu kullanılır. Hemen bir örnek ile kullanılışını görelim.
 
 ```go
@@ -118,4 +118,3 @@ fmt.Println(len(a), cap(a))
 a dizisinin uzunluk ve kapasitesine baktığımızda aşağıdaki çıktıyı alırız.
 
 > 2 2
-

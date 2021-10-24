@@ -1,6 +1,6 @@
-# XML Parsing \(Ayrıştırma\)
+# XML Parsing (Ayrıştırma)
 
-Bu yazımıza Golang üzerinde **XML** dosyalarını işlemeyi öğreneceğiz. Bu işlemin yapabileceğimiz hali hazırda standart Golang paketleri ile gelen **“encoding/xml”** paketi vardır. Örneğimize geçelim.  
+Bu yazımıza Golang üzerinde **XML** dosyalarını işlemeyi öğreneceğiz. Bu işlemin yapabileceğimiz hali hazırda standart Golang paketleri ile gelen **“encoding/xml”** paketi vardır. Örneğimize geçelim.\
 **veri.xml** isminde aşağıdaki gibi bir belgemiz olduğunu varsayalım.
 
 ```markup
@@ -48,7 +48,7 @@ func main() {
 }
 ```
 
-Eğer XML dosyası açılırken hata oluşmazsa çıktımız olumlu yönde olacaktır.  
+Eğer XML dosyası açılırken hata oluşmazsa çıktımız olumlu yönde olacaktır.\
 Şimde XML dosyasındaki verileri struct’ımıza kaydedelim. Parsing işlemi de yapacağımızdan dolayı **“encoding/xml”** paketini de içe aktarıyoruz. Hemen kodumuz geliyor.
 
 ```go
@@ -92,4 +92,3 @@ func main() {
 	fmt.Println(üyeler.Üyeler)
 }
 ```
-

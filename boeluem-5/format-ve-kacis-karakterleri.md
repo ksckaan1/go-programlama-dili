@@ -1,19 +1,19 @@
 # Format ve Kaçış Karakterleri
 
-**Format Karakterleri ve Kullanım Alanları**  
-Format karakterleri metinsel bir ifadede \(string\), dizgiyi formatlandırmak için kullanılır. Yani bir metinde değişken yerleri biçimlendirmeye yarar.
+**Format Karakterleri ve Kullanım Alanları**\
+Format karakterleri metinsel bir ifadede (string), dizgiyi formatlandırmak için kullanılır. Yani bir metinde değişken yerleri biçimlendirmeye yarar.
 
-| Format Karakteri | Açıklama |
-| :--- | :--- |
-| %T | Değişkenin tipini verir |
-| %t | Boolean değeri verir |
-| %d | Int \(tamsayı\) değeri verir |
-| %b | Sayının binary \(ikili\) karşılığını verir |
-| %c | Karakter değerini verir |
-| %x | Sayının hexadecimal \(onaltılı\) karşılığını verir |
-| %f | Float \(ondalıklı\) değeri verir |
-| %s | String \(dizgi-metin\) değeri verir |
-| %v | Değeri otomatik belirler |
+| Format Karakteri | Açıklama                                         |
+| ---------------- | ------------------------------------------------ |
+| %T               | Değişkenin tipini verir                          |
+| %t               | Boolean değeri verir                             |
+| %d               | Int (tamsayı) değeri verir                       |
+| %b               | Sayının binary (ikili) karşılığını verir         |
+| %c               | Karakter değerini verir                          |
+| %x               | Sayının hexadecimal (onaltılı) karşılığını verir |
+| %f               | Float (ondalıklı) değeri verir                   |
+| %s               | String (dizgi-metin) değeri verir                |
+| %v               | Değeri otomatik belirler                         |
 
 Hemen bir örnek yapalım.
 
@@ -50,21 +50,21 @@ Yukarıdaki kodda farkedeceğiniz üzere `kilo` değişkeni için olan format ka
 Format karakterleri **Printf** ve **Scanf** gibi fonksiyonlarda kullanılabilir. Bu fonksiyonların ortak özellikleri adında **f** harfi olmasıdır.
 {% endhint %}
 
-**Kaçış Karakterleri ve Kullanım Alanları**  
+**Kaçış Karakterleri ve Kullanım Alanları**\
 Kaçış karakterleri de format karakterleri gibi metinlere etki eder. Kaçış karakterlerini kod yazma zamanında yapamadığımız işlemler için kullanırız.
 
-| Kaçış Karakteri | Açıklama |
-| :--- | :--- |
-| \a | Komut satırında zil sesi çıkartır |
-| \b | Silme tuşu görevini görür |
-| \f | Merdiven metin yazar |
-| \n | Yeni satıra geçer |
-| \r | Return eder |
-| \t | Tab tuşu gibi boşluk bırakır \(4 boşluk\) |
-| \v | Dikey boşluk bırakır |
-| \ | Ters-taksim yazar |
-| \' | Tek tırnak yazar |
-| \" | Çift tırnak yazar |
+| Kaçış Karakteri | Açıklama                                |
+| --------------- | --------------------------------------- |
+| \a              | Komut satırında zil sesi çıkartır       |
+| \b              | Silme tuşu görevini görür               |
+| \f              | Merdiven metin yazar                    |
+| \n              | Yeni satıra geçer                       |
+| \r              | Return eder                             |
+| \t              | Tab tuşu gibi boşluk bırakır (4 boşluk) |
+| \v              | Dikey boşluk bırakır                    |
+| \\              | Ters-taksim yazar                       |
+| \\'             | Tek tırnak yazar                        |
+| \\"             | Çift tırnak yazar                       |
 
 Gelelim örneğimize:
 
@@ -74,6 +74,5 @@ fmt.Print("Bir\nİki\tÜç\\Dört")
 
 Çıktımız şöyle olacaktır:
 
-> Bir  
+> Bir\
 > İki Üç\Dört
-

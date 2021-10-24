@@ -4,10 +4,10 @@ ini dosyaları programımızın ayarlarını barındırabileceğimiz dosyalardı
 
 > go get gopkg.in/ini.v1
 
-Paketimizi indirdikten sonra ini dosyamız üzerinde işlemler yapabiliriz.  
+Paketimizi indirdikten sonra ini dosyamız üzerinde işlemler yapabiliriz.\
 Aşağıdaki örneklerde kullanacağımız ini dosyası bu şekildedir. Dosyamızın ismi **ayarlar.ini** olsun.
 
-```text
+```
 # Yorum satırımız
 uygulama_modu = geliştirme
 [dizinler]
@@ -44,9 +44,9 @@ func main() {
 
 Çıktımız şu şekilde olacaktır.
 
-> Uygulama Modu: geliştirme  
-> Veri Dizini: ./dosyalar  
-> Bağlantı Protokolü: http  
+> Uygulama Modu: geliştirme\
+> Veri Dizini: ./dosyalar\
+> Bağlantı Protokolü: http\
 > Bağlantı Portu: 8000
 
 
@@ -74,4 +74,3 @@ func main() {
 	veri.SaveTo("ayarlar.ini")
 }
 ```
-

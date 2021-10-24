@@ -57,8 +57,8 @@ if i == 5 {
 
 else if deyiminin yazılışını da gördük. Açıklamaya gelirsek, else if deyimi kendinden önceki deyimin koşulunun sağlanmaması halinde bir sonraki koşulu kontrol ettirir. If-Else akışında istenildiği kadar else if deyimi eklenebilir.
 
-  
-**Koşullar İçerisinde Operatör Kullanımı**  
+\
+**Koşullar İçerisinde Operatör Kullanımı**\
 Koşullar içerisinden mantıksal ve ilişkisel operatörler kullanılabilir. Operatörleri görmüştük. Operatör kullanarak örnekler yapalım.
 
 ```go
@@ -87,4 +87,3 @@ func main() {
 > i eşittir b
 >
 > i eşittir b ve i büyüktür a
-

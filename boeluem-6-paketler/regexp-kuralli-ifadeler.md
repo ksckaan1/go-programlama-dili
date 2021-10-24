@@ -1,6 +1,6 @@
-# Regexp \(Kurallı İfadeler\)
+# Regexp (Kurallı İfadeler)
 
-**Regular Expressions \(Regexp\)**, modern programlama dillerinin neredeyse hepsinde bulunan metinsel ifadelerinizin yapısını kontrol etmenizi sağlayan bir pakettir.
+**Regular Expressions (Regexp)**, modern programlama dillerinin neredeyse hepsinde bulunan metinsel ifadelerinizin yapısını kontrol etmenizi sağlayan bir pakettir.
 
 Bu paket sayesinde yazdığımız programda ifadelerin uygunluğunu kontrol edebilir, işimize yarayacak ifade/ifadeleri daha kolay ayırabilir ve giriş yapılan ifadeleri uygun bir düzene koyabiliriz.
 
@@ -31,7 +31,7 @@ func main() {
 
 Belirlediğimiz kural ise dizgimizin küçük harflerle a'dan z'ye kadar ve ek olarak 0'dan 9'a kadar **"rakamsal"** ifade alabileceğidir. Bu kurala uyulması için metinsel ifade ne eksik ne fazla hiçbir şey olmaması gerekir.
 
-Kuralımızın hemen aşağısındaki örnekte ise `"kaan10"` ifadesinde sadece 0-9 arası rakam \(tek haneli\) olması gerektiği için `false` çıktısını verdi.
+Kuralımızın hemen aşağısındaki örnekte ise `"kaan10"` ifadesinde sadece 0-9 arası rakam (tek haneli) olması gerektiği için `false` çıktısını verdi.
 
 `"emir6"` ifade belirttiğimiz kurala uygun bir ifade olduğu için `true` çıktısını verdi.
 
@@ -45,5 +45,4 @@ Bu yazıda regexp nasıl yazılırdan ziyade Go'da regexp'in kullanımını anla
 
 {% embed url="https://ceaksan.com/tr/regex-regular-expressions-nedir" %}
 
-Bu güzel anlatım için [Ceyhun Enki Aksan](https://ceaksan.com/)'a ayrıca teşekkür ederim.
-
+Bu güzel anlatım için [Ceyhun Enki Aksan](https://ceaksan.com)'a ayrıca teşekkür ederim.

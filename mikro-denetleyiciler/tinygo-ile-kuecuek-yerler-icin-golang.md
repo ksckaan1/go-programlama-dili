@@ -6,7 +6,9 @@ Tinygo, Golang kodları ile mikro-denetleyicilere program yazmamızı sağlayan 
 
 Aynı zamanda yazdığımız kodları mikro-denetleyicinin beynine flash eder. Flash etme kelimesinden kastım, beyne çalışacak kodları yazdırmaktır.
 
-{% page-ref page="gobot-ile-arduino-yanip-soenen-led-yapimi.md" %}
+{% content-ref url="gobot-ile-arduino-yanip-soenen-led-yapimi.md" %}
+[gobot-ile-arduino-yanip-soenen-led-yapimi.md](gobot-ile-arduino-yanip-soenen-led-yapimi.md)
+{% endcontent-ref %}
 
 Gobot ile Arduino Yanıp-Sönen LED Yapımı konusunda bahsettiğim. Gobot paketinden farkı, Gobot Firmata yazılımını Arduino’ya gömdükten sonra Arduino’ya çalıştırılabilir komutlar yolluyor. Yani kodlarımızı Arduino içine gömmediğinden, sadece Arduino USB veya TCP ile bağlı olduğundan çalışıyor.
 
@@ -16,16 +18,16 @@ Fakat Tinygo, Golang kodlarımızı Arduino’nun içerisine gömüyor. Bu sebeb
 
 ### GNU/Linux
 
-Ubuntu/DebianBirinci Adım:  
-`wget https://github.com/tinygo-org/tinygo/releases/download/v0.9.0/tinygo_0.9.0_amd64.deb`  
-İkinci Adım:  
-`sudo dpkg -i tinygo_0.9.0_amd64.deb`  
-Üçüncü Adım:  
-`export PATH=$PATH:/usr/local/tinygo/bin`RaspBerry PiBirinci Adım:  
-`wget https://github.com/tinygo-org/tinygo/releases/download/v0.9.0/tinygo_0.9.0_armhf.deb`  
-İkinci Adım:  
-`sudo dpkg -i tinygo_0.9.0_armhf.deb`  
-Üçüncü Adım:  
+Ubuntu/DebianBirinci Adım:\
+`wget https://github.com/tinygo-org/tinygo/releases/download/v0.9.0/tinygo_0.9.0_amd64.deb`\
+İkinci Adım:\
+`sudo dpkg -i tinygo_0.9.0_amd64.deb`\
+Üçüncü Adım:\
+`export PATH=$PATH:/usr/local/tinygo/bin`RaspBerry PiBirinci Adım:\
+`wget https://github.com/tinygo-org/tinygo/releases/download/v0.9.0/tinygo_0.9.0_armhf.deb`\
+İkinci Adım:\
+`sudo dpkg -i tinygo_0.9.0_armhf.deb`\
+Üçüncü Adım:\
 `export PATH=$PATH:/usr/local/tinygo/bin`Arch LinuxAUR deposundan [tinygo-bin](https://aur.archlinux.org/packages/tinygo-bin/) olarak aratabilirsiniz.Fedora Linux`sudo dnf install tinygo`
 
 ### **Windows**
@@ -76,7 +78,7 @@ Bu işlemler sırasında elimde bulunan Arduino Uno kartı ile işlemler yapaca�
 
 Windows üzerinden **COM3** benzeri bir portta takılıdır. İnternet üzerinden detaylı araştırma yapabilirsiniz.
 
-Unix-like sistemlerde \(Linux, MacOS\) ise genelde **/dev/ttyUSB** veya **/dev/ttyACM** portarından birinde takılı olabilir. Arduino’nun bağlı olduğu portu `ls /dev/ttyUSB*` komutu ile öğrenebilirsiniz.
+Unix-like sistemlerde (Linux, MacOS) ise genelde **/dev/ttyUSB** veya **/dev/ttyACM** portarından birinde takılı olabilir. Arduino’nun bağlı olduğu portu `ls /dev/ttyUSB*` komutu ile öğrenebilirsiniz.
 
 Ben Arduino Uno kartımın **/dev/ttyUSB0** üzerinde olduğu için aşağıdaki işlemlerimi ona göre yapacağım. Kullandığım komutları kendi portunuza göre değiştirmeyi unutmayın.
 
@@ -110,4 +112,3 @@ Go kodlarımızı Arduino üzerine yazdırmak için aşağıdaki komutları kull
 `tinygo flash -target=arduino -port=/dev/ttyUSB0 ./kodumuzunbulunduğuklasör`
 
 Gördüğünüz gibi Tinygo ile flash etme işlemi çok basit.
-

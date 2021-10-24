@@ -4,32 +4,32 @@
 
 > go get github.com/mattn/go-sqlite3
 
-Tablo oluşturma ve düzenleme işlemlerinde bize kolaylık sağlaması için **DB Browser** programına ihtiyacımız olacak. Böylece hızlı bir şekilde veri tabanı olaylarına geçiş yapmış olacağız.  
-**DB Browser** programını aşağıdaki adresten indirebilirsiniz.  
-[https://sqlitebrowser.org/dl/](https://sqlitebrowser.org/dl/)  
+Tablo oluşturma ve düzenleme işlemlerinde bize kolaylık sağlaması için **DB Browser** programına ihtiyacımız olacak. Böylece hızlı bir şekilde veri tabanı olaylarına geçiş yapmış olacağız.\
+**DB Browser** programını aşağıdaki adresten indirebilirsiniz.\
+[https://sqlitebrowser.org/dl/](https://sqlitebrowser.org/dl/)\
 Linux sistemlerin çoğunda **uygulama deposunda** bulunan bir uygulamadır.
 
 ![DB Browser ikonu](../.gitbook/assets/dbbrowser.png)
 
 Programımızı açıp sol üst taraftan **Yeni Veritabanı**’na tıklayalım.
 
-![](../.gitbook/assets/ueicz3.webp)
+![](../.gitbook/assets/uEIcZ3.webp)
 
 Veritabanının kayıt yerini, programımızın kodlarının bulunacağı **main.go** dosyası ile aynı yeri seçelim ve ismini **veritabanı.db** olarak kaydedelim. İstediğiniz ismi de verebilirsiniz.
 
-![](../.gitbook/assets/88iu5v.webp)
+![](../.gitbook/assets/88iU5v.webp)
 
 Tablomuzun ismini **kisiler** olarak ayarlayalım. **Alan Ekle**’ye tıklayarak yukarıdaki gibi **id** ve **ad** isminde alanlar oluşturalım. **id** alanının tipini **INTEGER** yaparak, sayısal verileri saklayabilmesini sağlıyoruz. **Birincil Anahtar** ve **Otomatik Arttırma** bölümlerini seçiyoruz. Otomatik Arttırma özelliği sayesinde tabloya veri eklendiğinde **id** içindeki değer her eklemede artacaktır. Bu da her satır için ayırıcı bir özellik olacaktır. **ad** alanının tipini **TEXT** yapıyoruz. **OK** butonuna basarak tabloyu oluşturuyoruz.
 
-  
+\
 Böylelikle içerisinde adları depolayabileceğimiz bir veri tabanı olşturmuş olacağız. Oluşturduğumuz tablo her **ad** alanını belirterek veri ekleyişimizde o verinin yanındaki **id** alanına satıra özel numara verecektir.
 
 ![](../.gitbook/assets/vt3.png)
 
-Tablomuz içindeki kayıtları görmek için **Browse Data** sekmesine tıklayalım. **Table** kısmının yanında tablo oluştururken yazdığımız **kisiler** seçeneğini seçelim. Şuanlık tablomuz boş. Çünkü içine bir kayıtta bulunmadık. **DB Browser** programına bize yardımcı olduğu için teşekkür ederek artık Golang kodlama tarafına geçebiliriz.  
+Tablomuz içindeki kayıtları görmek için **Browse Data** sekmesine tıklayalım. **Table** kısmının yanında tablo oluştururken yazdığımız **kisiler** seçeneğini seçelim. Şuanlık tablomuz boş. Çünkü içine bir kayıtta bulunmadık. **DB Browser** programına bize yardımcı olduğu için teşekkür ederek artık Golang kodlama tarafına geçebiliriz.\
 
 
-**sqlite3 Kütüphanesinin Kullanımı**  
+**sqlite3 Kütüphanesinin Kullanımı**\
 **main.go** dosyamızı oluşturalım. Kütüphanelerimizi import edelim.
 
 ```go
@@ -40,7 +40,7 @@ import (
 )
 ```
 
-**database/sql** ile Go üzerinde veri tabanı işlemleri yapabiliyoruz. **fmt**’yi zaten biliyoruz. **github.com/mattn/go-sqlite3** ile de **sqlite3** kullanarak veritabanımızı yönetebiliriz. Buranın başına **\_ \(alt tire\)** eklememizin sebebi **vscode** programı bu kütüphanenin kod içersinde kullanılmadığını düşünerek silmesini önlemek içindir. Basit şekilde veri tabanı bağlantısı nasıl yapılır görelim.
+**database/sql** ile Go üzerinde veri tabanı işlemleri yapabiliyoruz. **fmt**’yi zaten biliyoruz. **github.com/mattn/go-sqlite3** ile de **sqlite3** kullanarak veritabanımızı yönetebiliriz. Buranın başına **\_ (alt tire)** eklememizin sebebi **vscode** programı bu kütüphanenin kod içersinde kullanılmadığını düşünerek silmesini önlemek içindir. Basit şekilde veri tabanı bağlantısı nasıl yapılır görelim.
 
 ```go
 package main
@@ -113,7 +113,7 @@ func main() {
 }
 ```
 
-Yukarıda **kisiler** tablosundaki tüm verileri sorgulamış olduk. Bir sonraki bölümde tablomuzdaki verileri nasıl kullanıcıya gösterebileceğimizi öğreneceğiz.  
+Yukarıda **kisiler** tablosundaki tüm verileri sorgulamış olduk. Bir sonraki bölümde tablomuzdaki verileri nasıl kullanıcıya gösterebileceğimizi öğreneceğiz.\
 **sqlite3 Verileri Sıralama/Gösterme İşlemi**
 
 ```go
@@ -136,4 +136,3 @@ func main() {
  vt.Close() //İşimiz bittikten sonra veri tabanımızı kapatıyoruz
 }
 ```
-

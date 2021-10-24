@@ -24,4 +24,3 @@ import (
 ```
 
 Yukarıda birden fazla paket import etmeyi görüyoruz. **math** paketi bize ileri matematiksel işlemler yapabilmemiz için gerekli fonksiyonları sağlar.
-
