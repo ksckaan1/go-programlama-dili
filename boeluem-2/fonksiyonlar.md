@@ -36,7 +36,7 @@ func main() {
 }
 ```
 
-**yazdir** adlı fonsiyonumuzun parantezine değişken tanımlamadık ve parantezin sağına fonksiyon bloğu içerisinde** return** olmadığı için veri çıkış tipini belirtmedik. Fonksiyonumuzun içerisinde sadece ekrana yazı bastırdık.
+**yazdir** adlı fonsiyonumuzun parantezine değişken tanımlamadık ve parantezin sağına fonksiyon bloğu içerisinde **return** olmadığı için veri çıkış tipini belirtmedik. Fonksiyonumuzun içerisinde sadece ekrana yazı bastırdık.
 
 **Fonksiyonlar Hakkında Ayrıntılı Bilgiler**
 

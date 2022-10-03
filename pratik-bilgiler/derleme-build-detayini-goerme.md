@@ -1,7 +1,7 @@
 # Derleme (Build) Detayını Görme
 
 Golang’de normalde derleme işlemini yapmak için go build komutunu kullanırız. Bu komut terminal ekranından bize sadece bir hata olduğunda bilgi verir. Hata yoksa çalıştırılabilir dosyayı zaten oluşturur.\
-
+&#x20;
 
 **Peki programımızın derlenme esnasında bilgilendirmeyi nasıl görebiliriz?**
 

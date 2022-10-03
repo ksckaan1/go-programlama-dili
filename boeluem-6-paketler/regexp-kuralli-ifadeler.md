@@ -45,4 +45,4 @@ Bu yazıda regexp nasıl yazılırdan ziyade Go'da regexp'in kullanımını anla
 
 {% embed url="https://ceaksan.com/tr/regex-regular-expressions-nedir" %}
 
-Bu güzel anlatım için [Ceyhun Enki Aksan](https://ceaksan.com)'a ayrıca teşekkür ederim.
+Bu güzel anlatım için [Ceyhun Enki Aksan](https://ceaksan.com/)'a ayrıca teşekkür ederim.

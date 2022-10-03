@@ -28,11 +28,11 @@ Go, 10 Kasım 2009'da halka açık bir açık kaynak projesi oldu. Topluluktan s
 
 ### ➡️ Gopher maskotu nereden geliyor?
 
-Maskot ve logo, Plan 9 tavşanı [Glenda](https://9p.io/plan9/glenda.html)'yı da tasarlayan [Renée French](https://reneefrench.blogspot.com) tarafından tasarlandı. Gopher hakkında bir [blog yazısı](https://blog.golang.org/gopher), birkaç yıl önce bir [WFMU](https://wfmu.org) tişört tasarımı için kullandığı birinden nasıl türetildiğini açıklıyor. Logo ve maskot, [Creative Commons Attribution 3.0 lisansı](https://creativecommons.org/licenses/by/3.0/) kapsamındadır. Gopher, özelliklerini ve bunların doğru şekilde nasıl temsil edileceğini gösteren bir [model sayfası](https://golang.org/doc/gopher/modelsheet.jpg)na sahiptir. Model sayfası ilk olarak 2016 yılında Renée'nin Gophercon'da yaptığı bir [konuşma](https://www.youtube.com/watch?v=4rw\_B4yY69k)da gösterildi. Kendine özgü özellikleri var; o Go gopher, herhangi bir yaşlı sincap değil.
+Maskot ve logo, Plan 9 tavşanı [Glenda](https://9p.io/plan9/glenda.html)'yı da tasarlayan [Renée French](https://reneefrench.blogspot.com/) tarafından tasarlandı. Gopher hakkında bir [blog yazısı](https://blog.golang.org/gopher), birkaç yıl önce bir [WFMU](https://wfmu.org/) tişört tasarımı için kullandığı birinden nasıl türetildiğini açıklıyor. Logo ve maskot, [Creative Commons Attribution 3.0 lisansı](https://creativecommons.org/licenses/by/3.0/) kapsamındadır. Gopher, özelliklerini ve bunların doğru şekilde nasıl temsil edileceğini gösteren bir [model sayfası](https://golang.org/doc/gopher/modelsheet.jpg)na sahiptir. Model sayfası ilk olarak 2016 yılında Renée'nin Gophercon'da yaptığı bir [konuşma](https://www.youtube.com/watch?v=4rw\_B4yY69k)da gösterildi. Kendine özgü özellikleri var; o Go gopher, herhangi bir yaşlı sincap değil.
 
 ### ➡️ Dilin adı Go mu Golang mi?
 
-Dilin adı Go. "Golang" takma adının ortaya çıkmasının nedeni, web sitesinin bizim için mevcut olmayan go.org değil, [golang.org](https://golang.org) olmasıdır. Yine de çoğu golang adını kullanır ve etiket olarak kullanışlıdır. Örneğin, dil için Twitter etiketi "#golang" dir. Dilin adı ne olursa olsun sadece Go'dur.
+Dilin adı Go. "Golang" takma adının ortaya çıkmasının nedeni, web sitesinin bizim için mevcut olmayan go.org değil, [golang.org](https://golang.org/) olmasıdır. Yine de çoğu golang adını kullanır ve etiket olarak kullanışlıdır. Örneğin, dil için Twitter etiketi "#golang" dir. Dilin adı ne olursa olsun sadece Go'dur.
 
 **Bir yan not:** [Resmi logo](https://blog.golang.org/go-brand)nun iki büyük harfi olmasına rağmen, dil adı GO değil, Go yazılmıştır.
 
@@ -62,7 +62,7 @@ Bir diğer önemli ilke de kavramları ortogonal tutmaktır. Yöntemler her tür
 
 ### ➡️ Google, Go'yu dahili olarak kullanıyor mu?
 
-Evet. Go, Google içindeki üretimde yaygın olarak kullanılmaktadır. Bunun kolay bir örneği [golang.org](https://golang.org)'un arkasındaki sunucudur. [Google App Engine](https://developers.google.com/appengine/)'de bir üretim yapılandırmasında çalışan godoc belge sunucusudur.
+Evet. Go, Google içindeki üretimde yaygın olarak kullanılmaktadır. Bunun kolay bir örneği [golang.org](https://golang.org/)'un arkasındaki sunucudur. [Google App Engine](https://developers.google.com/appengine/)'de bir üretim yapılandırmasında çalışan godoc belge sunucusudur.
 
 Daha önemli bir örnek, Google'ın Chrome ikili (binary) dosyalarını ve apt-get (Debian paket yöneticisi oluyor kendisi) paketleri gibi diğer büyük yüklenebilir dosyaları sunan indirme sunucusu `dl.google.com`'dur.
 
@@ -94,7 +94,7 @@ Ayrı bir açık kaynak projesi, gerekli derleyici eklentisini ve kitaplığı s
 
 ### ➡️ Go ana sayfasını başka bir dile çevirebilir miyim?
 
-Kesinlikle. Geliştiricileri kendi dillerinde Go Language siteleri oluşturmaya teşvik ediyoruz. Ancak, sitenize Google logosunu veya markasını eklemeyi seçerseniz ([golang.org](https://golang.org)'da görünmez), [www.google.com/permissions/guidelines.html](https://www.google.com/permissions/guidelines.html) adresindeki yönergelere uymanız gerekecektir.
+Kesinlikle. Geliştiricileri kendi dillerinde Go Language siteleri oluşturmaya teşvik ediyoruz. Ancak, sitenize Google logosunu veya markasını eklemeyi seçerseniz ([golang.org](https://golang.org/)'da görünmez), [www.google.com/permissions/guidelines.html](https://www.google.com/permissions/guidelines.html) adresindeki yönergelere uymanız gerekecektir.
 
 ## 🔘 Tasarım
 
@@ -314,7 +314,7 @@ Go'da türler, her adlandırılmış türün (muhtemelen boş) bir yöntem küme
 
 ### ➡️ Nil hata değerim neden nil'e eşit değil?
 
-Kapakların altında, arayüzler iki öğe olarak uygulanır; bir T türü ve bir V değeri V, int, struct veya işaretçi gibi somut bir değerdir, hiçbir zaman arabirim değildir ve T türüne sahiptir. Örneğin, int değeri 3 bir arabirimde, ortaya çıkan arabirim değeri şematik olarak (T = int, V = 3) olur. V değeri, aynı zamanda arayüzün dinamik değeri olarak da bilinir, çünkü belirli bir arayüz değişkeni, programın yürütülmesi sırasında farklı V değerlerini (ve karşılık gelen T tiplerini) tutabilir. Bir arabirim değeri, yalnızca V ve T'nin her ikisi de ayarlanmamışsa sıfırdır (T = nil, V ayarlanmamış). Özellikle, bir sıfır arabirim her zaman bir sıfır türünü tutacaktır. Bir arabirim değerinin içinde _ int türünde bir sıfır gösterici saklarsak, iç tür, işaretçinin değerine bakılmaksızın _ int olacaktır: (T = \* int, V = nil). Bu nedenle, bu tür bir arayüz değeri, içindeki işaretçi değeri V sıfır olduğunda bile sıfır olmayacaktır. Bu durum kafa karıştırıcı olabilir ve bir sıfır değeri gibi bir arayüz değerinin içinde saklandığında ortaya çıkar. hata dönüşü:
+Kapakların altında, arayüzler iki öğe olarak uygulanır; bir T türü ve bir V değeri V, int, struct veya işaretçi gibi somut bir değerdir, hiçbir zaman arabirim değildir ve T türüne sahiptir. Örneğin, int değeri 3 bir arabirimde, ortaya çıkan arabirim değeri şematik olarak (T = int, V = 3) olur. V değeri, aynı zamanda arayüzün dinamik değeri olarak da bilinir, çünkü belirli bir arayüz değişkeni, programın yürütülmesi sırasında farklı V değerlerini (ve karşılık gelen T tiplerini) tutabilir. Bir arabirim değeri, yalnızca V ve T'nin her ikisi de ayarlanmamışsa sıfırdır (T = nil, V ayarlanmamış). Özellikle, bir sıfır arabirim her zaman bir sıfır türünü tutacaktır. Bir arabirim değerinin içinde _int türünde bir sıfır gösterici saklarsak, iç tür, işaretçinin değerine bakılmaksızın_ int olacaktır: (T = \* int, V = nil). Bu nedenle, bu tür bir arayüz değeri, içindeki işaretçi değeri V sıfır olduğunda bile sıfır olmayacaktır. Bu durum kafa karıştırıcı olabilir ve bir sıfır değeri gibi bir arayüz değerinin içinde saklandığında ortaya çıkar. hata dönüşü:
 
 ```go
 func returnsError() error {
@@ -337,7 +337,7 @@ func returnsError() error {
 }
 ```
 
-Hataları döndüren fonksiyonların, hatanın doğru şekilde oluşturulmasını garantilemeye yardımcı olmak için _ `MyError `gibi somut bir tür yerine (yukarıda yaptığımız gibi) imzalarında her zaman hata türünü kullanmaları iyi bir fikirdir. Örnek olarak, _[_os.Open_](https://golang.org/pkg/os/#Open)_, sıfır değilse bile, her zaman somut _ [\*os.PathError](https://golang.org/pkg/os/#PathError) türünde olsa bile bir hata döndürür. Burada açıklananlara benzer durumlar, arayüzler her kullanıldığında ortaya çıkabilir. Arayüzde herhangi bir somut değer saklandıysa arayüzün `nil` olmayacağını unutmayın. Daha fazla bilgi için [Yansıma Yasaları](https://golang.org/doc/articles/laws\_of\_reflection.html)'na bakın.
+Hataları döndüren fonksiyonların, hatanın doğru şekilde oluşturulmasını garantilemeye yardımcı olmak için _ `MyError` gibi somut bir tür yerine (yukarıda yaptığımız gibi) imzalarında her zaman hata türünü kullanmaları iyi bir fikirdir. Örnek olarak,_ [_os.Open_](https://golang.org/pkg/os/#Open)_, sıfır değilse bile, her zaman somut_ [\*os.PathError](https://golang.org/pkg/os/#PathError) türünde olsa bile bir hata döndürür. Burada açıklananlara benzer durumlar, arayüzler her kullanıldığında ortaya çıkabilir. Arayüzde herhangi bir somut değer saklandıysa arayüzün `nil` olmayacağını unutmayın. Daha fazla bilgi için [Yansıma Yasaları](https://golang.org/doc/articles/laws\_of\_reflection.html)'na bakın.
 
 ### ➡️ C'de olduğu gibi neden untagged unions yok?
 
@@ -413,7 +413,7 @@ Bu konuyla ilgili çok fazla tarih var. Eskiden, map'ler ve kanallar sözdizimse
 
 ### ➡️ Kütüphaneler nasıl belgelenir?
 
-Go'da yazılmış, kaynak koddan paket belgelerini çıkaran ve bunu bildirimlere, dosyalara vb. Bağlantılar içeren bir web sayfası olarak hizmet veren bir program var. [golang.org/pkg/](https://golang.org/pkg/) adresinde bir örnek çalışıyor. Aslında, `godoc` sitenin tamamını [golang.org/](https://golang.org) adresinde uygulamaktadır.
+Go'da yazılmış, kaynak koddan paket belgelerini çıkaran ve bunu bildirimlere, dosyalara vb. Bağlantılar içeren bir web sayfası olarak hizmet veren bir program var. [golang.org/pkg/](https://golang.org/pkg/) adresinde bir örnek çalışıyor. Aslında, `godoc` sitenin tamamını [golang.org/](https://golang.org/) adresinde uygulamaktadır.
 
 Bir godoc örneği, görüntülediği programlarda sembollerin zengin, etkileşimli statik analizlerini sağlamak üzere yapılandırılabilir; detaylar [burada](https://golang.org/lib/godoc/analysis/help.html) listelenmiştir.
 
@@ -619,7 +619,7 @@ Her yineleme için yeni bir değişken tanımlamayan dilin bu davranışı, geç
 
 ### ➡️ T ve \* T'nin neden farklı metod atamaları var?
 
-[Go spesifikasyonunun](https://golang.org/ref/spec#Types) dediği gibi, T türünün metod kümesi, alıcı türü T olan tüm metodlardan oluşurken, karşılık gelen işaretçi türü _ T, alıcı _ T veya \*T olan tüm yöntemlerden oluşur. Bu, _ \*T yöntem kümesidir. T'yi içerir, ancak tersini içermez. Bu ayrım, bir arabirim değeri bir _ T işaretçisi içeriyorsa, bir yöntem çağrısı işaretçinin başvurusunu kaldırarak bir değer elde edebildiği için ortaya çıkar, ancak bir arabirim değeri bir T değeri içeriyorsa, bir işaretçi elde etmek için bir yöntem çağrısı için güvenli bir yol yoktur. (Bunu yapmak, bir yöntemin arayüz içindeki değerin içeriğini değiştirmesine izin verir ve bu, dil spesifikasyonu tarafından izin verilmemektedir.) Derleyicinin yönteme geçmek için bir değerin adresini alabildiği durumlarda bile, yöntem değeri değiştirirse, değişiklikler çağırıcıda kaybolur. Örnek olarak, bytes.Buffer'ın Write yöntemi bir işaretçi yerine bir değer alıcısı kullanıyorsa, bu kod:
+[Go spesifikasyonunun](https://golang.org/ref/spec#Types) dediği gibi, T türünün metod kümesi, alıcı türü T olan tüm metodlardan oluşurken, karşılık gelen işaretçi türü _T, alıcı_ T veya \*T olan tüm yöntemlerden oluşur. Bu, _\*T yöntem kümesidir. T'yi içerir, ancak tersini içermez. Bu ayrım, bir arabirim değeri bir_ T işaretçisi içeriyorsa, bir yöntem çağrısı işaretçinin başvurusunu kaldırarak bir değer elde edebildiği için ortaya çıkar, ancak bir arabirim değeri bir T değeri içeriyorsa, bir işaretçi elde etmek için bir yöntem çağrısı için güvenli bir yol yoktur. (Bunu yapmak, bir yöntemin arayüz içindeki değerin içeriğini değiştirmesine izin verir ve bu, dil spesifikasyonu tarafından izin verilmemektedir.) Derleyicinin yönteme geçmek için bir değerin adresini alabildiği durumlarda bile, yöntem değeri değiştirirse, değişiklikler çağırıcıda kaybolur. Örnek olarak, bytes.Buffer'ın Write yöntemi bir işaretçi yerine bir değer alıcısı kullanıyorsa, bu kod:
 
 ```go
 var buf bytes.Buffer
@@ -678,7 +678,7 @@ Standart kütüphanenin amacı, çalışma zamanını desteklemek, işletim sist
 
 Neyin dahil edileceğini tanımlayan net bir kriter yok çünkü uzun zamandır bu tek Go kütüphanesi idi. Bununla birlikte, bugün neyin ekleneceğini tanımlayan kriterler var. Standart kitaplığa yeni eklemeler nadirdir ve dahil etme çıtası yüksektir. Standart kitaplığa dahil edilen kod, büyük bir sürekli bakım maliyeti taşır (genellikle orijinal yazar dışındaki kişiler tarafından karşılanır), [Go 1 uyumluluk taahhüdü](https://golang.org/doc/go1compat.html)ne (API'deki herhangi bir kusur için engelleme düzeltmeleri) tabidir ve Go sürümüne tabidir.
 
-Program, hata düzeltmelerinin kullanıcılara hızlı bir şekilde sunulmasını önler. Yeni kodların çoğu standart kitaplığın dışında yaşamalı ve [go tool](https://golang.org/cmd/go/) ile erişilebilir olmalıdır. git komuta al. Bu tür kodların kendi bakımcıları, yayın döngüsü ve uyumluluk garantileri olabilir. Kullanıcılar [godoc.org](https://godoc.org) adresinde paketleri bulabilir ve belgelerini okuyabilir. Standart kütüphanede `log/syslog` gibi gerçekten ait olmayan parçalar olsa da, Go 1 uyumluluk vaadi nedeniyle kitaplıktaki her şeyi korumaya devam ediyoruz. Ancak çoğu yeni kodu başka bir yerde yaşamaya teşvik ediyoruz.
+Program, hata düzeltmelerinin kullanıcılara hızlı bir şekilde sunulmasını önler. Yeni kodların çoğu standart kitaplığın dışında yaşamalı ve [go tool](https://golang.org/cmd/go/) ile erişilebilir olmalıdır. git komuta al. Bu tür kodların kendi bakımcıları, yayın döngüsü ve uyumluluk garantileri olabilir. Kullanıcılar [godoc.org](https://godoc.org/) adresinde paketleri bulabilir ve belgelerini okuyabilir. Standart kütüphanede `log/syslog` gibi gerçekten ait olmayan parçalar olsa da, Go 1 uyumluluk vaadi nedeniyle kitaplıktaki her şeyi korumaya devam ediyoruz. Ancak çoğu yeni kodu başka bir yerde yaşamaya teşvik ediyoruz.
 
 ## 🔘 İmplemantasyonlar
 
@@ -736,7 +736,7 @@ Gerçekten kapsamlı olmak için, sağlama toplamını [indirilenler sayfasında
 
 ### ➡️ Go, X karşılaştırmasında neden kötü performans gösteriyor?
 
-Go'nun tasarım hedeflerinden biri, karşılaştırılabilir programlar için C'nin performansına yaklaşmaktır, ancak bazı kıyaslamalarda, [golang.org/x/exp/shootout](https://go.googlesource.com/exp/+/master/shootout/)'taki birkaçı da dahil olmak üzere, oldukça zayıf bir şekilde işliyor. En yavaş olanlar, karşılaştırılabilir performansın sürümlerinin Go'da bulunmadığı kütüphanlere bağlıdır. Örneğin, [pidigits.go](https://go.googlesource.com/exp/+/master/shootout/pidigits.go), çok duyarlıklı bir matematik paketine bağlıdır ve Go'nun aksine C sürümleri [GMP](https://gmplib.org)'yi (optimize edilmiş derleyicide yazılmıştır) kullanır. Normal ifadelere (örneğin [regex-dna.go](https://go.googlesource.com/exp/+/master/shootout/regex-dna.go)) dayanan karşılaştırmalar, esasen Go'nun yerel [regexp paketi](https://golang.org/pkg/regexp)ni PCRE gibi olgun, yüksek düzeyde optimize edilmiş düzenli ifade kitaplıklarıyla karşılaştırıyor.
+Go'nun tasarım hedeflerinden biri, karşılaştırılabilir programlar için C'nin performansına yaklaşmaktır, ancak bazı kıyaslamalarda, [golang.org/x/exp/shootout](https://go.googlesource.com/exp/+/master/shootout/)'taki birkaçı da dahil olmak üzere, oldukça zayıf bir şekilde işliyor. En yavaş olanlar, karşılaştırılabilir performansın sürümlerinin Go'da bulunmadığı kütüphanlere bağlıdır. Örneğin, [pidigits.go](https://go.googlesource.com/exp/+/master/shootout/pidigits.go), çok duyarlıklı bir matematik paketine bağlıdır ve Go'nun aksine C sürümleri [GMP](https://gmplib.org/)'yi (optimize edilmiş derleyicide yazılmıştır) kullanır. Normal ifadelere (örneğin [regex-dna.go](https://go.googlesource.com/exp/+/master/shootout/regex-dna.go)) dayanan karşılaştırmalar, esasen Go'nun yerel [regexp paketi](https://golang.org/pkg/regexp)ni PCRE gibi olgun, yüksek düzeyde optimize edilmiş düzenli ifade kitaplıklarıyla karşılaştırıyor.
 
 Kıyaslama oyunları kapsamlı ayarlamalarla kazanılır ve kıyaslamaların çoğunun Go sürümleri dikkat gerektirir. Karşılaştırılabilir C ve Go programlarını ölçerseniz ([reverse-complement.go](https://go.googlesource.com/exp/+/master/shootout/reverse-complement.go) bir örnektir), iki dilin ham performansta bu paketin gösterdiğinden çok daha yakın olduğunu göreceksiniz.
 

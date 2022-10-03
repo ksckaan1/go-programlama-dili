@@ -8,7 +8,7 @@ Web Scrapper bir web sayfasındaki elementleri işleyen araçtır.
 
 **Örnek uygulama:**
 
-**blog.golang.org **sitesindeki blog başlıklarını listeleyen Go programının yazılması.
+**blog.golang.org** sitesindeki blog başlıklarını listeleyen Go programının yazılması.
 
 ```go
 package main

@@ -31,7 +31,7 @@ import f "fmt"
 import . "fmt"
 ```
 
-Dikkat ederseniz, **import** kelimesinden sonra **nokta** koyduk. Bu işlem sayesinde **fmt.Println()** yazmak yerine sadece **Println() **yazarak aynı işi yapmış oluruz.\
+Dikkat ederseniz, **import** kelimesinden sonra **nokta** koyduk. Bu işlem sayesinde **fmt.Println()** yazmak yerine sadece **Println()** yazarak aynı işi yapmış oluruz.\
 **5. Yöntem**
 
 ```go

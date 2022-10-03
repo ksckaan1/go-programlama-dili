@@ -1,14 +1,14 @@
 # Go Derleyicisi Kurulumu
 
-Öncelikle bilgisayarımız üzerinde nasıl Golang geliştireceğimize bakalım. Geliştirmek derken Golang programı oluşturacağımızı kastediyorum. Öncelikle Golang’ın resmi sitesinden Golang programını (derleyici) indiriyoruz.
+Öncelikle bilgisayarımız üzerinde nasıl Go ile yazılım geliştireceğimize bakalım. Öncelikle Golang’ın resmi sitesinden Go derleyiciyi indiriyoruz.
 
 Buradan İndirebilirsiniz
 
 [https://golang.org/dl/](https://golang.org/dl/)
 
-Golang’ın basit bir kurulumu var o yüzden kurulumu atlıyorum.
+Go'nun basit bir kurulumu var o yüzden kurulumu atlıyoruz.
 
-Linux İS kullananlara tavsiyem,
+GNU/Linux OS kullananlara tavsiye,
 
 Kullandığınız dağıtımın uygulama deposundan Golang’ı indirin. Sizin için daha kolay olur. Eğer son Go versiyonunu yüklemek istiyorsanız ve uygulama deponuzda son versiyon yoksa [https://golang.org/dl/](https://golang.org/dl/) adresinden Linux versiyonunu indirebilirsiniz.
 

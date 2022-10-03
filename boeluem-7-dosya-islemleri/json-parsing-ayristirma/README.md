@@ -4,11 +4,11 @@
 Yazıya başlamadan önce bu konuyu yazdığı için **Latif Uluman**'a ([@latif70427517](https://twitter.com/latif70427517)) teşekkürlerimi sunarım.
 {% endhint %}
 
-Bugünkü yazımızda _Golang_ ile _**JSON**_ parse etmeye bakacağız. Hepimizin bildiği gibi günümüzde bir _API_ (_application programming interface_) a veri göndermede ya da veri çekmede en sık kullanılan veri formatı _JSON _(_javascript object notation_) dur. _Golang_ ile de kendi oluşturduğumuz verimizi (_Golang struct_) _JSON’a_ dönüştürüp bir _API’a_ request olarak gönderebilir ya da bir _API’dan_ gelen _JSON_ verisini Go programımızda kullanabiliriz.  O halde çok uzatmadan Go programımızdaki verileri nasıl _JSON’a_ dönüştürüz hemen bakalım:
+Bugünkü yazımızda _Golang_ ile _**JSON**_ parse etmeye bakacağız. Hepimizin bildiği gibi günümüzde bir _API_ (_application programming interface_) a veri göndermede ya da veri çekmede en sık kullanılan veri formatı _JSON_ (_javascript object notation_) dur. _Golang_ ile de kendi oluşturduğumuz verimizi (_Golang struct_) _JSON’a_ dönüştürüp bir _API’a_ request olarak gönderebilir ya da bir _API’dan_ gelen _JSON_ verisini Go programımızda kullanabiliriz.  O halde çok uzatmadan Go programımızdaki verileri nasıl _JSON’a_ dönüştürüz hemen bakalım:
 
 **MARSHALLING (Sıralama)**
 
-Evet Go programında_ Go struct’ını_ JSON stringine dönüştürmek için **“encoding”** altındaki **“json”** paketini kullanıyoruz.  Kullanıma ait kod örneği aşağıdaki gibidir.
+Evet Go programında _Go struct’ını_ JSON stringine dönüştürmek için **“encoding”** altındaki **“json”** paketini kullanıyoruz.  Kullanıma ait kod örneği aşağıdaki gibidir.
 
 ```go
 package main
@@ -77,7 +77,7 @@ Ve tekrar kodumuzu derleyelim ve sonucu görelim:
 > JSON Parse Sonucu: {"İsim":"Ali","Soyisim":"Veli","Yaş":20}
 
 Evet arkadaşlar görüldüğü gibi kodumuz çalıştı. Şimdi kısaca açıklayalım programımızı:\
-**7-11** satırlarda kendi** “kişi”** tipimizi oluşturduk.  **13-17** satırlarda bu tipte bir örnek oluşturduk ve **ali** değişkenine atadık.  Daha sonra ali değişkenimizi **json.Marshal()** fonksiyonu kullanarak JSON’a parse ettik. Bu fonksiyondan bize 2 değer dönmektedir. Bunların bir tanesi **\[]byte** tipinde parse edilen verimiz, diğeri ise **error** tipinde hata durumunu gösteren mesajdır. **19-22** satırlarda hatayı kontrol ettik. Ve son olarak da hatalı değilse ekrana bastık. Tabii bizim datamız \[]byte tipindeydi, bunu daha okunur hale getirmek için string’e dönüştürdük.\
+**7-11** satırlarda kendi **“kişi”** tipimizi oluşturduk.  **13-17** satırlarda bu tipte bir örnek oluşturduk ve **ali** değişkenine atadık.  Daha sonra ali değişkenimizi **json.Marshal()** fonksiyonu kullanarak JSON’a parse ettik. Bu fonksiyondan bize 2 değer dönmektedir. Bunların bir tanesi **\[]byte** tipinde parse edilen verimiz, diğeri ise **error** tipinde hata durumunu gösteren mesajdır. **19-22** satırlarda hatayı kontrol ettik. Ve son olarak da hatalı değilse ekrana bastık. Tabii bizim datamız \[]byte tipindeydi, bunu daha okunur hale getirmek için string’e dönüştürdük.\
 &#x20;\
 Evet işte bu kadar. Peki diyelim ki JSON string imizi test etmek istiyoruz ve elimizde oldukça karmaşık bir string var. Bunu tek bir satırda incelemek oldukça zahmetli olabilir. İşte bu durumda imdadımıza **json.MarshalIndent()** fonksiyonu yetişiyor. Kullanımı aşağıdaki gibidir:
 
@@ -144,7 +144,7 @@ Evet görüldüğü gibi string formatındaki JSON verimizi önce **\[]byte** fo
 
 Görüldüğü gibi Unmarshal işlemi başarılı bir şekilde gerçekleşti.\
 Peki bir API’ dan gelen JSON verimize ait özellikleri (attribute) tam olarak bilmeseydik nasıl bir yol izlememiz gerekirdi? Yani biz burada API’ dan isim-soyisim-yas özelliklerinin geleceğini biliyoruz; fakat bunları bilmeyebilirdik. Bu durumda unmarshal ı hangi türden bir veri tipine gerçeklememiz gerekiyor?\
-Çözüm: “**map**” . Evet _**map**_ kullanabiliriz. Yani_** key-value **_(anahtar-değer) ler işimizi görür. Peki türleri ne olmalıdır. “key” ler için düşündüğümüzde bu string olacağı hepimizin aklına gelecektir. Peki Value lar ne olmalıdır? Görüldüğü gibi isim türü string iken, yas integer dı. O halde hepsini karşılayabilen bir veri türü olması lazım. Aklınızda bir şeyler canlanıyor mu? Evet yardımımıza interface yetişiyor. O halde map imizin türü **map\[string]interface{}** olabilir.Hemen bunu da bir kod örneği ile görelim:
+Çözüm: “**map**” . Evet _**map**_ kullanabiliriz. Yani _**key-value**_ (anahtar-değer) ler işimizi görür. Peki türleri ne olmalıdır. “key” ler için düşündüğümüzde bu string olacağı hepimizin aklına gelecektir. Peki Value lar ne olmalıdır? Görüldüğü gibi isim türü string iken, yas integer dı. O halde hepsini karşılayabilen bir veri türü olması lazım. Aklınızda bir şeyler canlanıyor mu? Evet yardımımıza interface yetişiyor. O halde map imizin türü **map\[string]interface{}** olabilir.Hemen bunu da bir kod örneği ile görelim:
 
 ```go
 package main

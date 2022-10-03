@@ -1,7 +1,10 @@
 # Merhaba Dünya
 
-Programlama dünyasında gelenektir, bir programlama dili öğrenilirken ilk önce ekrana **“Merhaba Dünya”** çıktısı veren bir program yazılır. Biz de geleneği bozmadan Golang üzerinde Merhaba Dünya uygulaması yazalım. İlk önce kodları görelim. Daha sonra açıklamasını görelim.
+Programlama dünyasında gelenektir, bir programlama dili öğrenilirken ilk önce ekrana **“Merhaba Dünya”** çıktısı veren bir program yazılır. Biz de geleneği bozmadan Golang üzerinde Merhaba Dünya uygulaması yazalım.
 
+İlk önce kodları görelim. Daha sonra açıklamasını görelim.
+
+{% code title="main.go dosyası" %}
 ```go
 package main
 
@@ -11,6 +14,7 @@ func main(){
     fmt.Println(“Merhaba Dünya!”)
 }
 ```
+{% endcode %}
 
 Şimdi yukarıdaki kodlarda neler yaptığımıza gelelim.
 

@@ -70,7 +70,7 @@ func main() {
 ```
 
 Gelelim yukarıdaki kodların açıklamasına…\
-**cmd** adında bir değişken oluşturduk. Bu değişkenimiz sayesinde **exec.Command() **fonksiyonuyla komutlarımızı girdik.\
+**cmd** adında bir değişken oluşturduk. Bu değişkenimiz sayesinde **exec.Command()** fonksiyonuyla komutlarımızı girdik.\
 **cmd.StdoutPipe()** fonksiyonuyla gönderdiğimiz komutun çıktılarını alabiliyoruz. **cmdOkuyucu** değişkenine komut çıktımızı aldık. **hata** değişkenimize ise komut girildiğinde oluşan hata mesajını aldık.\
 **hata** değişkeninin içi boş değilse ekrana bastırmasını ve **1** numaralı çıkış kodunu vermesini istedik. Bu arada 1 numaralı çıkış kodu hatalar için kullanılır. Golang programlarında görmüyoruz ama **0** numaralı çıkış kod da işler yolunda gittiği zaman kullanılır. C dili kodlayan arkadaşlarımız bilir, **int main** fonksiyonunun sonuna **return 0** ibaresi girilir. Buraya kadar olan işlemlerimiz komutun tanımlanması ile ilgiliydi.\
 Çıktımızı okuyabilmemiz için birkaç işlem yapmamız gerekiyor. Ne yazık ki çıktımızı direkt olarak değişkene atayıp ekrana bastıramıyoruz. **çıktı** adında değişkenimizi oluşturuyoruz. Bu değişkenimiz **cmdOkuyucu** değişkenini taramaya yarayacak. Hemen aşağısında goroutine fonksiyonumuzda **çıktı.Scan()** döngüsü ile çıktı sonucumuzu ekrana bastırıyoruz.\
@@ -98,4 +98,4 @@ func main() {
 }
 ```
 
-Kodlarımızın açıklamasına geçelim. **cmd** adında değişkenimizde **exec.Command()** fonksiyonu ile komutlarımızı tanımladık. **çıktı** ve **hata** değişkenimize komut çıktılarımızı aldık. Burada **hata** değişkeni sadece hata numarasını verecektir. Detayları barındırmaz. Eğer hatamız var ise ekrana bastırmasını istedik. Aşağısında ise **çıktı** değişkenimiz **byte dizisi **tipinde olduğu için **string**‘e çevirip ekrana bastırdık.
+Kodlarımızın açıklamasına geçelim. **cmd** adında değişkenimizde **exec.Command()** fonksiyonu ile komutlarımızı tanımladık. **çıktı** ve **hata** değişkenimize komut çıktılarımızı aldık. Burada **hata** değişkeni sadece hata numarasını verecektir. Detayları barındırmaz. Eğer hatamız var ise ekrana bastırmasını istedik. Aşağısında ise **çıktı** değişkenimiz **byte dizisi** tipinde olduğu için **string**‘e çevirip ekrana bastırdık.

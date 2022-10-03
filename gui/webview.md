@@ -4,7 +4,7 @@
 Daha önce aramızda **electron.js**‘i duyanlar olmuştur. Hani şu Visual Studio Code, Skype, Atom, Discord ve Slack gibi başarılı uygulamaların yazılmış olduğu Javascript kütüphanesinden bahsediyorum. Electron.js ile yazılan uygulamalar **HTML**, **CSS** ve **Javascript**‘in gücüyle kaliteli bir grafiksel kullanıcı arayüzüne ulaşabiliyor. Eğer bir Web Developer’sanız kolayca masaüstü uygulaması yazabiliyorsunuz. Ama Electron.js ile yazılmış uygulamaların kötü yanları da var tabi. Uygulama boyutu bunlardan en sıkıntılı olanı. En basit bir uygulamanın boyutu 150 Megabyte olabiliyor. Bir de **electron-packager** yardımı ile uygulama build edilirken uzun süre bekliyorsunuz.\
 Şimdi gelelim bizi bu olaylardan kurtaracak olan gözümün nuru Golang Kütüphanesi olan **webview** kütüphanesine ♥
 
-**webview** kütüphanesi **zserge** arkadaşımız tarafından yazılmış olan, web sayfaları tasarlayıp programa dönüştürebildiğimiz, backend kısmını Golang rahatlığında yazdığımız bir kütüphane (veya paket)dir.
+**webview** kütüphanesi **zserge** arkadaşımız tarafından yazılmış olan, web sayfaları tasarlayıp programa dönüştürebildiğimiz, backend kısmını Golang rahatlığında yazdığımız bir kütüphane (veya paket)dir.&#x20;
 
 {% hint style="info" %}
 zserge/webview repo'su webview/webview'a taşınmıştır.
@@ -17,6 +17,8 @@ GNU/Linux üzerinde **gtk-webkit2**, macOS üzerinde **Cocoa/Webkit** ve Windows
 Gelelim kütüphanenin kurulumuna. Aşağıdaki komut ile kütüphanemizi indiriyoruz.
 
 > go get github.com/webview/webview
+
+
 
 Kütüphanemizi kurduğumuza göre ufak bir örnek görelim. Daha sonra detaylı örnekler göstereceğim.
 
@@ -55,7 +57,7 @@ func main() {
 ```
 {% endcode %}
 
-![Oluşturulan pencerenin görünümü](<../.gitbook/assets/Screenshot\_20201012\_130620 (1).png>)
+![Oluşturulan pencerenin görünümü](../.gitbook/assets/Screenshot\_20201012\_130620.png)
 
 Yukarıdaki gibi basit bir yöntem ile bir **gui** program oluşturabiliyorsunuz. Seviyeyi biraz yükseltelim ve sonraki örneğimize geçelim.
 
@@ -112,6 +114,7 @@ func main() {
 	//son olarak penceremizi başlatıyoruz.
 	pencere.Run()
 }
+
 ```
 {% endcode %}
 
@@ -322,7 +325,7 @@ Aslında burada yapacağımız olay bir JavaScript kodu çalıştırmak veya tet
 
 Bu işlem için `Eval()` fonksiyonundan faydalanıyoruz. Örnek için yukarıdaki kodlarımıza devam edelim.
 
-`merhaba` fonksiyonunu dinliyoruz demiştik. `Bind()` içerisinde komut satırına isim bastırmak yerine JavaScript konsoluna ismi bastıralım.
+`merhaba` fonksiyonunu dinliyoruz demiştik. `Bind()` içerisinde komut satırına  isim bastırmak yerine JavaScript konsoluna ismi bastıralım.
 
 `Bind()` fonksiyonumuzun içeriği şöyle olsun.
 
@@ -544,3 +547,4 @@ Pencerenin başlığını değiştirmemizi sağlar.
 ```go
 pencere.SetTitle("Uygulama Başlığım")
 ```
+

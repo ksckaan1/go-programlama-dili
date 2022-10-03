@@ -6,7 +6,7 @@ Golang ile programlarımızın komut satırı üzerinden argümanlar ile çalı�
 import "os"
 ```
 
-`os` paketimizdeki `Args` fonksiyonu bize string dizi sunar.** **Bir örnek görelim.
+`os` paketimizdeki `Args` fonksiyonu bize string dizi sunar. **** Bir örnek görelim.
 
 ```go
 package main

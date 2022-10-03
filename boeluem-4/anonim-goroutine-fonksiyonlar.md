@@ -38,7 +38,7 @@ func main() {
 }
 ```
 
-Yukarıdaki mantıkla çalışması için zamanı böyle ayarlamamız gerekir. Ama bu yöntem çok boş (gereksiz) bir yöntemdir. Her zaman böyle zamanı tahmin edemeyiz. Örnek olarak,** go func()** fonksiyonunda internet üzerinden bir dosyanın inmesini bekleyecek olsaydık tahmini bir zaman belirleyemezdik. Ki koskoca Windows bile belirleyemiyor. Çünkü bu internet hızımız ile alaklı bir şeydir. Bu yüzden garanti bir yöntem değildir.
+Yukarıdaki mantıkla çalışması için zamanı böyle ayarlamamız gerekir. Ama bu yöntem çok boş (gereksiz) bir yöntemdir. Her zaman böyle zamanı tahmin edemeyiz. Örnek olarak, **go func()** fonksiyonunda internet üzerinden bir dosyanın inmesini bekleyecek olsaydık tahmini bir zaman belirleyemezdik. Ki koskoca Windows bile belirleyemiyor. Çünkü bu internet hızımız ile alaklı bir şeydir. Bu yüzden garanti bir yöntem değildir.
 
 \
 Bundan %100 daha garantili olan yöntem **kanallar** üzerinden haberleşmektir. Çünkü bir yerde kanal ataması yapıldığında program akışının devam edebilmesi için mutlaka kanaldan gelecek verinin beklenmesi gerekir. Bu sayede zaman ile alakalı işlerde tahmin yürütmemize gerek kalmaz. Biraz uzun bir açıklama oldu ama örneğimizi görünce mantığını anlayacaksınız.

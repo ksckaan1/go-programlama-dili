@@ -29,7 +29,7 @@ func main() {
 ```
 
 {% hint style="info" %}
-Okuma işlemi **byte** tipinde yapıldığı için **string() **fonksiyonu ile byte tipini string tipine dönüştürüyoruz.
+Okuma işlemi **byte** tipinde yapıldığı için **string()** fonksiyonu ile byte tipini string tipine dönüştürüyoruz.
 {% endhint %}
 
 **Dosya Yazma**

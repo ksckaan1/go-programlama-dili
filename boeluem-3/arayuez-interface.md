@@ -1,123 +1,121 @@
-# Arayüz (Interface)
+# Interface
 
-**Interface**'in Go dili üzerindeki kullanımını basitçe açıklayalım. Interface struct nesnelerin, struct tipine göre ilişkili fonksiyonların çalışmasını sağlar. Detayına inmek için önce interface'in nasıl oluşturulduğuna bakalım.
+**Interface** (arayüz), nesne yönelimli programlama dilllerine aşina olmayan kişiler için biraz zor anlaşılan bir konu. Aslında buraya kadar anlattığım konularda mantık olarak anlamadığınız bir yer yoksa interface konusunu anlayabileceğinizi düşünüyorum. Önemli olan güzelce anlatabilmem. O yüzden gelecekten gelen ben, bu eskimiş ve yeni başlayanlar için pek anlaşılabilir olmayan bu konunun anlatımına yeniden bir el atıyorum.
 
-{% code title="interface oluşturma" %}
-```go
-type hesap interface{
-    hesapla()
-}
-```
-{% endcode %}
+Öncelikle interface'in Golang üzerindeki tanımı: Interface, farklı tasarlanmış ama sonuç olarak aynı amaç için kullanılan structlar için bir standart tanımlamasıdır. (Size şuan ne kadar geçti bu tanım bilemem 🤔)
 
-Yukarıda ne yaptığımıza bakacak olursak, `type` ile `hesap` isminde bir `interface` oluşturduk. `hesapla()` ise `hesap` interface'imiz ile ilişkili olacak fonksiyonumuzun ismi olacak.
+Tamamen gerçek hayattan bir örnek ile benzetme yapayım. Bu yazıyı yazarken biraz karnım aç olduğu için tamamen şuan aklıma gelen gıda üzerinden bir örnek ile ilerleyeceğim.
 
-Interface'in belirli structlar üzerinde etki göstermesi gerekiyor. Bu struct'ları da oluşturalım.
+Bizim bir tane normal bir konserve salçamız ve bir tane da biber salçamız olduğunu düşünün.
 
-```go
-type toplam struct {
-    sayı1 int
-    sayı2 int
-}
+Aşağıdaki resimde daha önce tarihte örneği görülmemiş bir şema ile karşılaşacaksınız. Lütfen hazırlıklı olun.
 
-type çarpım struct{
-    sayı1 int
-    sayı2 int
-}
-```
+![](../.gitbook/assets/salca.png)
 
-Yukarıdaki yapılarla toplanılacak ve çarpılacak sayıları barından nesneler oluşturacağız. Sonrasında bu yapılara iliştirilen struct fonksiyonlar yazacağız.
+Yukarıdaki ilginç şemadan çıkarmamız gereken ders, altta bulunana konserve salçaların ikisinde de `ye()` isminde fonksiyonları var. Bunları struct fonkisyon olarak eklenmiş gibi düşünün.
 
-Örnek olarak:
+Yukarıdaki `Salça` interface'imizin ise ye() isminde bir fonksiyon tanımlaması var. Aslında burada struct fonksiyonlar gibi bir fonksiyon tanımlamıyoruz. Burada anlatılmak istenen olay, `salça` interface'i içerisinde bir salçanın salça olabilmesi için `ye()` fonksiyonunun olması gerekir diyoruz. Yani interface'imiz bir bakıma `Türk Standartları Enstitüsü` gibi birşey :relaxed: Yani biz bir salçalı ekmek yiyeceğimiz zaman `Salça` interface'imize bakıyoruz ve görüyoruz ki TSE tarafından belirlenmiş olarak `ye()` fonksiyonu bulunan bir salça almamız gerekiyor. Şemadaki 2 çeşit salçanın da `ye()` fonksiyonu olduğu için ikisi de `salça` interface'inde belirlenmiş standart(lar)a uygun oluyor.
+
+Şimdi bunun için bir örnek görelim.
 
 ```go
-işlem1 := toplam{5,10}
-
-işlem2 := çarpım{5,10}
-```
-
-Şimdi de bu structlar için fonksiyonlar oluşturalım.
-
-```go
-func (t *toplam) hesapla() {
-    fmt.Println(t.sayı1 + t.sayı2)
+type biberSalçası struct {
+	//buraya birşey yazmamız gerekli değil
 }
 
-func (ç *çarpım) hesapla() {
-    fmt.Println(ç.sayı1 * ç.sayı2)
+func (s biberSalçası) Ye() {
+	fmt.Println("Biber salçası yenildi")
+}
+
+type domatesSalçası struct {
+	//buraya birşey yazmamız gerekli değil
+}
+
+func (s domatesSalçası) Ye() {
+	fmt.Println("Domates salçası yenildi")
 }
 ```
 
-Yukarıdaki oluşturduğumuz fonksiyonlarda dikkat edilmesi gereken nokta iki struct fonksiyonun da ismi interface içerisinde belirttiğimiz gibi `hesapla` olmasıdır.
-
-İki fonksiyonda ismini aynı yapmamızın sebebi: oluşturduğumuz interface, nesnenin tipine göre hesapla fonksiyonunu çalıştırmasıdır. Yani işlem1 nesnesini hesap interface'i ile çaşıştırıldığında toplam struct'ı olduğunu algılayıp, toplam struct'ı ile ilişkili hesapla fonksiyonu çalışacaktır. Biraz karışık bir cümle olduğunun farkındayım. O yüzden işlem yaparak öğrenebiliriz.
-
-İlk olarak interface'imizi parametre olarak alan bir fonksiyon oluşturalım.
+Yukarıdaki 2 çeşit salça structı içinde `Ye()` struct fonksiyonları oluşturduk. Bu fonksiyonlar çeşidine göre komut satırına farklı çıktılar bastırıyor. Yani biz bu structlar üzerinden değişkenler oluşturup `Ye()` fonksiyonunu çalıştırabiliriz. Bir adım ilerleyelim.
 
 ```go
-func hesapYap(h hesap){
-    h.hesapla()
+type Salça interface{
+	Ye()
 }
 ```
 
-Yukarıda yaptığımız işlem çok basit. `hesap` interface tipini `h` değişkeni ile çağırdık. `h.hesapla()` ile fonksiyonumuzu çalıştırdık.
-
-Gelelim interfacemizi nasıl kullandığımıza:
+Yukarıda `Salça` isminde bir interface oluşturduk. Daha önceden oluşturduğumuz structlar bu interface'imizle uyumludur. Bunu nereden anladık, çünkü struclarımızın `Ye()` fonksiyonları var ve interface'imizde `Ye()` fonksiyonu olacak diye şart koşmuşuz. Main fonksiyonumuz ise aşağıdaki gibi olsun.
 
 ```go
-package main
+func main() {
+	biber := biberSalçası{}
 
-import "fmt"
+	var salçam Salça
+	salçam = &biber
 
-type hesap interface {
-    hesapla()
+	salçam.Ye()
 }
+```
 
-type toplam struct {
-    sayı1 int
-    sayı2 int
+Bu kısma dikkat edelim. biber isminde `biberSalçası` structından bir nesne oluşturduk. Sonrasında salçam isminde `Salça` interface'inden bir nesne oluşturduk.
+
+5\. satırda ise `salçam` interface nesnesine biber structını atadık. Bu sayede `salçam` değişkeni üzerinden `biberSalçası` structının `Ye()` fonksiyonunu çalıştırabildik.
+
+Programı çalıştırdığımızda aşağıdaki çıktıyı göreceğiz.
+
+> Biber salçası yenildi
+
+Gördüğünüz gibi `biberSalçasının` `Ye()` fonksiyonunu çalıştırdı. Yani interface'imiz burada `biberSalçası` olarak çalıştı. Bir küçük örnek daha görelim.
+
+```go
+func main() {
+	biber := biberSalçası{}
+	domates := domatesSalçası{}
+
+	var salçam Salça
+
+	salçam = &biber
+	salçam.Ye()
+
+	salçam = &domates
+	salçam.Ye()
 }
+```
 
-type çarpım struct {
-    sayı1 int
-    sayı2 int
-}
+Yukarıdaki örneğimizde iki tür salça içinde bir değişken oluşturduk. Daha sonra interface'imiz için bir değişken oluşturduk.
 
-func (t *toplam) hesapla() {
-    fmt.Println(t.sayı1 + t.sayı2)
-}
+Sonrasında interface değişkenimize `biberSalçasını` verip ekrana bastırdık, son olarak da interface değişkenimize `domatesSalçasını` verip ekrana bastık.
 
-func (ç *çarpım) hesapla() {
-    fmt.Println(ç.sayı1 * ç.sayı2)
-}
+Sonuca baktığımızda iki farklı struct tipi içinde `Ye()` fonksiyonunda olan işlemleri gerçekleştirdi.
 
-func hesapYap(h hesap) {
-    h.hesapla()
+Çıktımız aşağıdaki gibi olacaktır.
+
+> Biber salçası yenildi
+>
+> Domates salçası yenildi
+
+Şuanki yaptıklarımızdan farklı bir kullanım şekli de görelim.
+
+```go
+func Ye(s Salça){
+	s.Ye()
 }
 
 func main() {
-    işlem1 := toplam{5, 10}
+	biber := biberSalçası{}
+	domates := domatesSalçası{}
 
-    işlem2 := çarpım{5, 10}
-
-
-    //hesap interface'inden bir örnek oluşturalım
-    var işlem hesap
-
-    //işlem1'in adresini işlem interface'ine atayalım.
-    işlem = &işlem1
-
-    //interface toplam structı olduğunu algılayıp toplama işlemi yapcaktır.
-    hesapYap((işlem))
-
-    //işlem2'nin adresini işlem interface'ine atayalım.
-    işlem = &işlem2
-
-    //interface çarpım structı olduğunu algılayıp çarpma işlemi yapcaktır.
-    hesapYap((işlem))
+	Ye(biber)
+	Ye(domates)
 }
 ```
 
-Özet geçmek gerekirse, en yukarıda interface'in tanımını yaptığım cümleyi aşağıya kopyala + yapıştır yapayım.
+Yukarıdaki kodlarımız daha yukarıdaki kodlarımızın devamıdır. Sadece farklı bir kullanım şekli. `Ye()` isminde bir fonksiyon oluşturduk. Bu fonksiyonun ismini farklı birşey de yapabilirdik. Neyse, fonksiyonumuza baktığımızda `Salça` interface'si ve bu interface'in standartlarına uygun olan değikenleri parametre olarak alabiliyor. Bu gelen parametreyi de `s` değişkeni üzerinden nesnenin `Ye()` fonksiyonunu çağırıyor.
 
-> Interface struct nesnelerin, struct tipine göre ilişkili fonksiyonların çalışmasını sağlar.
+`Main` fonksiyonumuz içerisinden oluşturduğumuz nesleri `Salça` interface'inde belirtilen standartlara uygun olduğu için `Ye()` fonksiyonumuza parametre olarak verebildik.
+
+Çıktımıza bakalım bir de.
+
+> Biber salçası yenildi
+>
+> Domates salçası yenildi

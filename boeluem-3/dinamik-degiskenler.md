@@ -34,3 +34,11 @@ func main() {
 ```
 
 Yukarıdaki örnekte görüldüğü üzere `x` değişkenimize hangi tipte atama yaparsak, `x` değerin tipine dönüşüyor.
+
+### Any
+
+Go'ya gelen güncellemeden sonra `interface{}` yazmak yerine `any` yazarsanız aynı işlemi görür.
+
+```go
+var degisken any
+```

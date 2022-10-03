@@ -36,7 +36,7 @@ func kontrol(hata error){
 }
 ```
 
-Eğer hata çıktısı almak istemiyorsanız. **err** değişkeni yerine** \_ (alt tire)** koyabilirsiniz. Aynen şu şekilde:
+Eğer hata çıktısı almak istemiyorsanız. **err** değişkeni yerine **\_ (alt tire)** koyabilirsiniz. Aynen şu şekilde:
 
 ```go
 db, _ := sql.Open("mysql", "kullanici:sifre@(127.0.0.1:3306)/vtismi?parseTime=true")

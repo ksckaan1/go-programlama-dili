@@ -2,7 +2,7 @@
 
 VSCode Go programlama yapıyorken, **F5** tuşuna bastığınızda üst tarafta hata ayıklayıcıyı seçmenizi ister. Her **F5** tuşuna bastığınızda hata ayıklayıcı seçim ekranı çıksın istemiyorsanız, yani herzaman bir hata ayıklayıcıyı kullansız istiyorsanız, yapacaklarınız çok basit.
 
-VSCode üzerinde ekranın sol tarafından Run sekmesine geçelim.
+VSCode üzerinde ekranın sol tarafından **Run** sekmesine geçelim.
 
 ![Adım.1](../.gitbook/assets/image.png)
 
@@ -16,7 +16,7 @@ Biz varsayılan olarak **Go Hata Ayıklayıcısı**'nı seçeceğiz.
 
 ![Adım.3](../.gitbook/assets/defaultdebugger1.png)
 
-Seçtikten sonra VSCode bizim için `launch.json` adında bir dosya oluşturacak. Bu dosya **F5** tuşuna bastığımızda gerçekleşecek olayları barındıryor. Dikkat edeceğimiz nokta type bölümünde go yazıyor olması.
+Seçtikten sonra VSCode bizim için `launch.json` adında bir dosya oluşturacak. Bu dosya **F5** tuşuna bastığımızda gerçekleşecek olayları barındıryor. Dikkat edeceğimiz nokta **type** bölümünde **go** yazıyor olması.
 
 ![Adım.4](../.gitbook/assets/defaultdebugger3.png)
 
