@@ -52,7 +52,7 @@
 * [Range](boeluem-3/range.md)
 * [Map](boeluem-3/map.md)
 * [Interface](boeluem-3/arayuez-interface.md)
-* [Dinamik Değişkenler](boeluem-3/dinamik-degiskenler.md)
+* [Dinamik Değişkenler](pratik-bilgiler/dinamik-degiskenler.md)
 * [Generics](boeluem-3/generics.md)
 
 ## BÖLÜM 4 (Eş zamanlılık) <a href="#boeluem-4" id="boeluem-4"></a>
@@ -147,4 +147,4 @@
 
 ## 👾 PLUS
 
-* [Efektif Go](plus/efektif-go.md)
+* [Uber Go Stil Kılavuzu](https://github.com/ksckaan1/uber-go-style-guide-tr)
