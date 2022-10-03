@@ -2,10 +2,9 @@
 
 \*Liste harf sıralamasına göre yapılmıştır.
 
-| Kişi                 | Twitter                                                     |
+| Adem Ali Durmuş      | [@ademalidurmus](https://github.com/ademalidurmus)          |
 | -------------------- | ----------------------------------------------------------- |
-| Adem Ali Durmuş      | [@ademalidurmus](https://twitter.com/ademalidurmus)         |
-| Adem İlter           | [@ademilter](https://twitter.com/ademilter)                 |
+| Adem İlter           | [@ademilter](https://github.com/ademilter)                  |
 | Aykut Kardaş         | [@aykutkardas](https://twitter.com/aykutkardas)             |
 | Berkay Çoban         | [@berkaycoban35](https://twitter.com/berkaycoban35)         |
 | Emre Önal            | LinkedIn [@onalemre](https://www.linkedin.com/in/onalemre/) |
