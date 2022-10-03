@@ -1,3 +1,7 @@
+---
+description: Değerli vaktini ayırıp, dökümanın geliştirilmesine katkıda bulunan kişiler
+---
+
 # Katkıda Bulunanlar
 
 \*Liste harf sıralamasına göre yapılmıştır.
