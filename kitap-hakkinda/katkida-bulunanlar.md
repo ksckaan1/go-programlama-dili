@@ -10,7 +10,9 @@
 | Berkay Çoban         | [@berkaycoban](https://github.com/berkaycoban)      |
 | Emre Önal            | [@emmreonal](https://github.com/emmreonal)          |
 | Erhan Yakut          | [@yakuter](https://github.com/yakuter)              |
+| Hazarek              | [@hazerek](https://github.com/hazarek)              |
 | Latif Uluman         | [@latif70427517](https://twitter.com/latif70427517) |
-| Mert Şimşek          | [@mertcansmskk](https://github.com/mertcansmskk)    |
+| Mert Şimşek          | [@mertingen](https://github.com/mertingen)          |
 | Murat Mirgün Ercan   | [@muratmirgun](https://github.com/muratmirgun)      |
+| Yusuf Dündar         | [@yusufdundar](https://github.com/yusufdundar)      |
 | Yusuf Turhan Papurcu | [@yusufpapurcu](https://github.com/yusufpapurcu)    |
