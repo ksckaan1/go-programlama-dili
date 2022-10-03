@@ -1,12 +1,12 @@
 # Go Geliştiricileri için Makefile
 
 Golang ile yazılım geliştirirken **Makefile** teknolojisinde nasıl faydalanacağımızı göreceğiz. Gözümüzün korkmasına gerek yok, aşırı basit bir olay. Zaten herşeyi biliyorsunuz. Makefile sadece bir yöntemdir.\
-&#x20;
+
 
 **Makefile Nedir?**
 
 **Makefile**, çoğu komutu çalıştırmak için kullanabileceğimiz otomasyon aracıdır. Makefile’ı genellikle Github veya Gitlab’de programların ana dizininde bazı işlemleri otomatikleştirme için kullanıldığını görebilirsiniz.\
-&#x20;
+
 
 **Basit Bir Örnek**
 
@@ -24,7 +24,7 @@ Kodumuzu **make** komutu ile deneyebiliriz. Proje klasörümüzün içerisinde k
 > Merhaba
 
 Gördüğünüz gibi **make** komutunun yanına **merhaba** ekleyerek **makefile** dosyamızdaki merhaba bölümünün çalışmasını sağladık. Makefile’ın genel mantığına baktığımızda komut satırı üzerinden yaptığımız işlemleri kısaltıyor.\
-&#x20;
+
 
 **Basit Go Uygulaması İnşa Etme**
 
@@ -66,5 +66,5 @@ hepsi: derle run
 ```
 
 **derle** bloğumuzun içerisine 3 platforma derlemek için komutlarımızı girdik. **run** bloğuna ise **main.go** dosyamızı çalıştırmak için komutumuzu girdik. **hepsi** bloğunun yanına ise **derle** ve **run** yazdık. Yani komut satırına **make hepsi** yazarsak hem derleme hem de çalıştırma işlemini yapacak.\
-&#x20;\
-Bu yazımızda** Golang için** **makefile** kullanımına örnek verdik. İlla ki Go’da kullanılacak diye bir kaide yok. Diğer programlama dillerinde veya komutlarınızı otomatize etmek istediğiniz zaman kullanabilirsiniz.
+\
+Bu yazımızda\*\* Golang için\*\* **makefile** kullanımına örnek verdik. İlla ki Go’da kullanılacak diye bir kaide yok. Diğer programlama dillerinde veya komutlarınızı otomatize etmek istediğiniz zaman kullanabilirsiniz.

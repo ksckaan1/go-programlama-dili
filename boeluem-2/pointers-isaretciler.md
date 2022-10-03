@@ -41,7 +41,7 @@ Yukarıdaki örnekte `a` değişkenini ekrana bastırdığımızda sonucun hala 
 
 `a` değişkenini değiştirebilmemiz için bize `a`'nın bellekteki adresi gerekiyor. Bunun için de `&` (ampersand) işaretini kullanabiliriz.
 
-![Ampersand kullanımı](../.gitbook/assets/ampkullanımı.png)
+![Ampersand kullanımı](<../.gitbook/assets/ampkullanımı (1).png>)
 
 Örnek vermek gerekirse:
 

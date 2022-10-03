@@ -52,7 +52,7 @@ MacOS: [Buradan İndirebilirsiniz.](https://git-scm.com/download/mac)
 
 Git kurulumunu da yaptığımıza göre VSCode için Go eklentisini kurabiliriz.
 
-![VS Code Go Eklentisi](../.gitbook/assets/DeepinScreenshot\_select-area\_20191006213837.webp)
+![VS Code Go Eklentisi](<../.gitbook/assets/DeepinScreenshot\_select-area\_20191006213837 (1).webp>)
 
 Vscode’un sol tarafından **Extension** (Eklentiler) sekmesine geçiyoruz. Arama kutusuna **go** yazıyoruz. Resimde de seçili olan Go eklentisini yeşil **Install (Yükle)** butonuna basarak yüklüyoruz. Yeniden başlatma isterse başlatmayı unutmayın.
 

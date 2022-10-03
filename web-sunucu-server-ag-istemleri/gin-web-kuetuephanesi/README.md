@@ -50,8 +50,8 @@ Programımızı çalıştırdığımızda aşağıdaki gibi konsol çıktısı a
 >
 > \[GIN-debug] \[WARNING] Running in "debug" mode. Switch to "release" mode in production.
 >
-> * using env:   export GIN\_MODE=release
-> * using code:  gin.SetMode(gin.ReleaseMode)
+> * using env: export GIN\_MODE=release
+> * using code: gin.SetMode(gin.ReleaseMode)
 >
 > \[GIN-debug] GET / --> main.index (3 handlers)\
 > \[GIN-debug] Listening and serving HTTP on :8080
@@ -108,9 +108,7 @@ func index(c *gin.Context) {
 
 Bu kodlar sonucunda sayfamızı açtığımızda "kaankuşcu" sonucu göreceğiz. XML tipinde görmek için sayfanıza sağ tıklayıp "_Sayfa Kaynağını Gör_"e tıklayarak kontrol edebilirsiniz.
 
-![XML sonucu](<../../.gitbook/assets/image (1).png>)
-
-
+![XML sonucu](<../../.gitbook/assets/image (1) (1).png>)
 
 ### ➡️ Template Kullanımı
 
@@ -274,7 +272,7 @@ Komut satırına aşağıdaki komutu yazarak çıktısını görebilirsiniz.
 Diğer metodlardan kısaca bahsedelim:
 
 * **PATCH metodu:** Bir kaynak üzerindeki belirli bir alanı değiştirmek için kullanılır.
-* **DELETE metodu: **Sunucudaki bir kaynağı silmeye yarar.
+* \*\*DELETE metodu: \*\*Sunucudaki bir kaynağı silmeye yarar.
 * **PUT metodu:** Bir kaynağın yerine başka bir kaynağı koymaya yarar. (Komple değiştirme)
 * **HEAD metodu:** Sunucuya tıpkı GET metodu gibi fakat sadece başlığı olan bir istek gönderir.
 * **OPTIONS metodu:** Sunucunun desteklediği metodları kontrol etmek için kullanılır.
@@ -368,4 +366,3 @@ Yukarıdaki örneğe göre [http://localhost:9000/arama?tur=bilim-kurgu\&siralam
 ### Göz atmanızı önerdiğim yazı:
 
 {% embed url="https://kaanksc.com/go-web-sunucuda-kullanici-girisi-sistemi" %}
-

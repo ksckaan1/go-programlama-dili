@@ -1,6 +1,6 @@
 # sqlite3
 
-**sqlite3** kütüphanesi kullanımı kolay ve birkaç aşama ile işlerinizi yapabileceğiniz bir kütüphanedir. **sqlite3** kütüphanesini yüklemek için komut satırına  aşağıdakileri yazın.
+**sqlite3** kütüphanesi kullanımı kolay ve birkaç aşama ile işlerinizi yapabileceğiniz bir kütüphanedir. **sqlite3** kütüphanesini yüklemek için komut satırına aşağıdakileri yazın.
 
 > go get github.com/mattn/go-sqlite3
 
@@ -13,7 +13,7 @@ Linux sistemlerin çoğunda **uygulama deposunda** bulunan bir uygulamadır.
 
 Programımızı açıp sol üst taraftan **Yeni Veritabanı**’na tıklayalım.
 
-![](../.gitbook/assets/uEIcZ3.webp)
+![](<../.gitbook/assets/uEIcZ3 (1).webp>)
 
 Veritabanının kayıt yerini, programımızın kodlarının bulunacağı **main.go** dosyası ile aynı yeri seçelim ve ismini **veritabanı.db** olarak kaydedelim. İstediğiniz ismi de verebilirsiniz.
 
@@ -26,8 +26,7 @@ Böylelikle içerisinde adları depolayabileceğimiz bir veri tabanı olşturmu�
 
 ![](../.gitbook/assets/vt3.png)
 
-Tablomuz içindeki kayıtları görmek için **Browse Data** sekmesine tıklayalım. **Table** kısmının yanında tablo oluştururken yazdığımız **kisiler** seçeneğini seçelim. Şuanlık tablomuz boş. Çünkü içine bir kayıtta bulunmadık. **DB Browser** programına bize yardımcı olduğu için teşekkür ederek artık Golang kodlama tarafına geçebiliriz.\
-
+Tablomuz içindeki kayıtları görmek için **Browse Data** sekmesine tıklayalım. **Table** kısmının yanında tablo oluştururken yazdığımız **kisiler** seçeneğini seçelim. Şuanlık tablomuz boş. Çünkü içine bir kayıtta bulunmadık. **DB Browser** programına bize yardımcı olduğu için teşekkür ederek artık Golang kodlama tarafına geçebiliriz.\\
 
 **sqlite3 Kütüphanesinin Kullanımı**\
 **main.go** dosyamızı oluşturalım. Kütüphanelerimizi import edelim.
