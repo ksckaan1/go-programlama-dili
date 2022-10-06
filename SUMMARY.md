@@ -137,7 +137,11 @@
 
 ## CLI
 
-* [Cobra CLI](cli/cobra-cli.md)
+* [🐍 Cobra CLI](cli/cobra-cli.md)
+
+## ⚙ Yapılandırma
+
+* [🐍 Viper](yapilandirma/viper.md)
 
 ## Pratik Bilgiler
 

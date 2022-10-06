@@ -2,7 +2,7 @@
 coverY: 0
 ---
 
-# Cobra CLI
+# 🐍 Cobra CLI
 
 <figure><img src="../.gitbook/assets/cobra.png" alt=""><figcaption><p>Cobra CLI logo</p></figcaption></figure>
 
