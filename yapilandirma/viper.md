@@ -171,7 +171,7 @@ Anahtar değerinin boş olarak atanması veya silinmesi gibi işlemler uygulaman
 
 `WriteConfig()` fonksiyonu dosyanın yazılmasında karşılaşılan hataları döndürür.
 
-### Yapılandırma dosyasını  ile oluşturma
+### Yapılandırma dosyasını oluşturma
 
 Yapılandırma dosyasının uygulamamız tarafından oluşturulmasını istediğimiz durumlar olabilir. Bu durumlarda, yukarıdaki örneklerimizde gördüğümüzün aksine yapılandırma dosyamızı okumadan önce oluşturmamız gerekir.
 
