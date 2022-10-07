@@ -276,8 +276,6 @@ Uygulamayı çalıştırdığımız sistemimizdeki ortam değişkenlerine erişm
 
 Bu yöntemlerden ilki kullanmak istediğimiz ortam değişkenini viper'a bildirmek. Örneğin `TEST` isminde bir ortam değişkenimiz olsun ve değeri de `abc` olsun. `TEST`'in değerini okuyabilmek için aşağıdaki yöntemleri kullanabiliriz.
 
-Eğer ortam değişkeninin zorunlu olarak bulunması gerekmiyorsa,
-
 ```go
 if err := vp.BindEnv("TEST"); err != nil {
    log.Fatalln(err)
@@ -294,5 +292,137 @@ abc
 ```
 {% endcode %}
 
-Eğer ortam değişkeni zorunlu olarak bulunması gerekiyorsa,
+`BindEnv()` fonksiyonunun hata döndürmeme şartı sadece en az bir parametre girmemizdir.
 
+### Varsayılan değerleri atama
+
+Yapılandırma dosyaların ve ortam değişkenlerinden okuma yaptığımızda, bazı anahtarlar tanımlı olmadığı için, sıfır-değerli halde gelebilir. Eğer bu istemediğimiz bir durumsa bu anahtarların varsayılan değerlerini ayarlayabiliriz. Örnek;
+
+{% code title="config.json" %}
+```json
+{
+  "host": "localhost",
+  "port": "80",
+  "user": "root"
+}
+```
+{% endcode %}
+
+Gelelim kullanımına;
+
+```go
+if err := vp.ReadInConfig(); err != nil {
+	log.Fatalln(err)
+}
+
+vp.SetDefault("password", "1234") // anahtar, değer
+
+fmt.Println(vp.GetString("password")) // 1234
+```
+
+`config.json` dosyamızda `password` isimli bir alan olmadığı için varsayılan olarak ayarladığımız `1234` değeri yazdırılacaktır.
+
+Eğer varsayılan değerler çok sayıda olacaksa, şöyle bir yöntem kullanabiliriz.
+
+```go
+defaults := map[string]any{
+	"host":     "localhost",
+	"user":     "root",
+	"password": "1234",
+}
+	
+for k, v := range defaults {
+	vp.Set(k, v)
+}
+```
+
+### Unmarshal
+
+Buraya kadar olan bölümlerde Viper'ı basitçe nasıl kullanacağımızı gördük. Ölçeklenebilir bir projede sadece bu yöntemleri kullarak ilerlememiz zor olduğu için işimizi kolaylaştıracak başka çözümler gerekiyor. Proje yapımızı düzenli tutmak için, bu yöntemlerimizi daha pratik hale getirmemiz gerekiyor.
+
+Bunun için gruplandırma yaparak, yapılandırma ayarlarımızı `struct` halinde kullanabiliriz.
+
+Örneğin aşağıdaki gibi bir yapılandırma dosyamız olsun.
+
+{% code title="config.json" %}
+```json
+{
+  "api": {
+    "host": "example.com",
+    "port": "80",
+    "ssl": true
+  },
+  "database": {
+    "host": "localhost",
+    "user": "root",
+    "password": "1234",
+    "name": "project"
+  }
+}
+```
+{% endcode %}
+
+Yukarıdaki `json` yapısı aktarabileceğimiz `struct`'ları belirleyelim.
+
+```go
+type Config struct {
+	API      APIConfig      `mapstructure:"api"`
+	Database DataBaseConfig `mapstructure:"database"`
+}
+
+type APIConfig struct {
+	Host string `mapstructure:"host"`
+	Port string `mapstructure:"port"`
+	SSL  bool   `mapstructure:"ssl"`
+}
+
+type DataBaseConfig struct {
+	Host     string `mapstructure:"host"`
+	User     string `mapstructure:"user"`
+	Password string `mapstructure:"password"`
+	Name     string `mapstructure:"name"`
+}
+```
+
+Yukarıdaki `struct`'larda dikkat edilmesi gereken ayrıntı, `struct tag`'lerdeki `mapstructure` anahtarıdır.
+
+Yapılandırma dosyamızın tipi `json` olduğu için `mapstructure` yerine `json`'da kullanabilirdik. Fakat yapılandırma dosyamızın tipi, örnek olarak `json`'dan `yaml`'a geçseydi, `struct tag`'lerde `yaml` olarak düzenleme yapmamız gerekirdi. Bu yüzden tüm desteklenen yapılandırma dosyası tiplerinde unmarshal yapabilmesi için `mapstructure` olarak uyguladık.
+
+{% hint style="info" %}
+Tabi ki bu yöntem her durumda işimizi görmeyebilir. Bazı durumlarda farklı dosya tiplerinde farklı anahtar isimlendirmeleri olabilir. Bu gibi durumlarda da dosya tipine göre `struct tag`'lerini düzenlemekte fayda vardır.
+{% endhint %}
+
+`Unmarshal` etmek için aşağıdaki yöntemi izleyebiliriz.
+
+{% code title="main.go" %}
+```go
+func main() {
+	vp := viper.New()
+
+	vp.AddConfigPath(".")
+	vp.SetConfigName("config")
+	vp.SetConfigType("json")
+
+	// öncelikle yapılandırma dosyasını okumamız gerekiyor
+	if err := vp.ReadInConfig(); err != nil {
+		log.Fatalln(err)
+	}
+	
+	var configs Config
+
+	if err := vp.Unmarshal(&configs); err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Printf("%+v\n", configs)
+}
+```
+{% endcode %}
+
+Çıktımız aşağıdaki gibi olacaktır.
+
+{% code title="$ go run ." %}
+```
+{API:{Host:example.com Port:80 SSL:true} Database:{Host:localhost User:root Password:1234 Name:project}}
+```
+{% endcode %}
