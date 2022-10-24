@@ -110,6 +110,7 @@
 * [sqlite3](veritabani/sqlite3.md)
 * [MySQL](veritabani/mysql.md)
 * [MongoDB](veritabani/mongodb.md)
+* [GORM](veritabani/gorm.md)
 
 ## Web Sunucu (Server), Ağ İşlemleri <a href="#web-sunucu-server-ag-istemleri" id="web-sunucu-server-ag-istemleri"></a>
 
