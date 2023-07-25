@@ -29,7 +29,7 @@ func main() {
 }
 ```
 
-Yukarıdaki kodları inceleyelim. i’nin değerini 5 verdik. if teriminin sağında i’nin 5 eşitliği koşulunu sorguladık. Eşitse ekrana i’nin değeri 5’tir. yazısını bastıracak. Değilse i’nin değeri 5 değildir. yazısı bastıracak. i’nin değeri 5 olduğu için ekrana i’nin değeri 5’tir. yazısını bastırdı. If-Else akşında else kullanmamız else’nin kod bloğunu boş bırakmamız ile aynı anlama gelir.
+Yukarıdaki kodları inceleyelim. i’nin değerini 5 verdik. `if` teriminin sağında i’nin 5 eşitliği koşulunu sorguladık. Eşitse ekrana "i’nin değeri 5’tir." yazısını bastıracak. Değilse "i’nin değeri 5 değildir." yazısı bastıracak. Bu yüzden i’nin değeri 5 olduğu için ekrana "i’nin değeri 5’tir." yazısını bastırdı. If-Else akşında else kullanmamamız else’nin kod bloğunu boş bırakmamız ile aynı anlama gelir.
 
 ```go
 i := 10
