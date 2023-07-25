@@ -34,7 +34,7 @@ Yukarıdaki fonksiyonumuzu inceleyelim. Vereceğimiz sayıları toplaması için
 
 **Closure (Atanmış) Fonksiyonlar**
 
-Closure fonksiyonlar ile değişkenlerimizi fonksiyon olarak tanımlayabiliriz. Buradan anlamamış gereken şey fonksiyonların da atanabilen veri tipleri olduğudur. Örneğimize geçelim.
+Closure fonksiyonlar ile değişkenlerimizi fonksiyon olarak tanımlayabiliriz. Buradan anlamamız gereken şey fonksiyonların da atanabilen veri tipleri olduğudur. Örneğimize geçelim.
 
 ```go
 package main
