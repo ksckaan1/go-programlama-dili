@@ -87,7 +87,7 @@ func main() {
 
 ### Switch'e Özel Değişken Tanımlama
 
-Tıpkı If deyimindeki Switch içerisinde kullanabileceğimiz değişkenler tanımlayabiliriz.
+Tıpkı If deyimindeki gibi Switch içerisinde de kullanabileceğimiz değişkenler tanımlayabiliriz.
 
 ```go
 switch x := 5; {
