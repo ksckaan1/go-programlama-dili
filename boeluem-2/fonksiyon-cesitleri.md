@@ -72,7 +72,7 @@ func yazdır() func(s string) {
 }
 ```
 
-**Recursive (İç-içe) Fonksiyonlar**
+**Recursive (Özyinelemeli) Fonksiyonlar**
 
 Recursive fonksiyonlar yazdığımız fonksiyonun içinde aynı fonksiyonu kullanmamız demektir. Fonksiyonumun tüm işlemler bittiğinde return olur. Örneğimize geçelim.
 
