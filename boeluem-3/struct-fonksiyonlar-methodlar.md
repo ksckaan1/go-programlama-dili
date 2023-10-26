@@ -32,3 +32,7 @@ Daha sonra `main` fonksiyonumuzda `kişi` isminde `insan` tipinde bir nesne olu�
 Çıktımızı görelim:
 
 > Merhaba, Ben Kaan. 23 yaşındayım.
+
+Tabii burada, `fmt.Prtinf` fonksiyonu içerisinde kullanılan `%s` ve `%d` ifadelerinini anlamamış olabilirsiniz. Bu ifadeler, fonksiyonun ilk argümanından sonra verilen değişkenlerin karakter dizisi (string) içerisinde kullanılabilmesine olanak sağlar. Veri tipi olarak `%s` kullanıldığı durumlarda string türü verileri, `%d` kullanıldığı durumlarda ise integer türü verilerin yerleştirileceğini belirtir. Doğru veri tipi için ifade seçilmediği durumlarda program hata vermeyecek ancak doğru çalışmayacaktır.
+
+Bu konuya, ileride `String Formatlama` bölümünde değineceğiz.
