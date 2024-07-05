@@ -4,8 +4,6 @@ import starlightLinksValidator from 'starlight-links-validator';
 import starlightImageZoom from 'starlight-image-zoom';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [starlight({
@@ -217,6 +215,4 @@ export default defineConfig({
       }]
     }]
   })],
-  output: "server",
-  adapter: cloudflare()
 });
