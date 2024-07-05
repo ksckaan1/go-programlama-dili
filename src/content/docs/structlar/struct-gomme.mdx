@@ -1,0 +1,146 @@
+---
+title: Struct Embedding
+---
+
+Struct embedding (gömme), bir struct içerisinde başka bir struct'ı gömme ve içermesi anlamına gelir. Bu özellik, Go'nun nesne yönelimli programlama (OOP) özelliklerini basitleştirmek ve kod tekrarını azaltmak amacı ile kullanılır.
+
+Örnek olarak;
+
+```go
+type Person struct {
+  FirstName string
+  LastName string
+  Age int
+}
+
+type Employee struct {
+  Person
+  JobTitle string
+  Salary int
+}
+```
+
+Yukarıdaki örnekte 2 adet struct görmekteyiz. `Person` struct'ımız temel olarak bir kişiyi temsil ediyor. `Employee` struct'ımız ise bir çalışanı temsil ediyor.
+
+Çalışanlar mantıken, aynı zamanda birer kişi olduğu için, `Employee` struct'ının içerisine `Person` struct'ını gömdük. Bu sayede bir `Employee` aynı zamanda bir `Person`'ın özelliklerine sahip olacaktır.
+
+```go
+e := Employee{
+  Person: Person{
+    FirstName: "John",
+    LastName:  "Doe",
+    Age:       30,
+  },
+  JobTitle: "Software Engineer",
+  Salary:   50000,
+}
+
+fmt.Println(e.FirstName) // John
+```
+
+Yukarıdaki kullanım örneğinde dikkat etmemiz gereken, `Employee` struct'ından bir örnek oluştururken, gömülmüş olan `Person` struct'ının içeriğini, alan değeri belirler gibi yapıyor olmamızdır.
+
+Eğer bu 2 struct'ımızda da aynı isimde alanlar bulunsaydı ne olacağına bakalım. Örnek olarak;
+
+```go {5,11}
+type Person struct {
+	FirstName string
+	LastName  string
+	Age       int
+	Salary    int // aynı
+}
+
+type Employee struct {
+	Person
+	JobTitle string
+	Salary   int // aynı
+}
+```
+
+Yukarıdaki örnekte `Person` struct'ı içerisine de bir `Salary` alanı eklediğimizi görüyorsunuz. Bu örneğe göre bir `Employee` örneği oluşturalım.
+
+```go
+e := Employee{
+  Person: Person{
+    FirstName: "John",
+    LastName:  "Doe",
+    Age:       30,
+    Salary:    3000,
+  },
+  JobTitle: "Software Engineer",
+  Salary:   50000,
+}
+
+fmt.Println(e.Salary)        // 50000
+fmt.Println(e.Person.Salary) // 3000
+```
+
+Yazdırılan değerlere baktığımızda, `e.Salary` `Employee` içerisindeki `Salary` alanının değerini, `e.Person.Salary` ise `Person` içerisindeki `Salary` alanının değerini temsil etmektedir.
+
+`Salary` alanı hem `Employee`, hem de `Person` içerisinde bulunduğu için, hangi değeri kullanmak istiyorsak, özellikle hiyerarşik olarak belirtmemiz gerekir. 2 struct'ta da bulunmayan gömülü alanlar için, örnek olarak `FirstName`, `e.Person.FirstName` olarak erişmek yerine, direkt olarak `e.FirstName` olarak erişebiliriz. Çünkü struct embedding yaparak, hiyerarşik olarak altta bulunan struct'ın alanlarını üst sturct'a miras bırakmış oluruz.
+
+:::caution[UYARI]
+Struct embedding'i kullanırken dikkatli olunması gerekir, çünkü karmaşıklığı arttırabilir ve veri tutarlılığını bozabilir.
+:::
+
+Struct embedding yapılan bir senaryoda, genellikle gömülen struct üzerinden işlem yapmak pratikte karışıklığa sebep olduğu için, kullanım senaryosunu ebeveyn struct üzerinden inşa etmek daha makul bir yöntemdir.
+
+Struct embedding kullanımında, yanlış metod veya alan kullanımı, yanlışlıkla metod veya alan üzerine yapma gibi yan etkiler ile karşılaşılabilir. Bu yan etkiler sonucunda uygulamamız bir hata vermese de, mantıken yanlış çalışabilir. Bu yüzden dikkatli olunması gerekir.
+
+## Yan etki kullanılarak varsayılan davranışın belirlenebilmesi
+Struct embedding'in neden olduğu yan etkiler, çoğu zaman dezavantaj oluştursa da, avantaj olarak kullanıldığı durumlar da mevcuttur.
+
+İçeriği gömülen struct bazen varsayılan davranışları temsil etmek için kullanılabilir.
+
+Örnek olarak, bir yerde bizden `Eat()`, `Sleep()` ve `Code()` metodlarının olması gereken bir struct istendiği senaryoyu inceleyelim.
+
+```go
+type Person struct {}
+
+func (Person) Eat() {
+	fmt.Println("Yemek yenildi")
+}
+```
+
+Yukarıdaki örneğe göre `Person` adında bir struct tipi tanımladık ve bu `Person` struct'ının `Eat()` adında bir metodu bulunmakta. Bizden istenen şartlara göre, `Sleep()` ve `Code()` adında da metodları bulunması isteniyor demiştik. Fakat `Person` struct'ımızın örneğe göre bu şartları sağlamadığı çok açık. `Person` struct'ının eksik olan metodlarını temsilen varsayılan davranışını belirleyecek olan bir struct daha oluşturalım.
+
+```go
+type PersonDefault struct{}
+
+func (PersonDefault) Eat() {
+	fmt.Println("varsayılan Eat davranışı")
+}
+
+func (PersonDefault) Sleep() {
+	fmt.Println("varsayılan Sleep davranışı")
+}
+
+func (PersonDefault) Code() {
+	fmt.Println("varsayılan Code davranışı")
+}
+```
+
+Örnekte oluşturulmuş olan `PersonDefault` struct'ımız bizden istenen tüm metodları karşılıyor ve varsayılan davranışları temsil ediyor. `PersonDefault` struct'ını `Person` struct'ının içerisine gömdüğümüzde, `Person` struct'ı bizden istenen eksik metodları miras aldığı için, isteği karşılayabilir hale gelecektir.
+
+```go
+type Person struct {
+  PersonDefault
+}
+```
+
+Bu sayede `Person` struct'ında eksik olan diğer metodlar, `PersonDefault` struct'ından miras olarak kullanılabileceği için, bizden istenilen tüm metodlar bulunacaktır ve `Person` struct'ı istenilen yerde kullanılabilecektir.
+
+Örnek bir kullanım görelim.
+
+
+```go
+p := Person{}
+
+p.Eat()   // Yemek yenildi
+p.Sleep() // varsayılan Sleep davranışı
+p.Code()  // varsayılan Code davranışı
+```
+
+Yazdırılan çıktılardan da anlaşılabileceği üzere, `Eat()` metodu `Person` struct'ından, `Sleep()` ve `Code()` metodları ise `PersonDefault` structı üzerinden çağrılmıştır. Daha sonradan `Person` struct'ı için de eksik metodlar tanımlandığında, `PersonDefault` struct'ından miras almak yerine `Person` struct'ının metodları da kullanılabilir.
+
+Bu tarz bir kullanım senaryosu, çoğu zaman bir arayüzün istediği metodları karşılayabilmek için tercih edilmektedir.

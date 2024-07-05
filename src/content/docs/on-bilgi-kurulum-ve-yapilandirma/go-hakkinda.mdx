@@ -1,0 +1,53 @@
+---
+title: Go Hakkında
+---
+
+Go, Google tarafından geliştirilen açık kaynaklı bir programlama dilidir. 2007 yılında **Rob Pike**, **Robert Griesemer** ve **Ken Thompson** tarafından tasarlanmıştır. Go'nun geliştirilmesindeki temel motivasyon, yazılım geliştirme süreçlerini hızlandırmak ve güvenilir, etkili performansa sahip uygulamalar oluşturmaktır.
+
+Go'nun geliştirilmesindeki birinci amaç, basitlik ve anlaşılabilirlik üzerine odaklanmaktır. Günümüzde karmaşıklaşan yazılım projelerinde, okunabilir ve sürdürülebilir bir kod yazma ihtiyacı giderek artmaktadır. Bu nedenle Go, basit ve temiz bir sözdizim sunar. Sözdizimi düzenlemek için `gofmt` adı verilen bir biçimlendirme aracı bulunur, bu da kodun tutarlı ve okunabilir olmasını sağlar.
+
+Bununla birlikte, Go'nun performansı da büyük bir önceliktir. Derlenmiş bir dil olarak, C veya C++ gibi dillerin performansını yakalar. Google'ın hizmetlerinin altyapısında hız ve verimlilik kritik öneme sahiptir, bu nedenle Go bu gereksinimleri karşılamak üzere tasarlanmıştır. Hızlı derleme süreleri ve etkili bir çalışma zamanı performansı sağlamak için optimize edilmiştir.
+
+Paralel ve eşzamanlı programlama, modern yazılım uygulamalarının gereksinimlerinden biridir. Çok çekirdekli sistemlerde paralel işlem yapabilme yeteneği, uygulamaların daha hızlı çalışmasını sağlar. Go, gorutinler adı verilen hafif iş parçacıkları ve kanallar aracılığıyla eşzamanlı ve paralel programlamayı destekler. Bu, uygulamaların daha etkili bir şekilde kaynakları kullanmasını ve daha yüksek performans elde etmesini sağlar.
+
+Bir diğer önemli nokta, Go'nun güvenlik ve hata toleransıdır. Go, güçlü bir tür sistemi ve dahili güvenlik önlemleriyle birlikte gelir. Bu, bellek güvenliğini artırır ve güvenlik açıklarını en aza indirir. Ayrıca, hata işleme için `error` tipini kullanır ve hatayı izleme ve raporlama konusunda tutarlı bir yaklaşım sunar. Bu, yazılım projelerinin daha güvenilir ve istikrarlı olmasını sağlar.
+
+Sonuç olarak, Go'nun geliştirilmesindeki temel nedenlerden biri, yazılım geliştirme süreçlerini hızlandırmak, güvenilir ve yüksek performanslı uygulamalar oluşturmaktır. Basit ve anlaşılabilir bir sözdizimi, hızlı derleme süreleri, paralel ve eşzamanlı programlama desteği, güçlü tür sistemi ve güvenlik önlemleri, Go'yu tercih edilen bir dil haline getiren faktörlerdir. Hem küçük projelerde hızlı prototipleme yapmak için hem de büyük ölçekli uygulamalar geliştirmek için ideal bir seçenektir.
+
+
+## Dilin Özellikleri
+
+1. **Basit ve Temiz Sözdizimi:** Go, basit ve anlaşılır bir sözdizim sunar. Sözdizimi, karmaşıklığı azaltır ve kodun okunabilirliğini artırır. Go dilindeki anahtar kelimelerin sayısı sınırlıdır ve sözdizimi düzenlemek için önemli bir role sahip olan bir biçimlendirme aracı olan gofmt bulunur.
+
+2. **Hızlı Derleme ve Yürütme:** Go, hızlı bir derleyiciye sahiptir. Kaynak kodunu derlemek ve çalıştırmak için çok fazla zaman harcamaz. Bu da hızlı prototipleme ve hızlı geri bildirim döngüsü sağlar.
+
+3. **Güçlü Tip Sistemi:** Go, güçlü bir tip sistemi ile birlikte gelir. Derleme zamanında tür denetimi yapılır ve tip hatalarının erken tespit edilmesini sağlar. Tip sistemi, programlama hatalarını azaltır ve kodun daha güvenli olmasını sağlar.
+
+4. **Eş Zamanlı Programlama:** Go, eş zamanlı programlamaya doğal bir destek sağlar. Gorutinler, hafif iş parçacıklarıdır ve eşzamanlı olarak çalışabilir. Kanallar aracılığıyla gorutinler arasında veri paylaşımı ve iletişim kolayca gerçekleştirilebilir. Bu, çok çekirdekli sistemlerde yüksek performanslı ve etkili paralel programlama için büyük bir avantaj sağlar.
+
+5. **Kuvvetli Standart Kütüphane:** Go'nun standart kütüphanesi oldukça zengin ve işlevseldir. Web sunucusu, ağ programlama, dosya işlemleri, veritabanı erişimi, veri şifreleme, JSON işleme ve daha birçok alanda kullanılabilir fonksiyonları içerir. Standart kütüphane, Go'nun hızlı bir şekilde uygulama geliştirmeye başlamak için ihtiyaç duyulan temel araçları sağlar.
+
+6. **Modül Desteği:** Go'nun modül sistemine sahip olması, dışa bağımlılıkları yönetmeyi kolaylaştırır. Geliştiriciler, harici paketlerin projelere entegre edilmesini ve versiyon kontrolünü yönetmesini sağlayan Go modülünü kullanabilirler. Bu, yazılım projelerinin sürdürülebilirliğini artırır ve kod paylaşımını kolaylaştırır.
+
+7. **Güvenlik ve Hata Toleransı:** Go, güvenlik konusuna büyük önem verir. Güçlü tür sistemi, bellek güvenliği için ek korumalar ve dahili güvenlik önlemleri gibi bir dizi güvenlik özelliğiyle birlikte gelir. Ayrıca, hata kontrolü için dahili bir hata türü olan `error` tipi bulunur. Bu, hataların düzgün bir şekilde işlenmesini ve programın beklenmedik durumlara karşı daha güvenilir olmasını sağlar.
+
+Go, genel olarak etkili, verimli ve güvenilir bir dil olarak bilinir. Büyük ölçekli projelerde başarılı bir şekilde kullanılabilir ve popüler web siteleri ve hizmetler, yazılım altyapılarının bir parçası olarak Go'yu benimsemiştir. Hem hızlı geliştirme süreçleri hem de performans gerektiren uygulamalar için ideal bir seçenektir.
+
+## Go Yapımcılarının Bulunduğu Diğer Projeler
+
+| ![](../../img/ken-thompson.webp) | ![](../../img/rob-pike.jpg) | ![](../../img/robert-griesemer.webp) |
+|:-----------------------------:|:------------------------:|:---------------------------------:|
+|         Ken Thompson          |         Rob Pike         |         Robert Griesemer          |
+|      B, C, Unix ve UTF-8      |      Unix ve UTF-8       |          Hotspot ve JVM           |
+
+**Örnek Merhaba Dünya Uygulaması**
+
+```go title="main.go"
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Merhaba Dünya")
+}
+```

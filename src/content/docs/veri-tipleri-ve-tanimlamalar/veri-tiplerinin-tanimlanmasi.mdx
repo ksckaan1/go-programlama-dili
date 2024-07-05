@@ -1,0 +1,76 @@
+---
+title: Veri Tiplerinin Tanımlanması
+---
+
+Go programlama dilinde 2 çeşit veri tipi tanımlaması vardır.
+
+- Değişken _(Variable)_
+- Sabit _(Constant)_
+
+## Değişken
+
+Değişkenler adından da anlaşılacağı üzere tanımlandıktan sonra değiştirilmeye imkan veren bir tanımlama türüdür. Değişken tanımlamak için temel olarak 3 yöntem vardır.
+
+- ### Tip Belirterek Tanımlama
+    ```go
+    var metin string // değer vermeden
+    // veya
+    var metin string = "içerik" // değer vererek
+    ```
+
+    :::note
+    Değer vermeden yapılan tanımlamalarda değerler veri tipinin varsayılan değeri _(sıfır değeri / zero value)_ olur.
+
+    Her veri tipinin sıfır değerini, kendileri ile alakalı olan bölümde görebilirsiniz.
+    :::
+- ### Tip Belirtmeden Tanımlama
+    ```go
+    var metin = "içerik"
+    ```
+
+    :::note
+    Tip belirtmeden atama yapabilmek için değer girilmesi gereklidir. Go derleyicisi _(gc)_ tip belirtilmeden tanımlama yapıldığında değer kısmına bakarak değişken tipi çıkarımı yapar.
+    :::
+
+- ### Kısa Tanımlama
+    ```go
+    metin := "içerik"
+    ```
+    Tanımlamanın veri tipi bilgileri sağ tarafa bağlı olduğu için **right side variable declariton** olarak da bilinir.
+
+### Değişken Tanımlama ve Değerini Değiştirme Örneği
+
+```go
+package main
+
+import "fmt"
+
+func main(){
+    metin := "içerik"
+
+    fmt.Println(metin) // "içerik"
+
+    metin = "değiştirilmiş içerik"
+
+    fmt.Println(metin) // "değiştirilmiş içerik"
+}
+```
+
+## Sabit
+Sabitler, değişkenlere benzer şekilde atanır, fakat değeri sonradan değiştirilemez. Bu yüzden değişmesi planlanmayan değerler için kullanılır.
+
+Sabit tanımlaması yapılırken 2 farklı yöntem kullanılabilir.
+
+- ### Tip Belirterek Tanımlama
+    ```go
+    const metin string = "içerik"
+      ```
+
+    :::note
+    Sabit tanımlaması yapılırken değerin belirtilmesi gereklidir.
+    :::
+
+- ### Tip Belirtmeden Tanımlama
+    ```go
+    const metin = "içerik"
+      ```

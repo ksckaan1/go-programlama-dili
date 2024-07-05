@@ -1,0 +1,74 @@
+---
+title: If-Else
+---
+
+Go programlama dilinde belirli bir koşula göre davranışı değişen programlar yazmak istediğimizde `if-else` yapısını kullanabiliriz.
+
+Örnek olarak,
+
+```go {4}
+a := 10
+b := 5
+
+if a > b {
+    fmt.Println("a, b'den büyüktür")
+}
+```
+
+Yukarıdaki örneğe göre `if` şartı `a` değerinin `b` değerinden büyük olmasıdır. Bu şart sağlandığı için program çalıştırıldığında "a, b'den büyüktür" sonucu ile karşılaşacağız.
+
+`if` ile belirtilen şartın sağlanmaması durumunda bir işlem yapılmasını istiyorsak `else` ile birlikte yazabiliriz.
+
+```go {4,6}
+a := 3
+b := 5
+
+if a > b {
+    fmt.Println("a, b'den büyüktür")
+} else {
+    fmt.Println("a, b'den büyük değildir")
+}
+```
+
+Yukarıdaki örneğe göre çıktımız `a` değeri `b` değerinden küçük olduğu için "a, b'den büyük değildir" olacaktır.
+
+If-else yapısına birden fazla şart eklemek de mümkündür. Bunun için `else if` kullanılabilir.
+
+
+```go {4,6,8}
+a := 5
+b := 5
+
+if a > b {
+    fmt.Println("a, b'den büyüktür")
+} else if a == b {
+    fmt.Println("a, b ile eşittir")
+} else {
+    fmt.Println("a, b'den büyük değildir")
+}
+```
+
+`a` ve `b`'nin değeri eşit olduğu için çıktımız "a, b ile eşittir" şeklinde olacaktır. Bu şekilde şartları istenildiği kadar çoğaltabiliriz.
+
+Bir değişken sadece If-else yapısı içerisinde kullanılacaksa, koşula özel bir tanımlama yapabiliriz.
+
+```go {1}
+if a := 10; a > 5 {
+    fmt.Println("5'ten büyük. a:", a) // 5'ten büyük. a: 10
+} else {
+    fmt.Println("5'ten büyük değil. a:", a)
+}
+```
+
+Örneğe göre sadece if-else yapısı içerisinde kullanabileceğimiz bir `a` değişkeni oluşturduk. Bu değişkene if-else yapısı dışından ulaşılamaz ve if-else yapısı tamamlandıktan sonra bellekten silinmek için bekler.
+
+Birden fazla değişken oluşturmak için, virgüllü atama yapabilirdik.
+
+
+```go {1}
+if a, b := 10, 20; a > b {
+    fmt.Println("a, b'den büyük")
+} else {
+    fmt.Println("a, b'den büyük değil") // a, b'den büyük değil
+}
+```

@@ -1,0 +1,126 @@
+---
+title: Switch
+---
+
+Switch yapısı, If-else yapısına benzerdir. Fakat belirli durumlara göre ikinsinde birini kullanmak daha doğru bir tercih olur.
+
+Switch yapısının iki farklı kullanım tarzı vardır. İlk kullanım tarzı If-else yapısına benzer bir kullanımdır.
+
+```go {3-8}
+a := 5
+
+switch {
+case a > 3:
+    fmt.Println("a, 3'ten büyüktür")
+case a > 4:
+    fmt.Println("a, 4'ten büyüktür")
+}
+```
+
+Çıktımız:
+
+```text
+a, 3'ten büyüktür
+```
+
+Yukarıdaki örneğe göre `a`'nın değeri 5'tir. `switch` yapısında her bir şart `case` anahtar kelimelerinin yanına yazılır. Her bir `case`, yanında şartın sağlanması durumunda belirli işlemler yapabilmemizi sağlar.
+
+Örneğe göre `switch` yapısındaki her iki `case`'in şartları uymasına rağmen, sadece ilk uyan `case` çalışmıştır.
+
+If-else yapısından farklı olarak, `switch` yapısının koşulu sağlanan birden fazla `case`'i çalıştırmasını sağlayabiliriz.
+
+```go {6}
+a := 5
+
+switch {
+case a > 3:
+    fmt.Println("a, 3'ten büyüktür")
+    fallthrough
+case a > 4:
+    fmt.Println("a, 4'ten büyüktür")
+}
+```
+
+Çıktımız:
+
+```text
+a, 3'ten büyüktür
+a, 4'ten büyüktür
+```
+
+`fallthrough` anahtar kelimesi kullanılarak, `fallthrough`'un kullanıldığı `case` çalıştığında, başka bir koşulu sağlayan `case`'in de çalışmasını belirtebiliriz.
+
+Belirtilen `case`'lerin şartlarına uygulmadığı durumda çalıştırabileceğimiz, If-else yapısındaki `else`'e benzer, `default` anahtar kelimesi vardır. `default` belitilen `case`'lerin koşullarını sağlayamaması durumunda varsayılan olarak çalışan alanımızdır.
+
+```go {8}
+a := 1
+
+switch {
+case a > 3:
+    fmt.Println("a, 3'ten büyüktür")
+case a > 4:
+    fmt.Println("a, 4'ten büyüktür")
+default:
+    fmt.Println("a istenilen bir değerde değil")
+}
+```
+
+Çıktımız aşağıdaki gibi olacaktır.
+
+```text
+a istenilen bir değerde değil
+```
+
+`swtich` yapsının bir başka kullanım tarzı ise, belirli bir değerin kontrol edildiği durumlardır. Örnek olarak,
+
+
+```go {3}
+a := 1
+
+switch a {
+case 3:
+    fmt.Println("a, 3'tür")
+case 4:
+    fmt.Println("a, 4'tür")
+default:
+    fmt.Println("a istenilen bir değerde değil")
+}
+```
+
+Bunun için `switch` anahtar kelimesinin yanına kontrol edilecek olan değişkeni verdik ve herbir `case` eşitlik olup olmadığını kontrol ettik.
+
+`switch` yapısının değerleri kontrol edebilmesinin dışında veri tipi kontrolü de yapabildiğimiz bir yazımı vardır. Örnek olarak,
+
+
+```go {3}
+var a any = "metin"
+
+switch a.(type) {
+case string:
+    fmt.Println("a string tipindedir")
+case int:
+    fmt.Println("a int tipindedir")
+default:
+    fmt.Println("a'nın tipi bilinmiyor")
+}
+```
+
+Bunun için `switch` anahtar kelimesinin yanında `a.(type)` yazarak `a`'nın tipini belirleyen `case`'ler yazdık. Her `case` bir veri tipini sorguluyor.
+
+`a`'nın tipi istenilen tip olduğunda, değerini doğrulanan tip üzerin kullanmak isteseydik, aşağıdaki gibi kullanabilirdik.
+
+
+```go
+var a any = "metin"
+
+switch x := a.(type) {
+case string:
+    fmt.Println("a string:", x)
+case int:
+    fmt.Println("a int:", x)
+default:
+    fmt.Println("a'nın tipi bilinmiyor")
+}
+```
+
+Yukarıdaki örneğe göre `switch` anahtar kelimesinin yanında iddiamızı `x` isimli bir değişkene atadık. Böyle bir kullanımda `case string:` koşulu sağlandığında bu `case`'in içerisinde `x` değişkenini `string` tipinde olacak şekilde kullanabiliriz. Bu kullanım diğer tip belirten `case`'lerde de bu şekilde olacaktır.

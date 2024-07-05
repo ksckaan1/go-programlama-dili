@@ -1,0 +1,84 @@
+---
+title: Dilimler
+---
+
+Dilimler (slices), dizilere benzer olarak içerisinde belirli türden değerler barındırabilen yapılardır. Ancak dizilerden farklı olarak, uzunlukları değişebilir.
+
+Nasıl tanımlandığına bakalım.
+
+```go
+var sayilar []int
+```
+
+Farkedeceğiniz üzere bir dilim tanımlanırken uzunluk ile limitlenmez. İçerisine eklenen elemanlara göre uzunluğu değişir.
+
+Dilimlerde bilinmesi gereken 2 adet özellik vardır.
+- Uzunluk (length)
+- Kapasite (capacity)
+
+Uzunluk, kısaca bir dilimin içerisinde kaç adet eleman bulunduğudur. Kapasite ise dilimin bir sonraki tahsis işlemine kadar içerisinde kaç adet eleman bulunabileceğidir. Yani şuanda dilimin bellek üzerinde ne kadar yer kapladığıdır.
+
+```go
+var sayilar []int
+fmt.Println(len(sayilar)) // 0
+fmt.Println(cap(sayilar)) // 0
+```
+
+Yukarıdaki örnekte `len` fonksiyonu kullanılarak dilimin uzunluğu, `cap` fonksiyonu kullanılarak da dilimin kapasitesi yazdırılmıştır. İki değerinde 0 olduğunu görmekteyiz, çünkü dilimin içerisinde hiçbir eleman bulunmamaktadır.
+
+Bulunmayan bir indeks üzerinden atama işlemi yapılamayacağı için, dilime bir eleman eklemesi yapılması gerekir. Bunun için `append` fonksiyonundan faydalanabiliriz.
+
+```go
+var sayilar []int
+
+sayilar = append(sayilar, 5)
+
+fmt.Println(len(sayilar)) // 1
+fmt.Println(cap(sayilar)) // 1
+```
+
+`append` fonksiyonu bir dilime eleman eklemek için kullanılır. Dilimin yeterli kapasitesi varsa dilime ekleme yapar, eğer yeterli kapasitesi yoksa daha büyük kapasiteli bir dilim oluşturur ve bu dilime ekler. `append` fonksiyonu dilimin ekleme yapılmış halini döndürür ve bu fonksiyonun sonucu genellikle dilimin kendisini tutan değişkene atanır.
+
+`append` fonksiyonu ile birden fazla değeri ekleyebiliriz.
+
+```go
+sayilar = append(sayilar, 5,10,15)
+```
+
+## make Fonksiyonu ile Dilim Tanımlama
+
+Dilimleri tanımlamanın bir başka yöntemi de `make` fonksiyonunu kullanarak tanımlamadır.
+
+Örnek olarak:
+
+```go
+sayilar := make([]int, 0, 10)
+fmt.Println(sayilar) // []
+```
+
+`make` fonksiyonunun ile parametresinde dilimin veri tipini, ikinci parametresinde dilimin uzunluğunu, üçüncü parametresinde ise dilimin kapasitesini belirtiriz.
+
+Kapasitesini belirtmek zorunlu olmasa da, çoğu durumda yararlı bir davranıştır.
+
+```go
+sayilar := make([]int, 0) // sadece uzunluğu belirttik
+fmt.Println(sayilar) // []
+```
+
+Kapasitesinin belirli olmasının faydasına bakarsak, dilimlerin uzunlukları artıp kapasitelerini geçince, yeniden tahsis işlemi yapılır. Yani bellek üzerinde, daha uzun bir liste tutabilecekleri alana taşınırlar. Tahsis işleminin de bir maliyeti vardır. Bu yüzden dilimler tanımlanırken, kaç adet eleman barındıracakları belirlenip veya tahmin edilip, ona göre kapasitesinin belirlenmesi performanslı bir uygulama örneğidir.
+
+Bu şekilde daha az tahsis işlemi yapılarak, daha performanslı bir uygulama yazılabilir.
+
+```go
+sayilar := make([]int, 0, 5) // kapasitesi ile tanımladık
+fmt.Println(len(sayilar)) // 0
+fmt.Println(cap(sayilar)) // 5
+
+sayilar = append(sayilar, 1, 2, 3, 4, 5, 6)
+fmt.Println(len(sayilar)) // 6
+fmt.Println(cap(sayilar)) // 10
+```
+
+Yukarıdaki örnekte önceden tanımlanan kapasite değerinin, nasıl bir artış gösterdiğini görmekteyiz. Tanımlama esnasında 5, olarak belirtilmiş kapasite değeri, 6 eleman eklendikten sonra önceki kapasite değerinin 2 katı kadar, bellekte yeni bir alan tahsis ediliyor.
+
+Bu örnek ile önceden tanımlanmış kapasite değerinin, dilimin kapasitesi yetersiz kaldığında 2'ye katlanarak arttığını gördük. (Bir müddet sonra 1.25 kat büyümeye devam ediyor) Kapasitesi belirlenmemiş bir dilimin, her eleman ekleme işleminde yeni bir tahsis işlemi yapıldığını için, kapasitesi belirlenmiş örneğe göre daha performansız olduğunu söyleyebiliriz. Bunun için kapasitesinin tahmin edilebileceği durumlarda belirtilmesi önemlidir.

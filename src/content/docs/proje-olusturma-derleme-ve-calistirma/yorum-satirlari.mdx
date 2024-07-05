@@ -1,0 +1,78 @@
+---
+title: Yorum Satırları
+---
+
+Go'nun dil tasarımı, kodun açık ve anlaşılır olmasını teşvik ederken, kod kalitesini artırmayı hedefler. Bu nedenle, Go programcıları kodlarını okumayı ve bakımını yapmayı kolaylaştırmak için yorum satırlarını kullanırlar.
+
+## Yorum Satırları Nedir?
+Yorum satırları, bir programın kaynak kodu içinde bulunan metin parçalarıdır ve derleyici tarafından görmezden gelinirlerve programın çalışmasına etki etmezler _(Bazı durumlar hariç)_. Yorum satırları, kodun açıklamasını, notlarını veya belirli parçalarının amacını açıklamak için kullanılır. Yani, yorum satırları, kodun anlaşılabilirliğini artırmak ve başkalarına kodun nasıl çalıştığını anlatmak için önemli bir araçtır.
+
+Go programlama dilinde yorum satırları iki farklı biçimde kullanılabilir:
+
+- **Tek Satırlık Yorumlar:** Tek satırlık yorumlar, `//` işareti ile başlar ve o satırın sonuna kadar devam eder. Örneğin:
+
+```go title="main.go" {6}
+package main
+
+import "fmt"
+
+func main() {
+    // Bu bir tek satırlık yorum örneğidir.
+    fmt.Println("Merhaba, Dünya!")
+}
+```
+
+Tek satırlık yorumlar, kısa ve basit açıklamalar için uygundur.
+
+- **Çok Satırlık Yorumlar:** Çok satırlık yorumlar, `/*` ile başlar ve `*/` ile biter. İçerisinde birden fazla satır kullanılabilir. Örneğin:
+```go title="main.go" {1-4}
+ /*
+Bu bir çok satırlık yorum örneğidir.
+Birden fazla satırda açıklamalar yapabiliriz.
+*/
+
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Merhaba, Dünya!")
+}
+```
+
+Çok satırlık yorumlar, daha uzun ve ayrıntılı açıklamalar için kullanılır.
+
+## Yorum Satırlarının Kullanım Alanları
+Go programlama dilinde yorum satırları, aşağıdaki alanlarda kullanılır:
+
+- **Kod Açıklamaları:** Yorum satırları, kodun ne yaptığını ve nasıl çalıştığını açıklamak için kullanılır. Bu, kodu yazan kişinin veya diğer geliştiricilerin kodu daha iyi anlamalarına yardımcı olur.
+
+- **TODO İşaretleri:** Geliştiriciler, yarım kalan işleri veya gelecekte yapılması gereken düzenlemeleri belirtmek için yorum satırları içinde "TODO" etiketleri kullanabilirler.
+
+  ```go {1,3}
+  // TODO: Bu bölümü daha verimli hale getir
+  func optimize() {
+      // Burada optimize edilmesi gereken kodlar bulunuyor
+  }
+    ```
+:::note[Bilgi]
+Bazı kod editörleri veya IDE'ler `// TODO:` ile başlayan yorumlara daha kolay erişebilmeniz için bir özellik içerebilir.
+:::
+
+- **Paket ve Fonksiyon Dokümantasyonu:** Yorum satırları, paketlerin ve fonksiyonların dökümantasyonunu oluşturmak için kullanılır. Özellikle, Go'da dökümantasyon standart olarak `godoc` aracı tarafından üretilir ve bu yorumlar belgelerin bir parçasıdır.
+
+  ```go title="mymath.go" {1,4,6}
+  // Package mymath provides mathematical functions.
+  package mymath
+
+  // Add returns the sum of two integers.
+  func Add(a, b int) int {
+      // This function adds two integers and returns the result.
+      return a + b
+  }
+    ```
+
+## Yorum Satırları ve Temiz Kodlama
+Go dilinde temiz kodlama prensiplerine uyum sağlamak için yorum satırları önemlidir. Temiz kodlama, kodun okunabilirliğini artırır, hataları azaltır ve daha kolay bakım yapılmasını sağlar. Go programcıları, kodlarını yazarken açık ve anlaşılır yorumlar ekleyerek temiz kodlama ilkelerine bağlı kalır.
+
+Ancak, aşırı kullanılan veya gereksiz yorumlar kodun okunabilirliğini düşürebilir ve karışıklığa neden olabilir. Bu nedenle yorum satırlarının dengeli bir şekilde kullanılması önemlidir.

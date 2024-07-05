@@ -1,0 +1,188 @@
+---
+title: for Döngüsü
+---
+
+Go programlama dilinde `for` döngüsü, tekrar eden işlemler için kullanabileceğimiz bir yazımdır. `for` döngülerinde bir işlemin hangi şartlarda tekrar edileği belirtilebilir.
+
+Örnek bir kullanım:
+
+```go
+for i := 0; i < 10; i++ {
+    fmt.Println(i)
+}
+```
+
+Yukarıdaki örnekte `for` döngüsü tanımlanırken imza kısmında 3 bölüm bulunmaktadır. İlk bölümde `i := 0` yazılarak döngünün başlangıcında `i`'nin değerinin 0 olaracağı tanımlanmıştır. İkinci bölümde `i < 10` yazılarak döngünün `i`'nin değeri 10'dan küçük olduğu sürece çalışacağı belirtilmiştir. Üçüncü bölümde ise döngüdeki her bir adım tamamlandığında `i`'nin değerinin 1 artması istenmiştir.
+
+Çıktımız aşağıdaki gibi olacaktır.
+
+```text
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+Go programlama dilinde diğer programlama dillerinin aksine bir adet döngü vardır. Yani sadece `for` döngüsü bulunmaktadır. Bu durumun bir dezavantaj olmaması için `for` döngüsünün yazımı diğer dillere göre daha esnektir.
+
+Örnek olarak `for` döngüsünü, diğer dillerdeki `while` döngüsü gibi yazmak istersek aşağıdaki gibi kullanabiliriz.
+
+```go
+i := 0
+for i < 10 {
+    fmt.Println(i)
+    i++
+}
+```
+
+Yukarıdaki örnekte `for` döngüsü imza kısmında çalışması için sadece koşul ile oluşturulmuştur.
+
+
+Örnek olarak bir listenin elemanlarını nasıl döndüreceğimizi görelim.
+
+```go
+cities := []string{
+    "İstanbul",
+    "Ankara",
+    "İzmir",
+    "Bursa",
+}
+
+for i := 0; i < len(cities); i++ {
+    fmt.Println(cities[i])
+}
+```
+
+Yukarıdaki örnekte bir dilimin elemanları alt alta yazdırılmıştır. `i` değeri indeksi temsil etmektedir. Bu yüzen 0 olarak belirlenmiştir. Döngümüz `i`'nin değeri `cities` diliminin uzunluğundan küçük olduğu sürece çalışacaktır. `i`'nin değeri her döngü adımı tamamlandıktan sonra 1 artacağı için, dilim içerisindeki tüm değerleri yazdırana kadar çalışacaktır.
+
+Çıktımız aşağıdaki gibi olacaktır.
+
+```text
+İstanbul
+Ankara
+İzmir
+Bursa
+```
+
+Alternatif yazım örnekleri görelim.
+
+```go
+for ; ;fmt.Println("selam") {
+    time.Sleep(2 * time.Second)
+}
+```
+
+Örnekteki `for`'un tanım kısmına baktığımızda, 3 bölümden oluşması gerken tanımın sadece 3. bölümünün doldurulduğunu görmekteyiz. Örnekte verilen kullanım senaryosu çok mantıklı olmasa da, böyle bir kullanım imkanımız bulunmaktadır. Kodun davranışı, 2 saniye aralıkla `selam` yazdırmasıdır.
+
+Farklı bir kullanım daha görelim.
+
+```go
+for sum := 0; ; {
+	sum++
+	// herhangi bir iş
+}
+```
+
+Örnekte `for` tanımında bu sefer sadece ilk bölümün doldurulduğunu görmekteyiz. `for` içerisinde oluşturulan tüm değişkenler her döngü adımında yeniden oluşturulduğu için, kalıcı olarak değer tutmak istediğimiz değişkenleri `for` içerisinde oluşturmamamız gerekir. Fakat oluşturmak istediğimiz değişkeni `for` harici bir yerde de oluşturmak istemiyorsak, bu işi `for` tanımında yapabiliriz.
+
+Alternatif olarak inceliğimiz bu 2 örnekte döngüler, sonsuz döngüdür. Yani durdurulana kadar çalışmaya devam ederler.
+
+```go
+for {
+    // Buradaki işlemler sonsuza dek tekrarlanacak.
+}
+```
+
+`for` üzerinde daha fazla kontrole sahip olabilmek için kullanabileceğimiz 2 adet deyim vardır.
+
+## `break` Deyimi
+
+`break` deyimi içerisinde bulunduğu döngüyü kırar (sonlandırır).
+
+```go "break"
+sum := 0
+
+for {
+    if sum > 10 {
+        break
+    }
+
+    sum += 2
+}
+```
+
+Yukarıdaki örneğe göre, döngünün her adımında `sum` değişkenine 2 ekleniyor. Eğer `sum` değişkeinin değeri 10'dan büyük ise `break` deyimi ile döngü sonlandırılıyor.
+
+İç içe döngü kullanımı örneği görelim.
+
+```go "break"
+for {
+    for {
+        // ...
+        if isFinished {
+            break
+        }
+        // ...
+    }
+}
+```
+
+Örnekte iç içe döngüler bulunmaktadır. İçerideki döngüde `isFinished` değere `true` ise içerideki döngü sonlanıyor. İçerideki döngü yerine dışarıdaki döngüyü sonlandırmak istediğimizde, sonlandırılmak istenen döngünün etiketlendirilmesi (label) gerekir.
+
+Örnek olarak,
+
+```go "OUTERLOOP"
+OUTERLOOP:
+for {
+    for {
+        // ...
+        if isFinished {
+            break OUTERLOOP
+        }
+        // ...
+    }
+}
+```
+
+Döngüyü etiketlemek için, etiketlemek istediğimiz döngünün bir üst satırına boşluk olmadan etiket ismi verilir ve `:` ile bitirilir. Etiket isimleri verilirken, zorunlu olmamakla beraber, topluluk tercihi olarak, büyük harf tercih edilir.
+
+Etiketi bulunan bir döngü kırılmak istediğinde `break` deyiminin yanında döngü etiketi de belirtilir. `break` deyimi etiket belirtilmeden kullanıldığında 1. derecen yakın olduğu döngüyü kırar.
+
+## `continue` Deyimi
+
+`continue` deyimi, döngünün bir sonraki adımına atlamak için kullanılır.
+
+```go "continue"
+for i := 0; ; i++ {
+	if i%2 == 0 {
+		continue
+	}
+	fmt.Println(i)
+	time.Sleep(1 * time.Second)
+}
+```
+
+Örnekte, her adımda `i`'nin değeri 1 artıyor ve bu değer tek sayı ise yazdırılıyor. `i`'nin çift sayı olduğu döngü adımlarında değeri yazdırmamak için `continue` deyimini kullanıp, döngü adımı tamamlanmadan bir sonraki adıma geçmesini sağladık.
+
+`continue` deyimi de `break` deyimi gibi etiketler ile çalışabilir.
+
+```go "OUTERLOOP"
+OUTERLOOP:
+for {
+    for {
+        // ...
+        if isFinished {
+            continue OUTERLOOP
+        }
+        // ...
+    }
+}
+```
+
+`continue` deyimi de, `break` deyimi gibi etiket belirtilmediğinde 1. dereceden yakın olan döngünün bir sonraki adımına atlatır.

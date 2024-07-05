@@ -1,0 +1,134 @@
+---
+title: Struct'larda Erişim Yönetimi
+---
+
+Go programlama dilinde bir struct içerisindeki alanlara erişimi sınırlandırmak veya bu erişimlere şekil verebilmek için bir takım yöntemler bulunmaktadır. Bu yöntemler yazılımda kapsülleme (encapsulation) olarak geçer.
+
+Basit düzeyden başlamak gerekirse, struct alanlarına erişimin, büyük veya küçük baş harfler ile nasıl yönetilebileceğinden başlayabiliriz.
+
+Go'da her isimlerdirmede geçerli olan, dışa aktarılmış (exported) ve dışa aktarılmamış (unexported) durumunu inceleyelim.
+
+Örnek bir `struct` tanımlaması görelim. Bu tanımlamamız `mypackage` isimli bir pakette yapılmış olsun.
+
+```go title="mypackage/mypackage.go"
+package mypackage
+
+type Person struct {
+	FirstName string
+	LastName  string
+	Age       int
+}
+```
+
+Yukarıdaki örneğe bakıp yorumlamak istediğimizde, `Person` isimli struct'ımız büyük p harfi ile başladığı için, tanımlanmış olduğu `mypackage` dışından da çağrılabilir olacaktır.
+
+`Person` struct'ı içerisindeki tüm alanların isimleri büyük harfle başladığı için, `Person` struct'ının çağrıldığı heryerde erişilebilir olurlar.
+
+Farklı bir paket olan `main` paketinde kullandığımız bir örnek görelim.
+
+```go title="main.go"
+package main
+
+import (
+	"fmt"
+	"mymodule/mypackage"
+)
+
+func main() {
+	p := mypackage.Person{
+		FirstName: "John",
+		LastName:  "Doe",
+		Age:       42,
+	}
+
+	fmt.Println(p.FirstName) // John
+}
+```
+
+`Person` struct'ı içerisinde dışa aktarılmamış bir alan oluşturmak isteseydik, alanın baş harfini küçük yapabilirdik.
+
+```go title="mypackage/mypackage.go" {7}
+package mypackage
+
+type Person struct {
+	FirstName string
+	LastName  string
+	Age       int
+	salary:    5000,
+}
+```
+
+`salary` isimli alanımız küçük baş harf ile yazıldığı için `mypackage` paketi dışarısından erişilemeyecektir.
+
+```go title="main.go" {9}
+package main
+.
+.
+.
+p := mypackage.Person{
+  FirstName: "John",
+  LastName: "Doe",
+  Age: 42,
+  salary: 1000, // hata verecektir
+}
+```
+
+`salary` alanı sadece `mypackage` paketi içerisinden değiştirilebileceği için, `Person` struct'ı dışarıdan kullanılacağı zaman çoğu durumda bir başlatıcı (initializer) yardımı ile dış pakete sunulabilir.
+
+```go  title="mypackage/mypackage.go" {7,10-18}
+package mypackage
+
+type Person struct {
+	FirstName string
+	LastName  string
+	Age       int
+	salary:    5000, // dışa aktarılmamış alanımız
+}
+
+func New(firstName, lastName string, age, salary int) Person {
+  return Person{
+    FirstName: firstName,
+    LastName: lastName,
+    Age: age,
+    salary: salary, // aynı paket içerisinde
+    // olduğumuz için değer belirlenebilir
+  }
+}
+```
+
+Dışa aktarılmamış alanlar için, bir çok programlama dilinde olduğu gibi, erişim yönetimi için **getirici-ayarlayıcı** (getter-setter) uygulanabilir.
+
+Go programlama dilinde bir `struct` alanı için getirici oluşturulmak isteniyorsa, basitliği koruyabilmek için metodun ismi alanın ismi ile aynı olması önerilir.
+
+```go title="mypackage/mypackage.go"
+func (p Person) Salary() int {
+  return p.salary
+}
+```
+
+Metodun ismi büyük harf ile başladığı için paket dışarısından da çağrılabilecektir.
+
+```go title="main.go"
+p := mypackage.New("John", "Doe", 42, 1000)
+fmt.Println(p.Salary()) // 1000
+```
+
+Ayarlayıcı (setter) tanımlamak istersek aşağıdaki gibi yapabiliriz.
+
+```go
+func (p *Person) SetSalary(salary int) {
+	p.salary = salary
+}
+```
+
+Yukarıdaki örneğe göre `Person` struct'ı içerisindeki `salary` alanına atama yapmak istediğimiz için metodun alıcısını işaretçi olarak belirledik. Bu sayede kopya değişken üzerine atama yapmak yerine, asıl `salary` alanına atama yapabildik.
+
+Eğer `Person` struct'ımızdaki `salary` alanımız için getirici metod olan `Salary` metodumuz olmasaydı, atayıcı metodumuzun ismini direkt `Salary` olarak belirleyebilirdik.
+
+```go
+func (p *Person) Salary(salary int) {}
+```
+
+:::note
+Bu tür bir atayıcı isimlendirmesi örneğini zincirleme (chaining) metodlarda görebilirsiniz.
+:::

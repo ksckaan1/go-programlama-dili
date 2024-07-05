@@ -1,0 +1,108 @@
+---
+title: Struct'lar
+---
+
+`struct`, Go programlama dilinde kullanılan bir veri tipidir. Bu tip, farklı veri tiplerini bir araya getirerek karmaşık veri yapıları oluşturmanıza olanak tanır. Bir `struct` içindeki alanlar (fields), farklı veri tiplerinden olabilir ve her biri bir isimle etiketlenmiş olabilir.
+
+
+```go
+type Person struct{
+	FirstName   string
+	LastName    string
+	Age         int
+}
+```
+
+Yukarıdaki örnekte, Person adında bir struct tanımlanmıştır. Bu struct'ın üç alanı vardır: `FirstName` (string), `LastName` (string) ve `Age` (int).
+
+Struct'ın tanımlaması yapıldıktan sonra aşağıdaki gibi struct üzerinden bir örnek oluşturulabilir.
+
+```go
+type Person struct {
+	FirstName string
+	LastName  string
+	Age       int
+}
+
+func main() {
+	p := Person{
+		FirstName: "John",
+		LastName:  "Doe",
+		Age:       42,
+	}
+
+	fmt.Println("First Name:", p.FirstName) // First Name: John
+	fmt.Println("Last Name:", p.LastName)   // Last Name: Doe
+	fmt.Println("Age:", p.Age)              // Age: 42
+}
+```
+
+Ne kadar önerilen bir yöntem olmasa da, tanımlanan `struct` üzerinden bir örnek üretirken alan ismi belirtmek zorunlu değildir.
+
+```go
+p := := Person{"John","Doe",42}
+```
+
+Önerilmemesinin nedenlerinden biri, `struct` içerisindeki alanlar yer değiştirdiği zaman alan ismi belirtilmediğinde, alanların atanması `struct` tipin tanımlanmasındaki sırasıyla gerçekleşmesi gerekir. Bu yüzden üretilen değişkenlerin tekrardan düzenlenmesi gerekir.
+
+Örnek olarak,
+
+```go
+type Person struct {
+	LastName  string // ↑
+	FirstName string // ↓
+	Age       int
+}
+.
+.
+.
+p := Person{"John", "Doe", 42} // YANLIŞ
+p := Person{"Doe", "John", 42} // DOĞRU
+```
+
+Yeri değişen 2 alanın da tipi `string` olduğu için yanlış kullanımda programı derleme hatası ile karşılaşmayacağımızdan, gözden kaçırılmaya çok müsaittir. Bu yüzden `struct` alanlarını anahtarları ile tanımlamak herzaman güvenli bir yöntem olacaktır.
+
+Diğer bir sebep ise, alan anahtarı ile atama yapılmadığından, bütün alanların değerlerini belirtmemiz gerekir.
+
+```go
+p := Person{"John", "Doe"} // bu şekilde derlenemez
+```
+
+Bu yüzden alanların sıfır değeri olsa da tanımlanması zorunludur. Fakat alan adı belirterek yapmak istediğimizde bu işleme müsade edilir.
+
+```go
+p := Person{
+	FirstName: "John",
+	LastName: "Doe",
+	// Age alanını belirtmediğimiz için
+	// varsayılan int değeri olan 0 olacaktır.
+}
+```
+
+Struct'ların kendisi de veri tipi olduğu için iç içe kullanılabilirler.
+
+```go
+type Person struct {
+	FirstName string
+	LastName  string
+	Age       int
+	Job       JobInfo
+}
+
+type JobInfo struct {
+	Salary int
+	Title  string
+}
+
+func main() {
+	p := Person{
+		FirstName: "John",
+		LastName:  "Doe",
+		Age:       42,
+		Job: JobInfo{
+			Salary: 1000,
+			Title:  "Backend Developer",
+		},
+	}
+}
+```

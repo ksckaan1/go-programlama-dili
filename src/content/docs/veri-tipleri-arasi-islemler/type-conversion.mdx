@@ -1,0 +1,35 @@
+---
+title: Type Conversion
+---
+
+Type conversion, Go programlama dilinde, birbirleri arasında type casting yapılamayan veri tipleri için uygulanabilen bir dönüştürme yöntemidir.
+
+Örnek olarak `string` tipinden `int` tipine dönüştürme yapalım.
+```go
+func main() {
+	metin := "1234"
+
+	sayi, err := strconv.Atoi(metin)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println(sayi) // 1234
+}
+```
+
+Yukarıdaki örnekte `string` tipinde olan metin değişkenimizi `int` türüne çeviriyoruz. `string` tipi ile diğer tipler arasında dönüştürme işlemi yapabilmemizi sağlayan `strconv` paketini kullandık. Dönüştürme işleminde hata gerçekleşme ihtimali olduğu için `sayi` değişkeninin yanında bir de `error` tipinde `err` değişkeni kullanıyoruz. Dönüştürme esnasında hata ile karşılaşılması durumunda **Fatal** logu yazdırılıp program sonlandırılmaktadır.
+
+Bir örnek daha yaparak tam tersi yönde çevirme işlemi yapalım.
+
+```go
+func main() {
+	sayi := 1234
+
+	metin := strconv.Itoa(sayi)
+
+	fmt.Println(metin) // "1234"
+}
+```
+
+

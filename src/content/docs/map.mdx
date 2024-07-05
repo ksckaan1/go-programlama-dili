@@ -1,0 +1,145 @@
+---
+title: Map (Eşleme)
+---
+
+Map'ler anahtarı benzersiz olmak üzere, anahtar-değer (key-value) eşlemeleridir. Bir map aşağıdaki şekilde tanımlanır.
+
+```go
+map[AnahtarTipi]DeğerTipi
+```
+
+Örnek bir map değişkeni tanımlayalım.
+
+```go
+var cityPopulation map[string]uint
+```
+
+Yukarıdaki örneğe göre tanımlanan `cityPopulation` değişkeni, bir anahtar olarak `string`, değer olarak ise `uint` tipinde değer alan bir map'tir.
+
+Map'i tanımladığımız esnada içeriğini girmek için,
+
+```go
+cityPopulation := map[string]uint{
+  "İstanbul": 15_460_000,
+  "Ankara": 5_663_000,
+}
+
+// Yeni bir alan eklemek veya varolan bir alanın
+// değerini değiştirmek için
+cityPopulation["Bursa"] = 2_995_000
+```
+
+Değeri atanmamış map değişkenin varsayılan değeri `nil`'dir. Mevcut değer `nil` iken map üzerinde bir alan oluşturulamaz.
+
+Örnek olarak:
+
+```go
+var cityPopulation map[string]uint
+
+cityPopulation["İstanbul"] = 15_460_000 // panic: assignment to entry in nil map
+```
+
+Bunun için boş olsa da map'i init etmemiş gerekir. Bunun için 2 yöntem vardır.
+
+```go
+// 1. yöntem -> boş değer atayarak init etmek
+cityPopulation := map[string]uint{}
+
+// 2. yöntem -> make kullanarak init etmek
+cityPopulation := make(map[string]uint)
+```
+
+Bellekte belirli bir alan kadar ön tahsis yapmak için, `make` kullanırken opsiyonel boyut belirtebiliriz.
+
+```go
+cityPopulation := make(map[string]uint, 10)
+```
+
+Map'lerin de uzunlukları vardır. `len` fonksiyonu ile bir map'in uzunluğu öğrenilebilir.
+
+```go
+cityPopulation := map[string]uint{
+  "İstanbul": 15_460_000,
+  "Ankara": 5_663_000,
+}
+
+fmt.Println(len(cityPopulation)) // 2
+```
+
+Map'ten bir alanı silmek için `delete` fonksiyonu kullanılır.
+
+```go
+cityPopulation := map[string]uint{
+	"İstanbul": 15_460_000,
+	"Ankara":   5_663_000,
+}
+
+fmt.Println(cityPopulation) // map[Ankara:5663000 İstanbul:15460000]
+
+delete(cityPopulation, "İstanbul")
+
+fmt.Println(cityPopulation) // map[Ankara:5663000]
+```
+
+:::note
+`delete` fonksiyonu ile map üzerinde halihazırda bulunmayan bir alanı silmek istediğimizde herhangi bir işlem gerçekleşmeyeceği gibi, bir hata ile karşılaşmayız.
+:::
+
+Bir map içerisindeki tüm alanları silmek için `clear` fonksiyonunu kullanabiliriz. `clear` fonksiyonu map'i varsayılan değeri olan `nil` yapmak yerine boş haline döndürür.
+
+```go
+cityPopulation := map[string]uint{
+	"İstanbul": 15_460_000,
+	"Ankara":   5_663_000,
+}
+fmt.Println(cityPopulation) // map[Ankara:5663000 İstanbul:15460000]
+
+clear(cityPopulation)
+fmt.Println(cityPopulation) // map[]
+```
+
+Konu map üzerinden değer okumaya geldiğinde bunun için aşağıdaki şekilde ilerleyebiliriz.
+
+
+```go
+cityPopulation := map[string]uint{
+	"İstanbul": 15_460_000,
+	"Ankara":   5_663_000,
+}
+fmt.Println(cityPopulation["İstanbul"]) // 15460000
+```
+
+Map içerisinde bir anahtara kayıtlı değer bulunmadığında, değer tipinin varsayılan değerinde sonuç alırız.
+
+```go
+cityPopulation := map[string]uint{
+	"İstanbul": 15_460_000,
+	"Ankara":   5_663_000,
+}
+fmt.Println(cityPopulation["İzmir"]) // 0
+```
+
+Örneğe göre map içerisinde `İzmir` alanı bulunmadığı için `uint` tipinin varsayılan değeri olan `0` değeri ile karşılaşıyoruz.
+
+Burada şu iki soruyu sorabiliriz.
+
+Map üzerinde `İzmir` alanı için,
+- `0` sonucunu, değeri `0` olarak atandığı için mi alıyoruz?,
+- yoksa `0` sonucunu, değeri hiç atanmadığı için mi varsayılan olarak mı alıyoruz?
+
+Bu durumdan hangisinin gerçekleştiğini anlamak için **comma ok** deyimini kullanabiliriz.
+
+```go {4,7,8}
+cityPopulation := map[string]uint{
+	"İstanbul": 15_460_000,
+	"Ankara":   5_663_000,
+	"Bursa": 0,
+}
+
+bursaPopulation, ok := cityPopulation["Bursa"] // 0, true
+izmirPopulation, ok := cityPopulation["İzmir"] // 0, false
+```
+
+Yukarıdaki örneğe göre, Bursa'nın nüfusu öğrenilmek istendiğinde, `Bursa` anahtarı için `0` değerinde bir kayıt olduğu için, `bursaPopulation` değişkeninin değeri `0` olur ve `ok` değişkeninin değeri `cityPopulation` map'inde `Bursa` alanı bulunduğu için `true` olur.
+
+`cityPopulation` map'inin içerisinde `İzmir` alanı bulunmadığı için, `izmirPopulation` değişkeninin değeri `uint` tipinin varsayılan değeri olduğu için `0` olur ve `ok` değişkeninin değeri, map içerisinde `İzmir` alanı olmadığı için `false` olur.

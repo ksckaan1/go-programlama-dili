@@ -1,0 +1,78 @@
+---
+title: Struct Etiketleri
+---
+
+Struct etiketleri (tags), struct alanlarına özel meta veri (meta data) eklemek için kullanılır. Bu yöntem özellikle, JSON, XML ve diğer veri serileştirme (serialization) ve deserializasyon (deserialization) işlemlerinde kullanışlıdır.
+
+Struct etiketleri, bir alanın nasıl işleneceği veya temsil edileceği konusunda bilgi vermek için kullanılır.
+
+Bir struct etiketi, alan tanımlamasının ardından ters tırnaklar içerisinde ifade edilir.
+
+Örneğimizi görelim;
+
+```go
+type Person struct {
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+	Age       int    `json:"age"`
+}
+```
+
+Yukarıdaki örnekte `Person` structı, belirtilen struct etiketlerine göre, JSON serializasyonu ve deserializasyonu için hazırlanmıştır. Her bir struct alanı için struct etiketleri içerisinde json ayrıştırma yaparken, alan isimlerinin JSON veri içerisindeki karşılıkları verilmiştir. Bu sayede JSON veriden `Person` struct'ına dönüştürürken veya tam tersi olarak, `Person` struct'ından JSON veriye dönüştürürken, bu etiketlerden faydalanılacaktır.
+
+Bu örneğe göre JSON formatı ve `Person` struct'ı arasını veri dönüştürelim.
+
+### Örnek JSON (De)serializasyon
+
+```go title="main.go" {4,22}
+package main
+
+import (
+	"encoding/json" // <- json veri dönüştürmek için
+	"fmt"
+	"log"
+)
+
+type Person struct {
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+	Age       int    `json:"age"`
+}
+
+func main() {
+	d := Person{
+		FirstName: "Kaan",
+		LastName:  "Kuscu",
+		Age:       27,
+	}
+
+	out, err := json.Marshal(d)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println(string(out))
+}
+
+```
+
+Çıktımız:
+
+```json
+{"first_name":"Kaan","last_name":"Kuscu","age":27}
+```
+
+Bir de JSON'dan `Person` struct'ına dönüştürelim.
+
+```go
+data := []byte(`{"first_name":"Kaan","last_name":"Kuscu","age":27}`)
+
+var p Person
+
+err := json.Unmarshal(data, &p)
+if err != nil {
+	log.Fatalln(err)
+}
+
+fmt.Println(p) // {Kaan Kuscu 27}
+```

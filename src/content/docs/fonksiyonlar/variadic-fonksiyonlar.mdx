@@ -1,0 +1,68 @@
+---
+title: Variadic Fonksiyonlar
+---
+
+Variadic fonksiyonlar, Go programlama dilinde fonksiyon kullanımına esneklik katan fonksiyon türleridir. Temel mantığı fonksiyonun alacağı parametrelerin sayısının belirsiz olabilmesidir.
+
+```go
+func topla(sayilar ...int) int {
+    toplam := 0
+    for _, v := range sayilar {
+        toplam += v
+    }
+}
+
+func main(){
+    t := toplam(3, 4, 5, 6)
+    fmt.Println(t) // 18
+}
+```
+
+Yukarıdaki örneği incelediğimizde `topla` isimli fonksiyonumuz `sayilar` ismindeki parametre istenildiği kadar değer alabiliyor. Bunun için parametre tipinden önce `...` yazarak tanımlanıyor.
+
+Fonksiyon bloğunda ise `toplam` adındaki değişkenimize bu `sayilar` içerisindeki değerler ekleniyor.
+
+Bu örnekteki gibi yapmak yerine parametremizi `int` listesi olarak da tanımlayabilirdik.
+
+```go
+func topla(sayilar []int) int {
+    toplam := 0
+    for _, v := range sayilar {
+        toplam += v
+    }
+}
+```
+
+Fakat `...`(spread operatörü) ile kullanmanın faydalı olduğu diğer bir nokta ise parametmizi opsiyonel hale getirebilmesidir.
+
+```go
+func islemYap(opsiyonel ...int) {
+    a := 5 // varsayılan değer 5
+    if len(opsiyonel) > 0 {
+        a = opsiyonel[0]
+    }
+    // a'yı kullanarak işlemler yap
+}
+
+func main(){
+    islemYap(100)
+    // veya
+    islemYap() // varsayılan olarak belirlenen değeri kullanır
+}
+```
+
+Variadic fonksiyon tanımlanırken dikkat edilmesi gereken noktalardan birisi de, `...` kullanarak tanımlanan parametreden sonra, başka bir parametre tanımlanamıyor olmasıdır.
+
+**Örnek:**
+
+:::danger[Yanlış]
+```go
+func islemYap(sayilar ...int, a string)
+```
+:::
+
+:::note[Doğru]
+```go
+func islemYap(a string, sayilar ...int)
+```
+:::

@@ -1,0 +1,43 @@
+---
+title: Ondalık Sayı Veri Tipleri
+---
+
+Go, ondalık sayıları temsil etmek için `float` veri tiplerini kullanır. `float` türleri, noktadan kayan noktalı sayıları ifade etmek için kullanılır ve genellikle matematiksel hesaplamalar, bilimsel hesaplamalar, grafik işleme ve daha birçok uygulama alanında önemli bir rol oynar.
+
+:::note
+Ondalık sayı veri tiplerinin sıfır değeri `0`'dır.
+:::
+
+Go'da iki temel `float` türü bulunur: `float32` ve `float64`.
+
+## float64
+Bu tür, 64 bit (8 bayt) uzunluğunda bir çift hassasiyetli ondalık sayıyı temsil eder. Daha yüksek hassasiyet gerektiren hesaplamalarda kullanılır ve yaklaşık 15 basamaklı ondalık hassasiyete sahiptir.
+
+## float32
+Bu tür, 32 bit (4 bayt) uzunluğunda bir kayan noktalı sayıyı temsil eder. Tek hassasiyetli ondalık sayılar için kullanılır ve yaklaşık 7 basamaklı ondalık hassasiyete sahiptir. Bu türün kullanılması bellek tasarrufu sağlar.
+
+## float Kullanımında Dikkat Edilmesi Gerekenler
+- Ondalık sayılar hassasiyet gerektiren hesaplamalar için kullanılırken, tam sayılar daha kesin sonuçlar elde etmek için tercih edilebilir.
+
+- Ondalık sayılarla matematiksel işlemler yaparken, hassasiyet kaybına yol açabilecek yuvarlama hatalarına dikkat etmek önemlidir.
+
+- `float32` ve `float64` türleri arasında boyut ve hassasiyet açısından bir denge bulunmalıdır. Bellek tasarrufu yapmak isteniyorsa `float32`, daha yüksek hassasiyet gerekiyorsa `float64` tercih edilebilir.
+
+## Örnek Tanımlamalar
+
+```go
+var a float64 // 0
+var a float64 = 10.5
+a := 10.5
+
+var b float32 // 0
+var b float32 = 10.5
+```
+
+:::note
+Ondalıklı sayı kullanılarak kısa tanımlama yapıldığında değerin tipi `float64` olarak varsayılır. Kısa tanımlama yaparak `float32` tipinde tanımlanmak istenirse, **type casting** yapılabilir.
+
+```go
+b := float32(10.5)
+```
+:::

@@ -1,0 +1,95 @@
+---
+title: Diziler
+---
+
+Diziler (arrays), belirlenen türde elemanların bulunduğu listelerdir. Dizideki her elemanın hangi sırada bulunduğunu belirten bir sıralama yöntemi vardır. Bu sıralama yöntemine indeks denir. İndeks 0'dan başlayarak, n sayısına kadar ilerleyebilir.
+
+```go
+var sayilar [5]int
+```
+
+Yukarıda uzunluğu 5 olan bir `int` dizisi tanımlanmıştır. Diziler uzunluğunun müsade ettiği ölçüde eleman sayısına sahip olabilirler ve uzunlukları değiştirilemez.
+
+Bu yüzden değişmeyecek uzunlukta elemanları listelemek için kullanılması mantıklıdır.
+
+Bir dizinin uzunluğu `len` fonksiyonu ile öğrenilebilir.
+
+```go
+var sayilar [5]int
+fmt.Println(len(sayilar)) // 5
+```
+
+Diziyi yazdırdığımızda aşağıdaki gibi bir sonuç ile karşılaşırız.
+
+```go
+var sayilar [5]int
+fmt.Println(sayilar) // [0 0 0 0 0]
+```
+
+İçerisinde 5 adet 0 bulunan bir liste yazdırıldığını görmekteyiz. Dizi içerisindeki elemanların değerleri belirlenmediği için `int` veri tipinin varsayılan değeri olan 0 değerlerini görmekteyiz.
+
+Liste üzerindeki her bir elemanda değişiklik yapmak için, dizinin indeksleri ile atama işlemi yapabiliriz.
+
+```go
+var sayilar [5]int
+sayilar[1] = 15
+fmt.Println(sayilar) // [0 15 0 0 0]
+```
+
+veya direkt olarak tanımlama esnasında değerlerini belirtebiliriz.
+
+
+```go
+sayilar := [5]int{5, 15, 25, 35, 45}
+fmt.Println(sayilar) // [5 15 25 35 45]
+```
+
+veya
+
+```go
+sayilar := [5]int{5, 15, 25}
+fmt.Println(sayilar) // [5 15 25 0 0]
+```
+
+Dizide bulunmayan bir indeks üzerinden atama veya okuma işlemi yapamayız.
+
+:::danger[Yanlış]
+Atama hatası:
+
+```go
+var sayilar [5]int
+sayilar[555] = 13 //invalid argument: index 555 out of bounds [0:5]
+```
+Okuma hatası:
+
+```go
+var sayilar [5]int
+fmt.Println(sayilar[555]) //invalid argument: index 555 out of bounds [0:5]
+```
+:::
+
+Go derleyicisi (gc) dizinin uzunluğundan yola çıkarak, böyle bir indeks bulunmadığı için, yazdığımız kodu derlemeyecektir.
+
+Go'da dizi oluştururken dizi uzunluğunun belirlenmesini derleyiciye bırakmak için aşağıdaki gibi bir yöntem kullanabiliriz.
+
+```go
+sayilar := [...]int{5, 15, 25}
+
+fmt.Println(len(sayilar)) // 3
+```
+
+Bu örnekte köşeli parantezler içerisinde `...` kullanarak derleyiciye dizi içerisinde bulundurduğumuz eleman kadar bir dizi uzunluğu kullanmasını belirttik.
+
+:::note
+Dizi uzunluğu `...` ile belirtildiğinde dizinin uzunluğu değiştirilemez. Sadece derlenirken dizi uzunluğunu derleyicinin kendisi hesaplar.
+:::
+
+Dizi oluştururken sadece istediğimiz indeksin değerini girebiliriz. Değerini belirtmediğimiz indeksler dizide kullandığımız tipi varsayılan değerini alır.
+
+```go
+sayilar := [5]int{0: 10, 2: 20, 4: 30}
+
+fmt.Println(sayilar) // [10 0 20 0 30]
+```
+
+Örnekte 0. indeksteki değerin `10`, 2. indeksteki değerin `20` ve 4. indeksteki değerin de `30` olacağını belirttik. Değer belirtmediğimiz indeksler için dizi tipinin `int` olmasından dolayı, varsayılan değer olan `0` değerini aldı.

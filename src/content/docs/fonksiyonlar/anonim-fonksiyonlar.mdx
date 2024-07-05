@@ -1,0 +1,18 @@
+---
+title: Anonim Fonksiyonlar
+---
+
+Anonim fonksiyonların özelliği isimsiz olmaları ve tanımlama esnasında çalışmalarıdır.
+
+Örnek:
+
+```go
+func main() {
+    metin := "Merhaba Dünya"
+    func(a string) {
+        fmt.Println(a)
+    }(metin)
+}
+```
+
+Yukarıdaki örneği incelediğimizde, isimsiz bir fonksiyon oluşturduk ve fonksiyon tanımlamasının sonunda parantezler içerisinde, bu fonksiyonun çalışması için istediği parametreleri yolladık. Bu sayede anonim fonksiyonumuz direkt olarak çalıştı.

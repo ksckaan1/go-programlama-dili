@@ -1,0 +1,56 @@
+---
+title: Go Derleyicisi Kurulumu
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Daha fazla detay için [asıl indirme sayfasını](https://go.dev/dl/) ziyaret etmeyi isteyebilirsiniz.
+
+<Tabs>
+  <TabItem icon="seti:windows" value="ms-windows" label="Microsoft Windows" default>
+      1. [İndirme sitesine](https://go.dev/dl/) gidin.
+      2. Windows sisteminizin işlemcisine göre olan dağıtımı seçin.
+      3. Basit kurulum aşamalarını tamamlayın.
+  </TabItem>
+  <TabItem icon="apple" value="apple-macos" label="Apple macOS">
+    - ### Homebrew ile yükleyerek
+      1. Eğer sisteminizde Homebrew kurulu değilse, [brew.sh](https://brew.sh/) adresine gidip yönergeleri takip ederek kurabilirsiniz.
+      2. Terminali açıp aşağıdaki komutu çalıştırabilirsiniz.
+        ```shell title="Terminal"
+        brew install go
+        ```
+    - ### Go resmi sitesinden indirerek
+      1. [İndirme sitesine](https://go.dev/dl/) gidin.
+      2. Mac sisteminizin işlemcisine göre olan dağıtımı seçin.
+      3. Basit kurulum aşamalarını tamamlayın.
+  </TabItem>
+  <TabItem icon="linux" value="gnu-linux" label="GNU/Linux">
+    - **Debian** türevi dağıtımlar için _(Debian, Ubuntu Linux, Linux Mint, PopOS...)_,
+      ```shell title="Terminal"
+      sudo apt install golang
+      ```
+    - **Arch Linux** türevi dağıtımlar için_(Arch Linux, Manjaro Linux...)_,
+      ```shell title="Terminal"
+      sudo pacman -S golang
+      ```
+    - **RHEL** türevi dağıtımlar için _(RHEL, Fedora Linux)_,
+      ```shell title="Terminal"
+      sudo dnf install golang
+      ```
+    - **Snap** desktekleyen tüm dağıtımlar için,
+      ```shell title="Terminal"
+      sudo snap install go --classic
+      ```
+  </TabItem>
+</Tabs>
+
+## Kurulumu kontrol edelim
+
+Terminale aşağıdaki komutu yazıp versionu öğrenelim.
+
+```shell title="Terminal"
+go version
+```
+
+```
+go version go1.22.3 darwin/arm64
+```

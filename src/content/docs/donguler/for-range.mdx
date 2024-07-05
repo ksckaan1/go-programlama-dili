@@ -1,0 +1,129 @@
+---
+title: range Kullanımı
+---
+
+`for` döngüsünde `range` anahtar kelimesi kullanılarak, bir listenin içerisindeki elemanlar daha pratik bir şekilde döndürülebilir.
+
+Örnek olarak:
+
+```go {8}
+cities := []string{
+    "İstanbul",
+    "Ankara",
+    "İzmir",
+    "Bursa",
+}
+
+for i, v := range cities {
+    fmt.Println(i, v)
+}
+```
+
+Yukarıda `range` anahtar kelimesi kullanılarak, bir dilimin döndürülmesi örneğini görmekteyiz. `range` kelimesi kullanıldığında döndürülmesi hedeflenen dilim iki adet değişken döndürür.
+
+Bunlardan ilki örnekteki imza kısmında `i` olarak tanımlanmış indeks değerimizdir. Bu değer bize `for` döngüsünün dilimin hangi indeksinde olduğunu verir.
+
+İkincisi `v` olarak isimlendirdiğimiz değişkendir. Bu değişken dönmekte olan dilimin döndürmekte olduğumuz indeksteki elemanın değerini verir.
+
+Örneğe göre çıktımız aşağıdaki gibi olacaktır.
+
+```text
+0 İstanbul
+1 Ankara
+2 İzmir
+3 Bursa
+```
+
+`range` anahtar kelimesi ile döngü kullanıldığında **değer** kısmını almak istemiyorsak sadece **indeks**i de alabiliriz.
+
+```go {1}
+for i := range cities {
+    fmt.Println(i, cities[i])
+}
+```
+
+Sadece **değer** kısmını almak istiyorsak, farklı olarak **indeks** kısmını boş tanımlamak gerekir.
+
+```go {1}
+for _, v := range cities {
+    fmt.Println(v)
+}
+```
+
+Eğer `range` ile kullanımda gelecek olan **indeks** ve **değer** kısımlarına ihtiyacımız yoksa, tanımlama yapmadan da kullanabiliriz.
+
+```go {1}
+for range cities {
+    fmt.Println("selam")
+}
+```
+
+Çıktımız aşağıdaki gibi olacaktır.
+
+```text
+selam
+selam
+selam
+selam
+```
+
+Bu şekilde bir kullanımla `cities` diliminin uzunluğu kadar "selam" yazdırmış olduk.
+
+`range`'i bir map üzerinde kullandığımızda her bir alan için bize iki değer verir. İlk değerimiz alan anahtarıdır. İkinci değer ise alanın değeridir.
+
+```go {7}
+cityPopulation := map[string]uint{
+	"İstanbul": 15_460_000,
+	"Ankara":   5_663_000,
+}
+
+// k -> key, v -> value
+for k, v := range cityPopulation {
+    fmt.Println(k, v)
+}
+```
+
+Çıktımız:
+
+```
+İstanbul 15460000
+Ankara 5663000
+```
+
+Tam sayı üzerinden `range` kullanımıda mümkündür.
+
+`int` türevleri, `uint` türevleri ve `untyped` tamsayıya uyan tüm sayılar `range` ile döndürülebilir. 
+
+```go {1}
+for i := range 10 {
+    fmt.Println(i)
+}
+```
+
+Çıktımız:
+
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+`i` değişkeni üzerinden döngünün hangi adımında olduğumuzu öğrenebiliriz. Bu bilgiye gerek duymadığımız durumlarda, değişken oluşturmadan da kullanabiliriz.
+
+
+```go {1}
+for range 10 {
+    fmt.Println("selam")
+}
+```
+
+:::caution[Uyarı]
+Tamsayı üzerinde `range` kullanımı, Go'nun 1.22 sürümünde eklenmiştir. Daha önceki sürümlerde kullanılamaz.
+:::

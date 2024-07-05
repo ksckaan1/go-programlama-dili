@@ -1,0 +1,73 @@
+---
+title: Tam Sayı Veri Tipleri
+---
+
+## int
+`int` veri tipi, tamsayıları temsil etmek için kullanılan temel bir veri türüdür. Go, `int` veri tipini çeşitli boyutlarda sunar ve platforma bağlı olarak farklı boyutlarda `int` türleri sağlar. Pozitif veya negatif yönde tam sayıları saklamak için kullanılır.
+
+Go'da `int` türleri, matematiksel hesaplamalar, dizinleme ve döngüler gibi birçok programlama görevinde yaygın olarak kullanılır.
+
+:::note
+Tam sayı veri tiplerinin sıfır değeri `0`'dır.
+:::
+
+:::note
+Büyük sayıların okunurluğunu arttırabilmek için 3 hanede 1 `_` _(alt tire)_ ile ayırma işlemi yapabiliriz. Go bu tür bir yazımı destekler.
+
+`1234567890` yerine `1_234_567_890` kullanarak daha okunur bir hale getirdik.
+
+Bu tür bir yazım zorunlu değildir.
+:::
+
+Boyut göz önüne alındığında temel olarak 4 farklı türü vardır.
+
+| Tip       | Minimum Değer                     | Maksimum Değer                    | Boyut            |
+|-----------|-----------------------------------|-----------------------------------|------------------|
+| **int64** | -9_223_372_036_854_775_808        | 9_223_372_036_854_775_807         | 64Bit            |
+| **int32** | -2_147_483_648                    | 2_147_483_647                     | 32Bit            |
+| **int16** | -32_768                           | 32_767                            | 16Bit            |
+| **int8**  | -128                              | 127                               | 8Bit             |
+| **int**   | **int64** veya **int32** ile aynı | **int64** veya **int32** ile aynı | 32Bit veya 64Bit |
+
+:::note
+`int` veri tipi Go programı derlenirken, 64Bit mimari için `int64`, 32Bit mimari için ise `int32` olarak değerlendirilir.
+:::
+
+## uint
+`uint` veri tipi `int` veri tipi gibi tamsayıları temsil etmek için kullanılır. `int` veri tipinde farkı ise yönsüz olmasıdır. Yani `uint` veri tipinin barındırdığı sayılar negatif yönde olamaz.
+
+Boyut göz önüne alındığında temel olarak 4 farklı türü vardır.
+
+| Tip        | Minimum Değer | Maksimum Değer                      | Boyut            |
+|------------|---------------|-------------------------------------|------------------|
+| **uint64** | 0             | 18_446_744_073_709_551_615          | 64Bit            |
+| **uint32** | 0             | 4_294_967_295                       | 32Bit            |
+| **uint16** | 0             | 65_535                              | 16Bit            |
+| **uint8**  | 0             | 255                                 | 8Bit             |
+| **uint**   | 0             | **uint64** veya **uint32** ile aynı | 32Bit veya 64Bit |
+
+:::note
+`uint` veri tipi Go programı derlenirken, 64Bit mimari için `uint64`, 32Bit mimari için ise `uint32` olarak değerlendirilir.
+:::
+
+## Örnek Tanımlamalar
+
+```go
+var a int
+var a int = 5
+a := 10
+
+var b uint32
+var b = 75
+```
+:::note
+Bir tam sayı kısa şekilde tanımlandıysa _(`a := 5`)_ Go derleyicisi _(gc)_ bu değerin tipini `int` olarak varsayar.
+
+Yine de kısa şekilde tanımlayarak `int` harici bir tip vermek istersek **type casting** kullanarak yapabiliriz.
+
+```go
+a := uint(5)
+```
+
+Şimdilik **type casting**'in ayrıntısına girmeden bu şekilde kullanabileceğimizi görelim. İlerleyen bölümlerde **type casting**, **type assertion** ve **type conversion** konularına daha detaylı değineceğiz.
+:::

@@ -1,0 +1,62 @@
+---
+title: Go Modules
+---
+
+Go Modules, Go dilinde bir projenin bağımlılıklarını ve sürüm yönetimini düzenlemek ve otomatikleştirmek için kullanılan bir sistemdir. Go'nun daha önceki sürümlerinde, `GOPATH` ve `vendor` klasörü gibi yöntemlerle bağımlılıkların yönetilmesi zordu.
+
+Go Modules, bu sorunları çözmek ve Go projelerini daha sürdürülebilir hale getirmek için geliştirildi. Go'nun 1.11 versiyonu ile varsayılan hale gelmiştir.
+
+## Go Modules Nasıl Çalışır?
+
+Go Modules, projelerin bağımlılıklarını `go.mod` ve `go.sum` adlı iki dosya kullanarak yönetir.
+
+`go.mod` dosyası, projenin bağımlılıklarını ve modül adını içerir. Modül adı, projenin benzersiz bir tanımıdır ve proje dışında bir yerde kullanılan paketlerin adlandırılmasına yardımcı olur. Bu dosya aynı zamanda projenin hangi sürümünün kullanıldığını da belirtir.
+
+`go.sum` dosyası ise bağımlılıkların güvenlik için kullanılan özetlerini _(sum)_ içerir. Bu, projenizin güvenliğini ve bütünlüğünü sağlar.
+
+Go Modules kullanırken, projenin bağımlılıklarını internetten çeker ve otomatik olarak projenizin `go.mod` dosyasına ekler. Bu sayede projenizde kullanılan paketlerin sürümlerini daha kolay bir şekilde yönetebilirsiniz.
+
+## Go Modules'ün Avantajları
+
+Go Modules kullanmanın bazı avantajları şunlardır:
+
+- **Bağımlılık Yönetimi:** Go Modules, bağımlılıkları otomatik olarak yönetir ve projenizin sürüm geçişlerini izler. Bu sayede projenizi güncel ve güvenli tutmak daha kolaydır.
+
+- **Sürdürülebilirlik:** Go Modules, projenizin bağımlılıklarını projenin kendisiyle birlikte saklar. Bu, projenizin uzun vadeli sürdürülebilirliğini artırır.
+
+- **Modülerlik:** Projelerinizi daha küçük modüllere bölmek ve bu modülleri başka projelerde yeniden kullanmak daha kolaydır.
+
+- **Versiyonlama:** Projelerin sürümlerini ve bağımlılıklarını daha iyi kontrol etmenizi sağlar.
+
+## Go Modules Nasıl Kullanılır?
+
+Go Modules'ü kullanmak için aşağıdaki adımları izleyebilirsiniz:
+
+1. Bir Go modülü oluşturmak için projenizin kök dizininde bir terminal açın ve `go mod init <modül-adı>` komutunu kullanın. Modül adı, projenizin benzersiz tanımıdır.
+
+2. Projeye bağımlılık eklemek için `go get <paket-adı>` komutunu kullanın.
+
+3. Projeyi başlatmak için `go build` veya `go run` komutlarını kullanabilirsiniz. Bu, projenizin bağımlılıklarını otomatik olarak indirir ve kullanır.
+
+4. `go mod tidy` komutu ile kullanılmayan bağımlılıkları temizleyebilirsiniz.
+
+Projeyi paylaştığınızda, `go.mod` ve `go.sum` dosyalarını da paylaşmalısınız, böylece diğer geliştiriciler projenizi sorunsuz bir şekilde çalıştırabilir.
+
+Go Modules, Go dilinde projelerin bağımlılıklarını daha iyi yönetmek için güçlü bir araçtır. Projelerinizi daha sürdürülebilir ve güvenli hale getirirken, diğer geliştiricilerle işbirliği yapmayı da kolaylaştırır. Go Modules hakkında daha fazla bilgi edinmek için [Resmi Go Modülleri Belgesine](https://golang.org/ref/mod) başvurabilirsiniz.
+
+## Modül İsimleri
+Go Modules, bağımlılıkları tanımlarken VCS _(Version Control System)_ URL'lerini kullanır çünkü bu yaklaşım bağımlılıkların nereden ve hangi sürümlerden alınacağını net bir şekilde belirler. Bu, projelerin farklı kaynaklardan bağımlılıkları almasını ve bu bağımlılıkların belirli sürümlerini kullanmasını kolaylaştırır. İşte bu nedenle Go Modules isimleri için VCS URL'leri kullanılır:
+
+1. **Tek Kaynak Tanımı:** Bir bağımlılığın tek bir kaynağa işaret etmesi, karmaşıklığı azaltır. Go Modules, bir VCS URL'si _(Git, Mercurial, SVN gibi)_ ile belirtilen tek bir kaynağı kullanarak bağımlılığı çözer.
+
+2. **Versiyon Yönetimi:** VCS URL'leri, bağımlılıkların hangi sürümlerini kullanılacağını ve bu sürümlerin hangi commit veya etiketlere karşılık geldiğini net bir şekilde belirtir. Bu sayede projeler daha belirli sürümlerle çalışabilir ve sürüm uyumsuzlukları engellenir.
+
+3. **Dış Kaynaklar:** Go Modules, projenizin dış kaynaklardan _(örneğin GitHub, Bitbucket veya GitLab gibi)_ bağımlılıkları doğrudan çekmesine olanak tanır. Bu, projelerin bağımlılıklarını internetten otomatik olarak indirmesini sağlar.
+
+4. **Bağımlılıkların Güncellenmesi:** VCS URL'leri sayesinde bağımlılıkların güncel sürümleri daha kolay bir şekilde alınabilir. Bu, projenizin güvenlik açıklarını gidermek veya yeni özellikler eklemek için güncel sürümleri takip etmenizi sağlar.
+
+5. **Bağımlılıkların Paylaşılması:** VCS URL'leri, projenizi paylaştığınızda diğer geliştiricilerin aynı bağımlılıkları kolayca almasına olanak tanır. Projenizi başka bir ortamda kurmak ve çalıştırmak daha kolaydır.
+
+Go Modules isimleri için VCS URL'leri, projelerin bağımlılıkları düzenli ve güvenli bir şekilde yönetmesine yardımcı olur. Bu sayede projeler daha sürdürülebilir ve güvenli hale gelir.
+
+Özet olarak Go projenizi local (yerel) olmadığı sürece VCS URL'i ile isimlendirerek kullanmak daha mantıklı olacaktır.

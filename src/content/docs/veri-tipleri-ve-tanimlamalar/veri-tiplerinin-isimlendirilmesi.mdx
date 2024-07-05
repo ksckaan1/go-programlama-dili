@@ -1,0 +1,47 @@
+---
+title: Veri Tiplerinin İsimlendirilmesi
+---
+
+Go programlama dilinde veri tipi tanımlamalarının isimlendirmesi önemli bir konudur. Bir veri tipinin isimlendirilmesi mantıksal ve işlevsel yönden, veri tipinin davranışına etki eder.
+
+Go dilinde veri tipleri isimlendirilirken genellikle **Camel Case** veya **Pascal Case** tercih edilir.
+
+:::note[Çok Kullanılan İsimlendirme Yöntemleri]
+| Case | Örnek |
+|------|-------|
+| Pascal | `MyVariable` |
+| Camel | `myVariable` |
+| Snake | `my_variable` |
+| Kebab | `my-variable` |
+| Upper veya Screaming Snake | `MY_VARIABLE` |
+:::
+
+Bir veri tipi isimlendirmesinde baş harfin küçük olması, bu tanımlamanın sadece oluşturulduğu paket içerisinde çağrılıp kullanılabileceği anlamına gelir.
+
+Aksi olarak yaptığımız tanımlamaları oluşturulduğu paket dışından da çağırmak istersek, tanımlamanın baş harfini büyük yazmamız gerekir.
+
+:::note
+Bu kurala Go dilindeki tüm veri tipleri dahildir.
+:::
+
+**Örnek:**
+
+```go
+// mypackage.go
+package mypackage
+
+var PublicVariable = "ben dışarıdan çağrılmaya açığım"
+var privateVariable = "ben sadece bu paket içerisinden çağrılabilirim"
+```
+
+```go
+// main.go
+package main
+
+import "mypackage"
+
+func main(){
+    mypackage.PublicVariable // çağrılabilir
+    mypackage.privateVariable // çağrılamaz
+}
+```

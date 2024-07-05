@@ -1,0 +1,59 @@
+---
+title: Paketler
+---
+
+Go programlama dilinde "package" (paket) terimi, kodunuzun modülerliğini artırmak ve daha iyi organizasyon sağlamak için kullanılan temel bir kavramdır. Go, paketlerle çalışmaya dayalı bir tasarım felsefesine sahiptir.
+
+## Paket Nedir?
+Go dilinde bir "paket," benzer işlevlere sahip kodun bir araya getirilmiş bir koleksiyonunu temsil eder. Bir paket içinde fonksiyonlar, veri yapıları, sabitler ve diğer kod öğeleri bulunabilir. Bu paketler, projelerinizi modüler bir şekilde oluşturmanıza, bakımını yapmanıza ve paylaşmanıza yardımcı olur. Go dilinde geliştirilen projeler genellikle birden fazla paketi içerir.
+
+### Paketlerin Özellikleri
+Go dilinde paketlerin bazı önemli özellikleri şunlardır:
+
+- **İzolasyon ve Gizlilik:** Paketler, kodunuzu başka paketlerden gizlemenize ve sadece belirli işlevleri dışa açmanıza olanak tanır. Bu, kodunuzu daha güvenli hale getirir ve dışarıdan müdahaleyi sınırlar.
+
+- **Modülerlik:** Paketler, projelerinizi daha küçük ve yönetilebilir parçalara bölmeyi kolaylaştırır. Bu, büyük projelerin geliştirilmesini ve bakımını daha kolay hale getirir.
+
+- **Yeniden Kullanılabilirlik:** Paketler, kodunuzun farklı projelerde yeniden kullanılmasını kolaylaştırır. Aynı paketi farklı projelerde kullanarak kod tekrarından kaçınabilirsiniz.
+
+- **Bağımlılık Yönetimi:** Paketler, harici bağımlılıkları _(örneğin, diğer paketleri)_ projenize eklemeyi kolaylaştırır. Bu, diğer geliştiricilerin kütüphanelerinizi daha kolay bir şekilde kullanabilmesine olanak tanır.
+
+### Paket Oluşturma ve Kullanma
+Go'da bir paket oluşturmak oldukça basittir. Bir paket, bir dizin içinde bulunan `.go` uzantılı dosyaları içerir. Her paketin bir ismi vardır ve paketin içerisinde paket ismi ile eşleşen dosyalar içermelidir. Örneğin, `mypackage` adında bir paket oluşturmak isterseniz, bu paketin temel dosyalarının isimleri `mypackage.go`, `mypackage_test.go`, vb. şeklinde başlamalıdır.
+
+Paket oluşturduktan sonra, başka bir Go programında bu paketi kullanabilirsiniz. İlgili paketi `import` anahtar kelimesiyle içe aktararak _(import)_ kodunuzda kullanabilirsiniz. Örneğin:
+
+```go
+import "mypackage"
+```
+
+Bu, `mypackage` isimli paketi projenize dahil ettiğiniz anlamına gelir ve bu paketteki fonksiyonları, veri yapılarını veya sabitleri kullanabilirsiniz.
+
+### Standart ve Üçüncü Parti Paketler (veya Kütüphaneler)
+Go dilinin standart kütüphanesi _(standard library)_ birçok kullanışlı paket içerir. Bunlar, Go'nun temel işlevselliğini sağlar ve birçok standart görevi kolayca yerine getirmenize yardımcı olur. Ayrıca, Go topluluğu ve üçüncü taraf geliştiriciler tarafından oluşturulan binlerce ücretsiz ve açık kaynaklı paket _(kütüphane)_ bulunmaktadır. Bu paketleri, projelerinizin yazımını hızlandırmak ve daha kolay genişletmek için kullanabilirsiniz.
+
+## Main Paketi ve Uygulama Girişi
+Go programlama dilinde `main` paketi, her bağımsız uygulamanın giriş noktasını temsil eder. Bir Go programı, `main` adında bir paket içerir. `main` paketi, bir Go uygulamasının başlangıç noktasıdır ve bu paketteki `main` fonksiyonu otomatik olarak çalıştırılır. `main` paketini diğer paketlerden ayıran en önemli özelliklerden biri de, `main` paketleri direkt olarak derlenebilir ve çalıştırılabilirdir. Diğer paketler direkt olarak derlenemez veya çalıştırılamaz. Mutlaka bir `main` paketi içerisinde `import` edilmesi gerekir.
+
+### Main Paketi Nasıl Oluşturulur ve Kullanılır?
+`main` paketleri çalıştırılabilir olması için `main` fonksiyonunu içermelidir.
+
+```go title="main.go"
+package main
+
+import "fmt"
+
+func main(){
+    fmt.Println("Merhaba Dünya")
+}
+```
+
+Devamında yukarıdaki örnek programı çalıştırmak için aşağıdaki komutu yazabiliriz.
+
+```shell title="Terminal"
+go run .
+```
+
+:::caution[Dikkat]
+Dökümanın içerisinde bahsedilmiş `.` (nokta) ile biten komutların çalışabilmesi için terminalin proje ana dizini içerisinde çalışıyor olması gereklidir.
+:::

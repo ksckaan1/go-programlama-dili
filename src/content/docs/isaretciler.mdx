@@ -1,0 +1,170 @@
+---
+title: İşaretçiler
+---
+
+İşaretçi (pointer), bir değişkenin bellekteki adresini tutan değişken türüdür. Yani, bir değişkenin bellek adresini referans alarak o bellek bölgesine erişim sağlar. İşaretçiler, genellikle daha verimli ve esnek kod yazmak için kullanılır.
+
+## İşaretçilerin Kullanımı
+
+```go
+var ptr *int
+```
+
+Yukarıdaki tanımlama `int` bir değişkenin bellekteki adresini tutan bir işaretçi değişkendir. Bir tür için işaretçi oluşturmak istediğimizde `*Tip` şeklinde belirtmemiz gerekir.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var ptr *int
+	fmt.Println(ptr) // <nil>
+}
+```
+
+Yukarıdaki örnekte işaretçi değişkenimizi yazdırdığımızda `<nil>` çıktısı alıyoruz. Çünkü şuanda bellek adresini tutabileceği `int` türünde bir değişken belirtmedik.
+
+Bellek adresini tutması için bir değişken verdiğimizde ne olacağına bakalım.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var ptr *int
+	fmt.Println(ptr) // <nil>
+	sayi := 10
+	ptr = &sayi
+	fmt.Println(ptr) // 0x1400009c010
+}
+```
+
+Örneğimizde, işaretçi değişkenden sonra, bu işaretçi ile kullanabileceğimiz, `int` tipinde bir `sayi` değişkeni oluşturduk. Devamında `&` (ampersand) operatörünü kullanarak `sayi` isimli değişkenimizin adresini, `ptr` değişkenimizi atadık. Böylelik `ptr` değişkenimizi yazdırdığımızda `sayi` değişkenimizin bellekteki adresi olan `0x1400009c010` çıktısını gördük.
+
+`&` operatörü (address of operator) önüne yazıldığı değişken isminin bellekteki adresini verir.
+
+Bir işaretçi değişkenin, işaret ettiği yani bellek adresini tuttuğu değişkenin değerini görmek istersek, `*` operatörünü (value of operator) kullanabiliriz.
+
+Örnek olarak,
+
+```go
+var ptr *int
+fmt.Println(ptr) // <nil>
+sayi := 10
+ptr = &sayi
+fmt.Println(ptr)  // 0x1400009c010
+fmt.Println(*ptr) // 10
+```
+
+Örnekteki son satırda `ptr` işaretçi değişkenimiz, `sayi` değişkenini işaret ettiği için, `ptr` değişkeninin önüne `*` operatörünü koyarak `sayi` değişkeninin değerini kullanabilir olduk.
+
+Go'da işaretçilerin kullanımı genellikle, bir değişken üzerinde işlem yapmak için başka bir yere yolladığımızda asıl değeri üzerinde değişiklik yapabilmek veya değerin kopyalanmasını engellemek içindir.
+
+## Asıl Değeri Değiştirme
+Değer değiştirmek için bir örnek görelim. Önce nasıl yapılamayacağını görelim.
+
+```go
+func degistir(sayi int) {
+	sayi = 20
+}
+
+func main() {
+	sayi := 10
+	degistir(sayi)
+	fmt.Println(sayi) // 10
+}
+```
+`degistir` fonksiyonumuz `sayi` isminde `int` türünde bir parametre alıyor. Devamında `sayi` değişkeninin değerini **20** olarak değiştiriyor.
+
+`main` fonksiyonumuzda `sayi` isimli `int` türünde, değeri **10** olan bir değişken oluşturduk ve bu değişkeni `degistir` fonksiyonuna parametre olarak verdik.
+
+Fakat hemen altında `sayi` değişkenini yazdırdığımızda değerinin değişmemiş olduğunu gördük. Bunun sebebi `sayi` değişkenini parametre olarak gönderdiğimizde kopyalanmış olması ve bu yüzden `degistir` fonksiyonu içerisindeki `sayi` değişkeni ile aynı değişken olmamasıdır.
+
+Bunun kanıtını görmek için `sayi` değişkenlerinin bellek adreslerini iki blokta da yazdıralım.
+
+```go
+func degistir(sayi int) {
+	fmt.Println(&sayi) // 0x14000112020
+	sayi = 20
+}
+
+func main() {
+	sayi := 10
+	fmt.Println(&sayi) // 0x14000112008
+	degistir(sayi)
+	fmt.Println(sayi) // 10
+}
+```
+2 `sayi` değişkeninin de bellekteki adresi birbirinden farklı olduğu için, `degistir` fonksiyonu içerisindeki atama işlemi `main` fonksiyonu içerisindeki `sayi` değişkeninin değerini etkilemez.
+
+Eğer `degistir` fonksiyonundaki `sayi` değişkenine yapılan atamanın `main` fonksiyonundaki `sayi` değişkeninin değerini değiştirmesini isteseydik, işaretçi kullanabilirdik.
+
+Örneğimizi biraz değiştirelim,
+
+```go
+func degistir(sayi *int) {
+	*sayi = 20
+}
+
+func main() {
+	sayi := 10
+	degistir(&sayi)
+	fmt.Println(sayi) // 20
+}
+```
+
+`degistir` fonksiyonumuzda biraz değişiklik yaparak, imza kısmında artık parametre olarak bir `int` işaretçisi alacağımızı belirttik. Bu sefer `*sayi` üzerine atama yaparak, asıl değeri değiştirdik. Bu şekilde yapmamızın sebebi `*` operatörü ile `sayi` işaretçisi hangi adresi işaret ediyorsa, o adresteki değeri değiştirmektir.
+
+`main` fonksiyonumuzda ise bu sefer `&sayi` şeklinde kullanarak `sayi` değişkeninin kopyalanmaması için değerini değil de, adresini yolluyoruz. `degistir` fonksiyonu ise bu bellek adresi üzerinden işlem yaptığı için, değişiklik aslında `main` fonksiyonundaki `sayi` değişkeni üzerinde oluyor.
+
+## Değer Kopyalanmasını Önleme
+
+Bir yerde oluşturulan bir değişkeni, başka bir yere gönderirken, bu işlemi işaretçi kullanmadan yaparsak, değişkenin değerini hedef değişkene kopyalamış oluruz. Yapılan bu kopyalama, değerin büyük boyutlu olduğu bir durumda performansı etkileyecek bir sorun yaratabilir.
+
+Örnek bir senaryo görelim.
+
+```go
+func islemYap(buyukVeri string) {
+	// büyük veri ile bir işlem yapılıyor
+}
+
+func main() {
+	buyukVeri := "burada 1GB boyutunda bir veri tutulduğunu düşünelim"
+	islemYap(buyukVeri)
+}
+```
+
+Örneğimizde `main` fonksiyonu içerisinde asıl verimiz olan `buyukVeri` değişkenimiz var ve oldukça büyük bir boyutu var. Bu değişkeni `islemYap` fonksiyonuna gönderdiğimizde değişkenin değeri kopyalandığından, bu veri için 2 kat daha fazla bellek harcadık.
+
+Verinin bellek adresi ile gönderilmesinde bir sakınca olmadığı durumlarda uygulamamızın performansını düşürmemek için büyük verilerde işaretçi ile göndermek mantıklı bir davranış olabilir.
+
+Aşağıdaki örnekte daha performanslı halini görelim.
+
+```go
+func islemYap(buyukVeri *string) {
+	// büyük veri ile bir işlem yapılıyor
+}
+
+func main() {
+	buyukVeri := "burada 1GB boyutunda bir veri tutuluyor"
+	islemYap(&buyukVeri)
+}
+```
+
+Bu örneğe göre bellekteki adresini gönderdiğimiz için veri kopyalanmamış olduğu ve böyle önceki örneğimize göre daha az bellek tüketen bir uygulama oldu.
+
+## Dikkatli Olunması Gereken Durumlar
+
+Genel olarak işaretçileri kullanırken bir sorunla karşılaşmamak için temkinli olmamız gereken durumlar vardır.
+
+1. **Güvenlik ve Hata Riski Artışı:** Go dilinde bellek yönetimi otomatiktir ve bellek yönetimine müdahale edilmesi, bellek ile alakalı daha fazla sorumluluk alınmasına neden olur.
+
+2. **Kod Karmaşıklığının Artması:** İşaretçi ve bellek adresi işlemleri kodu daha karmaşık hale getirebilir ve hata ayıklamayı zorlaştırabilir. İşaretçilerin gerekli olmadığı durumlarda, otomatik bellek yönetimi özelliklerini kullanmak kodun daha anlaşılır ve bakımının daha kolay olmasını sağlar.
+
+3. **Düşük Seviyeli Dil Kullanımı:** Go'yu düşük seviyeli bir dil gibi kullanmak, karmaşık bellek manipülasyonları ile uğraşmamıza sebep olur. Bu konuda Go yüksek seviyeli dil özellikleri sunar.
+
+4. **Eşzamanlı İşlemlerde Veri Bütünlüğünün Bozulması:** Eşzamanlı uygulamalar yazarken, bellek adresi ile işlem yapmak istediğimizde, veri bütünlüğünün bozulmaması için ek bir çaba sarf etmemiz gerekir. Go içerisinde eşzamanlılık problemlerini çözmek için araçlar ile gelir. Fakat bazı durumlarda karmaşık işlemler yapmanız gerekebilir.
+
+Özet olarak Go dilindeki birçok yerde de olması gerektiği gibi, bellek adresi üzerinde işlemler yaparken dikkat etmemiz gereken durumlar bu şekildedir.

@@ -1,0 +1,58 @@
+---
+title: Type Casting
+---
+
+**Type casting**, benzer veri tiplerinin birbirleri arasında dönüştürülmesidir.
+
+Örnek olarak,
+
+```go
+a := 3.14 // float64 tipinde
+b := int(a) // int tipinde
+fmt.Println(b) // 3
+```
+
+Yukarıdaki örnekte `float64` tipindeki bir değerin `int` tipine dönüştürülmesini gördük.
+
+İki tip de, sayısal veri tipi olduğu için type casting yaparak dönüştürülebildi.
+
+:::note
+Ondalık sayı türünden, tam sayı türüne dönüşümde, küsürat kısmının kaybolacağını unutmayalım.
+:::
+
+Farklı bir örnek görelim.
+
+```go
+metin := string(8378)
+
+fmt.Println(metin) // ₺
+```
+
+Yukarıdaki örnekte 8378 sayısı `string` tipine çevrildiğinde çıktının `₺` ilareti olduğunu görmekteyiz. Bunun sebebi sayıdan `string` tipine çeviride, verilen sayının `rune` tipinde kabul edilmesidir. Bu yüzden Unicode tablosunda 8378 sayısı `₺` işaretine takabül ettiği için böyle bir çıktı görmekteyiz.
+
+Karakter ve dize tipleri, sayısal tipler ile birbirleri arasında istediğimiz gibi dönüştürümediğimizi görebilirsiniz. Yani `string` tipinde "8378" çıktısı alamayız. Bunun için farklı bir yöntem kullanarak yapmamız gerekir. İlerleyen konularda göreceğiz.
+
+:::danger[Yanlış kullanımlar]
+```go
+metin := int("1234") // yanlış
+mantıksal := bool("true") // yanlış
+mantıksal := bool(0) // yanlış
+```
+:::
+
+Karakter ve dizi tipleri kendi aralarında type casting yapılabilir.
+
+```go
+a := []rune("Merhaba Dünya")
+fmt.Println(a) // [77 101 114 104 97 98 97 32 68 252 110 121 97]
+```
+
+```go
+a := []byte("Merhaba Dünya")
+fmt.Println(a) // [77 101 114 104 97 98 97 32 68 195 188 110 121 97]
+```
+
+```go
+a := string([]byte{77, 101, 114, 104, 97, 98, 97, 32, 68, 195, 188, 110, 121, 97})
+fmt.Println(a) // Merhaba Dünya
+```

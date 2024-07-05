@@ -1,0 +1,51 @@
+---
+title: Type Assertion
+---
+
+Type assertion, Türkçe'de tip iddiası olarak çevrilir. Go programlama dilinde veri tipi belirli olmayan değerlerin belirttiğimiz tipte olup olmama durumunu kontrol edebildiğimiz bir yöntemdir. **Interface**'ler üzerinde kullanılır.
+
+```go
+var a any = "merhaba"
+
+v, ok := a.(string) // a'nın değerinin string tipinde olduğunu iddia ediyorum
+if !ok {
+    fmt.Println("a değişkeni string tipinde değil")
+}
+
+fmt.Println(v) // "merhaba"
+```
+
+Yukarıdaki örnekte, `any` tipinde bir `a` değişkeni oluşturulup, içerisine `string` tipinde "merhaba" değeri verilmiştir. Burada dikkat edilmesi gereken nokta, `any` tipinin boş bir `interface` olmasıdır. Bu yüzden `a` değişkenine her veri tipinden değer atanabilir.
+
+`a.(string)` şeklinde kullanım ile `a` değişkeni içerisindeki değerin `string` tipinde olduğunu iddia ediyoruz. Bu iddia sonucunda bize 2 adet değişken dönüyor. ilki yani `v` olarak adlandırdığımız değişken, `a` değişkeninin değeri `string` tipinde ise `a`'nın içerisindeki değeri `any` tipinde değil de, `string` tipinde atama işlemi yapar.
+
+Eğer `a` değişkeninin içerisindeki değer `string` tipinde değilse, `v`'nin değeri boş dize (`""`) olur.
+
+`ok` olarak adlandırdığımız değişken ise herzaman `bool` tipindedir. Bu değişken ise iddia doğru ise, yani `a` içerisindeki değer `string` tipinde ise, `true`, `string` tipinde değilse ise `false` değerinde olur.
+
+Bu şekilde yazıma, comma ok (virgül tamam) deyimi de denir.
+
+İddia sonucunda dönen `ok` değişkeninin yazımı zorunlu değildir. Bir örnek ile görelim.
+
+```go
+var a any = "merhaba"
+
+v := a.(string)
+
+fmt.Println(v) // "merhaba"
+```
+
+Böyle bir kullanımda dikkat edilmesi gereken, `a` değişkenindeki değerin tipi `string` olmadığı zaman, programımızın panikleyerek sonlandırılacak olmasıdır.
+
+Örnek olarak,
+
+```go
+var a any = 25
+
+v := a.(string)
+// panic: interface conversion: interface {} is int, not string
+
+fmt.Println(v)
+```
+
+Bu yüzden `ok` değerinin kullanmadığımız durumlarda iddiamızın kesin olarak doğru olması gerekir. Çoğu durumda `ok` değeri ile kullanım daha güvenli bir seçenektir.

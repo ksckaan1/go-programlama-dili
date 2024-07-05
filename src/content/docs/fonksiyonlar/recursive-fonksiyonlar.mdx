@@ -1,0 +1,25 @@
+---
+title: Recursive Fonksiyonlar
+---
+
+Recursive yani özyinelemeli fonksiyonlar, tanımlama içerisinde yine kendisini çağıran fonksiyonlardır. Bir işlemin belirli bir şart sağlanana kadar yapılması gerektiği durumlarda terchi edilebilir.
+
+Bu duruma uyan ve recursive fonksiyonların açıklamasında çokça kullanılan bir faktöriyel hesabı yapan fonksiyon örneği görelim.
+
+```go "faktoriyel(a-1)"
+func faktoriyel(a uint) uint {
+    if a == 0 {
+        return 1
+    }
+    return a * faktoriyel(a-1)
+}
+
+func main() {
+    fmt.Println(faktoriyel(4))
+}
+```
+
+Yukarıdaki fonksiyon ile bir sayının faktöriyelini hesaplayabiliriz. Faktöriyel hakkında kısaca bir hatırlatma yapayım. Belirlediğimiz sayıya kadar olan tüm sayıların sırasıyla çarpımınına o sayının faktöriyeli denir. Yani 4 sayısının faktöriyelini bulmak istiyorsak: `4*3*2*1` işlemini yaparız. Sonuç 24’tür.
+
+
+Faktöriyel fonksiyonunun giriş ve çıkış tiplerini `uint` yapmamızın sebebi ise faktöriyel sonucunu bulmak için en geriye gidildiğinde eksi değerlere geçilmemesi içindir. Ayrıca sıfırın faktöriyeli birdir. Onun için değer sıfırsa 1 sayısını return etmesini istedik. Faktöriyel fonksiyonunun en alttaki return kısmında girdiğimiz sayı ile girdiğimiz sayının bir eksiğinin faktöriyelini çarpacak. Girdiğimiz sayının bir küçüğünü bulmak içinse yeniden o sayının faktöriyelini hesaplayacak. Daha sonra aynı işlemler bu sayılar içinde yapılacak, Ta ki sayı sona gelene yani en küçük `uint` değeri olan 0’a dayanana kadar.

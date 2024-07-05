@@ -1,0 +1,48 @@
+---
+title: Veri Tipleri
+---
+
+Go programlama dilinde veri tipleri ve tanımlamaları, bir Go programının temel yapısını oluşturan önemli bir bileşendir. Go programlama dilinde kullanabileceğiniz birçok temel veri tipi bulunmaktadır. Bu veri tipleri, değişkenlerin değerlerini ve kullanım şekillerini belirler.
+
+Sonraki bölümlerde daha detaylıca göreceğimiz veri tipleri ve tanımlamaları için bir başlangıç yapalım.
+
+## İlkel (Primitive) Veri Tipleri
+* **Tamsayı Veri Tipleri:**
+    - `int`: Platforma bağlı boyut, işaretli tamsayı tipi.
+    - `uint`: Platforma bağlı boyut, işaretsiz tamsayı tipi.
+    - `int8`: 8-bit işaretli tamsayı.
+    - `uint8`: 8-bit işaretsiz tamsayı _(`byte` olarak da kullanılır)_.
+    - `int16`: 16-bit işaretli tamsayı.
+    - `uint16`: 16-bit işaretsiz tamsayı.
+    - `int32`: 32-bit işaretli tamsayı _(`rune` tipi olarak da kullanılır)_.
+    - `uint32`: 32-bit işaretsiz tamsayı.
+    - `int64`: 64-bit işaretli tamsayı.
+    - `uint64`: 64-bit işaretsiz tamsayı.
+* **Ondalık Sayı Veri Tipleri:**
+    - `float32`: 32-bit kayan noktalı sayı.
+    - `float64`: 64-bit kayan noktalı sayı.
+* **Karakter ve Dize Veri Tipleri:**
+    - `byte`: 8-bit işaretli tamsayı _(genellikle karakter temsil etmek için kullanılır)_.
+    - `rune`: 32-bit işaretli tamsayı _(genellikle Unicode karakterlerini temsil etmek için kullanılır)_.
+    - `string`: Dize _(UTF-8 kodlanmış karakter dizisi)_.
+* **Boolean Veri Tipi:**
+    - `bool`: Mantıksal veri tipi, `true` veya `false` değerlerini alır.
+* **Karmaşık Sayı Veri Tipleri:**
+    - `complex64`: 64-bit karmaşık sayı _(gerçek ve sanal kısımlar 32-bit)_.
+    - `complex128`: 128-bit karmaşık sayı _(gerçek ve sanal kısımlar 64-bit)_.
+
+## Türetilmiş (Derived) Veri Tipleri
+* **Liste Veri Tipleri:**
+    - `array` (dizi): Sabit boyutlu, aynı türden elemanları içeren bir veri yapısıdır.
+    - `slice` (dilim): Değişken boyutlu veri yapısıdır, dizilere benzer ancak boyutu değiştirilebilir.
+* **`map` (Eşleme):** Anahtar-değer çiftlerini depolayan veri yapısıdır.
+* **`struct` (Yapı):** Farklı veri tiplerini bir araya getiren özel veri yapısıdır.
+* **`interface` (Arayüz):** Bir veri tipinde bulunması gereken metodların tanımlandığı veri tipidir.
+* **`pointer`(İşaretçi):** Değişkenlerin bellek adreslerini tutan veri tipidir.
+* **`func`(Fonksiyon):** Bir grup işlemi tanımlayan ve çağrılabilen bir veri türüdür.
+
+Bu veri tipleri, Go programlarını yazarken kullanabileceğiniz temel yapı taşlarıdır. Her bir veri tipi, belirli bir amaç için tasarlanmıştır ve işlevselliği açısından farklıdır. Bu veri tiplerini doğru bir şekilde kullanarak, verilerinizi uygun şekilde temsil edebilir ve işlemlerinizi yapabilirsiniz.
+
+:::note
+Bu bölümde ilkel veri tipleri ile başlangıç yapacağız. Devamında türetilmiş veri tiplerini detaylıca incelediğimiz bölümler olacak.
+:::

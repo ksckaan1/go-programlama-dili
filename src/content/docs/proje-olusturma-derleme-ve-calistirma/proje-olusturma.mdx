@@ -1,0 +1,66 @@
+---
+title: Proje Oluşturma
+---
+
+Örnek bir Go projesi oluşturmak için aşağıdaki adımları takip edebilirsiniz.
+
+## 1. Bir klasör oluşturalım
+
+Dosya yöneticinizi kullanarak veya terminal üzerinden `projem` adında bir klasör oluşturalım.
+
+```shell title="Terminal"
+mkdir projem
+```
+
+## 2. Go dosyamızı oluşturalım
+
+Oluşturduğumuz `projem` klasörünün içerisine `main.go` adında bir dosya oluşturalım.
+
+```shell title="Terminal"
+cd projem
+touch main.go
+```
+
+## 3. Klasörü kod editöründe açın
+
+Bir önceki konuda bahsedildiği üzere herhangi bir editör üzerinden `projem` klasörünü açabilirsiniz.
+
+## 4. Örnek "Merhaba Dünya" uygulaması yazalım.
+
+`main.go` dosyamızın içeriğini aşağıdaki gibi dolduralım.
+
+```go title="main.go"
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Merhaba Dünya")
+}
+```
+
+### Yazdığımız kodların kısa bir açıklamasını görelim.
+
+Öncelik çalıştırılabilir bir program elde etmek için, 1. satırdaki gibi `package main` yazarak paketimizi `main` olarak ayarlıyoruz.
+
+3 . satırda terminale `Merhaba Dünya` yazdırabilmek için `fmt` paketini import ettik (içe aktardık). Böylece `fmt` paketinin özelliklerinden faydalanarak, terminale bir yazı bastırabiliriz.
+
+Hemen aşağısında  5. satırda `main` fonksiyonumuzu oluşturduk. `main` fonksiyonu programımız çalıştırıldığında varsayılan olarak çalıştırılan fonksiyondur. Bu yüzden çalışmasını istediğimiz işlemleri `main` fonksiyonu içerisinde yazabiliriz.
+
+`main` fonksiyonumuzun içerisinde `fmt.Println` yazarak `fmt` paketinin içerisinde bulunan `Println` fonksiyonunun çalışmasını istedik. Bu fonksiyonun içerisinde yazdırılmasını istediğimiz metni verdik.
+
+## 5. Kodumuzu çalıştıralım
+
+Terminal üzerinden projemizin klasörü içerisindeyken, aşağıdaki komutu çalıştıralım.
+
+```shell title="Terminal"
+go run main.go
+```
+
+Yukarıda `go run` komutu ile `main.go` isimli dosyanın çalıştırılmasını sağladık.
+
+Kodumuz çalıştığında aşağıdaki gibi bir çıktı verecektir.
+
+```text
+Merhaba Dünya
+```
