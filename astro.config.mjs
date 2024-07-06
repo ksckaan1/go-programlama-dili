@@ -188,31 +188,44 @@ export default defineConfig({
         label: 'Type Assertion',
         link: 'veri-tipleri-arasi-islemler/type-assertion'
       }]
-    }, {
+    },
+    {
       label: 'İşaretçiler',
       link: '/isaretciler'
-    }, {
+    },
+    {
       label: 'Metodlar',
       link: '/metodlar'
-    }, {
+    },
+    {
       label: 'Struct',
       collapsed: true,
       items: [{
         label: 'Struct',
         link: 'structlar/'
-      }, {
+      },
+      {
         label: 'Struct\'larda Erişim',
         link: 'structlar/structlarda-erisim'
-      }, {
+      },
+      {
         label: 'Struct Gömme',
         link: 'structlar/struct-gomme'
-      }, {
+      },
+      {
         label: 'Struct Etiketleri',
         link: 'structlar/struct-etiketleri'
-      }, {
+      },
+      {
         label: 'Alan Hizalama',
         link: 'structlar/alan-hizalama'
-      }]
-    }]
+      }
+      ]
+    },
+    {
+      label: 'Arayüz (Interface)',
+      link: '/arayuz'
+    },
+    ]
   })],
 });

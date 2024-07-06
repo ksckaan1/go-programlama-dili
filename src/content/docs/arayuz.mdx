@@ -1,0 +1,228 @@
+---
+title: Arayüz (Interface)
+---
+
+Interface, belirli metodların imzalarını içeren bir veri türüdür. Bu metodları uygulayan herhangi bir veri türü, o interface'i gerçekleştirmiş olur. Diğer dillerden farklı olarak Go'da interface'ler, uygulama detaylarını içermek yerine sadece metodların imzalarını içerir.
+
+## Interface Nasıl Kullanılır?
+
+Bir interface aşağıdaki gibi tanımlanabilir.
+
+```go
+type Animal interface {
+  Speak() string
+}
+```
+
+Yukarıda bir `Animal` interface'i oluşturduk. Bir veri tipinin bu interface'i uygulaması için `Speak() string` imzasına sahip bir metodu olması gerekir.
+
+Bu interface'i uygulayan 2 adet veri tipi oluşturalım.
+
+```go
+type Dog struct{}
+
+func (Dog) Speak() string {
+  return "Woof!"
+}
+
+type Cat struct{}
+
+func (Cat) Speak() string {
+  return "Meow!"
+}
+```
+
+Yukarıdaki örneğe göre `Dog` ve `Cat` isminde 2 veri tipi oluşturduk. Bu 2 tip de `Animal` interface'ini uygulamak için `Speak() string` imzasına uygun metodlar içeriyor.
+
+Bu duruma göre `Animal` interface'ine uygun bir veri tipi kabul eden yere nasıl nesne göndereceğimizi bakalım.
+
+```go
+var a Animal
+
+a = Dog{}
+
+fmt.Println(a.Speak()) // Woof!
+
+a = Cat{}
+
+fmt.Println(a.Speak()) // Meow!
+```
+
+:::caution
+`a` değişkeninin içerisine `Speak() string` metodunu içermeyen bir veri tipi gönderemeyeceğimizi unutmayalım.
+:::
+
+Interface'ler polimorfizmi (çok-biçimlilik) desteklemek için kullanılır. Parametre olarak interface bekleyen bir fonksiyon, bu interface'i gerçekleştiren herhangi bir türü parametre olarak kabul edebilir.
+
+```go
+package main
+
+import "fmt"
+
+type Animal interface {
+  Speak() string
+}
+
+type Dog struct{}
+
+func (d Dog) Speak() string {
+  return "Woof!"
+}
+
+type Cat struct{}
+
+func (c Cat) Speak() string {
+  return "Meow!"
+}
+
+func MakeAnimalSpeak(a Animal) {
+  fmt.Println(a.Speak())
+}
+
+func main() {
+  dog := Dog{}
+  cat := Cat{}
+
+  MakeAnimalSpeak(dog) // Woof!
+  MakeAnimalSpeak(cat) // Meow!
+}
+
+```
+
+## Boş Interface
+
+Boş interface, `interface{}` olarak tanımlanır ve tüm veri tiplerini temsil etmek için kullanılır. Çeşitli veri tipinden değişkenleri tek bir veri yapısında saklamak için kullanışlıdır.
+
+```go
+package main
+
+import "fmt"
+
+func PrintAnything(i interface{}) {
+  fmt.Println(i)
+}
+
+func main() {
+  PrintAnything(42)         // 42
+  PrintAnything("hello")    // hello
+  PrintAnything(true)       // true
+}
+
+```
+
+Boş interface yerine diğer bir adı olan `any` veri tipini de kullanabiliriz.
+
+```go
+func PrintAnything(i any) {
+  fmt.Println(i)
+}
+```
+
+`any` veri tipini go kaynak dosyalarından incelediğimizde, arkaplanda boş interface'in takma adı olduğunu görebiliriz.
+
+```go title="builtin.go" showLineNumbers startLineNumber=96
+// any is an alias for interface{} and is equivalent to interface{} in all ways.
+type any = interface{}
+```
+
+## Interface Üzerinde Tip İddiasında Bulunmak
+
+Interface üzerinde tip iddiasında (type assertion) bulunarak, interface'i uygulayan veri tipinin kendisine ulaşabiliriz.
+
+```go {22-26, 28-31, 37, 39} showLineNumbers
+package main
+
+import "fmt"
+
+type Animal interface {
+	Speak() string
+}
+
+type Dog struct{}
+
+func (Dog) Speak() string {
+	return "Woof!"
+}
+
+type Cat struct{}
+
+func (Cat) Speak() string {
+	return "Meow!"
+}
+
+func MakeAnimalSpeak(a Animal) {
+	dog, ok := a.(Dog)
+	if ok {
+		fmt.Println("Dog says", dog.Speak())
+		return
+	}
+
+	cat, ok := a.(Cat)
+	if ok {
+		fmt.Println("Cat says", cat.Speak())
+	}
+}
+
+func main() {
+	var a Animal
+	a = Dog{}
+	MakeAnimalSpeak(a) // Dog says Woof!
+	a = Cat{}
+	MakeAnimalSpeak(a) // Cat says Meow!
+}
+
+```
+
+22. ve 28. satırlarda `a` değişkeni içerisinde `Animal` interface'ini uygulayan veri tiplerinin `Dog` ve `Cat` olup olmadığını, tip iddiasında bulunarak öğrenmiş olduk.
+
+Yukarıdaki örneği `switch` kullarak da yapabilirdik.
+
+```go
+func MakeAnimalSpeak(a Animal) {
+	switch x := a.(type) {
+	case Dog:
+		fmt.Println("Dog says", x.Speak())
+	case Cat:
+		fmt.Println("Cat says", x.Speak())
+	}
+}
+```
+
+Yukarıdaki örneğe göre, `a`'nın tipi `Dog` olduğunda `Dog` case'i içerisinde `x` değişkeni `Dog` veri tipinin metodlarına sahip olacaktır. Benzer durum `Cat` veri tipi için de geçerli.
+
+Veri tipi iddiasında bulunmanın diğer bir amacı, sadece `Animal` interface'inde belirtilen metodları kullanmak yerine, tip iddiasında bulunduğumuz tipe özel metodları da kullanabilmektir.
+
+Örneğin,
+
+```go showLineNumbers {25-28}
+package main
+
+import "fmt"
+
+type Animal interface {
+	Speak() string
+}
+
+type Dog struct{}
+
+func (Dog) Speak() string {
+	return "Woof!"
+}
+
+func (Dog) TailWag() {
+	fmt.Println("Tail wagging!")
+}
+
+func main() {
+	var a Animal
+	a = Dog{}
+
+	fmt.Println(a.Speak()) // Woof!
+
+	dog, ok := a.(Dog)
+	if ok {
+		dog.TailWag() // Tail wagging!
+	}
+}
+
+```
