@@ -283,6 +283,10 @@ export default defineConfig({
             {
               label: 'Go\'da Eşzamanlılık ve Paralellik',
               link: 'concurrency-and-parallelism/concurrency-and-parallelism'
+            },
+            {
+              label: 'Goroutines',
+              link: 'concurrency-and-parallelism/goroutines'
             }
           ]
         },
