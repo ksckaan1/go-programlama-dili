@@ -1,0 +1,187 @@
+---
+title: Channels
+---
+
+import Channels from "../../../components/Channels.svelte"
+
+Channels (kanallar), Go'da goroutine'ler arasında veri alışverişini sağlamak için kullanılan yapılar olarak tanımlanabilir. Kanallar sayesinde, bir goroutine başka bir goroutine'e veri gönderebilir veya ondan veri alabilir. Kanallar, genellikle eşzamanlı işlemler arasında veri paylaşımı için kullanılır ve Go’nun eşzamanlı programlama modelinin temel yapı taşlarından biridir.
+
+Özet olarak kanallar boru olarak düşünülebilir. Bir taraftan veri gönderilirken, diğer taraftan veri alınabilir.
+
+![Channels](../../img/channels1.gif)
+
+## Kanalların Kullanımı
+
+Kanallar `make` fonksiyonu ile oluşturulur.
+
+```go
+ch := make(chan int)
+```
+
+Yukarıdaki örnekte içerisinden `int` tipinde veri aktarılabilen `ch` isminde bir kanal oluşturduk.
+
+## Unbuffered Channels (Arabelleksiz Kanallar)
+
+Önceki örneğimizde tanımladığımız gibi arabelleksiz kanallar `make` fonksiyonu ile tanımlanırken sadece veri aktaracağı tip belirtilir.
+
+```go showLineNumbers=true {9,13,16}
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	ch := make(chan string)
+
+	go func() {
+		time.Sleep(1 * time.Second)
+		ch <- "hello" // 16. satırdan teslim alınana kadar bekleyecek 
+	}()
+
+	a := <-ch // 13. satırdan gönderilene kadar bekleyecek
+
+	fmt.Println(a) // hello
+}
+
+```
+
+Burada kanal kullanımı için bir örnek görmekteyiz. Kanallara veri gönderilirken veya okunurken `<-` operatörü kullanılır. Ok operatörü kanalı gösteriyorsa (`ch <- "hello"`) kanala değer gönderilir. Eğer ok kanalın dışına doğru ise (`a := <-ch`) kanaldan veri okunur.
+
+```go
+ch <- "selam"
+```
+
+Yukarıdaki örnekte `ch` adlı kanala `string` tipinde değer gönderdik. Arabelleksiz (unbuffered) kanallarda veri gönderiminin tamamlanması için gönderilen verinin kanalın diğer ucundan teslim alınması gerekir. Aksi taktirde içerisinde çalışılan goroutine gönderme işlemi tarafından bloklanır.
+
+```go
+a := <-ch
+```
+
+Örneğimizde `ch` adlı kanaldan gelen veriyi `a` isminde değişkene atadık. Kanala gönderilen değer `string` tipinde olduğu için `a` değişkeninin tipi de `string` kabul edilir. Programımız `ch` kanalından değer gelene kadar bekleyecektir.
+
+Kanallardan okunan değerleri bir değişkene atamadan, sadece veri gelmesini beklemek istiyorsak aşağıdaki gibi kullanabiliriz.
+
+```go
+<-ch
+```
+
+## Buffered Channels (Arabellekli Kanallar)
+
+Arabellekli kanallar, aynı esnada belirlenen sayıda veri aktarabilen kanallardır. Tanımlanırken boyut belirtilir.
+
+```go showLineNumbers=true {12-15,20-23}
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	ch := make(chan string, 4)
+
+	go func() {
+		ch <- "msg1"
+		ch <- "msg2"
+		ch <- "msg3"
+		ch <- "msg4"
+		fmt.Println("all msg sent")
+	}()
+
+	time.Sleep(2 * time.Second)
+	a := <-ch
+	b := <-ch
+	c := <-ch
+	d := <-ch
+
+	fmt.Println(a, b, c, d) // msg1 msg2 msg3 msg4
+}
+
+```
+
+Yukarıdaki örnekte aynı anda 4 adet string tipinde veri taşıyabilen bir kanal tanımlanmıştır. 12-15. satırlar arasında kanala değerler gönderilir. 5. kez değer gönderilmek istendiğinde programın bloklanmaması için kanaldan 1 değerin okunması gerekir. 20-23. satırlar arasında ise kanaldan değerler okunur. Dolayısıyla kanala yeni değerler gönderilmesi için yer açılmış olur.
+
+## Canlı Demo
+
+<Channels client:visible/>
+
+## Kanalların Kapatılması
+Kanallar kullanılmadığında kapatılması gerekir. Bir kanalı kapatmak için `close` fonksiyonu kullanılır.
+
+```go
+ch := make(string)
+.
+.
+.
+close(ch)
+```
+veya içerisinde çalışılan fonksiyon tamamlandığında kapatılması için `defer` ile kullanabiliriz.
+
+```go
+ch := make(string)
+defer close(ch)
+```
+
+## Kanallarda Okuma veya Yazma Kısıtlamaları
+
+Kanallar kullanılması için bir yere gönderilirken gönderildiği yer için okuma veya yazma kısıtlaması içerebilirler. Kısıtlama olmadan göndermek için,
+
+```go
+func doSomething(ch chan string) {
+	// ch <- "msg" // yazma
+	// veya
+	// a := <- ch // okuma
+}
+```
+
+### Sadece-Okuma Modu
+
+:::note[Doğru Kullanım]
+```go
+func doSomething(ch <-chan string) {
+	// a := <- ch // okuma
+}
+```
+:::
+
+:::danger[Yanlış Kullanım]
+```go
+func doSomething(ch <-chan string) {
+	// ch <- "msg" // yazma yapılamaz
+}
+```
+:::
+
+### Sadece-Yazma Modu
+
+:::note[Doğru Kullanım]
+```go
+func doSomething(ch chan<- string) {
+	// ch <- "msg" // yazma
+}
+```
+:::
+
+:::danger[Yanlış Kullanım]
+```go
+func doSomething(ch chan<- string) {
+	// a := <- ch // okuma yapılamaz
+}
+```
+:::
+
+Okuma veya yazma kısıtlamaları fonksiyon return'lerinde de kullanılabilir.
+
+```go
+func doSomething() chan string // Kısıtlama olmadan
+
+// veya
+
+func doSomething() <-chan string // Sadece-okuma modu
+
+// veya
+
+func doSomething() chan<- string // Sadece-yazma modu
+```
