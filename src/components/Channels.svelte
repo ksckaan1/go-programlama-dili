@@ -58,7 +58,7 @@
   </div>
   <div class="read-write-btn">
     <button on:click={readItem} disabled={channelItems.length === 0}>
-      Değer oku <br />
+      Değeri oku <br />
       <code>&lt;- ch</code>
     </button>
     <div class="channel-wrapper">
@@ -79,7 +79,7 @@
       </div>
     </div>
     <button on:click={writeItem} disabled={channelItems.length === count}>
-      Değer Yaz <br />
+      Değeri Yaz <br />
       <code>ch &lt;- "msg{lastItemID + 1}"</code>
     </button>
   </div>
