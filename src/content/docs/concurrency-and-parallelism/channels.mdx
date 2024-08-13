@@ -124,6 +124,44 @@ ch := make(string)
 defer close(ch)
 ```
 
+Kanalın kapatılmasının hali hazırda dinleme yapan yerler için etkilerine bakalım.
+
+```go showLineNumbers=true {6,10}
+ch := make(chan string, 3)
+
+go func() {
+	time.Sleep(2 * time.Second)
+	ch <- "msg1"
+	close(ch)
+}()
+
+a := <-ch // "msg1" gelecek
+b := <-ch // "" (boş string) gelecek
+
+fmt.Println(a, b) // "msg1" ""
+```
+
+Yukarıdaki örneğe göre 5. satırda yazılan değer 9. satırda okunuyor. Devamında 6. satırda kanal kapatılıyor, bu yüzden 10. satırda okuma işlemi kanal kapatıldığından pas geçiliyor ve kanal string veri taşıdığından string'in varsayılan değeri olan `""` (boş string) `b` değişkenine atanıyor.
+
+Okuyucu tarafından boş string alındığında (örneğe göre 10. satır) boş string'in gelmesinin sebebi kanalın kapanması mı yoksa kanala gerçekten de boş string mi yollanmış bunu anlamak için `comma ok` kullanabiliriz.
+
+```go showLineNumbers=true {5,9,10} "ok1" "ok2"
+ch := make(chan string, 3)
+
+go func() {
+	time.Sleep(2 * time.Second)
+	ch <- ""
+	close(ch)
+}()
+
+a, ok1 := <-ch // "", true
+b, ok2 := <-ch // "", false
+
+fmt.Println(a, ok1, b, ok2) // "" true "" false
+```
+5\. satırda kanala bu sefer boş string değerini yolladık.
+9\. satırda kanaldan değer okunduğunda kanal açık olduğu için `ok1` değeri `true` geldi. 10. satırda ise kanal kapalı olduğu için `ok2`'nin değeri `false` geldi. `comma ok` kullanarak kanaldan gelen varsayılan değerin kanal kapandığı için mi, yoksa boş string yollandığı için mi geldiğini anlayabildik. 
+
 ## Kanallarda Okuma veya Yazma Kısıtlamaları
 
 Kanallar kullanılması için bir yere gönderilirken gönderildiği yer için okuma veya yazma kısıtlaması içerebilirler. Kısıtlama olmadan göndermek için,
@@ -185,3 +223,94 @@ func doSomething() <-chan string // Sadece-okuma modu
 
 func doSomething() chan<- string // Sadece-yazma modu
 ```
+
+## Range ile Kanaldan Değer Okunması
+
+`range` kullanılarak doğal olarak kanallar kapatılana kadar değer okuma (dinleme) işlemi yapılabilir.
+
+```go title="main.go" showLineNumbers=true {11-14,17-19}
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	ch := make(chan string)
+
+	go func() {
+		ch <- "msg1"
+		ch <- "msg2"
+		ch <- "msg3"
+		close(ch)
+	}()
+
+	for v := range ch {
+		fmt.Println(v)
+	}
+
+	fmt.Println("all msg received")
+}
+```
+
+`ch` isimli kanalımızı `range` ile kullanarak kanala yazılan (gönderilen) değerleri okuyabiliriz. 11, 12 ve 13. satırlarda değerlerimizi gönderdik. Devamında kanalı `close` kullanarak kapattık. Böylelikle kanalı dinleyen yerler artık kanala bir değer gönderilmeyeceğini bilip dinlemeyi pas geçecektir.
+
+17. satırda ise `range` ile beraber `ch` kanalına gönderilen değerleri okuduk. Kanal kapatılana kadar okuma işlemine devam edildi.
+
+Çıktımız aşağıdaki gibi olacaktır.
+
+```text title="Çıktımız"
+msg1
+msg2
+msg3
+all msg received
+```
+
+## Kanala Yazma veya Okuma İşlemlerinde Deadlock
+
+Deadlock, iki veya daha fazla goroutine'nin birbirlerini sonsuza dek beklemesinden meydana gelen bir durumdur. Deadlock go runtime'ı tarafından tespit edilebilir. Go runtime deadlock'ı tespit ettiğinde fatal error vererek programdan çıkış yapar.
+
+Yukarıdaki örneği bir de deadlock hatası verecek şekilde yeniden kurgulayalım.
+
+```go showLineNumbers=true del={14}
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	ch := make(chan string)
+
+	go func() {
+		ch <- "msg1"
+		ch <- "msg2"
+		ch <- "msg3"
+		// close(ch)
+	}()
+
+	for v := range ch {
+		fmt.Println(v)
+	}
+
+	fmt.Println("all msg received")
+}
+```
+
+Yukarıdaki örnek bu sefer 14. satırda kanalı kapatmıyoruz. Bu yüzden kanalı dinleyen yerler sonsuza kadar dinlemede takılı kaldığı için go runtime deadlock tespit edip fatal error verecektir.
+
+Çıktımızı görelim.
+
+```text {4,8} "main.go:17"
+msg1
+msg2
+msg3
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [chan receive]:
+main.main()
+        /path/to/example/project/main.go:17 +0xc4
+exit status 2
+```
+
+Çıktıya göre `main.go:17` satırında deadlock gerçekleştiği belirtiliyor.
