@@ -314,3 +314,47 @@ exit status 2
 ```
 
 Çıktıya göre `main.go:17` satırında deadlock gerçekleştiği belirtiliyor.
+
+Bu sefer yazma esnasında deadlock gerçekleşen bir örnek görelim.
+
+```go title="main.go" showLineNumbers=true {11-15,19-21}
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	ch := make(chan string)
+
+	go func() {
+		for v := range ch {
+			fmt.Println(v)
+			if v == "msg2" {
+				break
+			}
+		}
+	}()
+
+	ch <- "msg1"
+	ch <- "msg2"
+	ch <- "msg3"
+}
+```
+
+Örneğimizde yazma ve okuma yerlerini değiştirdik. döngü içerisinde kanalı dinliyorken, eğer kanaldan `msg2` değeri gelirse döngüyü sonlandırması için bir ekleme yaptık. Bu sayede `msg3` değeri gelmeden önce kanalı dinlemeyi kestiğimiz için 21. satırda yeni değer yollanırken kanalı dinleyen bir yer bulunmayacak ve program bloklanacak.
+
+Go runtime'ı deadlock'u tespit edip falat error verecek.
+
+```text {7} "main.go:21"
+msg1
+msg2
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [chan send]:
+main.main()
+        /path/to/example/project/main.go:21 +0x9c
+exit status 2
+```
+
+Çıktımızdaki hatada deadlock'un 21. satırda gerçekleştiğini belirtiyor. Arabelleksiz kanallarda programın bloklanmaması için kanala yazma işlemi yapılırken karşıdan okunması gerekir. Kanaldan okuma yapılana kadar yazma işlemi beklenir.
