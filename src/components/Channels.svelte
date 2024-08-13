@@ -95,6 +95,7 @@
     display: flex;
     margin-top: 2rem;
     flex-direction: column;
+    overflow: hidden;
   }
 
   .component-wrapper * {
