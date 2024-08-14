@@ -1,0 +1,64 @@
+---
+title: Wait Groups
+---
+
+import WaitGroups from "../../../components/WaitGroups.svelte"
+
+`sync.WaitGroup`, goroutine'lerin tamamlanmasını beklemek için kullanılan bir senkronizasyon aracıdır.
+
+`WaitGroup` 3 metoddan oluşur.
+
+1. `Add(int)`: Beklenecek goroutine sayısına parametrede belirtilen sayı kadar ekleme yapar.
+2. `Done()`: Beklenilen goroutine sayısını bir azaltır. Goroutine'in tamamlanmasını temsilen kullanılır.
+3. `Wait()`: Tüm Goroutine'ler tamamlanana kadar beklemek için kullanılır.
+
+## Örnek Bir Senaryo
+
+```go title="main.go" showLineNumbers=true {5,10,13,14,17,25}
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func main() {
+	wg := sync.WaitGroup{}
+
+	for i := range 3 {
+		wg.Add(1)
+		go doSomething(i, &wg)
+	}
+
+	wg.Wait()
+
+	fmt.Println("all finished")
+}
+
+func doSomething(i int, wg *sync.WaitGroup) {
+	time.Sleep(3 * time.Second)
+	fmt.Println(i, "finished")
+	wg.Done()
+}
+```
+
+`WaitGroup`'ları kullanabilmek için 5\. satırda `sync` paketini import ettik. 10. satırda bir `WaitGroup` oluşturduk. 3 adımlı bir döngü içerisinde `WaitGroup`'a birer birer toplamda 3 ekleme yaptık. Bu eklemelerin herbirini 14. satırda açılan goroutine'ler için kullanılıyoruz. `doSomething` fonksiyonu içerisinde formaliteden bekletip işlemin bittiğinib çıktısını yazdırdık ve `wg.Done()` ile `WaitGroup`'tan bir eksilttik.
+
+`doSomething` fonksiyonunun imazsında dikkat etmemiz gereken bir bölüm var. `WaiyGroup`'u işaretçi ile yolladık. Çünkü 14. satırda parametre olarak yollarken işaretçi ile yollamazsak, `WaitGroup` kopyalanacağı için 25. satırda asıl `WaitGroup`'tan bir eksiltemezdik. Bu yüzden `WaitGroup`'u init ettikten sonra işaretçi ile kullanmayı alışkanlık haline getirelim.
+
+Bunu yapmanın pratik bir yolunu yörelim.
+
+```go "new(sync.WaitGroup)"
+wg := new(sync.WaitGroup) // *sync.WaitGroup
+// new ile init edip işaretçisini almış olduk
+
+// blah blah blah
+doSomething(i /* int */, wg /* *sync.WaitGroup */)
+```
+
+17.\. satırda `wg.Wait()` kullanarak `WaitGroup` içerisindeki sayı sıfırlanana kadar, yani `Add(int)` ile eklenilen tüm sayıların toplamı kadar `Done()` çalıştırılana kadar beklemiş olduk.
+
+## Canlı Demo
+
+<WaitGroups client:visible/>
