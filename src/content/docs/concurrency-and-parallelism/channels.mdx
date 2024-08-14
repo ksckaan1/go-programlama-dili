@@ -357,4 +357,4 @@ main.main()
 exit status 2
 ```
 
-Çıktımızdaki hatada deadlock'un 21. satırda gerçekleştiğini belirtiyor. Arabelleksiz kanallarda programın bloklanmaması için kanala yazma işlemi yapılırken karşıdan okunması gerekir. Kanaldan okuma yapılana kadar yazma işlemi beklenir.
+Çıktımızdaki hatada deadlock'un 21. satırda gerçekleştiğini belirtiyor. Arabelleksiz kanallarda programın bloklanmaması için kanala yazma işlemi yapılırken karşıdan okunması gerekir. Kanaldan okuma yapılana kadar yazma işlemi beklenir. Örneğimizde okuma yapacak kısım bulunmadığı için deadlock gerçekleşti.
