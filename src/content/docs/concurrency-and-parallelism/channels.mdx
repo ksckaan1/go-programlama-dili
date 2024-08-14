@@ -162,68 +162,6 @@ fmt.Println(a, ok1, b, ok2) // "" true "" false
 5\. satırda kanala bu sefer boş string değerini yolladık.
 9\. satırda kanaldan değer okunduğunda kanal açık olduğu için `ok1` değeri `true` geldi. 10. satırda ise kanal kapalı olduğu için `ok2`'nin değeri `false` geldi. `comma ok` kullanarak kanaldan gelen varsayılan değerin kanal kapandığı için mi, yoksa boş string yollandığı için mi geldiğini anlayabildik. 
 
-## Kanallarda Okuma veya Yazma Kısıtlamaları
-
-Kanallar kullanılması için bir yere gönderilirken gönderildiği yer için okuma veya yazma kısıtlaması içerebilirler. Kısıtlama olmadan göndermek için,
-
-```go
-func doSomething(ch chan string) {
-	// ch <- "msg" // yazma
-	// veya
-	// a := <- ch // okuma
-}
-```
-
-### Sadece-Okuma Modu
-
-:::note[Doğru Kullanım]
-```go
-func doSomething(ch <-chan string) {
-	// a := <- ch // okuma
-}
-```
-:::
-
-:::danger[Yanlış Kullanım]
-```go
-func doSomething(ch <-chan string) {
-	// ch <- "msg" // yazma yapılamaz
-}
-```
-:::
-
-### Sadece-Yazma Modu
-
-:::note[Doğru Kullanım]
-```go
-func doSomething(ch chan<- string) {
-	// ch <- "msg" // yazma
-}
-```
-:::
-
-:::danger[Yanlış Kullanım]
-```go
-func doSomething(ch chan<- string) {
-	// a := <- ch // okuma yapılamaz
-}
-```
-:::
-
-Okuma veya yazma kısıtlamaları fonksiyon return'lerinde de kullanılabilir.
-
-```go
-func doSomething() chan string // Kısıtlama olmadan
-
-// veya
-
-func doSomething() <-chan string // Sadece-okuma modu
-
-// veya
-
-func doSomething() chan<- string // Sadece-yazma modu
-```
-
 ## Range ile Kanaldan Değer Okunması
 
 `range` kullanılarak doğal olarak kanallar kapatılana kadar değer okuma (dinleme) işlemi yapılabilir.
@@ -358,3 +296,71 @@ exit status 2
 ```
 
 Çıktımızdaki hatada deadlock'un 21. satırda gerçekleştiğini belirtiyor. Arabelleksiz kanallarda programın bloklanmaması için kanala yazma işlemi yapılırken karşıdan okunması gerekir. Kanaldan okuma yapılana kadar yazma işlemi beklenir. Örneğimizde okuma yapacak kısım bulunmadığı için deadlock gerçekleşti.
+
+## Kanallarda Okuma veya Yazma Kısıtlamaları
+
+Kanallar kullanılması için bir yere gönderilirken gönderildiği yer için okuma veya yazma kısıtlaması içerebilirler. Kısıtlama olmadan göndermek için,
+
+```go
+func doSomething(ch chan string) {
+	// ch <- "msg" // yazma
+	// veya
+	// a := <- ch // okuma
+}
+```
+
+### Sadece-Okuma Modu
+
+:::note[Doğru Kullanım]
+```go
+func doSomething(ch <-chan string) {
+	// a := <- ch // okuma
+}
+```
+:::
+
+:::danger[Yanlış Kullanım]
+```go
+func doSomething(ch <-chan string) {
+	// ch <- "msg" // yazma yapılamaz
+}
+```
+:::
+
+### Sadece-Yazma Modu
+
+:::note[Doğru Kullanım]
+```go
+func doSomething(ch chan<- string) {
+	// ch <- "msg" // yazma
+}
+```
+:::
+
+:::danger[Yanlış Kullanım]
+```go
+func doSomething(ch chan<- string) {
+	// a := <- ch // okuma yapılamaz
+}
+```
+:::
+
+Okuma veya yazma kısıtlamaları fonksiyon return'lerinde de kullanılabilir.
+
+```go
+func doSomething() chan string // Kısıtlama olmadan
+
+// veya
+
+func doSomething() <-chan string // Sadece-okuma modu
+
+// veya
+
+func doSomething() chan<- string // Sadece-yazma modu
+```
+
+Örneklerde belirtilen okuma veya yazma sınırlamasının faydalarına değinelim.
+
+- Kanalın sadece belirli bir amaç için kullanıldığını göstermek, kodu daha okunur ve anlaşılır hale getirir. Örneğin bir fonksiyonda parametrelerde veya return'de kanalın kısıtlama ile belirtilmesi niyeti daha açık hale getirir.
+
+- Okuma veya Yazmayı sınırlandırmak paralel programlamayı daha güvenilir bir hale getirebilir. Örneğin fonksiyon return'ünde dinleme amacı ile kullanıcak bir kanalı, sadece-okuma modu ile return edersek, bu kanala fonksiyon dışarısından yazılmasına engel olacaktır. Bu da kanala yetkisiz müdahaleler yapılmasını engeller.
