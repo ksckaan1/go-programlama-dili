@@ -58,9 +58,9 @@ func main() {
 
 > i eşittir 5
 
-### Sonraki Koşulu Kontrol Ettirme
+### Bir Sonraki Durum İle Yürütmeye Devam Etme
 
-Durumlar içerisinde kontrol etmemiz gereken başka durumlarda olabilir. Bunun için **fallthrough** deyimini kullanabiliriz.
+Switch içerisinde yürütmeye devam etmemiz gereken başka durumlar da olabilir. Bunun için **fallthrough** deyimini kullanarak bir alttaki durum ile yürütmeye devam edebiliriz. Fakat, **fallthrough** deyimi ile yürütmeye devam ettiğimiz durumun koşulu kontrol edilmez.
 
 ```go
 package main
@@ -68,22 +68,29 @@ package main
 import "fmt"
 
 func main() {
-	x := 5
-	switch {
-	case x == 5:
-		fmt.Println("x 5'tir")
-		fallthrough
-	case x < 10:
-		fmt.Println("x 10'dan küçüktür")
-
+	programEvre := "başla"
+	switch programEvre {
+	case "başla":
+		fmt.Println("Program başlatıldı!")
+		fallthrough // evre çalış olmadığı halde çalış durumu ile devam edecektir
+	case "çalış":
+		fmt.Println("Program çalışmakta!")
+		fallthrough // evre sonlan olmadığı halde sonlan durumu ile devam edecektir
+	case "sonlan":
+		fmt.Println("Program sonlandırıldı!")
+	case "özel":
+		fmt.Println("Program özel durumda!")
 	}
 }
 ```
 
 Çıktımız aşağıdaki gibi olacaktır.
 
-> x 5'tir\
-> x 10'dan küçüktür
+> Program başlatıldı!\
+> Program çalışmakta!\
+> Program sonlandırıldı!
+
+
 
 ### Switch'e Özel Değişken Tanımlama
 
